@@ -6,8 +6,11 @@
 
 Map001::Map001()
 {
-	objects.push_back(new MojaPostac(800,-400, 0));
-	//objects.push_back(new Wall(250, -100, 0));
+	objects.push_back(new Wall(250, -100, 0));
+	objects.push_back(new Wall(350, -400, 0));
+	objects.push_back(new Wall(650, -300, 0));
+	objects.push_back(new MojaPostac(800, -400, 0));
+
 	//objects.push_back(new Przeciwnik1(400, -400, 0));
 	spawnEnemyTime = 3;
 	actualSpawnEnemyTime = 0;
