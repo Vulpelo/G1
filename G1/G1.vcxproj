@@ -161,6 +161,7 @@
     <ClInclude Include="MojaPostac.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="SimpleShape.h" />
+    <ClInclude Include="Layer.h" />
     <ClInclude Include="Turret.h" />
     <ClInclude Include="Vetor2D.h" />
     <ClInclude Include="Wall.h" />

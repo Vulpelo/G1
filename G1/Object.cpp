@@ -27,6 +27,7 @@ void Object::mainEventTick(sf::Time deltaTime)
 
 void Object::mainBeginPlay()
 {
+	layers.insert(Layer::DEFAULT);
 	//Object::updateMesh();
 }
 

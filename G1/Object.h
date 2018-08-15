@@ -3,8 +3,13 @@
 //#include "Mesh.h"
 #include "Collision.h"
 #include "ControlInput.h"
-#include <vector>
 #include "Vetor2D.h"
+#include "Layer.h"
+
+// containers
+#include <vector>
+#include <set>
+
 #include <iostream>
 
 #ifndef _Object_H_
@@ -13,6 +18,8 @@
 class Object
 {
 protected:
+	std::set<Layer> layers;
+
 	//collision interactions (interacts any of objects components)
 	std::vector <Object *> overlapingObjects;
 	std::vector <Object *> newOverlapingObjects;
