@@ -37,6 +37,9 @@
     <Filter Include="Header Files\Engine\Components">
       <UniqueIdentifier>{8b2de7d8-10a6-4e6f-80a1-18bc134411a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Components\Transform">
+      <UniqueIdentifier>{16a89ecd-a08f-4fe3-9041-692acf42bf5c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -69,9 +72,6 @@
     <ClCompile Include="MathFunctions.cpp">
       <Filter>Source Files\Engine\Func</Filter>
     </ClCompile>
-    <ClCompile Include="Vetor2D.cpp">
-      <Filter>Source Files\Engine\Func</Filter>
-    </ClCompile>
     <ClCompile Include="Przeciwnik1.cpp">
       <Filter>Source Files\G1Game</Filter>
     </ClCompile>
@@ -92,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>Source Files\Engine\Func</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,9 +125,6 @@
     <ClInclude Include="MathFunctions.h">
       <Filter>Header Files\Engine\Func</Filter>
     </ClInclude>
-    <ClInclude Include="Vetor2D.h">
-      <Filter>Header Files\Engine\Func</Filter>
-    </ClInclude>
     <ClInclude Include="Przeciwnik1.h">
       <Filter>Header Files\G1Game</Filter>
     </ClInclude>
@@ -148,6 +148,15 @@
     </ClInclude>
     <ClInclude Include="Layer.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>Header Files\Engine\Func</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Header Files\Engine\Components\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>Header Files\Engine\Components\Transform</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

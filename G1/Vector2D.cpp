@@ -1,9 +1,8 @@
-#include "Vetor2D.h"
+#include "Vector2D.h"
 
 
 Vector2D::Vector2D()
 	: x(0), y(0) {}
-
 
 Vector2D::Vector2D(double x, double y)
 	: x(x), y(y) {}
@@ -22,8 +21,14 @@ void Vector2D::setVector(double x, double y)
 	this->y = y;
 }
 
+void Vector2D::setVectorByAngleAndLength(double angle, double length)
+{
+	double s = angle * M_PI / 180;
+	this->x = length * sin(s);
+	this->y = length * cos(s);
+}
 
-double Vector2D::angle()
+double Vector2D::angle() const
 {
 	double value;
 	value = (180 * atan(x / y)) / M_PI;
@@ -34,14 +39,15 @@ double Vector2D::angle()
 	return value;
 }
 
-double Vector2D::length()
+double Vector2D::length() const
 {
 	return sqrt(x*x + y*y);
 }
 
-void Vector2D::setVectorByAngleAndLength(double angle, double length)
+Vector2D Vector2D::normalize() const
 {
-	double s = angle * M_PI / 180;
-	this->x = length * sin(s);
-	this->y = length * cos(s);
+	Vector2D nV;
+	nV.x = this->x / this->length();
+	nV.y = this->y / this->length();
+	return nV;
 }

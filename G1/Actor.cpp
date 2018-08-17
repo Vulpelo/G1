@@ -26,9 +26,9 @@ void Actor::mainBeginPlay()
 	this->movementDecrementation = 100;
 	this->lifeTime = 0;
 	this->currentLifeTime = 0;
+
+	this->gravity = 100.f;
 }
-
-
 
 void Actor::mainEventTick(sf::Time deltaTime)
 {
@@ -45,10 +45,10 @@ void Actor::mainEventTick(sf::Time deltaTime)
 	updateMesh();
 	worldCoordinateMovement();
 
+	//actualMovement.y -= gravity * deltaTime.asSeconds();
+
 	EventTick();
 }
-
-
 
 void Actor::updateMesh()
 {
@@ -195,7 +195,7 @@ void Actor::movementDecrementacionF()
 	}
 }
 
-bool Actor::simpleMoveTo(Coordinate cor, double distancePrecision)
+bool Actor::simpleMoveTo(Position cor, double distancePrecision)
 {
 	double angle;
 	if ( MathFunction::twoPointsDistance(this->worldCoordinateX, this->worldCoordinateY, cor.X, cor.Y) > distancePrecision)
@@ -208,7 +208,7 @@ bool Actor::simpleMoveTo(Coordinate cor, double distancePrecision)
 	return true;
 }
 
-bool Actor::lookAt(Component *m, Coordinate point, double anglePrecision)
+bool Actor::lookAt(Component *m, Position point, double anglePrecision)
 {
 	double xCor = m->getXWorldPosition();
 	double yCor = m->getYWorldPosition();
@@ -221,7 +221,7 @@ bool Actor::lookAt(Component *m, Coordinate point, double anglePrecision)
 	return true;
 }
 
-bool Actor::lookAt(SimpleShape *s, Coordinate point, double anglePrecision)
+bool Actor::lookAt(SimpleShape *s, Position point, double anglePrecision)
 {
 	double xCor = s->getXWorldPosition();
 	double yCor = s->getYWorldPosition();
@@ -235,7 +235,7 @@ bool Actor::lookAt(SimpleShape *s, Coordinate point, double anglePrecision)
 	return true;
 }
 
-bool Actor::lookAt(Coordinate point, double anglePrecision)
+bool Actor::lookAt(Position point, double anglePrecision)
 {
 	this->worldRotationX = MathFunction::twoPointsAngle
 	(this->worldCoordinateX, this->worldCoordinateY,

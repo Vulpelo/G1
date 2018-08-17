@@ -34,6 +34,8 @@ protected:
 
 	sf::Time deltaTime;
 
+	float gravity;
+
 	void movementDecrementacionF();
 public:
 	//clear virtual ------------------
@@ -63,17 +65,17 @@ public:
 
 	/*-=+=- Additional functions -=+=-*/
 
-	/*Simple move this actor to coordinates. Stop if distance between actor and 
-	coordinates is lower or equal distancePrecision*/
-	bool simpleMoveTo(Coordinate coordinate, double distancePrecision);
+	/*Simple move this actor to position. Stop if distance between actor and 
+	position is lower or equal distancePrecision*/
+	bool simpleMoveTo(Position coordinate, double distancePrecision);
 
-	/*Rotate mesh to given coordinates with rotationSpeed. anglePrecision in degrees.*/
-	bool lookAt(Component *m, Coordinate point, double anglePrecision);
-	/*Rotate simpleShape to given coordinates with rotationSpeed. anglePrecision in degrees.*/
-	bool lookAt(SimpleShape *s, Coordinate point, double anglePrecision);
-	/*Changes value of worldRotationX and rotates it to given coordinates with rotationSpeed. 
+	/*Rotate mesh to given position with rotationSpeed. anglePrecision in degrees.*/
+	bool lookAt(Component *m, Position point, double anglePrecision);
+	/*Rotate simpleShape to given position with rotationSpeed. anglePrecision in degrees.*/
+	bool lookAt(SimpleShape *s, Position point, double anglePrecision);
+	/*Changes value of worldRotationX and rotates it to given position with rotationSpeed. 
 	anglePrecision in degrees.*/
-	bool lookAt(Coordinate point, double anglePrecision);
+	bool lookAt(Position point, double anglePrecision);
 };
 
 #endif // !_Actor_H_

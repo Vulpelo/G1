@@ -17,18 +17,19 @@ Object::Object(double x, double y, double rotate)
 	mainBeginPlay();
 }
 
+void Object::mainBeginPlay()
+{
+	layers.insert(Layer::DEFAULT);
+	//Object::updateMesh();
+}
+
 void Object::mainEventTick(sf::Time deltaTime)
 {
 	if (lifeTime <= 0.0)
 		this->destroyObject = false;
 	else if (currentLifeTime >= lifeTime)
 		this->destroyObject = true;
-}
 
-void Object::mainBeginPlay()
-{
-	layers.insert(Layer::DEFAULT);
-	//Object::updateMesh();
 }
 
 void Object::updateMesh()
@@ -71,8 +72,7 @@ bool Object::isCollidingObjectM(Object *otherObject) const
 					objectCollides = true;
 					}*/
 
-			//Trzeba dorobic ogolne eventy dla kazdego mesha a nie dla 
-			//calego objektu
+			// TODO: Trzeba dorobic ogolne eventy dla kazdego mesha a nie dla calego objektu
 		}
 	}
 	return false;//-
@@ -89,6 +89,7 @@ void Object::setWorldCoordinate(double x, double y)
 	for (unsigned int i = 0; i<components.size(); i++)
 		components.at(i)->setPosition(x, y);
 }
+
 void Object::setWorldRotation(double x)
 {
 	for (unsigned int i = 0; i<components.size(); i++)

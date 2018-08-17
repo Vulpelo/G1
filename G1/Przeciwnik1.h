@@ -7,7 +7,7 @@
 class Przeciwnik1 : public Actor
 {
 private:
-	std::vector<Coordinate> patrolPoints;
+	std::vector<Position> patrolPoints;
 	int patrolNr;
 
 public:

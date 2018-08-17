@@ -27,10 +27,10 @@ void Przeciwnik1::beginPlay()
 	this->movementAcceleration = 100;
 	this->movementDecrementation = 150;
 	//this->shootRate = 0.2;
-	patrolPoints.push_back(Coordinate(10, -10));
-	patrolPoints.push_back(Coordinate(10, -500));
-	patrolPoints.push_back(Coordinate(500, -500));
-	patrolPoints.push_back(Coordinate(500, -10));
+	patrolPoints.push_back(Position(10, -10));
+	patrolPoints.push_back(Position(10, -500));
+	patrolPoints.push_back(Position(500, -500));
+	patrolPoints.push_back(Position(500, -10));
 	patrolNr = 0;
 
 	int nrOfShapes = 1;

@@ -143,7 +143,7 @@
     <ClCompile Include="Przeciwnik1.cpp" />
     <ClCompile Include="SimpleShape.cpp" />
     <ClCompile Include="Turret.cpp" />
-    <ClCompile Include="Vetor2D.cpp" />
+    <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +155,7 @@
     <ClInclude Include="GameMap.h" />
     <ClInclude Include="ControlInput.h" />
     <ClInclude Include="MathFunctions.h" />
+    <ClInclude Include="Position.h" />
     <ClInclude Include="Przeciwnik1.h" />
     <ClInclude Include="Map001.h" />
     <ClInclude Include="Mesh.h" />
@@ -162,8 +163,9 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="SimpleShape.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="Turret.h" />
-    <ClInclude Include="Vetor2D.h" />
+    <ClInclude Include="Vector2D.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
