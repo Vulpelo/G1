@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef _Object_H_
+#define _Object_H_
+
 #include "Component.h"
 //#include "Mesh.h"
 #include "Collision.h"
@@ -13,9 +17,6 @@
 
 #include <iostream>
 
-#ifndef _Object_H_
-#define _Object_H_
-
 class Object
 {
 protected:
@@ -28,7 +29,7 @@ protected:
 
 	// World transform
 	Transform wTransform;
-	double worldCoordinateX, worldCoordinateY;
+	//double worldCoordinateX, worldCoordinateY;
 	double worldRotationX;
 
 	//Object distruct

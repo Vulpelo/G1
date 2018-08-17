@@ -27,8 +27,8 @@ CollisionRectangle::CollisionRectangle(double length, double height, double worl
 {
 	this->length = length;
 	this->height = height;
-	this->worldCoordinateX = worldCoordinateX;
-	this->worldCoordinateY = worldCoordinateY;
+	this->wTransform.position.X = worldCoordinateX;
+	this->wTransform.position.Y = worldCoordinateY;
 	this->collisionType = 'r';
 }
 
@@ -52,7 +52,7 @@ double CollisionRectangle::biggestY()
 bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
 {
 	double distance = 
-		MathFunction::twoPointsDistance(this->worldCoordinateX, this->worldCoordinateY, 
+		MathFunction::twoPointsDistance(this->wTransform.position.X, this->wTransform.position.Y,
 		otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition());
 
 	if (otherCollider->getCollisionType() == 'c') //for circle
@@ -148,8 +148,8 @@ bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
 CollisionCircle::CollisionCircle(double radius, double worldCoordinateX, double worldCoordinateY)
 {
 	this->radius = radius;
-	this->worldCoordinateX = worldCoordinateX;
-	this->worldCoordinateX = worldCoordinateY;
+	this->wTransform.position.X = worldCoordinateX;
+	this->wTransform.position.Y = worldCoordinateY;
 	this->collisionType = 'c';
 }
 

@@ -2,8 +2,8 @@
 
 Object::Object()
 {
-	this->worldCoordinateX = 0;
-	this->worldCoordinateY = 0;
+	this->wTransform.position.X = 0;
+	this->wTransform.position.Y = 0;
 	this->destroyObject = false;
 	mainBeginPlay();
 }
@@ -11,8 +11,8 @@ Object::Object()
 Object::Object(double x, double y, double rotate)
 {
 	this->destroyObject = false;
-	this->worldCoordinateX = x;
-	this->worldCoordinateY = y;
+	this->wTransform.position.X = x;
+	this->wTransform.position.Y = y;
 	this->worldRotationX = rotate;
 	mainBeginPlay();
 }
@@ -36,14 +36,14 @@ void Object::updateMesh()
 {
 	for (int i = 0; i < components.size(); i++)
 	{
-		components.at(i)->setPosition(worldCoordinateX, worldCoordinateY);
+		components.at(i)->setPosition(wTransform.position.X, wTransform.position.Y);
 		//components.at(i)->setRotation(worldRotationX);
 	}
 }
 
 void Object::beginPlay()
 {
-	setWorldCoordinate(this->worldCoordinateX, this->worldCoordinateY);
+	setWorldCoordinate(this->wTransform.position.X, this->wTransform.position.Y);
 	setWorldRotation(this->worldRotationX);
 }
 

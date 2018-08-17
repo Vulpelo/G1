@@ -52,8 +52,5 @@ double MathFunction::vectorAngle(double X, double Y)
 }
 
 
-/*========Coordinates========*/
 
-Position::Position(double x, double y)
-	:X(x), Y(y) {}
 

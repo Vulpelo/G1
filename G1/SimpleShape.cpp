@@ -2,12 +2,7 @@
 #include "SimpleShape.h"
 
 SimpleShape::SimpleShape() 
-	: scaleX(1), scaleY(1), 
-	localCoordinateX(0), localCoordinateY(0),
-	worldCoordinateX(0), worldCoordinateY(0),
-	localRotationX(0),
-	worldRotationX(0),
-	ownOrigin(false) 
+	: ownOrigin(false) 
 {
 	this->beginRotFromObject = 0;
 	this->beginLocalCoordinateX = 0;
@@ -24,54 +19,47 @@ SimpleShape::SimpleShape(sf::Color c)
 
 void SimpleShape::setWorldRotation(double x)
 {
-	worldRotationX = x;
+	wTransform.rotationX = x;
 }
 
 void SimpleShape::setWorldPosition(double x, double y)
 {
 	if (beginLocalCoordinateX + meshLocalPositionX != 0 || beginLocalCoordinateY + meshLocalPositionY != 0)
 	{
-		std::cout << this << "-RX " << worldRotationX << "::X " << localCoordinateX << ":Y " << localCoordinateY; 
+		std::cout << this << "-RX " << wTransform.rotationX << "::X " << rTransform.position.X << ":Y " << rTransform.position.Y;
 		this->beginRotFromObject = MathFunction::vectorAngle(beginLocalCoordinateX + meshLocalPositionX, -beginLocalCoordinateY + meshLocalPositionY);
 
-		//double beginRotFromObject = atan(localCoordinateX / localCoordinateY * 180 * M_PI);
+		//double beginRotFromObject = atan(rTransform.position.X / rTransform.position.Y * 180 * M_PI);
 		double c = sqrt((beginLocalCoordinateX + meshLocalPositionX)*(beginLocalCoordinateX + meshLocalPositionX)
 			+ (beginLocalCoordinateY + meshLocalPositionY)*(beginLocalCoordinateY + meshLocalPositionY));
-		//localCoordinateX = c * sin((worldRotationX - localRotationX + beginRotFromObject)*M_PI / 180);
-		localCoordinateX = c * sin((worldRotationX + beginRotFromObject)*M_PI / 180);
+		//rTransform.position.X = c * sin((worldRotationX - localRotationX + beginRotFromObject)*M_PI / 180);
+		rTransform.position.X = c * sin((wTransform.rotationX + beginRotFromObject)*M_PI / 180);
 
-		if (worldRotationX >= minuendOfRot - beginRotFromObject && worldRotationX <= minuendOfRot + 180 - beginRotFromObject)
+		if (wTransform.rotationX >= minuendOfRot - beginRotFromObject && wTransform.rotationX <= minuendOfRot + 180 - beginRotFromObject)
 		{
-			localCoordinateY = sqrt(c*c - localCoordinateX*localCoordinateX);
+			rTransform.position.Y = sqrt(c*c - rTransform.position.X*rTransform.position.X);
 			std::cout << "::CON1 : " << beginRotFromObject << ";90 " << 90 - beginRotFromObject << ";270 " << 270 - beginRotFromObject;
 		}
 		else
 		{
-			localCoordinateY = -sqrt(c*c - localCoordinateX*localCoordinateX);
+			rTransform.position.Y = -sqrt(c*c - rTransform.position.X*rTransform.position.X);
 			std::cout << "::CON2 : " << beginRotFromObject << ";90 " << 90 - beginRotFromObject << ";270 " << 270 - beginRotFromObject;
 		}
 		if (minuendOfRot == 270)
-			localCoordinateY = -localCoordinateY;
+			rTransform.position.Y = -rTransform.position.Y;
 		std::cout << std::endl;
 
 	}
-	worldCoordinateX = localCoordinateX + x;
-	worldCoordinateY = localCoordinateY - y;
+	wTransform.position.X = rTransform.position.X + x;
+	wTransform.position.Y = rTransform.position.Y - y;
 
 }
-
-void SimpleShape::setScale(double sX, double sY)
-{
-	this->scaleX = sX;
-	this->scaleY = sY;
-}
-
 
 void SimpleShape::setLocalCoordinate(double aX, double aY)
 {
-	this->localCoordinateX = aX + meshLocalPositionX;
+	this->rTransform.position.X = aX + meshLocalPositionX;
 	this->beginLocalCoordinateX = aX;
-	this->localCoordinateY = -aY - meshLocalPositionY;
+	this->rTransform.position.Y = -aY - meshLocalPositionY;
 	this->beginLocalCoordinateY = -aY;
 }
 
@@ -89,25 +77,25 @@ void SimpleShape::rotationByOwnOrigin(bool ownOrigin)
 
 double SimpleShape::getXWorldPosition()
 {
-	return worldCoordinateX + localCoordinateX;
+	return wTransform.position.X + rTransform.position.X;
 }
 
 double SimpleShape::getYWorldPosition()
 {
-	return worldCoordinateY + localCoordinateY;
+	return wTransform.position.Y + rTransform.position.Y;
 }
 
 double SimpleShape::getXWorldRotation()
 {
-	return worldRotationX;
+	return wTransform.rotationX;
 }
 double SimpleShape::getXLocalRotation()
 {
-	return localRotationX;
+	return rTransform.rotationX;
 }
 void SimpleShape::setLocalRotation(double x)
 {
-	this->localRotationX = x;
+	this->rTransform.rotationX = x;
 }
 
 /////////////////////////////////////
@@ -119,8 +107,8 @@ Circle::Circle(double radiusT, sf::Color c)
 
 	circle.setOrigin(sf::Vector2f(radius, radius));
 	circle.setRadius(radius);
-	circle.setPosition(worldCoordinateX + localCoordinateX, worldCoordinateY + localCoordinateY);
-	circle.setRotation(worldRotationX + localRotationX);
+	circle.setPosition(wTransform.position.X + rTransform.position.X, wTransform.position.Y + rTransform.position.Y);
+	circle.setRotation(wTransform.rotationX + rTransform.rotationX);
 	circle.setFillColor(color);
 }
 
@@ -128,13 +116,13 @@ void Circle::setWorldPosition(double x, double y)
 {
 	SimpleShape::setWorldPosition(x, y);
 
-	circle.setPosition(worldCoordinateX, worldCoordinateY);
+	circle.setPosition(wTransform.position.X, wTransform.position.Y);
 }
 
 void Circle::setWorldRotation(double x)
 {
 	SimpleShape::setWorldRotation(x);
-	circle.setRotation(worldRotationX + localRotationX);
+	circle.setRotation(wTransform.rotationX + rTransform.rotationX);
 }
 
 void Circle::draw(sf::RenderWindow * w)
@@ -152,7 +140,7 @@ void Circle::setLocalCoordinate(double aX, double aY)
 	else if (ownOrigin == false)
 		circle.setOrigin(sf::Vector2f(radius - aX, radius + aY));
 
-	//!! this->beginRotFromObject = MathFunction::vectorAngle(localCoordinateX, -localCoordinateY);
+	//!! this->beginRotFromObject = MathFunction::vectorAngle(rTransform.position.X, -rTransform.position.Y);
 	this->beginRotFromObject = MathFunction::vectorAngle(beginLocalCoordinateX + meshLocalPositionX, -beginLocalCoordinateY - meshLocalPositionY);
 	if (this->beginRotFromObject > 270)
 		this->minuendOfRot = 450;
@@ -170,20 +158,20 @@ Rectangle::Rectangle(double leng, double heig, sf::Color c)
 	rectangle.setOrigin(sf::Vector2f(length/2.0, height/2.0));
 	rectangle.setSize(sf::Vector2f(length, height));
 	rectangle.setFillColor(color);
-	rectangle.setPosition(worldCoordinateX + localCoordinateX, worldCoordinateY + localCoordinateY);
-	rectangle.setRotation(worldRotationX + localRotationX);
+	rectangle.setPosition(wTransform.position.X + rTransform.position.X, wTransform.position.Y + rTransform.position.Y);
+	rectangle.setRotation(wTransform.rotationX + rTransform.rotationX);
 }
 
 void Rectangle::setWorldPosition(double x, double y)
 {
 	SimpleShape::setWorldPosition(x, y);
-	rectangle.setPosition(worldCoordinateX, worldCoordinateY);
+	rectangle.setPosition(wTransform.position.X, wTransform.position.Y);
 }
 
 void Rectangle::setWorldRotation(double x)
 {
 	SimpleShape::setWorldRotation(x);
-	rectangle.setRotation(worldRotationX + localRotationX);
+	rectangle.setRotation(wTransform.rotationX + rTransform.rotationX);
 }
 
 void Rectangle::draw(sf::RenderWindow * w)

@@ -63,7 +63,7 @@ void Actor::updateMesh()
 
 	/*---Mesh position---*/
 	for (int i = 0; i<components.size(); i++)
-		components.at(i)->setPosition(worldCoordinateX, worldCoordinateY);
+		components.at(i)->setPosition(wTransform.position.X, wTransform.position.Y);
 }
 
 void Actor::movementAngle()
@@ -79,16 +79,16 @@ void Actor::worldCoordinateMovement()
 {
 	if (movementToRotationDirection)
 	{
-		this->worldCoordinateX += (actualMovement.y * sin((worldRotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
-		this->worldCoordinateY += (actualMovement.y * cos((worldRotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->wTransform.position.X += (actualMovement.y * sin((worldRotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->wTransform.position.Y += (actualMovement.y * cos((worldRotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
 
-		this->worldCoordinateX += (actualMovement.x * sin(((worldRotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
-		this->worldCoordinateY += (actualMovement.x * cos(((worldRotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->wTransform.position.X += (actualMovement.x * sin(((worldRotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->wTransform.position.Y += (actualMovement.x * cos(((worldRotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
 	}
 	else
 	{
-		this->worldCoordinateX += deltaTime.asSeconds() * actualMovement.x;
-		this->worldCoordinateY += deltaTime.asSeconds() * actualMovement.y;
+		this->wTransform.position.X += deltaTime.asSeconds() * actualMovement.x;
+		this->wTransform.position.Y += deltaTime.asSeconds() * actualMovement.y;
 	}
 }
 
@@ -198,9 +198,9 @@ void Actor::movementDecrementacionF()
 bool Actor::simpleMoveTo(Position cor, double distancePrecision)
 {
 	double angle;
-	if ( MathFunction::twoPointsDistance(this->worldCoordinateX, this->worldCoordinateY, cor.X, cor.Y) > distancePrecision)
+	if ( MathFunction::twoPointsDistance(this->wTransform.position.X, this->wTransform.position.Y, cor.X, cor.Y) > distancePrecision)
 	{
-		double angle = MathFunction::twoPointsAngle(this->worldCoordinateX, this->worldCoordinateY, cor.X, cor.Y);
+		double angle = MathFunction::twoPointsAngle(this->wTransform.position.X, this->wTransform.position.Y, cor.X, cor.Y);
 		actualMovement.setVectorByAngleAndLength(angle, maxWalkSpeedForwad);
 		return false;
 	}
@@ -238,7 +238,7 @@ bool Actor::lookAt(SimpleShape *s, Position point, double anglePrecision)
 bool Actor::lookAt(Position point, double anglePrecision)
 {
 	this->worldRotationX = MathFunction::twoPointsAngle
-	(this->worldCoordinateX, this->worldCoordinateY,
+	(this->wTransform.position.X, this->wTransform.position.Y,
 		point.X, -point.Y);
 
 	//!!!!????!?!??!

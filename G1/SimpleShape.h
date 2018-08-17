@@ -2,16 +2,18 @@
 
 #include <SFML\Graphics.hpp>
 #include "MathFunctions.h"
+#include "Transform.h"
 
 class SimpleShape
 {
 protected:
-	double scaleX, scaleY;
 	double meshLocalPositionX, meshLocalPositionY;
-	double localCoordinateX, localCoordinateY;
-	double worldCoordinateX, worldCoordinateY;
-	double localRotationX;
-	double worldRotationX;
+
+	// World transform
+	Transform wTransform;
+	// Relative transform
+	Transform rTransform;
+
 	/*shape is rotating with his own origin (middle of shape)
 	or is rotating by origin (middle) of the actor
 	Defoult is false*/
@@ -39,7 +41,6 @@ public:
 	double getXLocalRotation();
 	virtual void setLocalRotation(double x);
 
-	void setScale(double sX, double sY);
 	void rotationByOwnOrigin(bool ownOrigin);
 };
 
