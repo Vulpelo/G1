@@ -62,8 +62,6 @@ public:
 	//used by GameMap class
 	void render(sf::RenderWindow * w);
 	//used by GameMap class
-	virtual bool isCollidingObjectM(Object *otherObject) const;
-	//used in GameMap class
 	virtual void mainEventTick(sf::Time deltaTime);
 #pragma endregion
 
