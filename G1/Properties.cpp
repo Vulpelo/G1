@@ -1,5 +1,9 @@
 #include "Properties.h"
 
+
+#ifndef PROPERTIES_H
+#define PROPERTIES_H
+
 int Properties::height = 900;
 int Properties::width = 1024;
 int Properties::bitPerPixel = 32;
@@ -28,3 +32,5 @@ Properties::~Properties()
 	if (Properties::aMap)
 		delete Properties::aMap;
 }
+
+#endif //-!PROPERTIES_H

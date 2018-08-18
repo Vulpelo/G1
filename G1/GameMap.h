@@ -11,6 +11,9 @@ protected:
 
 public:
 	GameMap();
+	/// <summary> Return's a colection of Objects that where
+	/// created in this GameMap </summary>
+	std::vector <Object*> getAllObjects();
 	void mainEventTick(sf::Time deltaTime);
 	virtual void EventTick() = 0; //rdzen ustalany od postaci
 	virtual void render(sf::RenderWindow * w);

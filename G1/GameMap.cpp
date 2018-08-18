@@ -3,6 +3,11 @@
 
 GameMap::GameMap() {}
 
+std::vector<Object*> GameMap::getAllObjects()
+{
+	return objects;
+}
+
 void GameMap::mainEventTick(sf::Time deltaTime)
 {
 	this->deltaTime = deltaTime;

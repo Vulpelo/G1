@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef PROPERTIES_H
+#define PROPERTIES_H
+
 #include "GameMap.h"
 
 class Properties
@@ -18,3 +21,4 @@ public:
 	~Properties();
 };
 
+#endif // !PROPERTIES_H
