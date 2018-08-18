@@ -5,6 +5,9 @@
 
 class GameMap
 {
+private:
+	void overlapingMain(Object*, Object*);
+	void overlapingEndMain(Object*);
 protected:
 	std::vector <Object *> objects;
 	sf::Time deltaTime;

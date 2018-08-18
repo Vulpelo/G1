@@ -27,14 +27,14 @@ void GameMap::mainEventTick(sf::Time deltaTime)
 		for (unsigned int j = i + 1; j < objects.size(); j++)
 			if (objects.at(i)->isCollidingObjectM(objects.at(j)))
 			{
-				objects.at(i)->overlapingMain(objects.at(j));
-				objects.at(j)->overlapingMain(objects.at(i));
+				overlapingMain(objects.at(i), objects.at(j));
+				overlapingMain(objects.at(j), objects.at(i));
 			}
 	}
 
 	/*---Update data about overlaping objects---*/
 	for (unsigned int i = 0; i < objects.size(); i++)
-		objects.at(i)->overlapingEndMain();
+		overlapingEndMain(objects.at(i));
 
 
 	/*--Spawning new actors--*/
@@ -69,4 +69,70 @@ void GameMap::setInput(ControlInput * input)
 				ac->setPlayerInput(input);
 		}
 	}
+}
+
+// TODO: move it out
+void GameMap::overlapingMain(Object* target, Object *overlaped)
+{
+	target->addNewOverlapingObject(overlaped);
+}
+
+// TODO: move it out
+void GameMap::overlapingEndMain(Object* object)
+{
+	for each (Component* comp in object->getComponents())
+	{
+		//Object* obj = this;
+		comp->overlapingEndMain();
+		for(int i=0; i < comp->getStartOverlapingComp().size(); i++)
+		{
+			object->startOverlapingComponent(comp->getName(), comp->getStartOverlapingComp()[i]);
+		}
+		for (int i = 0; i < comp->getIsOverlapingComp().size(); i++)
+		{
+			object->isOverlapingComponent(comp->getName(), comp->getIsOverlapingComp()[i]);
+		}
+		for (int i = 0; i < comp->getEndOverlapingComp().size(); i++)
+		{
+			object->endOverlapingComponent(comp->getName(), comp->getEndOverlapingComp()[i]);
+		}
+	}
+
+	
+	std::vector<Object*> ovObj = object->getOverlapingObjects();
+	std::vector<Object*> nOvObj = object->getNewOverlapingObjects();
+
+
+	for (int i = 0; i < ovObj.size(); i++)
+	{
+		bool overlaping = false;
+		int j = 0;
+		for (j = 0; j < object->getNewOverlapingObjects().size(); j++)
+		{
+			if (ovObj.at(i) == nOvObj.at(j))
+			{
+				//czyli isOverlaping
+				overlaping = true;
+				break;
+			}
+		}
+
+		if (overlaping == false)
+		{
+			object->endOverlaping(ovObj.at(i));
+			ovObj.erase(ovObj.begin() + i--);
+		}
+		else
+		{
+			object->isOverlaping(ovObj.at(i));
+			if (!nOvObj.empty())
+				nOvObj.erase(nOvObj.begin() + j);
+		}
+	}
+	for (int i = 0; i < nOvObj.size(); i++)
+	{
+		object->startOverlaping(nOvObj.at(i));
+		ovObj.push_back(nOvObj.at(i));
+	}
+	nOvObj.clear();
 }

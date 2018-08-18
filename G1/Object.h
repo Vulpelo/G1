@@ -63,10 +63,6 @@ public:
 	void render(sf::RenderWindow * w);
 	//used by GameMap class
 	virtual bool isCollidingObjectM(Object *otherObject) const;
-	//used by GameMap class
-	void overlapingMain(Object *overlaped);
-	//used by GameMap class
-	void overlapingEndMain();
 	//used in GameMap class
 	virtual void mainEventTick(sf::Time deltaTime);
 #pragma endregion
@@ -101,6 +97,16 @@ public:
 	/// <summary>Sets rotation of an object in world wide</summary>
 	void setWorldRotation(double x);
 #pragma endregion
+
+	void addNewOverlapingObject(Object* overlaped) 
+	{ newOverlapingObjects.push_back(overlaped); }
+
+	std::vector<Object*> getOverlapingObjects() {
+		return overlapingObjects;
+	}
+	std::vector<Object*> getNewOverlapingObjects() {
+		return newOverlapingObjects;
+	}
 };
 
 #endif // !_Object_H_

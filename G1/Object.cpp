@@ -101,64 +101,66 @@ bool Object::shouldBeDestroyed()
 	return this->destroyObject;
 }
 
-void Object::overlapingMain(Object *overlaped)
-{
-	newOverlapingObjects.push_back(overlaped);
-}
-
-void Object::overlapingEndMain()
-{
-	for (int i = 0; i < components.size(); i++)
-	{
-		//Object* obj = this;
-		components.at(i)->overlapingEndMain();
-		for(int i=0; i < components.at(i)->getStartOverlapingComp().size(); i++)
-		{
-			startOverlapingComponent(components.at(i)->getName(), components.at(i)->getStartOverlapingComp()[i]);
-		}
-		for (int i = 0; i < components.at(i)->getIsOverlapingComp().size(); i++)
-		{
-			isOverlapingComponent(components.at(i)->getName(), components.at(i)->getIsOverlapingComp()[i]);
-		}
-		for (int i = 0; i < components.at(i)->getEndOverlapingComp().size(); i++)
-		{
-			endOverlapingComponent(components.at(i)->getName(), components.at(i)->getEndOverlapingComp()[i]);
-		}
-	}
-
-	for (int i = 0; i < overlapingObjects.size(); i++)
-	{
-		bool overlaping = false;
-		int j = 0;
-		for (j = 0; j < newOverlapingObjects.size(); j++)
-		{
-			if (overlapingObjects.at(i) == newOverlapingObjects.at(j))
-			{
-				//czyli isOverlaping
-				overlaping = true;
-				break;
-			}
-		}
-
-		if (overlaping == false)
-		{
-			endOverlaping(overlapingObjects.at(i));
-			overlapingObjects.erase(overlapingObjects.begin() + i--);
-		}
-		else
-		{
-			isOverlaping(overlapingObjects.at(i));
-			if (!newOverlapingObjects.empty())
-				newOverlapingObjects.erase(newOverlapingObjects.begin() + j);
-		}
-	}
-	for (int i = 0; i < newOverlapingObjects.size(); i++)
-	{
-		startOverlaping(newOverlapingObjects.at(i));
-		overlapingObjects.push_back(newOverlapingObjects.at(i));
-	}
-	newOverlapingObjects.clear();
-}
+//// TODO: move it out
+//void Object::overlapingMain(Object *overlaped)
+//{
+//	newOverlapingObjects.push_back(overlaped);
+//}
+//
+//// TODO: move it out
+//void Object::overlapingEndMain()
+//{
+//	for (int i = 0; i < components.size(); i++)
+//	{
+//		//Object* obj = this;
+//		components.at(i)->overlapingEndMain();
+//		for(int i=0; i < components.at(i)->getStartOverlapingComp().size(); i++)
+//		{
+//			startOverlapingComponent(components.at(i)->getName(), components.at(i)->getStartOverlapingComp()[i]);
+//		}
+//		for (int i = 0; i < components.at(i)->getIsOverlapingComp().size(); i++)
+//		{
+//			isOverlapingComponent(components.at(i)->getName(), components.at(i)->getIsOverlapingComp()[i]);
+//		}
+//		for (int i = 0; i < components.at(i)->getEndOverlapingComp().size(); i++)
+//		{
+//			endOverlapingComponent(components.at(i)->getName(), components.at(i)->getEndOverlapingComp()[i]);
+//		}
+//	}
+//
+//	for (int i = 0; i < overlapingObjects.size(); i++)
+//	{
+//		bool overlaping = false;
+//		int j = 0;
+//		for (j = 0; j < newOverlapingObjects.size(); j++)
+//		{
+//			if (overlapingObjects.at(i) == newOverlapingObjects.at(j))
+//			{
+//				//czyli isOverlaping
+//				overlaping = true;
+//				break;
+//			}
+//		}
+//
+//		if (overlaping == false)
+//		{
+//			endOverlaping(overlapingObjects.at(i));
+//			overlapingObjects.erase(overlapingObjects.begin() + i--);
+//		}
+//		else
+//		{
+//			isOverlaping(overlapingObjects.at(i));
+//			if (!newOverlapingObjects.empty())
+//				newOverlapingObjects.erase(newOverlapingObjects.begin() + j);
+//		}
+//	}
+//	for (int i = 0; i < newOverlapingObjects.size(); i++)
+//	{
+//		startOverlaping(newOverlapingObjects.at(i));
+//		overlapingObjects.push_back(newOverlapingObjects.at(i));
+//	}
+//	newOverlapingObjects.clear();
+//}
 
 void Object::DestroyObject()
 {
