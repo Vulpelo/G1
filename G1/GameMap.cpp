@@ -27,7 +27,6 @@ void GameMap::mainEventTick(sf::Time deltaTime)
 			}
 	}
 
-
 	/*---Update data about overlaping objects---*/
 	for (unsigned int i = 0; i < objects.size(); i++)
 		objects.at(i)->overlapingEndMain();

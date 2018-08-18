@@ -40,6 +40,12 @@
     <Filter Include="Header Files\Engine\Components\Transform">
       <UniqueIdentifier>{16a89ecd-a08f-4fe3-9041-692acf42bf5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Physics">
+      <UniqueIdentifier>{b8222c37-7a50-4e37-8417-cdc906e8385c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics">
+      <UniqueIdentifier>{bffdac88-a3dc-40a4-9d94-164315ab494f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -65,9 +71,6 @@
     </ClCompile>
     <ClCompile Include="Wall.cpp">
       <Filter>Source Files\G1Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="MathFunctions.cpp">
       <Filter>Source Files\Engine\Func</Filter>
@@ -96,6 +99,15 @@
     <ClCompile Include="Vector2D.cpp">
       <Filter>Source Files\Engine\Func</Filter>
     </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source Files\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -118,9 +130,6 @@
     </ClInclude>
     <ClInclude Include="Wall.h">
       <Filter>Header Files\G1Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="MathFunctions.h">
       <Filter>Header Files\Engine\Func</Filter>
@@ -157,6 +166,18 @@
     </ClInclude>
     <ClInclude Include="Position.h">
       <Filter>Header Files\Engine\Components\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

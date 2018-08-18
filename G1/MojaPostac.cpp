@@ -82,7 +82,7 @@ void MojaPostac::EventTick()
 	
 	movement();
 	//rotation
-	this->worldRotationX = MathFunction::twoPointsAngle
+	this->wTransform.rotationX = MathFunction::twoPointsAngle
 		(this->wTransform.position.X, this->wTransform.position.Y,
 			this->playerInput->mousePosition().x, -this->playerInput->mousePosition().y);
 
@@ -95,11 +95,11 @@ void MojaPostac::EventTick()
 
 	//if (playerInput->left_KeyboardKeyPressed())
 	//{
-	//	this->worldRotationX -= deltaTime.asSeconds() * rotationSpeed;
+	//	this->wTransform.rotationX -= deltaTime.asSeconds() * rotationSpeed;
 	//}
 	//if (playerInput->right_KeyboardKeyPressed())
 	//{
-	//	this->worldRotationX += deltaTime.asSeconds() * rotationSpeed;
+	//	this->wTransform.rotationX += deltaTime.asSeconds() * rotationSpeed;
 	//}
 
 	//shooting

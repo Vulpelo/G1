@@ -13,7 +13,7 @@ Object::Object(double x, double y, double rotate)
 	this->destroyObject = false;
 	this->wTransform.position.X = x;
 	this->wTransform.position.Y = y;
-	this->worldRotationX = rotate;
+	this->wTransform.rotationX = rotate;
 	mainBeginPlay();
 }
 
@@ -37,14 +37,14 @@ void Object::updateMesh()
 	for (int i = 0; i < components.size(); i++)
 	{
 		components.at(i)->setPosition(wTransform.position.X, wTransform.position.Y);
-		//components.at(i)->setRotation(worldRotationX);
+		//components.at(i)->setRotation(wTransform.rotationX);
 	}
 }
 
 void Object::beginPlay()
 {
 	setWorldCoordinate(this->wTransform.position.X, this->wTransform.position.Y);
-	setWorldRotation(this->worldRotationX);
+	setWorldRotation(this->wTransform.rotationX);
 }
 
 void Object::render(sf::RenderWindow * w)

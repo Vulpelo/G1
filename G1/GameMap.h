@@ -6,8 +6,6 @@
 class GameMap
 {
 protected:
-	//Actor ** actors;
-	//std::vector <Actor *> actors;
 	std::vector <Object *> objects;
 	sf::Time deltaTime;
 

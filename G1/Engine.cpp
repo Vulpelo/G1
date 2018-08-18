@@ -1,26 +1,27 @@
 #include "Engine.h"
 
+#include "Properties.h"
 #include "Map001.h"
 
 #include <iostream>
 
 Engine::Engine()
 {
-	window = new sf::RenderWindow(sf::VideoMode(1248, 900, 32), "G1");
+	window = new sf::RenderWindow(sf::VideoMode(Properties::width, Properties::height, Properties::bitPerPixel), "G1");
 	controlInput = new ControlInput(window);
 
 	//DO GRY
-	map.push_back(new Map001);
-	map.at(0)->setInput(controlInput);
-	actualMap = map.at(0);
-	//
+	GameMap *map = new Map001;
+	map->setInput(controlInput);
+	Properties::loadMap(map);
 }
 
 Engine::~Engine()
 {
-	for (GameMap* m : map)
-		delete m;
-	map.clear();
+	if(controlInput) 
+		delete controlInput;
+	if(window)
+		delete window;
 }
 
 void Engine::mainLoop()
@@ -37,19 +38,14 @@ void Engine::mainLoop()
 	}
 }
 
-void Engine::loadMap(int a)
-{
-	actualMap = map.at(a);
-}
-
 void Engine::mainEventTick()
 {
-	actualMap->mainEventTick(deltaTime);
+	Properties::get_aMap()->mainEventTick(deltaTime);
 	controlInput->mainEventTick();
 }
 
 void Engine::windowRender()
 {
-	actualMap->render(window);
+	Properties::get_aMap()->render(window);
 }
 

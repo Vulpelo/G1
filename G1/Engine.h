@@ -13,8 +13,6 @@ private:
 	sf::Time deltaTime;
 	
 	ControlInput * controlInput;
-	std::vector <GameMap *> map;
-	GameMap *actualMap;
 
 public:
 	Engine();
@@ -22,5 +20,6 @@ public:
 	void windowRender();
 	void mainEventTick();
 	void mainLoop();
-	void loadMap(int);
+	//void loadMap(int);
+	//void loadMap(GameMap*);
 };

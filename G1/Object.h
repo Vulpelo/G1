@@ -29,8 +29,6 @@ protected:
 
 	// World transform
 	Transform wTransform;
-	//double worldCoordinateX, worldCoordinateY;
-	double worldRotationX;
 
 	//Object distruct
 	bool destroyObject;
@@ -95,6 +93,8 @@ public:
 	void DestroyObject();
 
 #pragma region set functions
+	void setWTransform(Transform nWTransform) { this->wTransform = nWTransform; }
+
 	/// <summary>Sets position of an object in world wide</summary>
 	void setWorldCoordinate(double x, double y);
 

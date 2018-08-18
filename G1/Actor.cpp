@@ -58,7 +58,7 @@ void Actor::updateMesh()
 		if (components.at(i)->getRotateToMovementDirection())
 			components.at(i)->setRotation(actualMovementAngleX);
 		else
-			components.at(i)->setRotation(worldRotationX);
+			components.at(i)->setRotation(wTransform.rotationX);
 	}
 
 	/*---Mesh position---*/
@@ -79,11 +79,11 @@ void Actor::worldCoordinateMovement()
 {
 	if (movementToRotationDirection)
 	{
-		this->wTransform.position.X += (actualMovement.y * sin((worldRotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
-		this->wTransform.position.Y += (actualMovement.y * cos((worldRotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->wTransform.position.X += (actualMovement.y * sin((wTransform.rotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->wTransform.position.Y += (actualMovement.y * cos((wTransform.rotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
 
-		this->wTransform.position.X += (actualMovement.x * sin(((worldRotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
-		this->wTransform.position.Y += (actualMovement.x * cos(((worldRotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->wTransform.position.X += (actualMovement.x * sin(((wTransform.rotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->wTransform.position.Y += (actualMovement.x * cos(((wTransform.rotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
 	}
 	else
 	{
@@ -237,7 +237,7 @@ bool Actor::lookAt(SimpleShape *s, Position point, double anglePrecision)
 
 bool Actor::lookAt(Position point, double anglePrecision)
 {
-	this->worldRotationX = MathFunction::twoPointsAngle
+	this->wTransform.rotationX = MathFunction::twoPointsAngle
 	(this->wTransform.position.X, this->wTransform.position.Y,
 		point.X, -point.Y);
 

@@ -13,14 +13,17 @@ protected:
 	Transform wTransform;
 	// Relative transform
 	Transform rTransform;
+	// First transform of a shape
+	Transform begin_rTransform;
 
-	/*shape is rotating with his own origin (middle of shape)
-	or is rotating by origin (middle) of the actor
-	Defoult is false*/
-	bool ownOrigin;
-	double beginLocalCoordinateX, beginLocalCoordinateY;
-	double beginRotFromObject;
 	double minuendOfRot;
+
+	/* Shape is rotating with his own origin (middle of shape) [True]
+	or shape is rotating by origin (middle) of the actor [False].
+	Default is false*/
+	bool ownOrigin;
+
+	// Color of the shape
 	sf::Color color;
 public:
 	SimpleShape();
