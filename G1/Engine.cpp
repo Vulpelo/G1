@@ -1,6 +1,7 @@
 #include "Engine.h"
 
 #include "Properties.h"
+#include "MapManager.h"
 #include "Map001.h"
 
 #include <iostream>
@@ -13,7 +14,7 @@ Engine::Engine()
 	//DO GRY
 	GameMap *map = new Map001;
 	map->setInput(controlInput);
-	Properties::loadMap(map);
+	MapManager::loadMap(map);
 }
 
 Engine::~Engine()
@@ -40,12 +41,12 @@ void Engine::mainLoop()
 
 void Engine::mainEventTick()
 {
-	Properties::get_aMap()->mainEventTick(deltaTime);
+	MapManager::get_aMap()->mainEventTick(deltaTime);
 	controlInput->mainEventTick();
 }
 
 void Engine::windowRender()
 {
-	Properties::get_aMap()->render(window);
+	MapManager::get_aMap()->render(window);
 }
 

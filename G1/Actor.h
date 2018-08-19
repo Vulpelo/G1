@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Object.h"
-#include <vector>
-
 #ifndef _Actor_H_
 #define _Actor_H_
+
+#include "Object.h"
+#include <vector>
 
 class Actor : public Object
 {

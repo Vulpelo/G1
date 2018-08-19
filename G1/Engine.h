@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef ENGINE_H
+#define ENGINE_H
+
 #include <SFML\Graphics.hpp>
 
 #include "ControlInput.h"
@@ -23,3 +27,5 @@ public:
 	//void loadMap(int);
 	//void loadMap(GameMap*);
 };
+
+#endif // !ENGINE_H

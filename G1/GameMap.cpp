@@ -25,7 +25,7 @@ void GameMap::mainEventTick(sf::Time deltaTime)
 	for (unsigned int i = 0; i < objects.size(); i++)
 	{
 		for (unsigned int j = i + 1; j < objects.size(); j++)
-			if (isCollidingObjectM(objects.at(i), objects.at(j)))
+			if (Physics::overlapsComponentsUpdate(objects.at(i)->getComponents(), objects.at(j)->getComponents()))
 			{
 				overlapingMain(objects.at(i), objects.at(j));
 				overlapingMain(objects.at(j), objects.at(i));
@@ -82,7 +82,6 @@ void GameMap::overlapingEndMain(Object* object)
 {
 	for each (Component* comp in object->getComponents())
 	{
-		//Object* obj = this;
 		comp->overlapingEndMain();
 		for(int i=0; i < comp->getStartOverlapingComp().size(); i++)
 		{
@@ -137,29 +136,29 @@ void GameMap::overlapingEndMain(Object* object)
 	nOvObj.clear();
 }
 
-bool GameMap::isCollidingObjectM(Object* object, Object *otherObject) const
-{
-	std::vector <Component*> components = object->getComponents();
-	std::vector <Component*> otherComponents = otherObject->getComponents();
-
-	bool objectCollides = false;
-
-	for (unsigned int i = 0; i < otherComponents.size(); i++)
-	{
-		for (unsigned int j = 0; j < components.size(); j++)
-		{
-			if (otherComponents.at(i)->getCollider() != NULL && components.at(j)->getCollider() != NULL)
-				if (components.at(j)->collides(otherComponents.at(i)->getCollider()))
-					return true;//-  
-					/*{
-					components.at(j)->addOverlapComponent(otherComponents.at(i));
-					components.at(i)->addOverlapComponent(otherComponents.at(j));
-					objectCollides = true;
-					}*/
-
-					// TODO: Trzeba dorobic ogolne eventy dla kazdego mesha a nie dla calego objektu
-		}
-	}
-	return false;//-
-				 /*return objectCollides;*/
-}
+//bool GameMap::isCollidingObjectM(Object* object, Object *otherObject) const
+//{
+//	std::vector <Component*> components = object->getComponents();
+//	std::vector <Component*> otherComponents = otherObject->getComponents();
+//
+//	bool objectCollides = false;
+//
+//	for (unsigned int i = 0; i < otherComponents.size(); i++)
+//	{
+//		for (unsigned int j = 0; j < components.size(); j++)
+//		{
+//			if (otherComponents.at(i)->getCollider() != NULL && components.at(j)->getCollider() != NULL)
+//				if (components.at(j)->collides(otherComponents.at(i)->getCollider()))
+//					return true;//-  
+//					/*{
+//					components.at(j)->addOverlapComponent(otherComponents.at(i));
+//					components.at(i)->addOverlapComponent(otherComponents.at(j));
+//					objectCollides = true;
+//					}*/
+//
+//					// TODO: Trzeba dorobic ogolne eventy dla kazdego mesha a nie dla calego objektu
+//		}
+//	}
+//	return false;//-
+//				 /*return objectCollides;*/
+//}

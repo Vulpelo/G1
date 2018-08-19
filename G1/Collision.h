@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef COLLISION_H
+#define COLLISION_H
+
 #include "SimpleShape.h"
 #include "MathFunctions.h"
 
@@ -57,3 +60,5 @@ public:
 	double biggestY();
 	//double preciseTouchRange(double otherColliderXCoordinate, double otherColliderYCoordinate);
 };
+
+#endif // !COLLISION_H

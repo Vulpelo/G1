@@ -1,12 +1,13 @@
 #pragma once
+
+#ifndef _MathFunction_H_
+#define _MathFunction_H_
+
 #include <math.h>
 #include "Vector2D.h"
 #include "Position.h"
 
 #define M_PI 3.14159265358979323846
-
-#ifndef _MathFunction_H_
-#define _MathFunction_H_
 
 class MathFunction
 {

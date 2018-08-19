@@ -136,6 +136,7 @@
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map001.cpp" />
+    <ClCompile Include="MapManager.cpp" />
     <ClCompile Include="MathFunctions.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MojaPostac.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="GameMap.h" />
     <ClInclude Include="ControlInput.h" />
+    <ClInclude Include="MapManager.h" />
     <ClInclude Include="MathFunctions.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Position.h" />

@@ -1,14 +1,19 @@
 #pragma once
+
+#ifndef GAMEMAP_H
+#define GAMEMAP_H
+
 #include "Actor.h"
 #include "Object.h"
 #include <vector>
+#include "Physics.h"
 
 class GameMap
 {
 private:
 	void overlapingMain(Object*, Object*);
 	void overlapingEndMain(Object*);
-	bool isCollidingObjectM(Object* object, Object *otherObject) const;
+	//bool isCollidingObjectM(Object* object, Object *otherObject) const;
 protected:
 	std::vector <Object *> objects;
 	sf::Time deltaTime;
@@ -23,3 +28,5 @@ public:
 	virtual void render(sf::RenderWindow * w);
 	void setInput(ControlInput * input);
 };
+
+#endif // !GAMEMAP_H

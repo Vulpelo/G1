@@ -3,11 +3,10 @@
 #ifndef PROPERTIES_H
 #define PROPERTIES_H
 
-#include "GameMap.h"
+//#include "GameMap.h"
 
 class Properties
 {
-	static GameMap* aMap;
 
 public:
 	// window spec
@@ -16,8 +15,8 @@ public:
 	static int bitPerPixel;
 
 	static void setWindowSpec(int, int, int);
-	static void loadMap(GameMap*);
-	static GameMap* get_aMap();
+	//static void loadMap(GameMap*);
+	//static GameMap* get_aMap();
 	~Properties();
 };
 

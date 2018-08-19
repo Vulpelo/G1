@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef POSITION_H
-#define POSITION_H
+#ifndef TRANSFORM_H
+#define TRANSFORM_H
 
 #include "Position.h"
 
@@ -15,4 +15,4 @@ struct Transform
 	Transform() : rotationX(0), scaleX(1), scaleY(1) {};
 };
 
-#endif // !POSITION_H
+#endif // !TRANSFORM_H

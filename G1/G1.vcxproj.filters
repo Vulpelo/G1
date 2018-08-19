@@ -108,6 +108,9 @@
     <ClCompile Include="Properties.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="MapManager.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -177,6 +180,9 @@
       <Filter>Header Files\Engine\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Properties.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="MapManager.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>

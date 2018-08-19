@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef _Component_H_
+#define _Component_H_
+
 #include "SimpleShape.h"
 #include <iostream>
 #include <vector>
@@ -6,16 +10,15 @@
 #include "Collision.h"
 //#include "Object.h"
 
-#ifndef _Component_H_
-#define _Component_H_
-
 class Component
 {
+private:
+	std::vector <Component *> newOverlapingComponents;
+
 protected:
 	//overlaping
 	std::string name;
 	std::vector <Component *> overlapingComponents;
-	std::vector <Component *> newOverlapingComponents;
 	
 	std::vector <Component *> startOverlapingComp;
 	std::vector <Component *> isOverlapingComp;

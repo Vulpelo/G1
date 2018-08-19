@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef CONTROLINPUT_H
+#define CONTROLINPUT_H
+
 #include <SFML\Graphics.hpp>
 #include <SFML\Window\Keyboard.hpp>
 #include <SFML\Window\Mouse.hpp>
@@ -25,3 +29,5 @@ public:
 	sf::Vector2i mousePosition();
 	bool leftMouseButtonPressed();
 };
+
+#endif // !CONTROLINPUT_H
