@@ -48,7 +48,7 @@ double Component::getXWorldPosition()
 { 
 	if (localPositionX != 0 && localPositionY != 0)
 	{
-		double beginRotFromObject = MathFunction::vectorAngle(localPositionX, localPositionY);
+		double beginRotFromObject = GMath::vectorAngle(localPositionX, localPositionY);
 
 		double c = sqrt((localPositionX)*(localPositionX)
 			+(localPositionY)*(localPositionY));
@@ -63,7 +63,7 @@ double Component::getYWorldPosition()
 {
 	if (localPositionX != 0 && localPositionY != 0)
 	{
-		double beginRotFromObject = MathFunction::vectorAngle(localPositionX, localPositionY);
+		double beginRotFromObject = GMath::vectorAngle(localPositionX, localPositionY);
 		double minuendOfRot;
 		if (beginRotFromObject > 270)
 			minuendOfRot = 450;

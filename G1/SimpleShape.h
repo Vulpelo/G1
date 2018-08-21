@@ -7,7 +7,7 @@
 class SimpleShape
 {
 protected:
-	double meshLocalPositionX, meshLocalPositionY;
+	float meshLocalPositionX, meshLocalPositionY;
 
 	// World transform
 	Transform wTransform;
@@ -52,7 +52,7 @@ class Circle : public SimpleShape
 {
 private:
 	sf::CircleShape circle;
-	double radius;
+	float radius;
 public:
 	Circle(double radiusTemp, sf::Color);
 	void setWorldPosition(double x, double y);
@@ -66,7 +66,7 @@ class Rectangle : public SimpleShape
 {
 private:
 	sf::RectangleShape rectangle;
-	double height, length;
+	float height, length;
 public:
 	Rectangle(double leng, double heig, sf::Color);
 	void setWorldPosition(double x, double y);
@@ -79,7 +79,7 @@ public:
 class Triangle : public SimpleShape
 {
 private:
-	double height, base;
+	float height, base;
 public:
 	Triangle(double heightZ, double baseZ);
 	void setWorldPosition(double x, double y);

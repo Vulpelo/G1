@@ -37,14 +37,26 @@
     <Filter Include="Header Files\Engine\Components">
       <UniqueIdentifier>{8b2de7d8-10a6-4e6f-80a1-18bc134411a2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\Components\Transform">
-      <UniqueIdentifier>{16a89ecd-a08f-4fe3-9041-692acf42bf5c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Engine\Physics">
       <UniqueIdentifier>{b8222c37-7a50-4e37-8417-cdc906e8385c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Physics">
       <UniqueIdentifier>{bffdac88-a3dc-40a4-9d94-164315ab494f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Object">
+      <UniqueIdentifier>{cda52278-316a-4562-a43d-8f41b79cc774}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Object">
+      <UniqueIdentifier>{1c83f6fb-d955-4939-887c-6f4ed04b1991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Object\Spawnamble">
+      <UniqueIdentifier>{ddc0b417-0e86-4489-b335-458cfca6f0c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Object\Spawnable">
+      <UniqueIdentifier>{9d6d7263-4727-4d6e-a2dd-ff323bffa302}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Func\Transform">
+      <UniqueIdentifier>{16a89ecd-a08f-4fe3-9041-692acf42bf5c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -90,12 +102,6 @@
     <ClCompile Include="Component.cpp">
       <Filter>Source Files\Engine\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Actor.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Vector2D.cpp">
       <Filter>Source Files\Engine\Func</Filter>
     </ClCompile>
@@ -108,14 +114,20 @@
     <ClCompile Include="MapManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PhysicsHandle.cpp">
       <Filter>Source Files\Engine\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Engine\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Source Files\Engine\Object\Spawnamble</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files\Engine\Object</Filter>
+    </ClCompile>
     <ClCompile Include="Physics.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,23 +170,14 @@
     <ClInclude Include="Component.h">
       <Filter>Header Files\Engine\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Actor.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Layer.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Vector2D.h">
       <Filter>Header Files\Engine\Func</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
-      <Filter>Header Files\Engine\Components\Transform</Filter>
+      <Filter>Header Files\Engine\Func\Transform</Filter>
     </ClInclude>
     <ClInclude Include="Position.h">
-      <Filter>Header Files\Engine\Components\Transform</Filter>
+      <Filter>Header Files\Engine\Func\Transform</Filter>
     </ClInclude>
     <ClInclude Include="Ray.h">
       <Filter>Header Files\Engine\Physics</Filter>
@@ -194,8 +197,17 @@
     <ClInclude Include="Physics.h">
       <Filter>Header Files\Engine\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Header Files\Engine</Filter>
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Header Files\Engine\Object\Spawnable</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -79,16 +79,15 @@ void MojaPostac::beginPlay()
 
 void MojaPostac::EventTick()
 {
-	
 	movement();
 	//rotation
-	this->wTransform.rotationX = MathFunction::twoPointsAngle
+	this->wTransform.rotationX = GMath::twoPointsAngle
 		(this->wTransform.position.X, this->wTransform.position.Y,
 			this->playerInput->mousePosition().x, -this->playerInput->mousePosition().y);
 
 	double xCor = components.at(2)->getXWorldPosition();
 	double yCor = components.at(2)->getYWorldPosition();
-	double rot = MathFunction::twoPointsAngle
+	double rot = GMath::twoPointsAngle
 	(xCor, -yCor, this->playerInput->mousePosition().x, -this->playerInput->mousePosition().y);
 
 	//components.at(2)->setLocalRotation(rot - components.at(2)->getXWorldRotation());

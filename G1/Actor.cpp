@@ -198,9 +198,9 @@ void Actor::movementDecrementacionF()
 bool Actor::simpleMoveTo(Position cor, double distancePrecision)
 {
 	double angle;
-	if ( MathFunction::twoPointsDistance(this->wTransform.position.X, this->wTransform.position.Y, cor.X, cor.Y) > distancePrecision)
+	if ( GMath::twoPointsDistance(this->wTransform.position.X, this->wTransform.position.Y, cor.X, cor.Y) > distancePrecision)
 	{
-		double angle = MathFunction::twoPointsAngle(this->wTransform.position.X, this->wTransform.position.Y, cor.X, cor.Y);
+		double angle = GMath::twoPointsAngle(this->wTransform.position.X, this->wTransform.position.Y, cor.X, cor.Y);
 		actualMovement.setVectorByAngleAndLength(angle, maxWalkSpeedForwad);
 		return false;
 	}
@@ -213,7 +213,7 @@ bool Actor::lookAt(Component *m, Position point, double anglePrecision)
 	double xCor = m->getXWorldPosition();
 	double yCor = m->getYWorldPosition();
 	double rot;
-	if ((rot = MathFunction::twoPointsAngle(xCor, -yCor, point.X, -point.Y)) > anglePrecision)
+	if ((rot = GMath::twoPointsAngle(xCor, -yCor, point.X, -point.Y)) > anglePrecision)
 	{
 		m->setLocalRotation(rot - m->getXWorldRotation());
 		return false;
@@ -225,7 +225,7 @@ bool Actor::lookAt(SimpleShape *s, Position point, double anglePrecision)
 {
 	double xCor = s->getXWorldPosition();
 	double yCor = s->getYWorldPosition();
-	double rot = MathFunction::twoPointsAngle(xCor, -yCor, point.X, -point.Y);
+	double rot = GMath::twoPointsAngle(xCor, -yCor, point.X, -point.Y);
 
 	if (rot > anglePrecision) 
 	{
@@ -237,7 +237,7 @@ bool Actor::lookAt(SimpleShape *s, Position point, double anglePrecision)
 
 bool Actor::lookAt(Position point, double anglePrecision)
 {
-	this->wTransform.rotationX = MathFunction::twoPointsAngle
+	this->wTransform.rotationX = GMath::twoPointsAngle
 	(this->wTransform.position.X, this->wTransform.position.Y,
 		point.X, -point.Y);
 

@@ -18,10 +18,15 @@ class PhysicsHandle {
 	static Object* overlapsPoint(Position pos) {
 		return nullptr;
 	}
-	static bool overlapsComponents(std::vector <Component*> &components, std::vector <Component*> &otherComponents);
+	/// <summary> Return's true as soon as any component from container, overlaps any component from another container</summary>
+	static bool overlapsAnyComponent(std::vector <Component*> &components, std::vector <Component*> &otherComponents);
+	
+	/// <summary>Goes thru whole containers to update each component with overlaping status.
+	/// Return's true if any component from container, overlaps any component from another container.
+	/// </summary>
+	static void overlapDetectionUpdate(std::vector<Object*>&);
 	static bool overlapsComponentsUpdate(std::vector <Component*> &components, std::vector <Component*> &otherComponents);
-	static void a() {  }
-
+	static void overlapingEndMain(Object* object);
 };
 
 #endif // !PHYSICS_H

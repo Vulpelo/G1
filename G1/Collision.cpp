@@ -52,7 +52,7 @@ double CollisionRectangle::biggestY()
 bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
 {
 	double distance = 
-		MathFunction::twoPointsDistance(this->wTransform.position.X, this->wTransform.position.Y,
+		GMath::twoPointsDistance(this->wTransform.position.X, this->wTransform.position.Y,
 		otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition());
 
 	if (otherCollider->getCollisionType() == 'c') //for circle
@@ -65,21 +65,21 @@ bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
 			{
 				//gorny prawy wierzcholek
 				distance =
-					MathFunction::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
+					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
 						this->biggestX(), this->biggestY());
 			}
 			else if (otherCollider->getYWorldPosition() < this->lowestY())
 			{
 				//dolny prawy wierzcholek 
 				distance =
-					MathFunction::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
+					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
 						this->biggestX(), this->lowestY());
 			}
 			else
 			{
 				//prawa strona prostokata
 				distance =
-					MathFunction::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
+					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
 						this->biggestX(), otherCollider->getYWorldPosition());
 			}
 		}
@@ -89,21 +89,21 @@ bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
 			{
 				//gorny lewy wierzcholek
 				distance =
-					MathFunction::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
+					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
 						this->lowestX(), this->biggestY());
 			}
 			else if (otherCollider->getYWorldPosition() < this->lowestY())
 			{
 				//dolny lewy wierzcholek 
 				distance =
-					MathFunction::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
+					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
 						this->lowestX(), this->lowestY());
 			}
 			else
 			{
 				//lewa strona prostokata
 				distance =
-					MathFunction::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
+					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
 						this->lowestX(), otherCollider->getYWorldPosition());
 			}
 		}
@@ -111,14 +111,14 @@ bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
 		{
 			//gorna storna prostokata
 			distance =
-				MathFunction::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
+				GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
 					otherCollider->getXWorldPosition(), this->biggestY());
 		}
 		else if (otherCollider->getYWorldPosition() < this->lowestY())
 		{
 			//dolna strona prostokata
 			distance =
-				MathFunction::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
+				GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
 					otherCollider->getXWorldPosition(), this->lowestY());
 		}
 		else
@@ -164,7 +164,7 @@ bool CollisionCircle::isCollidingWith(Collision *otherCollider)
 	
 	if (otherCollider->getCollisionType() == 'c') // for circle
 	{
-		distance = MathFunction::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
+		distance = GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
 			otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition());
 
 		if (this->radius + otherCollider->lowestX() >= distance)
@@ -180,21 +180,21 @@ bool CollisionCircle::isCollidingWith(Collision *otherCollider)
 			{
 				//gorny prawy wierzcholek
 				distance =
-					MathFunction::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
+					GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
 						otherCollider->biggestX(), otherCollider->biggestY());
 			}
 			else if (this->getYWorldPosition() < otherCollider->lowestY())
 			{
 				//dolny prawy wierzcholek 
 				distance =
-					MathFunction::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
+					GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
 						otherCollider->biggestX(), otherCollider->lowestY());
 			}
 			else
 			{
 				//prawa strona prostokata
 				distance =
-					MathFunction::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
+					GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
 						otherCollider->biggestX(), this->getYWorldPosition());
 			}
 		}
@@ -204,21 +204,21 @@ bool CollisionCircle::isCollidingWith(Collision *otherCollider)
 			{
 				//gorny lewy wierzcholek
 				distance =
-					MathFunction::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
+					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
 						this->lowestX(), this->biggestY());
 			}
 			else if (this->getYWorldPosition() < otherCollider->lowestY())
 			{
 				//dolny lewy wierzcholek 
 				distance =
-					MathFunction::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
+					GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
 						otherCollider->lowestX(), otherCollider->lowestY());
 			}
 			else
 			{
 				//lewa strona prostokata
 				distance =
-					MathFunction::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
+					GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
 						otherCollider->lowestX(), this->getYWorldPosition());
 			}
 		}
@@ -226,14 +226,14 @@ bool CollisionCircle::isCollidingWith(Collision *otherCollider)
 		{
 			//gorna storna prostokata
 			distance =
-				MathFunction::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
+				GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
 					otherCollider->getXWorldPosition(), this->biggestY());
 		}
 		else if (this->getYWorldPosition() < otherCollider->lowestY())
 		{
 			//dolna strona prostokata
 			distance =
-				MathFunction::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
+				GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
 					this->getXWorldPosition(), otherCollider->lowestY());
 		}
 		else

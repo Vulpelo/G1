@@ -3,7 +3,6 @@
 #include "Vector2D.h"
 #include "Layer.h"
 #include "PhysicsHandle.h"
-//#include "IPhysics.h"
 
 class Physics
 {

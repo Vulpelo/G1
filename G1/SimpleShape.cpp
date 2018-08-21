@@ -24,7 +24,7 @@ void SimpleShape::setWorldPosition(double x, double y)
 	if (begin_rTransform.position.X + meshLocalPositionX != 0 || begin_rTransform.position.Y + meshLocalPositionY != 0)
 	{
 		std::cout << this << "-RX " << wTransform.rotationX << "::X " << rTransform.position.X << ":Y " << rTransform.position.Y;
-		this->begin_rTransform.rotationX = MathFunction::vectorAngle(begin_rTransform.position.X + meshLocalPositionX, -begin_rTransform.position.Y + meshLocalPositionY);
+		this->begin_rTransform.rotationX = GMath::vectorAngle(begin_rTransform.position.X + meshLocalPositionX, -begin_rTransform.position.Y + meshLocalPositionY);
 
 		//double begin_rTransform.rotationX = atan(rTransform.position.X / rTransform.position.Y * 180 * M_PI);
 		double c = sqrt((begin_rTransform.position.X + meshLocalPositionX)*(begin_rTransform.position.X + meshLocalPositionX)
@@ -137,8 +137,8 @@ void Circle::setLocalCoordinate(double aX, double aY)
 	else if (ownOrigin == false)
 		circle.setOrigin(sf::Vector2f(radius - aX, radius + aY));
 
-	//!! this->begin_rTransform.rotationX = MathFunction::vectorAngle(rTransform.position.X, -rTransform.position.Y);
-	this->begin_rTransform.rotationX = MathFunction::vectorAngle(begin_rTransform.position.X + meshLocalPositionX, -begin_rTransform.position.Y - meshLocalPositionY);
+	//!! this->begin_rTransform.rotationX = GMath::vectorAngle(rTransform.position.X, -rTransform.position.Y);
+	this->begin_rTransform.rotationX = GMath::vectorAngle(begin_rTransform.position.X + meshLocalPositionX, -begin_rTransform.position.Y - meshLocalPositionY);
 	if (this->begin_rTransform.rotationX > 270)
 		this->minuendOfRot = 450;
 	else if (this->begin_rTransform.rotationX > 90)
@@ -186,7 +186,7 @@ void Rectangle::setLocalCoordinate(double aX, double aY)
 	else if (ownOrigin == false)
 		rectangle.setOrigin(sf::Vector2f(length / 2.0 - aX, height / 2.0 + aY));
 	//SimpleShape::setLocalCoordinate(aX, aY);
-	this->begin_rTransform.rotationX = MathFunction::vectorAngle(begin_rTransform.position.X + meshLocalPositionX, -begin_rTransform.position.Y - meshLocalPositionY);
+	this->begin_rTransform.rotationX = GMath::vectorAngle(begin_rTransform.position.X + meshLocalPositionX, -begin_rTransform.position.Y - meshLocalPositionY);
 	if (this->begin_rTransform.rotationX > 270)
 		this->minuendOfRot = 450;
 	else if (this->begin_rTransform.rotationX > 90)

@@ -10,10 +10,6 @@
 
 class GameMap
 {
-private:
-	void overlapingMain(Object*, Object*);
-	void overlapingEndMain(Object*);
-	//bool isCollidingObjectM(Object* object, Object *otherObject) const;
 protected:
 	std::vector <Object *> objects;
 	sf::Time deltaTime;
