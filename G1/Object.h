@@ -4,8 +4,7 @@
 #define _Object_H_
 
 #include "Component.h"
-//#include "Mesh.h"
-#include "Collision.h"
+//#include "Collision.h"
 #include "ControlInput.h"
 #include "Vector2D.h"
 #include "Layer.h"
@@ -22,7 +21,7 @@ class Object
 protected:
 #pragma region Variables
 	std::set<Layer> layers;
-
+	
 	//collision interactions (interacts any of objects components)
 	std::vector <Object *> overlapingObjects;
 	std::vector <Object *> newOverlapingObjects;
@@ -40,9 +39,14 @@ protected:
 
 #pragma endregion
 
-#pragma region Protected Functions
-	void updateMesh();
+	friend class GameMap;
+
+#pragma region Functions that are used only by engine
 	virtual void mainBeginPlay();
+	virtual void mainEventTick(sf::Time deltaTime);
+	// Displays object's components on screen
+	void render(sf::RenderWindow * w);
+	void updateMesh();
 #pragma endregion
 
 public:
@@ -58,12 +62,7 @@ public:
 	//Mesh
 	std::vector <Component*> getComponents() const;
 
-#pragma region Functions that are used only by engine, but they need to be public
-	//used by GameMap class
-	void render(sf::RenderWindow * w);
-	//used by GameMap class
-	virtual void mainEventTick(sf::Time deltaTime);
-#pragma endregion
+
 
 #pragma region Overlaping interactions
 	/// <summary>Function is called every time when new object just touched this object</summary>

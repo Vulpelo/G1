@@ -102,14 +102,20 @@
     <ClCompile Include="Collision.cpp">
       <Filter>Source Files\Engine\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Physics.cpp">
-      <Filter>Source Files\Engine\Physics</Filter>
-    </ClCompile>
     <ClCompile Include="Properties.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="MapManager.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsHandle.cpp">
+      <Filter>Source Files\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -170,9 +176,6 @@
     <ClInclude Include="Position.h">
       <Filter>Header Files\Engine\Components\Transform</Filter>
     </ClInclude>
-    <ClInclude Include="Physics.h">
-      <Filter>Header Files\Engine\Physics</Filter>
-    </ClInclude>
     <ClInclude Include="Ray.h">
       <Filter>Header Files\Engine\Physics</Filter>
     </ClInclude>
@@ -183,6 +186,15 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="MapManager.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsHandle.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>

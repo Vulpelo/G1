@@ -3,10 +3,10 @@
 #ifndef _Actor_H_
 #define _Actor_H_
 
-#include "Object.h"
+#include "GameObject.h"
 #include <vector>
 
-class Actor : public Object
+class Actor : public GameObject
 {
 private:
 	bool notMovingX;

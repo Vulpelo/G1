@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef VECTOR2D_H
+#define VECTOR2D_H
+
 #include "MathFunctions.h"
 
 class Vector2D
@@ -26,3 +30,5 @@ public:
 	/// <summary>Returns vector with length equal 1</summary>
 	Vector2D normalize() const;
 };
+
+#endif // !VECTOR2D_H

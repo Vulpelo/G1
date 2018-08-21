@@ -4,9 +4,9 @@
 #define GAMEMAP_H
 
 #include "Actor.h"
-#include "Object.h"
+//#include "Object.h"
 #include <vector>
-#include "Physics.h"
+//#include "PhysicsHandle.h"
 
 class GameMap
 {
@@ -17,7 +17,6 @@ private:
 protected:
 	std::vector <Object *> objects;
 	sf::Time deltaTime;
-
 public:
 	GameMap();
 	/// <summary> Return's a colection of Objects that where
@@ -27,6 +26,8 @@ public:
 	virtual void EventTick() = 0; //rdzen ustalany od postaci
 	virtual void render(sf::RenderWindow * w);
 	void setInput(ControlInput * input);
+
+	friend class PhysicsHandle;
 };
 
 #endif // !GAMEMAP_H

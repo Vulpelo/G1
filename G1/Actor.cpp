@@ -2,13 +2,13 @@
 #include <iostream>
 
 Actor::Actor() 
-	: Object()
+	: GameObject()
 {
 	mainBeginPlay();
 }
 
 Actor::Actor(double x, double y, double rotate)
-	: Object(x, y, rotate)
+	: GameObject(x, y, rotate)
 {
 	mainBeginPlay();
 }

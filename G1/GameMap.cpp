@@ -1,7 +1,6 @@
 #include "GameMap.h"
-#include <iostream>
 
-GameMap::GameMap() {}
+GameMap::GameMap() { }
 
 std::vector<Object*> GameMap::getAllObjects()
 {
@@ -25,7 +24,7 @@ void GameMap::mainEventTick(sf::Time deltaTime)
 	for (unsigned int i = 0; i < objects.size(); i++)
 	{
 		for (unsigned int j = i + 1; j < objects.size(); j++)
-			if (Physics::overlapsComponentsUpdate(objects.at(i)->getComponents(), objects.at(j)->getComponents()))
+			if (PhysicsHandle::overlapsComponentsUpdate(objects.at(i)->getComponents(), objects.at(j)->getComponents()))
 			{
 				overlapingMain(objects.at(i), objects.at(j));
 				overlapingMain(objects.at(j), objects.at(i));

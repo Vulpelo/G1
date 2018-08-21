@@ -8,7 +8,6 @@
 #include <vector>
 #include <SFML\Graphics.hpp>
 #include "Collision.h"
-//#include "Object.h"
 
 class Component
 {

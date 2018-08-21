@@ -134,6 +134,7 @@
     <ClCompile Include="ControlInput.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameMap.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map001.cpp" />
     <ClCompile Include="MapManager.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="MojaPostac.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="PhysicsHandle.cpp" />
     <ClCompile Include="Properties.cpp" />
     <ClCompile Include="Przeciwnik1.cpp" />
     <ClCompile Include="SimpleShape.cpp" />
@@ -157,9 +159,11 @@
     <ClInclude Include="Engine.h" />
     <ClInclude Include="GameMap.h" />
     <ClInclude Include="ControlInput.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="MapManager.h" />
     <ClInclude Include="MathFunctions.h" />
     <ClInclude Include="Physics.h" />
+    <ClInclude Include="PhysicsHandle.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Properties.h" />
     <ClInclude Include="Przeciwnik1.h" />
