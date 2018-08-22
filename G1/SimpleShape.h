@@ -9,10 +9,7 @@ class SimpleShape
 protected:
 	float meshLocalPositionX, meshLocalPositionY;
 
-	// World transform
-	Transform wTransform;
-	// Relative transform
-	Transform rTransform;
+
 	// First transform of a shape
 	Transform begin_rTransform;
 
@@ -26,6 +23,11 @@ protected:
 	// Color of the shape
 	sf::Color color;
 public:
+	// World transform
+	Transform wTransform;
+	// Relative transform
+	Transform rTransform;
+
 	SimpleShape();
 	SimpleShape(sf::Color c);
 	virtual void draw(sf::RenderWindow * w) = 0;

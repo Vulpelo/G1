@@ -8,6 +8,13 @@ Mesh::Mesh(SimpleShape ** shapesZ, int numberOfShapesZ)
 	:shapes(shapesZ), numberOfShapes(numberOfShapesZ),
 	rotateToMovementDirection(false) {}
 
+Mesh::~Mesh()
+{
+	for (int i = 0; i < numberOfShapes; i++)
+		delete shapes[i];
+	delete[] shapes;
+}
+
 void Mesh::render(sf::RenderWindow * w)
 {
 	for (int i = 0; i < numberOfShapes; i++)

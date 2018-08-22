@@ -9,17 +9,43 @@ Collision::Collision()
 
 }
 
-
 char Collision::getCollisionType()
 {
 	return collisionType;
 }
 
-//bool Collision::isCollidingWith(Collision *otherCollider)
-//{
-//
-//}
+float Collision::getFarthestPoint()
+{
+	return this->farthestPoint;
+}
 
+float Collision::getNearestPoint()
+{
+	return this->nearestPoint;
+}
+
+bool Collision::rectangleOverlapsCircle(Collision * rect, Collision * cirl)
+{
+	float distance =
+		GMath::twoPointsDistance(rect->wTransform.position.X, rect->wTransform.position.Y,
+			cirl->getXWorldPosition(), cirl->getYWorldPosition());
+
+	// Does not overlap for sure
+	if (cirl->getFarthestPoint() + rect->getFarthestPoint() < distance)
+		return false;
+	// Does overlap for sure
+	else if (cirl->getNearestPoint() + rect->getNearestPoint() >= distance)
+		return true;
+	// Not sure, need extra check
+	else {
+		// TODO : instead Position struct use Vector2 for location
+		Vector2D rec(rect->wTransform.position); Vector2D cir(cirl->wTransform.position);
+		Vector2D nV = (rec - cir).normalize();
+		nV = cir + nV * cirl->getFarthestPoint();
+
+		return this->rectangleOverlapsPoint(Position(nV.x, nV.y));
+	}
+}
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -30,6 +56,8 @@ CollisionRectangle::CollisionRectangle(double length, double height, double worl
 	this->wTransform.position.X = worldCoordinateX;
 	this->wTransform.position.Y = worldCoordinateY;
 	this->collisionType = 'r';
+	this->farthestPoint = sqrt( (length*length)/4.0f + (height*height)/4.0f );
+	this->nearestPoint = ( length<height ? length/2.0f : height/2.0f );
 }
 
 double CollisionRectangle::lowestX()
@@ -49,84 +77,24 @@ double CollisionRectangle::biggestY()
 	return this->getYWorldPosition() + (this->height / 2.0);
 }
 
+bool CollisionRectangle::rectangleOverlapsPoint(Position point)
+{
+	if (this->lowestX() <= point.X && point.X <= this->biggestX() && this->biggestY() >= point.Y && point.Y >= this->lowestY())
+	{
+		return true;
+	}
+	return false;
+}
+
 bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
 {
-	double distance = 
+	float distance = 
 		GMath::twoPointsDistance(this->wTransform.position.X, this->wTransform.position.Y,
 		otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition());
 
 	if (otherCollider->getCollisionType() == 'c') //for circle
 	{
-		double distance = -1;
-
-		if (otherCollider->getXWorldPosition() > this->biggestX())
-		{
-			if (otherCollider->getYWorldPosition() > this->biggestY())
-			{
-				//gorny prawy wierzcholek
-				distance =
-					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
-						this->biggestX(), this->biggestY());
-			}
-			else if (otherCollider->getYWorldPosition() < this->lowestY())
-			{
-				//dolny prawy wierzcholek 
-				distance =
-					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
-						this->biggestX(), this->lowestY());
-			}
-			else
-			{
-				//prawa strona prostokata
-				distance =
-					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
-						this->biggestX(), otherCollider->getYWorldPosition());
-			}
-		}
-		else if (otherCollider->getXWorldPosition() < this->lowestX())
-		{
-			if (otherCollider->getYWorldPosition() > this->biggestY())
-			{
-				//gorny lewy wierzcholek
-				distance =
-					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
-						this->lowestX(), this->biggestY());
-			}
-			else if (otherCollider->getYWorldPosition() < this->lowestY())
-			{
-				//dolny lewy wierzcholek 
-				distance =
-					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
-						this->lowestX(), this->lowestY());
-			}
-			else
-			{
-				//lewa strona prostokata
-				distance =
-					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
-						this->lowestX(), otherCollider->getYWorldPosition());
-			}
-		}
-		else if (otherCollider->getYWorldPosition() > this->biggestY())
-		{
-			//gorna storna prostokata
-			distance =
-				GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
-					otherCollider->getXWorldPosition(), this->biggestY());
-		}
-		else if (otherCollider->getYWorldPosition() < this->lowestY())
-		{
-			//dolna strona prostokata
-			distance =
-				GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
-					otherCollider->getXWorldPosition(), this->lowestY());
-		}
-		else
-		{
-			//jak nie jest na zewnatrz prostokata to jest wewnatrz
-			return true;
-		}
-		return distance <= otherCollider->biggestX() ? true : false;
+		return rectangleOverlapsCircle(this, otherCollider);
 	}
 	else if (otherCollider->getCollisionType() == 'r') //for rectangle
 	{
@@ -151,6 +119,8 @@ CollisionCircle::CollisionCircle(double radius, double worldCoordinateX, double 
 	this->wTransform.position.X = worldCoordinateX;
 	this->wTransform.position.Y = worldCoordinateY;
 	this->collisionType = 'c';
+	this->farthestPoint = radius;
+	this->nearestPoint = radius;
 }
 
 //double CollisionCircle::preciseTouchRange(double otherColliderXCoordinate, double otherColliderYCoordinate)
@@ -174,74 +144,7 @@ bool CollisionCircle::isCollidingWith(Collision *otherCollider)
 	}
 	else if (otherCollider->getCollisionType() == 'r') //for rectangle
 	{
-		if (otherCollider->getXWorldPosition() > this->biggestX())
-		{
-			if (this->getYWorldPosition() > otherCollider->biggestY())
-			{
-				//gorny prawy wierzcholek
-				distance =
-					GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
-						otherCollider->biggestX(), otherCollider->biggestY());
-			}
-			else if (this->getYWorldPosition() < otherCollider->lowestY())
-			{
-				//dolny prawy wierzcholek 
-				distance =
-					GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
-						otherCollider->biggestX(), otherCollider->lowestY());
-			}
-			else
-			{
-				//prawa strona prostokata
-				distance =
-					GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
-						otherCollider->biggestX(), this->getYWorldPosition());
-			}
-		}
-		else if (this->getXWorldPosition() < otherCollider->lowestX())
-		{
-			if (this->getYWorldPosition() > otherCollider->biggestY())
-			{
-				//gorny lewy wierzcholek
-				distance =
-					GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
-						this->lowestX(), this->biggestY());
-			}
-			else if (this->getYWorldPosition() < otherCollider->lowestY())
-			{
-				//dolny lewy wierzcholek 
-				distance =
-					GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
-						otherCollider->lowestX(), otherCollider->lowestY());
-			}
-			else
-			{
-				//lewa strona prostokata
-				distance =
-					GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
-						otherCollider->lowestX(), this->getYWorldPosition());
-			}
-		}
-		else if (this->getYWorldPosition() > otherCollider->biggestY())
-		{
-			//gorna storna prostokata
-			distance =
-				GMath::twoPointsDistance(otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition(),
-					otherCollider->getXWorldPosition(), this->biggestY());
-		}
-		else if (this->getYWorldPosition() < otherCollider->lowestY())
-		{
-			//dolna strona prostokata
-			distance =
-				GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
-					this->getXWorldPosition(), otherCollider->lowestY());
-		}
-		else
-		{
-			//jak nie jest na zewnatrz prostokata to jest wewnatrz
-			return true;
-		}
-		return distance <= this->biggestX() ? true : false;
+		return rectangleOverlapsCircle(otherCollider, this);
 	}
 	return false;
 }

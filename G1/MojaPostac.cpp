@@ -110,7 +110,7 @@ void MojaPostac::EventTick()
 			this->spawnRate = 1;
 		}
 	}
-	if (playerInput->up_KeyboardKeyPressed() || playerInput->leftMouseButtonPressed())
+	if (playerInput->up_KeyboardKeyPressed() )//|| playerInput->leftMouseButtonPressed())
 	{
 		if (this->shootRate <= 0)
 		{

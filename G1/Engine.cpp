@@ -35,6 +35,7 @@ void Engine::mainLoop()
 		windowRender();
 		window->display();
 
+		std::cout << " overallTime:" << deltaTime.asSeconds() << std::endl;
 		deltaTime = deltaClock.restart();
 	}
 }

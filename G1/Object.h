@@ -52,6 +52,7 @@ protected:
 public:
 	Object();
 	Object(double x, double y, double rotate);
+	~Object();
 
 	/// <summary>Function played at the begining when object is created</summary>
 	virtual void beginPlay() = 0;

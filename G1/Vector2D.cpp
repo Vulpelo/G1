@@ -7,6 +7,12 @@ Vector2D::Vector2D()
 Vector2D::Vector2D(double x, double y)
 	: x(x), y(y) {}
 
+Vector2D::Vector2D(Position pos)
+{
+	x = pos.X;
+	y = pos.Y;
+}
+
 Vector2D::Vector2D(const Vector2D* vec)
 	: x(vec->x), y(vec->y) {}
 
@@ -26,6 +32,21 @@ void Vector2D::setVectorByAngleAndLength(double angle, double length)
 	double s = angle * M_PI / 180;
 	this->x = length * sin(s);
 	this->y = length * cos(s);
+}
+
+Vector2D Vector2D::operator-(const Vector2D & other) const
+{
+	return Vector2D(this->x - other.x, this->y - other.y);
+}
+
+Vector2D Vector2D::operator+(const Vector2D & other) const
+{
+	return Vector2D(this->x + other.x, this->y+ other.y);
+}
+
+Vector2D Vector2D::operator*(const float &f) const
+{
+	return Vector2D(this->x * f, this->y * f);
 }
 
 double Vector2D::angle() const

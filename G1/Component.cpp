@@ -6,6 +6,16 @@ Component::Component()
 	localPositionX(0),
 	localPositionY(0) {}
 
+Component::~Component()
+{
+	newOverlapingComponents.clear();
+	overlapingComponents.clear();
+	startOverlapingComp.clear();
+	isOverlapingComp.clear();
+	endOverlapingComp.clear();
+	delete collision;
+}
+
 std::vector<Component*> Component::getStartOverlapingComp()
 {
 	return std::vector<Component*>(startOverlapingComp);
@@ -80,12 +90,10 @@ double Component::getYWorldPosition()
 		if (worldRotationX >= minuendOfRot - beginRotFromObject && worldRotationX <= minuendOfRot + 180 - beginRotFromObject)
 		{
 			lPY = sqrt(c*c - lPX*lPX);
-			std::cout << "::CON1 : " << beginRotFromObject << ";90 " << 90 - beginRotFromObject << ";270 " << 270 - beginRotFromObject;
 		}
 		else
 		{
 			lPY = -sqrt(c*c - lPX*lPX);
-			std::cout << "::CON2 : " << beginRotFromObject << ";90 " << 90 - beginRotFromObject << ";270 " << 270 - beginRotFromObject;
 		}
 		if (minuendOfRot == 270)
 			lPY = -lPY;
@@ -154,5 +162,3 @@ void Component::overlapingEndMain()
 	newOverlapingComponents.clear();
 }
 
-Component::~Component()
-{}

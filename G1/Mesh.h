@@ -15,6 +15,7 @@ private:
 public:
 	Mesh();
 	Mesh(SimpleShape ** shapesZ, int numberOfShapesZ);
+	~Mesh();
 	void render(sf::RenderWindow *);
 	//bool collides(Collision *otherCollider);
 	//Collision* getCollider();

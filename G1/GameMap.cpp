@@ -1,5 +1,6 @@
 #include "GameMap.h"
 
+#include <ctime>
 GameMap::GameMap() { }
 
 std::vector<Object*> GameMap::getAllObjects()
@@ -20,7 +21,9 @@ void GameMap::mainEventTick(sf::Time deltaTime)
 			objects.at(i-1)->mainEventTick(deltaTime);
 	}
 
+	clock_t b = clock();
 	PhysicsHandle::overlapDetectionUpdate(objects);
+	std::cout << " physicsTime:" << double(clock() - b) / CLOCKS_PER_SEC;
 
 	/*--Spawning new actors--*/
 	for (unsigned int i = 0; i < objects.size(); i++)
@@ -35,6 +38,8 @@ void GameMap::mainEventTick(sf::Time deltaTime)
 			}
 		}
 	}
+
+	std::cout << " NrOfObjects:" << objects.size();
 	this->EventTick();
 }
 

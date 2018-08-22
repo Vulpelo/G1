@@ -17,6 +17,19 @@ Object::Object(double x, double y, double rotate)
 	mainBeginPlay();
 }
 
+Object::~Object()
+{
+	for each (Component* c in components)
+	{
+		delete c;
+	}
+	components.clear();
+
+	layers.clear();
+	overlapingObjects.clear();
+	newOverlapingObjects.clear();
+}
+
 void Object::mainBeginPlay()
 {
 	layers.insert(Layer::DEFAULT);

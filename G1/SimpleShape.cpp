@@ -23,7 +23,6 @@ void SimpleShape::setWorldPosition(double x, double y)
 {
 	if (begin_rTransform.position.X + meshLocalPositionX != 0 || begin_rTransform.position.Y + meshLocalPositionY != 0)
 	{
-		std::cout << this << "-RX " << wTransform.rotationX << "::X " << rTransform.position.X << ":Y " << rTransform.position.Y;
 		this->begin_rTransform.rotationX = GMath::vectorAngle(begin_rTransform.position.X + meshLocalPositionX, -begin_rTransform.position.Y + meshLocalPositionY);
 
 		//double begin_rTransform.rotationX = atan(rTransform.position.X / rTransform.position.Y * 180 * M_PI);
@@ -35,16 +34,13 @@ void SimpleShape::setWorldPosition(double x, double y)
 		if (wTransform.rotationX >= minuendOfRot - begin_rTransform.rotationX && wTransform.rotationX <= minuendOfRot + 180 - begin_rTransform.rotationX)
 		{
 			rTransform.position.Y = sqrt(c*c - rTransform.position.X*rTransform.position.X);
-			std::cout << "::CON1 : " << begin_rTransform.rotationX << ";90 " << 90 - begin_rTransform.rotationX << ";270 " << 270 - begin_rTransform.rotationX;
 		}
 		else
 		{
 			rTransform.position.Y = -sqrt(c*c - rTransform.position.X*rTransform.position.X);
-			std::cout << "::CON2 : " << begin_rTransform.rotationX << ";90 " << 90 - begin_rTransform.rotationX << ";270 " << 270 - begin_rTransform.rotationX;
 		}
 		if (minuendOfRot == 270)
 			rTransform.position.Y = -rTransform.position.Y;
-		std::cout << std::endl;
 
 	}
 	wTransform.position.X = rTransform.position.X + x;

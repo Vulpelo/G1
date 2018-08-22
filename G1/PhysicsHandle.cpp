@@ -1,15 +1,32 @@
 #include "PhysicsHandle.h"
 
+void PhysicsHandle::overlapDetectionUpdate(std::vector<Object*>& objects)
+{
+	/*---Checking collisions---*/
+	for (unsigned int i = 0; i < objects.size(); i++)
+	{
+		for (unsigned int j = i + 1; j < objects.size(); j++)
+			if (PhysicsHandle::overlapsComponentsUpdate(objects.at(i)->getComponents(), objects.at(j)->getComponents()))
+			{
+				// adding to object vectors to object that are overlaping
+				objects.at(i)->addNewOverlapingObject(objects.at(j));
+				objects.at(j)->addNewOverlapingObject(objects.at(i));
+			}
+	}
 
+	/*---Update data in Object about overlaping objects---*/
+	for each (Object* obj in objects)
+		overlapingEndMain(obj);
+}
 
 bool PhysicsHandle::overlapsAnyComponent(std::vector <Component*> &components, std::vector <Component*> &otherComponents)
 {
-	for (unsigned int i = 0; i < otherComponents.size(); i++)
+	for (unsigned int i = 0; i < components.size(); i++)
 	{
-		for (unsigned int j = 0; j < components.size(); j++)
+		for (unsigned int j = i + 1; j < otherComponents.size(); j++)
 		{
-			if (otherComponents.at(i)->getCollider() != NULL && components.at(j)->getCollider() != NULL)
-				if (components.at(j)->collides(otherComponents.at(i)->getCollider()))
+			if (components[i]->getCollider() != NULL && otherComponents[j]->getCollider() != NULL)
+				if (components[i]->collides(otherComponents[j]->getCollider()))
 					return true;//-  
 						/*{
 						components.at(j)->addOverlapComponent(otherComponents.at(i));
@@ -43,24 +60,7 @@ bool PhysicsHandle::overlapsComponentsUpdate(std::vector <Component*> &component
 	return objectCollides;
 }
 
-void PhysicsHandle::overlapDetectionUpdate(std::vector<Object*>& objects)
-{
-	/*---Checking collisions---*/
-	for (unsigned int i = 0; i < objects.size(); i++)
-	{
-		for (unsigned int j = i + 1; j < objects.size(); j++)
-			if (PhysicsHandle::overlapsComponentsUpdate(objects.at(i)->getComponents(), objects.at(j)->getComponents()))
-			{
-				// adding to object vectors to object that are overlaping
-				objects.at(i)->addNewOverlapingObject(objects.at(j));
-				objects.at(j)->addNewOverlapingObject(objects.at(i));
-			}
-	}
 
-	/*---Update data in Object about overlaping objects---*/
-	for each (Object* obj in objects)
-		overlapingEndMain(obj);
-}
 
 void PhysicsHandle::overlapingEndMain(Object* object)
 {
