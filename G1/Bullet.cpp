@@ -16,7 +16,7 @@ void Bullet::beginPlay()
 {
 	this->actualMovement.y = 50;
 	this->actualMovement.x = 0;
-	this->lifeTime = 25;
+	this->lifeTime = 55;
 	this->movementToRotationDirection = true;
 
 	int nrOfShapes = 1;

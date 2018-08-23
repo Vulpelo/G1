@@ -4,8 +4,6 @@
 #include "MapManager.h"
 #include "Map001.h"
 
-#include <iostream>
-
 Engine::Engine()
 {
 	window = new sf::RenderWindow(sf::VideoMode(Properties::width, Properties::height, Properties::bitPerPixel), "G1");
@@ -29,13 +27,17 @@ void Engine::mainLoop()
 {
 	while (window->isOpen())
 	{
+		clock_t b1, e1, e, b = clock();
+	
 		mainEventTick();
-
 		window->clear();
 		windowRender();
 		window->display();
 
-		std::cout << " overallTime:" << deltaTime.asSeconds() << std::endl;
+		e = clock();
+		Debug::addText(" overallTime:", e-b);
+		Debug::addText(" FPS:", 1000./ (e - b));
+		Debug::update();
 		deltaTime = deltaClock.restart();
 	}
 }

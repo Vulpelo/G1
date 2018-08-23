@@ -66,7 +66,7 @@ void Object::render(sf::RenderWindow * w)
 		components.at(i)->render(w);
 }
 
-std::vector <Component*> Object::getComponents() const
+std::vector <Component*> &Object::getComponents()
 {
 	return components;
 }

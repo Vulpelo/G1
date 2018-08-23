@@ -10,26 +10,26 @@ Component::~Component()
 {
 	newOverlapingComponents.clear();
 	overlapingComponents.clear();
-	startOverlapingComp.clear();
-	isOverlapingComp.clear();
-	endOverlapingComp.clear();
+	//startOverlapingComp.clear();
+	//isOverlapingComp.clear();
+	//endOverlapingComp.clear();
 	delete collision;
 }
 
-std::vector<Component*> Component::getStartOverlapingComp()
-{
-	return std::vector<Component*>(startOverlapingComp);
-}
-
-std::vector<Component*> Component::getIsOverlapingComp()
-{
-	return std::vector<Component*>(isOverlapingComp);
-}
-
-std::vector<Component*> Component::getEndOverlapingComp()
-{
-	return std::vector<Component*>(endOverlapingComp);
-}
+//std::vector<Component*>& Component::getStartOverlapingComp()
+//{
+//	return startOverlapingComp;
+//}
+//
+//std::vector<Component*>& Component::getIsOverlapingComp()
+//{
+//	return isOverlapingComp;
+//}
+//
+//std::vector<Component*>& Component::getEndOverlapingComp()
+//{
+//	return endOverlapingComp;
+//}
 
 void Component::addOverlapComponent(Component * newComponent)
 {
@@ -119,46 +119,46 @@ std::string Component::getName()
 	return std::string(name);
 }
 
-void Component::overlapingEndMain()
-{
-	startOverlapingComp.clear();
-	isOverlapingComp.clear();
-	endOverlapingComp.clear();
-
-	for (int i = 0; i < overlapingComponents.size(); i++)
-	{
-		bool overlaping = false;
-		int j = 0;
-		for (j = 0; j < newOverlapingComponents.size(); j++)
-		{
-			if (overlapingComponents.at(i) == newOverlapingComponents.at(j))
-			{
-				//czyli isOverlaping
-				overlaping = true;
-				break;
-			}
-		}
-
-		if (overlaping == false)
-		{
-			endOverlapingComp.push_back(overlapingComponents.at(i));
-			//obj->endOverlapingComponent(name, overlapingComponents.at(i));
-			overlapingComponents.erase(overlapingComponents.begin() + i--);
-		}
-		else
-		{
-			isOverlapingComp.push_back(overlapingComponents.at(i));
-			//obj->isOverlapingComponent(name, overlapingComponents.at(i));
-			if (!newOverlapingComponents.empty())
-				newOverlapingComponents.erase(newOverlapingComponents.begin() + j);
-		}
-	}
-	for (int i = 0; i < newOverlapingComponents.size(); i++)
-	{
-		startOverlapingComp.push_back(newOverlapingComponents.at(i));
-		//obj->startOverlapingComponent(name, newOverlapingComponents.at(i));
-		overlapingComponents.push_back(newOverlapingComponents.at(i));
-	}
-	newOverlapingComponents.clear();
-}
+//void Component::overlapingEndMain()
+//{
+//	startOverlapingComp.clear();
+//	isOverlapingComp.clear();
+//	endOverlapingComp.clear();
+//
+//	for (int i = 0; i < overlapingComponents.size(); i++)
+//	{
+//		bool overlaping = false;
+//		int j = 0;
+//		for (j = 0; j < newOverlapingComponents.size(); j++)
+//		{
+//			if (overlapingComponents.at(i) == newOverlapingComponents.at(j))
+//			{
+//				//czyli isOverlaping
+//				overlaping = true;
+//				break;
+//			}
+//		}
+//
+//		if (overlaping == false)
+//		{
+//			endOverlapingComp.push_back(overlapingComponents.at(i));
+//			//obj->endOverlapingComponent(name, overlapingComponents.at(i));
+//			overlapingComponents.erase(overlapingComponents.begin() + i--);
+//		}
+//		else
+//		{
+//			isOverlapingComp.push_back(overlapingComponents.at(i));
+//			//obj->isOverlapingComponent(name, overlapingComponents.at(i));
+//			if (!newOverlapingComponents.empty())
+//				newOverlapingComponents.erase(newOverlapingComponents.begin() + j);
+//		}
+//	}
+//	for (int i = 0; i < newOverlapingComponents.size(); i++)
+//	{
+//		startOverlapingComp.push_back(newOverlapingComponents.at(i));
+//		//obj->startOverlapingComponent(name, newOverlapingComponents.at(i));
+//		overlapingComponents.push_back(newOverlapingComponents.at(i));
+//	}
+//	newOverlapingComponents.clear();
+//}
 

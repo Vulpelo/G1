@@ -12,6 +12,7 @@
 class Component
 {
 private:
+	friend class PhysicsHandle;
 	std::vector <Component *> newOverlapingComponents;
 
 protected:
@@ -19,9 +20,9 @@ protected:
 	std::string name;
 	std::vector <Component *> overlapingComponents;
 	
-	std::vector <Component *> startOverlapingComp;
-	std::vector <Component *> isOverlapingComp;
-	std::vector <Component *> endOverlapingComp;
+	//std::vector <Component *> startOverlapingComp;
+	//std::vector <Component *> isOverlapingComp;
+	//std::vector <Component *> endOverlapingComp;
 	
 	double localPositionX;
 	double localPositionY;
@@ -33,9 +34,9 @@ public:
 	Collision * collision;
 
 	Component();
-	std::vector <Component *> getStartOverlapingComp();
-	std::vector <Component *> getIsOverlapingComp();
-	std::vector <Component *> getEndOverlapingComp();
+	//std::vector <Component *>& getStartOverlapingComp();
+	//std::vector <Component *>& getIsOverlapingComp();
+	//std::vector <Component *>& getEndOverlapingComp();
 	
 	void addOverlapComponent(Component*);
 	Collision* getCollider();
@@ -54,7 +55,7 @@ public:
 
 	void setName(std::string name);
 	std::string getName();
-	void overlapingEndMain();
+	//void overlapingEndMain();
 	~Component();
 };
 

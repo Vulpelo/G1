@@ -61,9 +61,18 @@ public:
 	virtual void EventTick() = 0;
 
 	//Mesh
-	std::vector <Component*> getComponents() const;
+	std::vector <Component*> &getComponents();
 
+	void addNewOverlapingObject(Object* overlaped) {
+		newOverlapingObjects.push_back(overlaped);
+	}
 
+	std::vector<Object*>& getOverlapingObjects() {
+		return overlapingObjects;
+	}
+	std::vector<Object*>& getNewOverlapingObjects() {
+		return newOverlapingObjects;
+	}
 
 #pragma region Overlaping interactions
 	/// <summary>Function is called every time when new object just touched this object</summary>
@@ -96,15 +105,7 @@ public:
 	void setWorldRotation(double x);
 #pragma endregion
 
-	void addNewOverlapingObject(Object* overlaped) 
-	{ newOverlapingObjects.push_back(overlaped); }
 
-	std::vector<Object*> getOverlapingObjects() {
-		return overlapingObjects;
-	}
-	std::vector<Object*> getNewOverlapingObjects() {
-		return newOverlapingObjects;
-	}
 };
 
 #endif // !_Object_H_

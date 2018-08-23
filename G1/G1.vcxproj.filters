@@ -58,6 +58,12 @@
     <Filter Include="Header Files\Engine\Func\Transform">
       <UniqueIdentifier>{16a89ecd-a08f-4fe3-9041-692acf42bf5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Debug">
+      <UniqueIdentifier>{e494ca76-c7fb-46e2-83c2-b185cdc67382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Debug">
+      <UniqueIdentifier>{402ad369-2719-4b88-aed4-b06f9c6b56ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -128,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="Physics.cpp">
       <Filter>Source Files\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Source Files\Engine\Debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="Actor.h">
       <Filter>Header Files\Engine\Object\Spawnable</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Header Files\Engine\Debug</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

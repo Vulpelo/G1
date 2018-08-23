@@ -4,8 +4,9 @@
 #define GAMEMAP_H
 
 #include "Actor.h"
-//#include "Object.h"
+#include "Object.h"
 #include <vector>
+#include "Debug.h"
 //#include "PhysicsHandle.h"
 
 class GameMap

@@ -1,13 +1,13 @@
 #include "Collision.h"
 
-void Collision::draw(sf::RenderWindow * w)
-{}
-
 Collision::Collision()
 	: SimpleShape()
 {
 
 }
+
+void Collision::draw(sf::RenderWindow * w)
+{}
 
 char Collision::getCollisionType()
 {
@@ -43,7 +43,7 @@ bool Collision::rectangleOverlapsCircle(Collision * rect, Collision * cirl)
 		Vector2D nV = (rec - cir).normalize();
 		nV = cir + nV * cirl->getFarthestPoint();
 
-		return this->rectangleOverlapsPoint(Position(nV.x, nV.y));
+		return rect->rectangleOverlapsPoint(Position(nV.x, nV.y));
 	}
 }
 
@@ -66,7 +66,7 @@ double CollisionRectangle::lowestX()
 }
 double CollisionRectangle::lowestY()
 {//JEwszcze sprawdzic
-	return this->getYWorldPosition() - (this->height / 2.0);
+	return this->getYWorldPosition() + (this->height / 2.0);
 }
 double CollisionRectangle::biggestX()
 {
@@ -74,12 +74,12 @@ double CollisionRectangle::biggestX()
 }
 double CollisionRectangle::biggestY()
 {//JEwszcze sprawdzic
-	return this->getYWorldPosition() + (this->height / 2.0);
+	return this->getYWorldPosition() - (this->height / 2.0);
 }
 
 bool CollisionRectangle::rectangleOverlapsPoint(Position point)
 {
-	if (this->lowestX() <= point.X && point.X <= this->biggestX() && this->biggestY() >= point.Y && point.Y >= this->lowestY())
+	if (this->lowestX() <= point.X && point.X <= this->biggestX() && this->biggestY() <= point.Y && point.Y <= this->lowestY())
 	{
 		return true;
 	}
@@ -130,12 +130,9 @@ CollisionCircle::CollisionCircle(double radius, double worldCoordinateX, double 
 
 bool CollisionCircle::isCollidingWith(Collision *otherCollider)
 {
-	double distance=-1;
-	
 	if (otherCollider->getCollisionType() == 'c') // for circle
 	{
-		distance = GMath::twoPointsDistance(this->getXWorldPosition(), this->getYWorldPosition(),
-			otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition());
+		float distance = GMath::twoPointsDistance(this->wTransform.position, this->wTransform.position);
 
 		if (this->radius + otherCollider->lowestX() >= distance)
 			return true;
@@ -151,17 +148,17 @@ bool CollisionCircle::isCollidingWith(Collision *otherCollider)
 
 double CollisionCircle::lowestX()
 {
-	return radius;
+	return this->getXWorldPosition() - radius;
 }
 double CollisionCircle::lowestY()
 {
-	return radius;
+	return this->getYWorldPosition() + radius;
 }
 double CollisionCircle::biggestX()
 {
-	return radius;
+	return this->getXWorldPosition() + radius;
 }
 double CollisionCircle::biggestY()
 {
-	return radius;
+	return this->getYWorldPosition() - radius;
 }
