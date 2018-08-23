@@ -6,7 +6,7 @@ void PhysicsHandle::overlapDetectionUpdate(std::vector<Object*>& objects)
 	for (unsigned int i = 0; i < objects.size(); i++)
 	{
 		for (unsigned int j = i + 1; j < objects.size(); j++)
-			if (PhysicsHandle::overlapsComponentsUpdate(objects.at(i)->getComponents(), objects.at(j)->getComponents()))
+			if (PhysicsHandle::overlapsAnyComponent(objects.at(i)->getComponents(), objects.at(j)->getComponents()))
 			{
 				// adding to object vectors to object that are overlaping
 				objects.at(i)->addNewOverlapingObject(objects.at(j));
@@ -21,7 +21,7 @@ bool PhysicsHandle::overlapsAnyComponent(std::vector <Component*> &components, s
 {
 	for (unsigned int i = 0; i < components.size(); i++)
 	{
-		for (unsigned int j = i + 1; j < otherComponents.size(); j++)
+		for (unsigned int j = 0; j < otherComponents.size(); j++)
 		{
 			if (components[i]->getCollider() != NULL && otherComponents[j]->getCollider() != NULL)
 				if (components[i]->collides(otherComponents[j]->getCollider()))
@@ -52,7 +52,6 @@ bool PhysicsHandle::overlapsComponentsUpdate(std::vector <Component*> &component
 }
 
 
-
 void PhysicsHandle::overlapingEndMain(Object* object)
 {
 	//for each (Component* comp in object->getComponents())
@@ -73,6 +72,9 @@ void PhysicsHandle::overlapingEndMain(Object* object)
 	//	}
 	//}
 
+	/*=Making events for Components, function called in Object with this component=*/
+	// not used because of performance
+	/*
 	for each (Component* comp in object->getComponents())
 	{
 		for (int i = 0; i < comp->overlapingComponents.size(); i++)
@@ -109,9 +111,9 @@ void PhysicsHandle::overlapingEndMain(Object* object)
 		comp->newOverlapingComponents.clear();
 	}
 
+	*/
 
-
-	/*=Making events for Object=*/
+	/*== Making events for Object ==*/
 	std::vector<Object*>& ovObj = object->getOverlapingObjects();
 	std::vector<Object*>& nOvObj = object->getNewOverlapingObjects();
 

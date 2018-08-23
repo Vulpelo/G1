@@ -1,7 +1,7 @@
 #include "Component.h"
 
 Component::Component()
-	: collision(NULL), 
+	: collision(NULL),
 	name(""),
 	localPositionX(0),
 	localPositionY(0) {}
@@ -62,11 +62,11 @@ double Component::getXWorldPosition()
 
 		double c = sqrt((localPositionX)*(localPositionX)
 			+(localPositionY)*(localPositionY));
-		double lPX = c * sin((worldRotationX + beginRotFromObject)*M_PI / 180);
+		double lPX = c * sin((wTransform.rotationX + beginRotFromObject)*M_PI / 180);
 
-		return worldPositionX + lPX;
+		return wTransform.position.X + lPX;
 	}
-	return worldPositionX + localPositionX;
+	return wTransform.position.X + localPositionX;
 };
 
 double Component::getYWorldPosition()
@@ -84,10 +84,10 @@ double Component::getYWorldPosition()
 
 		double c = sqrt((localPositionX)*(localPositionX)
 			+(localPositionY)*(localPositionY));
-		double lPX = c * sin((worldRotationX + beginRotFromObject)*M_PI / 180);
+		double lPX = c * sin((wTransform.rotationX + beginRotFromObject)*M_PI / 180);
 
 		double lPY = 0;
-		if (worldRotationX >= minuendOfRot - beginRotFromObject && worldRotationX <= minuendOfRot + 180 - beginRotFromObject)
+		if (wTransform.rotationX >= minuendOfRot - beginRotFromObject && wTransform.rotationX <= minuendOfRot + 180 - beginRotFromObject)
 		{
 			lPY = sqrt(c*c - lPX*lPX);
 		}
@@ -98,25 +98,25 @@ double Component::getYWorldPosition()
 		if (minuendOfRot == 270)
 			lPY = -lPY;
 
-		return -worldPositionY + lPY;
+		return -wTransform.position.Y + lPY;
 	}
-	return -worldPositionY - localPositionY;
+	return -wTransform.position.Y - localPositionY;
 };
 
 void Component::setLocalRotation(double x)
 {
-	worldRotationX = x; 
+	wTransform.rotationX = x;
 	setRotation(x);
 }
 
-void Component::setName(std::string name)
+void Component::setName(char* name)
 {
 	this->name = name;
 }
 
-std::string Component::getName()
+char* Component::getName() const
 {
-	return std::string(name);
+	return name;
 }
 
 //void Component::overlapingEndMain()

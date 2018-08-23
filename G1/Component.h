@@ -11,13 +11,13 @@
 
 class Component
 {
-private:
 	friend class PhysicsHandle;
 	std::vector <Component *> newOverlapingComponents;
 
 protected:
 	//overlaping
-	std::string name;
+	//std::string name;
+	char* name;
 	std::vector <Component *> overlapingComponents;
 	
 	//std::vector <Component *> startOverlapingComp;
@@ -27,9 +27,7 @@ protected:
 	double localPositionX;
 	double localPositionY;
 
-	double worldPositionX;
-	double worldPositionY;
-	double worldRotationX;
+	Transform wTransform;
 public:
 	Collision * collision;
 
@@ -46,15 +44,15 @@ public:
 	virtual void setLocalPosition(double, double);
 	double getXWorldPosition();
 	double getYWorldPosition();
-	double getXWorldRotation() { return worldRotationX; };
+	double getXWorldRotation() { return wTransform.rotationX; };
 	void setLocalRotation(double x);
 	virtual void render(sf::RenderWindow *) {};
 	virtual void setRotation(double) {};
 	virtual void setRotateToMovementDirection(bool a) {};
 	virtual bool getRotateToMovementDirection() = 0;
 
-	void setName(std::string name);
-	std::string getName();
+	void setName(char* name);
+	char* getName() const;
 	//void overlapingEndMain();
 	~Component();
 };

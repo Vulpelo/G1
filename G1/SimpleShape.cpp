@@ -28,7 +28,7 @@ void SimpleShape::setWorldPosition(double x, double y)
 		//double begin_rTransform.rotationX = atan(rTransform.position.X / rTransform.position.Y * 180 * M_PI);
 		double c = sqrt((begin_rTransform.position.X + meshLocalPositionX)*(begin_rTransform.position.X + meshLocalPositionX)
 			+ (begin_rTransform.position.Y + meshLocalPositionY)*(begin_rTransform.position.Y + meshLocalPositionY));
-		//rTransform.position.X = c * sin((worldRotationX - localRotationX + begin_rTransform.rotationX)*M_PI / 180);
+		//rTransform.position.X = c * sin((wTransform.rotationX - localRotationX + begin_rTransform.rotationX)*M_PI / 180);
 		rTransform.position.X = c * sin((wTransform.rotationX + begin_rTransform.rotationX)*M_PI / 180);
 
 		if (wTransform.rotationX >= minuendOfRot - begin_rTransform.rotationX && wTransform.rotationX <= minuendOfRot + 180 - begin_rTransform.rotationX)
