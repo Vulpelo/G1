@@ -12,13 +12,12 @@ private:
 	void worldCoordinateMovement(); //Moving on screen
 
 protected:
-	double actualMovementAngleX; // delete it later 
 	
 	/*=Movement=*/
 	/*Speed of actor when movementToRotationDirection is true.
 	Then meshes setRotateToMovementDirection should be false
 	because this function uses speedRight and speedForward*/
-	Vector2D actualMovement;
+	Vector2D velocity;
 	bool movementToRotationDirection;
 	double maxWalkSpeedForwad;//!-przeniesc do klasy wy¿ej
 	double maxWalkSpeedRight;//!-przeniesc do klasy wy¿ej
@@ -34,13 +33,9 @@ protected:
 
 	//void movementDecrementacionF();
 public:
-	//clear virtual ------------------
-	virtual void beginPlay() = 0;
-	virtual void EventTick() = 0;
-	//clear virtual ------------------
 
 	Actor();
-	Actor(double x, double y, double rotate);
+	Actor(Transform nWTransform);
 	//Actor(Mesh a, double worldCoordinateX, double worldCoordinateY);
 
 	//Event tick który ma podstawowe funkcje które siê zawsze wykunuja
@@ -54,7 +49,6 @@ public:
 	bool hasPlayerInput();//THIS only for actor
 
 	void updateMesh();
-	void movementAngle();
 	////rate is from -1 to 1
 	//void movementForward(float rate);
 	//void movementRight(float rate);

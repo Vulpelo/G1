@@ -8,12 +8,10 @@ Object::Object()
 	mainBeginPlay();
 }
 
-Object::Object(double x, double y, double rotate)
+Object::Object(Transform nWTransform)
 {
 	this->destroyObject = false;
-	this->wTransform.position.X = x;
-	this->wTransform.position.Y = y;
-	this->wTransform.rotationX = rotate;
+	this->wTransform = nWTransform;
 	mainBeginPlay();
 }
 
@@ -33,6 +31,9 @@ Object::~Object()
 void Object::mainBeginPlay()
 {
 	layers.insert(Layer::DEFAULT);
+
+	setWorldCoordinate(this->wTransform.position.X, this->wTransform.position.Y);
+	setWorldRotation(this->wTransform.rotationX);
 	//Object::updateMesh();
 }
 
@@ -54,16 +55,15 @@ void Object::updateMesh()
 	}
 }
 
-void Object::beginPlay()
-{
-	setWorldCoordinate(this->wTransform.position.X, this->wTransform.position.Y);
-	setWorldRotation(this->wTransform.rotationX);
-}
-
 void Object::render(sf::RenderWindow * w)
 {
 	for (unsigned int i = 0; i<components.size(); i++)
 		components.at(i)->render(w);
+}
+
+Transform Object::get_wTransform()
+{
+	return this->wTransform;
 }
 
 std::vector <Component*> &Object::getComponents()

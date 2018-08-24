@@ -12,7 +12,7 @@ private:
 
 public:
 	Bullet();
-	Bullet(double x, double y, double rotate);
+	Bullet(Transform nWTransform);
 	void beginPlay();
 	void EventTick();
 

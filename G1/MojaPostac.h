@@ -15,7 +15,7 @@ private:
 
 public:
 	MojaPostac();
-	MojaPostac(double x, double y, double rotate);
+	MojaPostac(Transform nWTransform);
 	void beginPlay();
 	void EventTick();
 	void movement();//!-przeniesc do klasy wy¿ej_?

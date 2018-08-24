@@ -51,7 +51,7 @@ protected:
 
 public:
 	Object();
-	Object(double x, double y, double rotate);
+	Object(Transform nWTransform);
 	~Object();
 
 	/// <summary>Function played at the begining when object is created</summary>
@@ -60,6 +60,8 @@ public:
 	/// <summary>Function if played every frame of object life span</summary>
 	virtual void EventTick() = 0;
 
+
+	Transform get_wTransform();
 	//Mesh
 	std::vector <Component*> &getComponents();
 

@@ -1,8 +1,13 @@
 #include "Wall.h"
 
 
-Wall::Wall(double x, double y, double rotate)
-	: Object(x,y,rotate)
+Wall::Wall(Transform nWTransform)
+	: Object(nWTransform)
+{
+	beginPlay();
+}
+
+void Wall::beginPlay()
 {
 	SimpleShape **sS = new SimpleShape*[1];
 	sS[0] = new Rectangle(100, 150, sf::Color(125, 255, 125, 255));
@@ -11,12 +16,7 @@ Wall::Wall(double x, double y, double rotate)
 	m->setCollider(c);
 	components.push_back(m);
 
-	Object::beginPlay();
-}
-
-void Wall::beginPlay()
-{
-
+	updateMesh();
 }
 
 void Wall::EventTick()

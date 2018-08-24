@@ -3,8 +3,8 @@
 #include "Mesh.h"
 #include "Przeciwnik1.h"
 
-MojaPostac::MojaPostac(double x, double y, double rotate)
-	:Player(x, y, rotate)
+MojaPostac::MojaPostac(Transform nWTransform)
+	:Player(nWTransform)
 {
 	beginPlay();
 }
@@ -106,7 +106,7 @@ void MojaPostac::EventTick()
 	{
 		if (this->spawnRate <= 0)
 		{
-			spawnObject(new Przeciwnik1(400, -400, 0));
+			spawnObject(new Przeciwnik1(Transform(Position(400, -400))));
 			this->spawnRate = 1;
 		}
 	}
@@ -115,7 +115,9 @@ void MojaPostac::EventTick()
 		if (this->shootRate <= 0)
 		{
 			this->shootRate = 0.15;
-			spawnObject(new Bullet(components.at(2)->getXWorldPosition(), -components.at(2)->getYWorldPosition(), rot));
+			Transform nTran(Position(components.at(2)->getXWorldPosition(), -components.at(2)->getYWorldPosition()));
+			nTran.rotationX = rot;
+			spawnObject(new Bullet(nTran));
 		}
 	}
 	shootRate -= deltaTime.asSeconds();

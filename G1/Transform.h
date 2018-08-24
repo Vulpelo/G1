@@ -13,6 +13,7 @@ struct Transform
 	double scaleY;
 
 	Transform() : rotationX(0), scaleX(1), scaleY(1) {};
+	Transform(Position pos) : position(pos), rotationX(0), scaleX(1), scaleY(1) {}
 };
 
 #endif // !TRANSFORM_H

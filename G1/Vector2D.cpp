@@ -51,12 +51,19 @@ Vector2D Vector2D::operator*(const float &f) const
 
 double Vector2D::angle() const
 {
-	double value;
-	value = (180 * atan(x / y)) / M_PI;
-	if (y < 0)
-		value += 180;
-	if (x < 0 && y >= 0)
-		value += 360;
+	double value = 0;
+	if (y != 0) {
+		value = (180 * atan(x / y)) / M_PI;
+		if (y < 0)
+			value += 180;
+		if (x < 0 && y >= 0)
+			value += 360;
+	}
+	else if (x > 0)
+		value = 90;
+	else if (x < 0)
+		value = 270;
+
 	return value;
 }
 

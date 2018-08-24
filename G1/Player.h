@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include "Actor.h"
 
 class Player : public Actor
@@ -10,7 +14,7 @@ private:
 	void mainEventTick(sf::Time deltaTime);
 public:
 	Player();
-	Player(double x, double y, double rotate);
+	Player(Transform nWTransform);
 	
 	~Player();
 
@@ -21,3 +25,4 @@ public:
 	void movementDecrementacionF();
 };
 
+#endif // !PLAYER_H

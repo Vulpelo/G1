@@ -6,16 +6,16 @@ Bullet::Bullet()
 	beginPlay();
 }
 
-Bullet::Bullet(double x, double y, double rotate)
-	:Actor(x,y, rotate)
+Bullet::Bullet(Transform nWTransform)
+	:Actor(nWTransform)
 {
 	beginPlay();
 }
 
 void Bullet::beginPlay()
 {
-	this->actualMovement.y = 500;
-	this->actualMovement.x = 0;
+	this->velocity.y = 500;
+	this->velocity.x = 0;
 	this->lifeTime = 5;
 	this->movementToRotationDirection = true;
 

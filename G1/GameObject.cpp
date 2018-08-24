@@ -7,8 +7,8 @@ GameObject::GameObject()
 {
 }
 
-GameObject::GameObject(double x, double y, double rot)
-	: Object(x,y,rot)
+GameObject::GameObject(Transform nWTransform)
+	: Object(nWTransform)
 {
 }
 

@@ -7,8 +7,8 @@ Przeciwnik1::Przeciwnik1()
 	beginPlay();
 }
 
-Przeciwnik1::Przeciwnik1(double x, double y, double rotate)
-	:Actor(x, y, rotate)
+Przeciwnik1::Przeciwnik1(Transform nWTransform)
+	:Actor(nWTransform)
 {
 	beginPlay();
 }
@@ -57,17 +57,18 @@ void Przeciwnik1::beginPlay()
 	m = new Mesh(sS, nrOfShapes);
 	m->setRotateToMovementDirection(false);
 	this->components.push_back(m);
+
 	updateMesh();
 }
 
 void Przeciwnik1::EventTick()
 {
-	if (simpleMoveTo(patrolPoints.at(patrolNr), 10))
-	{
-		patrolNr++;
-		if (patrolNr >= patrolPoints.size())
-			patrolNr = 0;
-	}
+	//if (simpleMoveTo(patrolPoints.at(patrolNr), 10))
+	//{
+	//	patrolNr++;
+	//	if (patrolNr >= patrolPoints.size())
+	//		patrolNr = 0;
+	//}
 }
 void Przeciwnik1::startOverlaping(Object *overlaped)
 {

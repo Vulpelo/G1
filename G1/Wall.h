@@ -8,7 +8,7 @@ class Wall : public Object
 {
 
 public:
-	Wall(double x, double y, double rotate);
+	Wall(Transform nWTransform);
 	void beginPlay();
 	void EventTick();
 

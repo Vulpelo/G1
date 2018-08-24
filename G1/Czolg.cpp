@@ -2,8 +2,8 @@
 
 
 
-Czolg::Czolg(double x, double y, double rotate)
-	:Player(x, y, rotate)
+Czolg::Czolg(Transform nWTransform)
+	:Player(nWTransform)
 {
 	beginPlay();
 }
@@ -79,7 +79,10 @@ void Czolg::EventTick()
 		if (this->aShootRate <= 0)
 		{
 			this->aShootRate = this->shootRate;
-			spawnObject(new Bullet(components.at(1)->getXWorldPosition(), -components.at(1)->getYWorldPosition(), this->wTransform.rotationX));
+
+			Transform nTran(this->get_wTransform().position);
+			nTran.rotationX = this->wTransform.rotationX;
+			spawnObject(new Bullet(nTran));
 		}
 	}
 	aShootRate -= deltaTime.asSeconds();

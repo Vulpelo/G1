@@ -12,7 +12,7 @@ private:
 
 public:
 	Przeciwnik1();
-	Przeciwnik1(double x, double y, double rotate);
+	Przeciwnik1(Transform nWTransform);
 	~Przeciwnik1();
 
 	void EventTick();

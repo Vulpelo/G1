@@ -26,6 +26,7 @@ public:
 
 	/// <summary>
 	/// Direction of vector in witch is facing. Angle is 0 when vector is pointing straight up.
+	/// Return's 0 also when x and y are equal 0.
 	/// </summary>
 	double angle() const; 
 

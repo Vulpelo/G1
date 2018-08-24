@@ -1,6 +1,5 @@
 #pragma once
 #include "Player.h"
-#include "Mesh.h"
 #include "Bullet.h"
 
 class Czolg : public Player
@@ -10,7 +9,7 @@ private:
 	float aShootRate;
 public:
 	Czolg();
-	Czolg(double x, double y, double rotate);
+	Czolg(Transform nWTransform);
 
 	void beginPlay();
 	void EventTick();
