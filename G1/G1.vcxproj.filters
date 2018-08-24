@@ -141,6 +141,9 @@
     <ClCompile Include="Czolg.cpp">
       <Filter>Source Files\G1Game</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Engine\Object\Spawnamble</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -226,6 +229,9 @@
     </ClInclude>
     <ClInclude Include="Czolg.h">
       <Filter>Header Files\G1Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Engine\Object\Spawnable</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

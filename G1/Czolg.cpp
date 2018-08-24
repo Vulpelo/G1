@@ -3,13 +3,13 @@
 
 
 Czolg::Czolg(double x, double y, double rotate)
-	:Actor(x, y, rotate)
+	:Player(x, y, rotate)
 {
 	beginPlay();
 }
 
 Czolg::Czolg()
-	: Actor()
+	: Player()
 {
 	beginPlay();
 }

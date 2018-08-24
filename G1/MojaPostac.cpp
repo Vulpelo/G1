@@ -4,12 +4,12 @@
 #include "Przeciwnik1.h"
 
 MojaPostac::MojaPostac(double x, double y, double rotate)
-	:Actor(x, y, rotate)
+	:Player(x, y, rotate)
 {
 	beginPlay();
 }
 MojaPostac::MojaPostac()
-	:Actor()
+	:Player()
 {
 	beginPlay();
 }

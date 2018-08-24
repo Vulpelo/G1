@@ -1,9 +1,9 @@
 #pragma once
-#include "Actor.h"
+#include "Player.h"
 #include "Mesh.h"
 #include "Bullet.h"
 
-class Czolg : public Actor
+class Czolg : public Player
 {
 private:
 	float shootRate;

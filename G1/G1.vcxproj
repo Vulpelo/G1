@@ -146,6 +146,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PhysicsHandle.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Properties.cpp" />
     <ClCompile Include="Przeciwnik1.cpp" />
     <ClCompile Include="SimpleShape.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="MathFunctions.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="PhysicsHandle.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Properties.h" />
     <ClInclude Include="Przeciwnik1.h" />

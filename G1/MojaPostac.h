@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Actor.h"
+#include "Player.h"
 #include "Bullet.h"
 #include "Mesh.h"
 
-class MojaPostac : public Actor
+class MojaPostac : public Player
 {
 private:
 	//pressing forward moves actor to the direction depend of rotation 

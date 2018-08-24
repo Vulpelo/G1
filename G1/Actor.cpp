@@ -26,15 +26,11 @@ void Actor::mainBeginPlay()
 	this->movementDecrementation = 100;
 	this->lifeTime = 0;
 	this->currentLifeTime = 0;
-
-	this->gravity = 100.f;
 }
 
 void Actor::mainEventTick(sf::Time deltaTime)
 {
 	Object::mainEventTick(deltaTime);
-
-	movementDecrementacionF();
 
 	this->deltaTime = deltaTime;
 
@@ -44,8 +40,6 @@ void Actor::mainEventTick(sf::Time deltaTime)
 	movementAngle();
 	updateMesh();
 	worldCoordinateMovement();
-
-	//actualMovement.y -= gravity * deltaTime.asSeconds();
 
 	EventTick();
 }
@@ -119,81 +113,81 @@ void Actor::spawnObject(Object* a)
 	objectsToSpawn.push_back(a);
 }
 
-void Actor::movementForward(float rate)
-{
-	if (rate > 0 && this->actualMovement.y < this->maxWalkSpeedForwad)
-	{
-		this->actualMovement.y += rate * this->movementAcceleration * deltaTime.asSeconds();
-		this->notMovingY = false;
-	}
-	else if (rate < 0 && this->actualMovement.y > -this->maxWalkSpeedForwad)
-	{
-		this->actualMovement.y += rate * this->movementAcceleration * deltaTime.asSeconds();
-		this->notMovingY = false;
-	}
-	else if (rate == 0)
-		this->notMovingY = true;
-}
+//void Actor::movementForward(float rate)
+//{
+//	if (rate > 0 && this->actualMovement.y < this->maxWalkSpeedForwad)
+//	{
+//		this->actualMovement.y += rate * this->movementAcceleration * deltaTime.asSeconds();
+//		this->notMovingY = false;
+//	}
+//	else if (rate < 0 && this->actualMovement.y > -this->maxWalkSpeedForwad)
+//	{
+//		this->actualMovement.y += rate * this->movementAcceleration * deltaTime.asSeconds();
+//		this->notMovingY = false;
+//	}
+//	else if (rate == 0)
+//		this->notMovingY = true;
+//}
+//
+//void Actor::movementRight(float rate)
+//{
+//	if (notMovingY == false) rate /= 2.0;
+//	if (rate > 0 && this->actualMovement.x < this->maxWalkSpeedRight)
+//	{
+//		this->actualMovement.x += rate * this->movementAcceleration * deltaTime.asSeconds();
+//		this->notMovingX = false;
+//	}
+//	else if (rate < 0 && this->actualMovement.x > -this->maxWalkSpeedRight)
+//	{
+//		this->actualMovement.x += rate * this->movementAcceleration * deltaTime.asSeconds();
+//		this->notMovingX = false;
+//	}
+//	else if (rate == 0)
+//		this->notMovingX = true;
+//}
 
-void Actor::movementRight(float rate)
-{
-	if (notMovingY == false) rate /= 2.0;
-	if (rate > 0 && this->actualMovement.x < this->maxWalkSpeedRight)
-	{
-		this->actualMovement.x += rate * this->movementAcceleration * deltaTime.asSeconds();
-		this->notMovingX = false;
-	}
-	else if (rate < 0 && this->actualMovement.x > -this->maxWalkSpeedRight)
-	{
-		this->actualMovement.x += rate * this->movementAcceleration * deltaTime.asSeconds();
-		this->notMovingX = false;
-	}
-	else if (rate == 0)
-		this->notMovingX = true;
-}
 
-
-void Actor::movementDecrementacionF()
-{
-	if (notMovingX && notMovingY)
-	{
-		if (this->actualMovement.y < 0)
-		{
-			this->actualMovement.y += abs(cos(this->actualMovementAngleX)) * this->movementDecrementation * deltaTime.asSeconds();
-		}
-		else if (this->actualMovement.y > 0)
-			this->actualMovement.y -= abs(cos(this->actualMovementAngleX)) * this->movementDecrementation * deltaTime.asSeconds();
-
-		if (this->actualMovement.x < 0)
-		{
-			this->actualMovement.x += abs(sin(this->actualMovementAngleX)) * this->movementDecrementation * deltaTime.asSeconds();
-		}
-		else if (this->actualMovement.x > 0)
-			this->actualMovement.x -= abs(sin(this->actualMovementAngleX)) * this->movementDecrementation * deltaTime.asSeconds();
-	
-	}
-	else
-	{
-		if (notMovingY == true)
-		{
-			if (this->actualMovement.y < 0)
-			{
-				this->actualMovement.y += this->movementDecrementation * deltaTime.asSeconds();
-			}
-			else if (this->actualMovement.y > 0)
-				this->actualMovement.y -= this->movementDecrementation * deltaTime.asSeconds();
-		}
-		if (notMovingX == true)
-		{
-			if (this->actualMovement.x < 0)
-			{
-				this->actualMovement.x += this->movementDecrementation * deltaTime.asSeconds();
-			}
-			else if (this->actualMovement.x > 0)
-				this->actualMovement.x -= this->movementDecrementation * deltaTime.asSeconds();
-		}
-	}
-}
+//void Actor::movementDecrementacionF()
+//{
+//	if (notMovingX && notMovingY)
+//	{
+//		if (this->actualMovement.y < 0)
+//		{
+//			this->actualMovement.y += abs(cos(this->actualMovementAngleX)) * this->movementDecrementation * deltaTime.asSeconds();
+//		}
+//		else if (this->actualMovement.y > 0)
+//			this->actualMovement.y -= abs(cos(this->actualMovementAngleX)) * this->movementDecrementation * deltaTime.asSeconds();
+//
+//		if (this->actualMovement.x < 0)
+//		{
+//			this->actualMovement.x += abs(sin(this->actualMovementAngleX)) * this->movementDecrementation * deltaTime.asSeconds();
+//		}
+//		else if (this->actualMovement.x > 0)
+//			this->actualMovement.x -= abs(sin(this->actualMovementAngleX)) * this->movementDecrementation * deltaTime.asSeconds();
+//	
+//	}
+//	else
+//	{
+//		if (notMovingY == true)
+//		{
+//			if (this->actualMovement.y < 0)
+//			{
+//				this->actualMovement.y += this->movementDecrementation * deltaTime.asSeconds();
+//			}
+//			else if (this->actualMovement.y > 0)
+//				this->actualMovement.y -= this->movementDecrementation * deltaTime.asSeconds();
+//		}
+//		if (notMovingX == true)
+//		{
+//			if (this->actualMovement.x < 0)
+//			{
+//				this->actualMovement.x += this->movementDecrementation * deltaTime.asSeconds();
+//			}
+//			else if (this->actualMovement.x > 0)
+//				this->actualMovement.x -= this->movementDecrementation * deltaTime.asSeconds();
+//		}
+//	}
+//}
 
 bool Actor::simpleMoveTo(Position cor, double distancePrecision)
 {
