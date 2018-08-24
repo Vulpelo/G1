@@ -1,39 +1,40 @@
 #pragma once
+
+#ifndef _Component_H_
+#define _Component_H_
+
 #include "SimpleShape.h"
 #include <iostream>
 #include <vector>
 #include <SFML\Graphics.hpp>
 #include "Collision.h"
-//#include "Object.h"
-
-#ifndef _Component_H_
-#define _Component_H_
 
 class Component
 {
+	friend class PhysicsHandle;
+	std::vector <Component *> newOverlapingComponents;
+
 protected:
 	//overlaping
-	std::string name;
+	//std::string name;
+	char* name;
 	std::vector <Component *> overlapingComponents;
-	std::vector <Component *> newOverlapingComponents;
 	
-	std::vector <Component *> startOverlapingComp;
-	std::vector <Component *> isOverlapingComp;
-	std::vector <Component *> endOverlapingComp;
+	//std::vector <Component *> startOverlapingComp;
+	//std::vector <Component *> isOverlapingComp;
+	//std::vector <Component *> endOverlapingComp;
 	
 	double localPositionX;
 	double localPositionY;
 
-	double worldPositionX;
-	double worldPositionY;
-	double worldRotationX;
+	Transform wTransform;
 public:
 	Collision * collision;
 
 	Component();
-	std::vector <Component *> getStartOverlapingComp();
-	std::vector <Component *> getIsOverlapingComp();
-	std::vector <Component *> getEndOverlapingComp();
+	//std::vector <Component *>& getStartOverlapingComp();
+	//std::vector <Component *>& getIsOverlapingComp();
+	//std::vector <Component *>& getEndOverlapingComp();
 	
 	void addOverlapComponent(Component*);
 	Collision* getCollider();
@@ -43,16 +44,16 @@ public:
 	virtual void setLocalPosition(double, double);
 	double getXWorldPosition();
 	double getYWorldPosition();
-	double getXWorldRotation() { return worldRotationX; };
+	double getXWorldRotation() { return wTransform.rotationX; };
 	void setLocalRotation(double x);
 	virtual void render(sf::RenderWindow *) {};
 	virtual void setRotation(double) {};
 	virtual void setRotateToMovementDirection(bool a) {};
 	virtual bool getRotateToMovementDirection() = 0;
 
-	void setName(std::string name);
-	std::string getName();
-	void overlapingEndMain();
+	void setName(char* name);
+	char* getName() const;
+	//void overlapingEndMain();
 	~Component();
 };
 

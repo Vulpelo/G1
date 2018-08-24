@@ -1,7 +1,13 @@
 #include "GameMap.h"
-#include <iostream>
 
-GameMap::GameMap() {}
+#include <SFML\Graphics.hpp>
+
+GameMap::GameMap() { }
+
+std::vector<Object*> GameMap::getAllObjects()
+{
+	return objects;
+}
 
 void GameMap::mainEventTick(sf::Time deltaTime)
 {
@@ -15,23 +21,10 @@ void GameMap::mainEventTick(sf::Time deltaTime)
 		else
 			objects.at(i-1)->mainEventTick(deltaTime);
 	}
-
-	/*---Checking collisions---*/
-	for (unsigned int i = 0; i < objects.size(); i++)
-	{
-		for (unsigned int j = i + 1; j < objects.size(); j++)
-			if (objects.at(i)->isCollidingObjectM(objects.at(j)))
-			{
-				objects.at(i)->overlapingMain(objects.at(j));
-				objects.at(j)->overlapingMain(objects.at(i));
-			}
-	}
-
-
-	/*---Update data about overlaping objects---*/
-	for (unsigned int i = 0; i < objects.size(); i++)
-		objects.at(i)->overlapingEndMain();
-
+	clock_t e,b = clock();
+	PhysicsHandle::overlapDetectionUpdate(objects);
+	e = clock();
+	Debug::addText(" physicsTime:", double(e-b));
 
 	/*--Spawning new actors--*/
 	for (unsigned int i = 0; i < objects.size(); i++)
@@ -46,6 +39,8 @@ void GameMap::mainEventTick(sf::Time deltaTime)
 			}
 		}
 	}
+
+	Debug::addText(" NrOfObjects:", objects.size());
 	this->EventTick();
 }
 

@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef ENGINE_H
+#define ENGINE_H
+
 #include <SFML\Graphics.hpp>
 
 #include "ControlInput.h"
@@ -13,8 +17,6 @@ private:
 	sf::Time deltaTime;
 	
 	ControlInput * controlInput;
-	std::vector <GameMap *> map;
-	GameMap *actualMap;
 
 public:
 	Engine();
@@ -22,5 +24,8 @@ public:
 	void windowRender();
 	void mainEventTick();
 	void mainLoop();
-	void loadMap(int);
+	//void loadMap(int);
+	//void loadMap(GameMap*);
 };
+
+#endif // !ENGINE_H

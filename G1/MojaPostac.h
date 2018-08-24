@@ -1,15 +1,12 @@
 #pragma once
 
-#include "Actor.h"
+#include "Player.h"
 #include "Bullet.h"
 #include "Mesh.h"
 
-class MojaPostac : public Actor
+class MojaPostac : public Player
 {
 private:
-
-
-
 	//pressing forward moves actor to the direction depend of rotation 
 	//!-przeniesc do klasy wy¿ej
 
@@ -18,7 +15,7 @@ private:
 
 public:
 	MojaPostac();
-	MojaPostac(double x, double y, double rotate);
+	MojaPostac(Transform nWTransform);
 	void beginPlay();
 	void EventTick();
 	void movement();//!-przeniesc do klasy wy¿ej_?

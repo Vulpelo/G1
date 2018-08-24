@@ -1,12 +1,9 @@
 #pragma once
 
-#include "Component.h"
-
-//#include "Collision.h"
-
-
 #ifndef _Mesh_H_
 #define _Mesh_H_
+
+#include "Component.h"
 
 class Mesh : public Component
 {
@@ -18,6 +15,7 @@ private:
 public:
 	Mesh();
 	Mesh(SimpleShape ** shapesZ, int numberOfShapesZ);
+	~Mesh();
 	void render(sf::RenderWindow *);
 	//bool collides(Collision *otherCollider);
 	//Collision* getCollider();

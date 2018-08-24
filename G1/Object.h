@@ -1,25 +1,33 @@
 #pragma once
-#include "Component.h"
-//#include "Mesh.h"
-#include "Collision.h"
-#include "ControlInput.h"
-#include <vector>
-#include "Vetor2D.h"
-#include <iostream>
 
 #ifndef _Object_H_
 #define _Object_H_
 
+#include "Component.h"
+//#include "Collision.h"
+#include "ControlInput.h"
+#include "Vector2D.h"
+#include "Layer.h"
+#include "Transform.h"
+
+// containers
+#include <vector>
+#include <set>
+
+#include <iostream>
+
 class Object
 {
 protected:
+#pragma region Variables
+	std::set<Layer> layers;
+	
 	//collision interactions (interacts any of objects components)
 	std::vector <Object *> overlapingObjects;
 	std::vector <Object *> newOverlapingObjects;
 
-	//Transform
-	double worldCoordinateX, worldCoordinateY;
-	double worldRotationX;
+	// World transform
+	Transform wTransform;
 
 	//Object distruct
 	bool destroyObject;
@@ -29,41 +37,77 @@ protected:
 	//Mesh/Components
 	std::vector <Component*> components;
 
+#pragma endregion
+
+	friend class GameMap;
+
+#pragma region Functions that are used only by engine
+	virtual void mainBeginPlay();
+	virtual void mainEventTick(sf::Time deltaTime);
+	// Displays object's components on screen
+	void render(sf::RenderWindow * w);
 	void updateMesh();
+#pragma endregion
+
 public:
 	Object();
-	Object(double x, double y, double rotate);
+	Object(Transform nWTransform);
+	~Object();
+
+	/// <summary>Function played at the begining when object is created</summary>
 	virtual void beginPlay() = 0;
-	virtual void mainBeginPlay();
+
+	/// <summary>Function if played every frame of object life span</summary>
 	virtual void EventTick() = 0;
-	virtual void mainEventTick(sf::Time deltaTime);
-	void render(sf::RenderWindow * w);
 
+
+	Transform get_wTransform();
 	//Mesh
-	std::vector <Component*> getComponents() const;
+	std::vector <Component*> &getComponents();
 
-	/*-Overlaping interactions-*/
-	virtual bool isCollidingObjectM(Object *otherObject) const;
-	void overlapingMain(Object *overlaped);
-	void overlapingEndMain();
+	void addNewOverlapingObject(Object* overlaped) {
+		newOverlapingObjects.push_back(overlaped);
+	}
 
-	//This object is touching other object
+	std::vector<Object*>& getOverlapingObjects() {
+		return overlapingObjects;
+	}
+	std::vector<Object*>& getNewOverlapingObjects() {
+		return newOverlapingObjects;
+	}
+
+#pragma region Overlaping interactions
+	/// <summary>Function is called every time when new object just touched this object</summary>
 	virtual void startOverlaping(Object *overlaped) {};
+
+	/// <summary>Function is called every time when some object is still coliding with this object</summary>
 	virtual void isOverlaping(Object *overlaped) {};
+
+	/// <summary>Function is called every time when some object is no longer coliding with this object</summary>
 	virtual void endOverlaping(Object *overlaped) {};
 
 	//chosen parts of this object are touching other parts of other object
 	virtual void startOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
 	virtual void isOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
 	virtual void endOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
+#pragma endregion
 
-
-	//Object distruct
+	/// <summary>Checks if object is going to be destroyed</summary>
 	bool shouldBeDestroyed();
-
-	void setWorldCoordinate(double x, double y);
-	void setWorldRotation(double x);
+	/// <summary>Destroys object before next tick</summary>
 	void DestroyObject();
+
+#pragma region set functions
+	void setWTransform(Transform nWTransform) { this->wTransform = nWTransform; }
+
+	/// <summary>Sets position of an object in world wide</summary>
+	void setWorldCoordinate(double x, double y);
+
+	/// <summary>Sets rotation of an object in world wide</summary>
+	void setWorldRotation(double x);
+#pragma endregion
+
+
 };
 
 #endif // !_Object_H_

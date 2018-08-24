@@ -2,25 +2,32 @@
 
 #include <SFML\Graphics.hpp>
 #include "MathFunctions.h"
+#include "Transform.h"
 
 class SimpleShape
 {
 protected:
-	double scaleX, scaleY;
-	double meshLocalPositionX, meshLocalPositionY;
-	double localCoordinateX, localCoordinateY;
-	double worldCoordinateX, worldCoordinateY;
-	double localRotationX;
-	double worldRotationX;
-	/*shape is rotating with his own origin (middle of shape)
-	or is rotating by origin (middle) of the actor
-	Defoult is false*/
-	bool ownOrigin;
-	double beginLocalCoordinateX, beginLocalCoordinateY;
-	double beginRotFromObject;
+	float meshLocalPositionX, meshLocalPositionY;
+
+
+	// First transform of a shape
+	Transform begin_rTransform;
+
 	double minuendOfRot;
+
+	/* Shape is rotating with his own origin (middle of shape) [True]
+	or shape is rotating by origin (middle) of the actor [False].
+	Default is false*/
+	bool ownOrigin;
+
+	// Color of the shape
 	sf::Color color;
 public:
+	// World transform
+	Transform wTransform;
+	// Relative transform
+	Transform rTransform;
+
 	SimpleShape();
 	SimpleShape(sf::Color c);
 	virtual void draw(sf::RenderWindow * w) = 0;
@@ -39,7 +46,6 @@ public:
 	double getXLocalRotation();
 	virtual void setLocalRotation(double x);
 
-	void setScale(double sX, double sY);
 	void rotationByOwnOrigin(bool ownOrigin);
 };
 
@@ -48,7 +54,7 @@ class Circle : public SimpleShape
 {
 private:
 	sf::CircleShape circle;
-	double radius;
+	float radius;
 public:
 	Circle(double radiusTemp, sf::Color);
 	void setWorldPosition(double x, double y);
@@ -62,7 +68,7 @@ class Rectangle : public SimpleShape
 {
 private:
 	sf::RectangleShape rectangle;
-	double height, length;
+	float height, length;
 public:
 	Rectangle(double leng, double heig, sf::Color);
 	void setWorldPosition(double x, double y);
@@ -75,7 +81,7 @@ public:
 class Triangle : public SimpleShape
 {
 private:
-	double height, base;
+	float height, base;
 public:
 	Triangle(double heightZ, double baseZ);
 	void setWorldPosition(double x, double y);

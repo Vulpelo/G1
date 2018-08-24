@@ -37,6 +37,51 @@
     <Filter Include="Header Files\Engine\Components">
       <UniqueIdentifier>{8b2de7d8-10a6-4e6f-80a1-18bc134411a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Physics">
+      <UniqueIdentifier>{b8222c37-7a50-4e37-8417-cdc906e8385c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics">
+      <UniqueIdentifier>{bffdac88-a3dc-40a4-9d94-164315ab494f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Object">
+      <UniqueIdentifier>{cda52278-316a-4562-a43d-8f41b79cc774}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Object">
+      <UniqueIdentifier>{1c83f6fb-d955-4939-887c-6f4ed04b1991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Object\Spawnamble">
+      <UniqueIdentifier>{ddc0b417-0e86-4489-b335-458cfca6f0c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Object\Spawnable">
+      <UniqueIdentifier>{9d6d7263-4727-4d6e-a2dd-ff323bffa302}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Func\Transform">
+      <UniqueIdentifier>{16a89ecd-a08f-4fe3-9041-692acf42bf5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Debug">
+      <UniqueIdentifier>{e494ca76-c7fb-46e2-83c2-b185cdc67382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Debug">
+      <UniqueIdentifier>{402ad369-2719-4b88-aed4-b06f9c6b56ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\Actors">
+      <UniqueIdentifier>{a9b73683-5f97-453f-af40-1260b385f4e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\Scenes">
+      <UniqueIdentifier>{9fce184c-bfdd-4dd7-bb61-9bd6b733f820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\G1Game\Actors">
+      <UniqueIdentifier>{476e1a6b-be24-4942-95fc-3c161403b316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\G1Game\Scenes">
+      <UniqueIdentifier>{59135114-54cf-4070-a939-e5a064d1c065}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Config">
+      <UniqueIdentifier>{046befac-efc1-4dab-98bc-0e900a1fa55b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Config">
+      <UniqueIdentifier>{a3e974dc-5595-4345-97fa-1867e1c059cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -48,35 +93,8 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MojaPostac.cpp">
-      <Filter>Source Files\G1Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Map001.cpp">
-      <Filter>Source Files\G1Game</Filter>
-    </ClCompile>
-    <ClCompile Include="ControlInput.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Source Files\G1Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Wall.cpp">
-      <Filter>Source Files\G1Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="MathFunctions.cpp">
       <Filter>Source Files\Engine\Func</Filter>
-    </ClCompile>
-    <ClCompile Include="Vetor2D.cpp">
-      <Filter>Source Files\Engine\Func</Filter>
-    </ClCompile>
-    <ClCompile Include="Przeciwnik1.cpp">
-      <Filter>Source Files\G1Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Turret.cpp">
-      <Filter>Source Files\G1Game</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
       <Filter>Source Files\Engine\Components</Filter>
@@ -87,11 +105,65 @@
     <ClCompile Include="Component.cpp">
       <Filter>Source Files\Engine\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Actor.cpp">
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>Source Files\Engine\Func</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="MapManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="PhysicsHandle.cpp">
+      <Filter>Source Files\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Engine\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Source Files\Engine\Object\Spawnamble</Filter>
+    </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files\Engine\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source Files\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Source Files\Engine\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Engine\Object\Spawnamble</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files\G1Game\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Czolg.cpp">
+      <Filter>Source Files\G1Game\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="CzolgZombie.cpp">
+      <Filter>Source Files\G1Game\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="MojaPostac.cpp">
+      <Filter>Source Files\G1Game\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Przeciwnik1.cpp">
+      <Filter>Source Files\G1Game\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Turret.cpp">
+      <Filter>Source Files\G1Game\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>Source Files\G1Game\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Map001.cpp">
+      <Filter>Source Files\G1Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties.cpp">
+      <Filter>Source Files\Engine\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlInput.cpp">
+      <Filter>Source Files\Engine\Config</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,35 +173,8 @@
     <ClInclude Include="GameMap.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="MojaPostac.h">
-      <Filter>Header Files\G1Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Map001.h">
-      <Filter>Header Files\G1Game</Filter>
-    </ClInclude>
-    <ClInclude Include="ControlInput.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Header Files\G1Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Wall.h">
-      <Filter>Header Files\G1Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="MathFunctions.h">
       <Filter>Header Files\Engine\Func</Filter>
-    </ClInclude>
-    <ClInclude Include="Vetor2D.h">
-      <Filter>Header Files\Engine\Func</Filter>
-    </ClInclude>
-    <ClInclude Include="Przeciwnik1.h">
-      <Filter>Header Files\G1Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Turret.h">
-      <Filter>Header Files\G1Game</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
       <Filter>Header Files\Engine\Components</Filter>
@@ -140,11 +185,77 @@
     <ClInclude Include="Component.h">
       <Filter>Header Files\Engine\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h">
+    <ClInclude Include="Vector2D.h">
+      <Filter>Header Files\Engine\Func</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Header Files\Engine\Func\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>Header Files\Engine\Func\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="MapManager.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="PhysicsHandle.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
     <ClInclude Include="Actor.h">
-      <Filter>Header Files\Engine</Filter>
+      <Filter>Header Files\Engine\Object\Spawnable</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Header Files\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Engine\Object\Spawnable</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files\G1Game\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Czolg.h">
+      <Filter>Header Files\G1Game\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="MojaPostac.h">
+      <Filter>Header Files\G1Game\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Przeciwnik1.h">
+      <Filter>Header Files\G1Game\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Turret.h">
+      <Filter>Header Files\G1Game\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>Header Files\G1Game\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="CzolgZombie.h">
+      <Filter>Header Files\G1Game\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Map001.h">
+      <Filter>Header Files\G1Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlInput.h">
+      <Filter>Header Files\Engine\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties.h">
+      <Filter>Header Files\Engine\Config</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -8,6 +8,13 @@ Mesh::Mesh(SimpleShape ** shapesZ, int numberOfShapesZ)
 	:shapes(shapesZ), numberOfShapes(numberOfShapesZ),
 	rotateToMovementDirection(false) {}
 
+Mesh::~Mesh()
+{
+	for (int i = 0; i < numberOfShapes; i++)
+		delete shapes[i];
+	delete[] shapes;
+}
+
 void Mesh::render(sf::RenderWindow * w)
 {
 	for (int i = 0; i < numberOfShapes; i++)
@@ -25,8 +32,8 @@ void Mesh::render(sf::RenderWindow * w)
 
 void Mesh::setPosition(double x, double y)
 {
-	worldPositionX = x;// +localPositionX;
-	worldPositionY = y;// +localPositionY;
+	wTransform.position.X = x;// +localPositionX;
+	wTransform.position.Y = y;// +localPositionY;
 	for (int i = 0; i < numberOfShapes; i++)
 	{
 		if (shapes[i] == NULL)
@@ -34,11 +41,11 @@ void Mesh::setPosition(double x, double y)
 		else
 		{
 			shapes[i]->additionalMeshLocalPosition(localPositionX, localPositionY);
-			shapes[i]->setWorldPosition(worldPositionX, worldPositionY);
+			shapes[i]->setWorldPosition(wTransform.position.X, wTransform.position.Y);
 		}
 	}
 	if(collision != NULL)
-		collision->setWorldPosition(worldPositionX, worldPositionY);
+		collision->setWorldPosition(wTransform.position.X, wTransform.position.Y);
 }
 
 void Mesh::setLocalPosition(double x, double y) 
@@ -58,7 +65,7 @@ void Mesh::setLocalPosition(double x, double y)
 
 void Mesh::setRotation(double x)
 {
-	worldRotationX = x;
+	wTransform.rotationX = x;
 	for (int i = 0; i < numberOfShapes; i++)
 	{
 		if (shapes[i] == NULL)

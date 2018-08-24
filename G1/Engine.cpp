@@ -1,55 +1,55 @@
 #include "Engine.h"
 
+#include "Properties.h"
+#include "MapManager.h"
 #include "Map001.h"
-
-#include <iostream>
 
 Engine::Engine()
 {
-	window = new sf::RenderWindow(sf::VideoMode(1248, 900, 32), "G1");
+	window = new sf::RenderWindow(sf::VideoMode(Properties::width, Properties::height, Properties::bitPerPixel), "G1");
 	controlInput = new ControlInput(window);
 
 	//DO GRY
-	map.push_back(new Map001);
-	map.at(0)->setInput(controlInput);
-	actualMap = map.at(0);
-	//
+	GameMap *map = new Map001;
+	map->setInput(controlInput);
+	MapManager::loadMap(map);
 }
 
 Engine::~Engine()
 {
-	for (GameMap* m : map)
-		delete m;
-	map.clear();
+	if(controlInput) 
+		delete controlInput;
+	if(window)
+		delete window;
 }
 
 void Engine::mainLoop()
 {
 	while (window->isOpen())
 	{
+		clock_t b1, e1, e, b = clock();
+	
 		mainEventTick();
-
 		window->clear();
 		windowRender();
 		window->display();
 
+		e = clock();
+		Debug::addText(" overallTime:", e-b);
+		Debug::addText(" FPS:", 1000./ (e - b));
+		Debug::update();
 		deltaTime = deltaClock.restart();
 	}
 }
 
-void Engine::loadMap(int a)
-{
-	actualMap = map.at(a);
-}
-
 void Engine::mainEventTick()
 {
-	actualMap->mainEventTick(deltaTime);
+	MapManager::get_aMap()->mainEventTick(deltaTime);
 	controlInput->mainEventTick();
 }
 
 void Engine::windowRender()
 {
-	actualMap->render(window);
+	MapManager::get_aMap()->render(window);
 }
 

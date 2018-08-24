@@ -3,13 +3,13 @@
 #include "Mesh.h"
 #include "Przeciwnik1.h"
 
-MojaPostac::MojaPostac(double x, double y, double rotate)
-	:Actor(x, y, rotate)
+MojaPostac::MojaPostac(Transform nWTransform)
+	:Player(nWTransform)
 {
 	beginPlay();
 }
 MojaPostac::MojaPostac()
-	:Actor()
+	:Player()
 {
 	beginPlay();
 }
@@ -79,27 +79,26 @@ void MojaPostac::beginPlay()
 
 void MojaPostac::EventTick()
 {
-	
 	movement();
 	//rotation
-	this->worldRotationX = MathFunction::twoPointsAngle
-		(this->worldCoordinateX, this->worldCoordinateY, 
+	this->wTransform.rotationX = GMath::twoPointsAngle
+		(this->wTransform.position.X, this->wTransform.position.Y,
 			this->playerInput->mousePosition().x, -this->playerInput->mousePosition().y);
 
 	double xCor = components.at(2)->getXWorldPosition();
 	double yCor = components.at(2)->getYWorldPosition();
-	double rot = MathFunction::twoPointsAngle
+	double rot = GMath::twoPointsAngle
 	(xCor, -yCor, this->playerInput->mousePosition().x, -this->playerInput->mousePosition().y);
 
 	//components.at(2)->setLocalRotation(rot - components.at(2)->getXWorldRotation());
 
 	//if (playerInput->left_KeyboardKeyPressed())
 	//{
-	//	this->worldRotationX -= deltaTime.asSeconds() * rotationSpeed;
+	//	this->wTransform.rotationX -= deltaTime.asSeconds() * rotationSpeed;
 	//}
 	//if (playerInput->right_KeyboardKeyPressed())
 	//{
-	//	this->worldRotationX += deltaTime.asSeconds() * rotationSpeed;
+	//	this->wTransform.rotationX += deltaTime.asSeconds() * rotationSpeed;
 	//}
 
 	//shooting
@@ -107,16 +106,18 @@ void MojaPostac::EventTick()
 	{
 		if (this->spawnRate <= 0)
 		{
-			spawnObject(new Przeciwnik1(400, -400, 0));
+			spawnObject(new Przeciwnik1(Transform(Position(400, -400))));
 			this->spawnRate = 1;
 		}
 	}
-	if (playerInput->up_KeyboardKeyPressed() || playerInput->leftMouseButtonPressed())
+	if (playerInput->up_KeyboardKeyPressed() )//|| playerInput->leftMouseButtonPressed())
 	{
 		if (this->shootRate <= 0)
 		{
 			this->shootRate = 0.15;
-			spawnObject(new Bullet(components.at(2)->getXWorldPosition(), -components.at(2)->getYWorldPosition(), rot));
+			Transform nTran(Position(components.at(2)->getXWorldPosition(), -components.at(2)->getYWorldPosition()));
+			nTran.rotationX = rot;
+			spawnObject(new Bullet(nTran));
 		}
 	}
 	shootRate -= deltaTime.asSeconds();

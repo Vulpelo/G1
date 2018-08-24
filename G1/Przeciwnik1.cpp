@@ -7,8 +7,8 @@ Przeciwnik1::Przeciwnik1()
 	beginPlay();
 }
 
-Przeciwnik1::Przeciwnik1(double x, double y, double rotate)
-	:Actor(x, y, rotate)
+Przeciwnik1::Przeciwnik1(Transform nWTransform)
+	:Actor(nWTransform)
 {
 	beginPlay();
 }
@@ -27,10 +27,10 @@ void Przeciwnik1::beginPlay()
 	this->movementAcceleration = 100;
 	this->movementDecrementation = 150;
 	//this->shootRate = 0.2;
-	patrolPoints.push_back(Coordinate(10, -10));
-	patrolPoints.push_back(Coordinate(10, -500));
-	patrolPoints.push_back(Coordinate(500, -500));
-	patrolPoints.push_back(Coordinate(500, -10));
+	patrolPoints.push_back(Position(10, -10));
+	patrolPoints.push_back(Position(10, -500));
+	patrolPoints.push_back(Position(500, -500));
+	patrolPoints.push_back(Position(500, -10));
 	patrolNr = 0;
 
 	int nrOfShapes = 1;
@@ -57,17 +57,18 @@ void Przeciwnik1::beginPlay()
 	m = new Mesh(sS, nrOfShapes);
 	m->setRotateToMovementDirection(false);
 	this->components.push_back(m);
+
 	updateMesh();
 }
 
 void Przeciwnik1::EventTick()
 {
-	if (simpleMoveTo(patrolPoints.at(patrolNr), 10))
-	{
-		patrolNr++;
-		if (patrolNr >= patrolPoints.size())
-			patrolNr = 0;
-	}
+	//if (simpleMoveTo(patrolPoints.at(patrolNr), 10))
+	//{
+	//	patrolNr++;
+	//	if (patrolNr >= patrolPoints.size())
+	//		patrolNr = 0;
+	//}
 }
 void Przeciwnik1::startOverlaping(Object *overlaped)
 {
