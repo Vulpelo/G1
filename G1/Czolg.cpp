@@ -24,7 +24,7 @@ void Czolg::beginPlay()
 	this->movementToRotationDirection = true;
 	this->movementAcceleration = 100;
 	this->movementDecrementation = 150;
-	this->shootRate = 2;
+	this->shootRate = 1;
 	this->aShootRate = 0;
 
 

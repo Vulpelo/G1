@@ -8,10 +8,12 @@
 
 Map001::Map001()
 {
+	srand(time(NULL));
+	
 	objects.push_back(new Wall(Transform(Position(250, -100))));
 	objects.push_back(new Wall(Transform(Position(350, -400))));
 	objects.push_back(new Wall(Transform(Position(650, -300))));
-	auto* player = new Czolg(Transform(Position(800, -400)));
+	player = new Czolg(Transform(Position(800, -400)));
 	objects.push_back(player);
 	
 	auto* enemy = new CzolgZombie(Transform(Position(10, -10)));
@@ -25,10 +27,16 @@ Map001::Map001()
 
 void Map001::EventTick()
 {
-	//if (actualSpawnEnemyTime >= spawnEnemyTime)
-	//{
-	//	objects.push_back(new Przeciwnik1(400, -400, 0));
-	//	actualSpawnEnemyTime = 0;
-	//}
-	//actualSpawnEnemyTime += deltaTime.asSeconds();
+
+	if (actualSpawnEnemyTime >= spawnEnemyTime)
+	{
+		Transform nTran(Position(rand()%900, -rand() % 900));
+		
+		auto* enemy = new CzolgZombie(nTran);
+		enemy->target = player;
+		objects.push_back(enemy);
+
+		actualSpawnEnemyTime = 0;
+	}
+	actualSpawnEnemyTime += deltaTime.asSeconds();
 }
