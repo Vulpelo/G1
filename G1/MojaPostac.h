@@ -7,9 +7,6 @@
 class MojaPostac : public Actor
 {
 private:
-
-
-
 	//pressing forward moves actor to the direction depend of rotation 
 	//!-przeniesc do klasy wy¿ej
 

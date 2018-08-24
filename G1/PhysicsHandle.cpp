@@ -21,12 +21,15 @@ bool PhysicsHandle::overlapsAnyComponent(std::vector <Component*> &components, s
 {
 	for (unsigned int i = 0; i < components.size(); i++)
 	{
-		for (unsigned int j = 0; j < otherComponents.size(); j++)
-		{
-			if (components[i]->getCollider() != NULL && otherComponents[j]->getCollider() != NULL)
-				if (components[i]->collides(otherComponents[j]->getCollider()))
-					return true;
-		}
+		if (components[i]->getCollider())
+			for (unsigned int j = 0; j < otherComponents.size(); j++)
+			{
+				if (otherComponents[j]->getCollider())
+				{
+					if (components[i]->collides(otherComponents[j]->getCollider()))
+						return true;
+				}
+			}
 	}
 	return false;
 }

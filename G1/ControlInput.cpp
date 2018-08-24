@@ -35,6 +35,10 @@ bool ControlInput::w_KeyboardKeyPressed()
 {
 	return sf::Keyboard::isKeyPressed(sf::Keyboard::W);
 }
+bool ControlInput::space_KeyboardKeyPressed()
+{
+	return sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
+}
 bool ControlInput::s_KeyboardKeyPressed()
 {
 	return sf::Keyboard::isKeyPressed(sf::Keyboard::S);

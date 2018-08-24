@@ -138,6 +138,9 @@
     <ClCompile Include="Debug.cpp">
       <Filter>Source Files\Engine\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="Czolg.cpp">
+      <Filter>Source Files\G1Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -220,6 +223,9 @@
     </ClInclude>
     <ClInclude Include="Debug.h">
       <Filter>Header Files\Engine\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Czolg.h">
+      <Filter>Header Files\G1Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

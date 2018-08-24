@@ -25,6 +25,7 @@ public:
 	bool d_KeyboardKeyPressed();
 	bool s_KeyboardKeyPressed();
 	bool w_KeyboardKeyPressed();
+	bool space_KeyboardKeyPressed();
 
 	sf::Vector2i mousePosition();
 	bool leftMouseButtonPressed();

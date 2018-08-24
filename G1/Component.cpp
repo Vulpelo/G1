@@ -43,9 +43,9 @@ Collision* Component::getCollider()
 
 bool Component::collides(Collision *otherCollider)
 {
-	if (collision != NULL)
+	//if (collision != NULL) // is checked earlier
 		return collision->isCollidingWith(otherCollider);
-	return false;
+	//return false;
 }
 
 void Component::setLocalPosition(double x, double y)
