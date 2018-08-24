@@ -15,15 +15,7 @@ CzolgZombie::CzolgZombie(Transform nWTransform)
 
 void CzolgZombie::beginPlay()
 {
-	//this->maxWalkSpeedForwad = 50.f;
-	this->maxWalkSpeedForwad = 100;
-	this->maxWalkSpeedRight = 100;
-	this->rotationSpeed = 500;
-	this->havePlayerInput = true;
-	this->movementToRotationDirection = false;
-	this->movementAcceleration = 100;
-	this->movementDecrementation = 150;
-
+	this->maxWalkSpeedForwad = 50.f;
 
 	int nrOfShapes = 2;
 	SimpleShape **sS = new SimpleShape*[nrOfShapes];

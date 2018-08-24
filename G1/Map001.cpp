@@ -18,7 +18,6 @@ Map001::Map001()
 	enemy->target = player;
 	objects.push_back(enemy);
 
-	objects.push_back(new Przeciwnik1(Transform(Position(100, -10))));
 	//objects.push_back(new Przeciwnik1(400, -400, 0));
 	spawnEnemyTime = 3;
 	actualSpawnEnemyTime = 0;
