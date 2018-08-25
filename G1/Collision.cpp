@@ -43,7 +43,7 @@ bool Collision::rectangleOverlapsCircle(Collision * rect, Collision * cirl)
 		Vector2D nV = (rec - cir).normalize();
 		nV = cir + nV * cirl->getFarthestPoint();
 
-		return rect->rectangleOverlapsPoint(Position(nV.x, nV.y));
+		return rect->rectangleOverlapsPoint(Position(nV.X, nV.Y));
 	}
 }
 

@@ -7,10 +7,10 @@
 #include "Object.h"
 #include <vector>
 #include "Debug.h"
-//#include "PhysicsHandle.h"
 
 class GameMap
 {
+	friend class PhysicsHandle;
 protected:
 	std::vector <Object *> objects;
 	sf::Time deltaTime;
@@ -24,7 +24,6 @@ public:
 	virtual void render(sf::RenderWindow * w);
 	void setInput(ControlInput * input);
 
-	friend class PhysicsHandle;
 };
 
 #endif // !GAMEMAP_H

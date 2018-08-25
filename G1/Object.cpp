@@ -4,13 +4,11 @@ Object::Object()
 {
 	this->wTransform.position.X = 0;
 	this->wTransform.position.Y = 0;
-	this->destroyObject = false;
 	mainBeginPlay();
 }
 
 Object::Object(Transform nWTransform)
 {
-	this->destroyObject = false;
 	this->wTransform = nWTransform;
 	mainBeginPlay();
 }
@@ -28,9 +26,27 @@ Object::~Object()
 	newOverlapingObjects.clear();
 }
 
+std::vector<Object*>& Object::getOverlapingObjects()
+{
+	return overlapingObjects;
+}
+
+std::vector<Object*>& Object::getNewOverlapingObjects()
+{
+	return newOverlapingObjects;
+}
+
+void Object::addNewOverlapingObject(Object * overlaped)
+{
+	newOverlapingObjects.push_back(overlaped);
+}
+
 void Object::mainBeginPlay()
 {
 	layers.insert(Layer::DEFAULT);
+	this->lifeTime = 0;
+	this->currentLifeTime = 0;
+	this->destroyObject = false;
 
 	setWorldCoordinate(this->wTransform.position.X, this->wTransform.position.Y);
 	setWorldRotation(this->wTransform.rotationX);
@@ -39,11 +55,10 @@ void Object::mainBeginPlay()
 
 void Object::mainEventTick(sf::Time deltaTime)
 {
-	if (lifeTime <= 0.0)
-		this->destroyObject = false;
-	else if (currentLifeTime >= lifeTime)
+	if (lifeTime > 0.0 && currentLifeTime >= lifeTime) {
 		this->destroyObject = true;
-
+	}
+	currentLifeTime += deltaTime.asSeconds();
 }
 
 void Object::updateMesh()
@@ -64,6 +79,11 @@ void Object::render(sf::RenderWindow * w)
 Transform Object::get_wTransform()
 {
 	return this->wTransform;
+}
+
+void Object::set_wTransform(Transform nTran)
+{
+	wTransform = nTran;
 }
 
 std::vector <Component*> &Object::getComponents()
@@ -88,7 +108,7 @@ bool Object::shouldBeDestroyed()
 	return this->destroyObject;
 }
 
-void Object::DestroyObject()
+void Object::DestroyObject(float nlifeTime)
 {
-	this->destroyObject = true;
+	this->lifeTime = this->currentLifeTime + nlifeTime;
 }

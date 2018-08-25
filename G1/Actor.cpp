@@ -23,18 +23,16 @@ void Actor::mainBeginPlay()
 	this->movementToRotationDirection = false;
 	this->movementAcceleration = 100;
 	this->movementDecrementation = 100;
-	this->lifeTime = 0;
-	this->currentLifeTime = 0;
 }
 
 void Actor::mainEventTick(sf::Time deltaTime)
 {
-	Object::mainEventTick(deltaTime);
+	GameObject::mainEventTick(deltaTime);
 
 	this->deltaTime = deltaTime;
 
-	if (lifeTime > 0 && currentLifeTime <= lifeTime)
-		currentLifeTime += deltaTime.asSeconds();
+	//if (lifeTime > 0 && currentLifeTime <= lifeTime)
+	//	currentLifeTime += deltaTime.asSeconds();
 	
 	updateMesh();
 	worldCoordinateMovement();
@@ -63,16 +61,16 @@ void Actor::worldCoordinateMovement()
 {
 	if (movementToRotationDirection)
 	{
-		this->wTransform.position.X += (velocity.y * sin((wTransform.rotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
-		this->wTransform.position.Y += (velocity.y * cos((wTransform.rotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->wTransform.position.X += (velocity.Y * sin((wTransform.rotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->wTransform.position.Y += (velocity.Y * cos((wTransform.rotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
 
-		this->wTransform.position.X += (velocity.x * sin(((wTransform.rotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
-		this->wTransform.position.Y += (velocity.x * cos(((wTransform.rotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->wTransform.position.X += (velocity.X * sin(((wTransform.rotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->wTransform.position.Y += (velocity.X * cos(((wTransform.rotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
 	}
 	else
 	{
-		this->wTransform.position.X += deltaTime.asSeconds() * velocity.x;
-		this->wTransform.position.Y += deltaTime.asSeconds() * velocity.y;
+		this->wTransform.position.X += deltaTime.asSeconds() * velocity.X;
+		this->wTransform.position.Y += deltaTime.asSeconds() * velocity.Y;
 	}
 }
 
@@ -113,6 +111,19 @@ bool Actor::simpleMoveTo(Position cor, double distancePrecision)
 		return false;
 	}
 	velocity.setVector(0,0);
+	return true;
+}
+
+bool Actor::simpleMoveTo(Vector2D cor, double distancePrecision)
+{
+	double angle;
+	if (GMath::twoPointsDistance(this->wTransform.position.X, this->wTransform.position.Y, cor.X, cor.Y) > distancePrecision)
+	{
+		double angle = GMath::twoPointsAngle(this->wTransform.position.X, this->wTransform.position.Y, cor.X, cor.Y);
+		velocity.setVectorByAngleAndLength(angle, maxWalkSpeedForwad);
+		return false;
+	}
+	velocity.setVector(0, 0);
 	return true;
 }
 

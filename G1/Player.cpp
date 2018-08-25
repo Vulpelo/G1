@@ -30,14 +30,14 @@ Player::~Player()
 
 void Player::movementForward(float rate)
 {
-	if (rate > 0 && this->velocity.y < this->maxWalkSpeedForwad)
+	if (rate > 0 && this->velocity.Y < this->maxWalkSpeedForwad)
 	{
-		this->velocity.y += rate * this->movementAcceleration * deltaTime.asSeconds();
+		this->velocity.Y += rate * this->movementAcceleration * deltaTime.asSeconds();
 		this->notMovingY = false;
 	}
-	else if (rate < 0 && this->velocity.y > -this->maxWalkSpeedForwad)
+	else if (rate < 0 && this->velocity.Y > -this->maxWalkSpeedForwad)
 	{
-		this->velocity.y += rate * this->movementAcceleration * deltaTime.asSeconds();
+		this->velocity.Y += rate * this->movementAcceleration * deltaTime.asSeconds();
 		this->notMovingY = false;
 	}
 	else if (rate == 0)
@@ -47,14 +47,14 @@ void Player::movementForward(float rate)
 void Player::movementRight(float rate)
 {
 	if (notMovingY == false) rate /= 2.0;
-	if (rate > 0 && this->velocity.x < this->maxWalkSpeedRight)
+	if (rate > 0 && this->velocity.X < this->maxWalkSpeedRight)
 	{
-		this->velocity.x += rate * this->movementAcceleration * deltaTime.asSeconds();
+		this->velocity.X += rate * this->movementAcceleration * deltaTime.asSeconds();
 		this->notMovingX = false;
 	}
-	else if (rate < 0 && this->velocity.x > -this->maxWalkSpeedRight)
+	else if (rate < 0 && this->velocity.X > -this->maxWalkSpeedRight)
 	{
-		this->velocity.x += rate * this->movementAcceleration * deltaTime.asSeconds();
+		this->velocity.X += rate * this->movementAcceleration * deltaTime.asSeconds();
 		this->notMovingX = false;
 	}
 	else if (rate == 0)
@@ -66,40 +66,40 @@ void Player::movementDecrementacionF()
 	float angle = this->velocity.angle();
 	if (notMovingX && notMovingY)
 	{
-		if (this->velocity.y < 0)
+		if (this->velocity.Y < 0)
 		{
-			this->velocity.y += abs(cos(angle)) * this->movementDecrementation * deltaTime.asSeconds();
+			this->velocity.Y += abs(cos(angle)) * this->movementDecrementation * deltaTime.asSeconds();
 		}
-		else if (this->velocity.y > 0)
-			this->velocity.y -= abs(cos(angle)) * this->movementDecrementation * deltaTime.asSeconds();
+		else if (this->velocity.Y > 0)
+			this->velocity.Y -= abs(cos(angle)) * this->movementDecrementation * deltaTime.asSeconds();
 
-		if (this->velocity.x < 0)
+		if (this->velocity.X < 0)
 		{
-			this->velocity.x += abs(sin(angle)) * this->movementDecrementation * deltaTime.asSeconds();
+			this->velocity.X += abs(sin(angle)) * this->movementDecrementation * deltaTime.asSeconds();
 		}
-		else if (this->velocity.x > 0)
-			this->velocity.x -= abs(sin(angle)) * this->movementDecrementation * deltaTime.asSeconds();
+		else if (this->velocity.X > 0)
+			this->velocity.X -= abs(sin(angle)) * this->movementDecrementation * deltaTime.asSeconds();
 
 	}
 	else
 	{
 		if (notMovingY == true)
 		{
-			if (this->velocity.y < 0)
+			if (this->velocity.Y < 0)
 			{
-				this->velocity.y += this->movementDecrementation * deltaTime.asSeconds();
+				this->velocity.Y += this->movementDecrementation * deltaTime.asSeconds();
 			}
-			else if (this->velocity.y > 0)
-				this->velocity.y -= this->movementDecrementation * deltaTime.asSeconds();
+			else if (this->velocity.Y > 0)
+				this->velocity.Y -= this->movementDecrementation * deltaTime.asSeconds();
 		}
 		if (notMovingX == true)
 		{
-			if (this->velocity.x < 0)
+			if (this->velocity.X < 0)
 			{
-				this->velocity.x += this->movementDecrementation * deltaTime.asSeconds();
+				this->velocity.X += this->movementDecrementation * deltaTime.asSeconds();
 			}
-			else if (this->velocity.x > 0)
-				this->velocity.x -= this->movementDecrementation * deltaTime.asSeconds();
+			else if (this->velocity.X > 0)
+				this->velocity.X -= this->movementDecrementation * deltaTime.asSeconds();
 		}
 	}
 }
