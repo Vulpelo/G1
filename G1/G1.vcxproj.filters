@@ -257,5 +257,8 @@
     <ClInclude Include="Properties.h">
       <Filter>Header Files\Engine\Config</Filter>
     </ClInclude>
+    <ClInclude Include="MathVariables.h">
+      <Filter>Header Files\Engine\Func\Transform</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

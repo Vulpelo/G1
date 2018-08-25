@@ -3,18 +3,19 @@
 #ifndef VECTOR2D_H
 #define VECTOR2D_H
 
-#include "MathFunctions.h"
+#include "MathVariables.h"
 
 class Vector2D
 {
 public:
-	double x;
-	double y;
+	double X;
+	double Y;
 
 	Vector2D();
 	Vector2D(const Vector2D*);
 	Vector2D(double x, double y);
 	Vector2D(Position pos);
+	Vector2D(Vector2D&);
 
 	void setVector(Vector2D);
 	void setVector(double x, double y);

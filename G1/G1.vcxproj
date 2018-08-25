@@ -167,6 +167,7 @@
     <ClInclude Include="GameMap.h" />
     <ClInclude Include="ControlInput.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="MathVariables.h" />
     <ClInclude Include="MapManager.h" />
     <ClInclude Include="MathFunctions.h" />
     <ClInclude Include="Physics.h" />
