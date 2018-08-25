@@ -6,6 +6,7 @@
 class Map001 : public GameMap
 {
 private:
+	Object* player;
 	double spawnEnemyTime;
 	double actualSpawnEnemyTime;
 public:

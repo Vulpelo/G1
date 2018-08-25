@@ -24,7 +24,7 @@ void Czolg::beginPlay()
 	this->movementToRotationDirection = true;
 	this->movementAcceleration = 100;
 	this->movementDecrementation = 150;
-	this->shootRate = 2;
+	this->shootRate = 1;
 	this->aShootRate = 0;
 
 
@@ -82,6 +82,13 @@ void Czolg::EventTick()
 
 			Transform nTran(this->get_wTransform().position);
 			nTran.rotationX = this->wTransform.rotationX;
+
+			Vector2D vec(nTran.position);
+			Vector2D offset; offset.setVectorByAngleAndLength(nTran.rotationX, -50);
+			vec = vec - offset;
+			nTran.position.X = vec.X;
+			nTran.position.Y = vec.Y;
+
 			spawnObject(new Bullet(nTran));
 		}
 	}
