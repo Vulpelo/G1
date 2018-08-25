@@ -82,6 +82,13 @@ void Czolg::EventTick()
 
 			Transform nTran(this->get_wTransform().position);
 			nTran.rotationX = this->wTransform.rotationX;
+
+			Vector2D vec(nTran.position);
+			Vector2D offset; offset.setVectorByAngleAndLength(nTran.rotationX, -50);
+			vec = vec - offset;
+			nTran.position.X = vec.x;
+			nTran.position.Y = vec.y;
+
 			spawnObject(new Bullet(nTran));
 		}
 	}

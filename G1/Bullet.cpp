@@ -14,7 +14,7 @@ Bullet::Bullet(Transform nWTransform)
 
 void Bullet::beginPlay()
 {
-	this->velocity.y = 100;
+	this->velocity.y = 500;
 	this->velocity.x = 0;
 	DestroyObject(5);
 	this->movementToRotationDirection = true;
