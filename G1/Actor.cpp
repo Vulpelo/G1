@@ -23,18 +23,16 @@ void Actor::mainBeginPlay()
 	this->movementToRotationDirection = false;
 	this->movementAcceleration = 100;
 	this->movementDecrementation = 100;
-	this->lifeTime = 0;
-	this->currentLifeTime = 0;
 }
 
 void Actor::mainEventTick(sf::Time deltaTime)
 {
-	Object::mainEventTick(deltaTime);
+	GameObject::mainEventTick(deltaTime);
 
 	this->deltaTime = deltaTime;
 
-	if (lifeTime > 0 && currentLifeTime <= lifeTime)
-		currentLifeTime += deltaTime.asSeconds();
+	//if (lifeTime > 0 && currentLifeTime <= lifeTime)
+	//	currentLifeTime += deltaTime.asSeconds();
 	
 	updateMesh();
 	worldCoordinateMovement();
