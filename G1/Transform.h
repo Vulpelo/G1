@@ -3,17 +3,18 @@
 #ifndef TRANSFORM_H
 #define TRANSFORM_H
 
-#include "Position.h"
+#include "Vector2D.h"
 
 struct Transform
 {
-	Position position;
+	Vector2D position;
 	double rotationX;
 	double scaleX;
 	double scaleY;
 
 	Transform() : rotationX(0), scaleX(1), scaleY(1) {};
 	Transform(Position pos) : position(pos), rotationX(0), scaleX(1), scaleY(1) {}
+	Transform(Vector2D& vec) : position(vec), rotationX(0), scaleX(1), scaleY(1) {}
 };
 
 #endif // !TRANSFORM_H

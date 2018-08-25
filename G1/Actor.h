@@ -58,6 +58,7 @@ public:
 	/*Simple move this actor to position. Stop if distance between actor and 
 	position is lower or equal distancePrecision*/
 	bool simpleMoveTo(Position coordinate, double distancePrecision);
+	bool simpleMoveTo(Vector2D cor, double distancePrecision);
 
 	/*Rotate mesh to given position with rotationSpeed. anglePrecision in degrees.*/
 	bool lookAt(Component *m, Position point, double anglePrecision);

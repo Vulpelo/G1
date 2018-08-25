@@ -22,6 +22,16 @@ namespace GMath
 		return sqrt(X + Y);
 	}
 
+	double twoPointsDistance(Vector2D cor1, Vector2D cor2)
+	{
+		double X = cor1.X - cor2.Y;
+		double Y = cor1.Y - cor2.Y;
+		X *= X;
+		Y *= Y;
+
+		return sqrt(X + Y);
+	}
+
 	double twoPointsAngle(double X1, double Y1, double X2, double Y2)
 	{
 		double value = (180 * atan((X1 - X2) / (Y1 - Y2))) / M_PI;
