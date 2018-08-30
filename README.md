@@ -3,24 +3,31 @@ Game engine
 ## Silnik graficzny
 Wykorzystuje OpenGL który jest wbudowany w wykorzystywaną bibliotekę SFML. SFML upraszcza obsługę OpenGL'a.
 
-Dokumentacja
+Spis
 ===
 ## Klasy
 * Object
 * GameObject : Object
 * Actor : GameObject
+* Player : Actor
+
+* GameMap
+
 * Component
 * Mesh : Component
-* GameMap
-* Vector2D
-* MathFunctions
+
+* SimpleShape
 * ControlInput
 * Collision
-* SimpleShape
+
+* MathFunctions
+* Vector2D
 * Coordinate
 * Transform
+
 ---
-## **Object**
+
+# **Object**
  Public Methods                     | Description
  -----------------------------------|-----------------------------------------------------------------------------------------
  `DestroyObject(float)`             | Destroys this Object in established time, or before next tick if time not specified
@@ -37,7 +44,44 @@ Dokumentacja
  `isOverlaping(Object*)`    | Called when some of other's Object colliders is still overtaping this Object's colliders
  `endOverlaping(Object*)`   | Called when all other's Object Colliders exited all Colliders of this Object
 
+---
+
+# **GameObject** :inherates from Object
+
+ Public Methods                     | Description
+ -----------------------------------|-----------------------------------------------------------------------------------------
+                                    |
+ 
+ Public Messages            | Description
+----------------------------|-----------------------------------------------------------------------------------------
+                            |
+                            
+---
+
+# **Actor** :inherates from GameObject
+
+ Public Methods                     | Description
+ -----------------------------------|-----------------------------------------------------------------------------------------
+                                    |
+ 
+ Public Messages            | Description
+----------------------------|-----------------------------------------------------------------------------------------
+                            |
+
+---
+
+# **Player** :inherates from Actor
+
+ Public Methods                     | Description
+ -----------------------------------|-----------------------------------------------------------------------------------------
+                                    |
+ 
+ Public Messages            | Description
+----------------------------|-----------------------------------------------------------------------------------------
+                            |
+
+---
 ## Funkcjonalności
 1. Layers
 
-        Warstwy pozwalają na zgrupowanie wielu objektów pod jedną nazwą. Ułatwia to np. czy dany obiekt może kolidować z innym.
+        Warstwy pozwalają na zgrupowanie wielu objektów pod jedną nazwą. Ułatwia to np. sprawdzenie czy dany obiekt może kolidować z innym.
