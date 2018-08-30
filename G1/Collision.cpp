@@ -88,9 +88,9 @@ bool CollisionRectangle::rectangleOverlapsPoint(Position point)
 
 bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
 {
-	float distance = 
-		GMath::twoPointsDistance(this->wTransform.position.X, this->wTransform.position.Y,
-		otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition());
+	//float distance = 
+	//	GMath::twoPointsDistance(this->wTransform.position.X, this->wTransform.position.Y,
+	//	otherCollider->getXWorldPosition(), otherCollider->getYWorldPosition());
 
 	if (otherCollider->getCollisionType() == 'c') //for circle
 	{

@@ -37,7 +37,7 @@ class Object
 
 protected:
 #pragma region protected Variables
-	std::set<Layer> layers;
+	int layer;
 
 	// World transform
 	Transform wTransform;

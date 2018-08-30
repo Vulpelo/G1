@@ -1,5 +1,9 @@
 #include "PhysicsHandle.h"
 
+std::vector<Object*> PhysicsHandle::emptyVector;
+
+std::vector<Object*>& PhysicsHandle::objects = PhysicsHandle::emptyVector;
+
 void PhysicsHandle::overlapDetectionUpdate(std::vector<Object*>& objects)
 {
 	/*---Checking collisions---*/
@@ -152,4 +156,22 @@ void PhysicsHandle::overlapingEndMain(Object* object)
 		ovObj.push_back(nOvObj.at(i));
 	}
 	nOvObj.clear();
+}
+
+std::vector<Object*>* PhysicsHandle::overlapsCollider(Collision * colider)
+{
+	std::vector<Object*>* overObj = new std::vector<Object*>;
+	for each (Object* obj in objects)
+	{
+		// checking if colider is overlaping Object
+		for (int i = 0; i < obj->components.size(); i++) {
+			if (obj->components[i]->collision && obj->components[i]->collision->isCollidingWith(colider))
+			{
+				overObj->push_back(obj);
+				break;
+			}
+		}
+
+	}
+	return overObj;
 }

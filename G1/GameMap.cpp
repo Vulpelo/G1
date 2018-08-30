@@ -2,7 +2,9 @@
 
 #include <SFML\Graphics.hpp>
 
-GameMap::GameMap() { }
+GameMap::GameMap() { 
+	PhysicsHandle::objects = this->objects;
+}
 
 std::vector<Object*> GameMap::getAllObjects()
 {

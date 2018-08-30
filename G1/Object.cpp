@@ -21,7 +21,6 @@ Object::~Object()
 	}
 	components.clear();
 
-	layers.clear();
 	overlapingObjects.clear();
 	newOverlapingObjects.clear();
 }
@@ -43,7 +42,7 @@ void Object::addNewOverlapingObject(Object * overlaped)
 
 void Object::mainBeginPlay()
 {
-	layers.insert(Layer::DEFAULT);
+	layer = Layer::DEFAULT;
 	this->lifeTime = 0;
 	this->currentLifeTime = 0;
 	this->destroyObject = false;

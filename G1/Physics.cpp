@@ -10,3 +10,9 @@ bool Physics::raycast(Position origin, Vector2D direction, float maxDistance, La
 
 	return false;
 }
+
+std::vector<Object*>* Physics::circleColider(Transform pos, float radious)
+{
+	auto * overlapingObjects = PhysicsHandle::overlapsCollider(new CollisionCircle(radious, pos.position.X, pos.position.Y));
+	return overlapingObjects;
+}
