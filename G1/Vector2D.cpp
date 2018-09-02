@@ -55,6 +55,11 @@ Vector2D Vector2D::operator*(const float &f) const
 	return Vector2D(this->X * f, this->Y * f);
 }
 
+float Vector2D::operator*(const Vector2D &vec) const
+{
+	return this->X * vec.X + this->Y * vec.Y;
+}
+
 double Vector2D::angle() const
 {
 	double value = 0;
