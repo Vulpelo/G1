@@ -1,5 +1,7 @@
 #include "Collision.h"
 
+#pragma region Collision
+
 Collision::Collision()
 	: SimpleShape()
 {
@@ -14,12 +16,15 @@ char Collision::getCollisionType()
 	return collisionType;
 }
 
+Vector2D Collision::getFarthestPointVector() 
+{ 
+	return Vector2D(); 
+}
+
 float Collision::getFarthestPoint()
 {
 	return this->farthestPoint;
 }
-
-Vector2D Collision::getFarthestPointVector() { return Vector2D(); }
 
 float Collision::getNearestPoint()
 {
@@ -111,7 +116,34 @@ bool Collision::rectangleOverlapsRectangle(Collision * rect, Collision * otherRe
 	return true;
 }
 
-//////////////////////////////////////////////////////////////////////////
+bool Collision::rectangleOverlapsPoint(Position point)
+{
+	float additionalAngle = 90;
+	float T[] = { this->getFarthestPointVector().Y, this->getFarthestPointVector().X };
+
+	for (int i = 0; i < 2; i++) {
+
+		// New perspective vector
+		Vector2D P;
+		P.setVectorByAngleAndLength(this->wTransform.rotationX + additionalAngle*i, 1);
+
+		Vector2D dTmp;
+		dTmp = Vector2D(point) - this->wTransform.position.invertY(); // INVERT ??
+		float dist = fabs(dTmp * P); // distance between point and rectangle on new perspective
+
+		if (dist > T[i])
+		{
+			//not touching for sure
+			return false;
+		}
+	}
+	return true;
+}
+
+#pragma endregion
+
+
+#pragma region CollisionRectangle
 
 CollisionRectangle::CollisionRectangle(double length, double height, double worldCoordinateX, double worldCoordinateY, float rot)
 {
@@ -125,58 +157,8 @@ CollisionRectangle::CollisionRectangle(double length, double height, double worl
 	this->nearestPoint = ( length<height ? length/2.0f : height/2.0f );
 }
 
-double CollisionRectangle::lowestX()
-{
-	return this->getXWorldPosition() - (this->length / 2.0);
-}
-double CollisionRectangle::lowestY()
-{//JEwszcze sprawdzic
-	return this->getYWorldPosition() + (this->height / 2.0);
-}
-double CollisionRectangle::biggestX()
-{
-	return this->getXWorldPosition() + (this->length / 2.0);
-}
-double CollisionRectangle::biggestY()
-{//JEwszcze sprawdzic
-	return this->getYWorldPosition() - (this->height / 2.0);
-}
-
 Vector2D CollisionRectangle::getFarthestPointVector() {
 	return Vector2D(this->length/2.0, height/2.0);
-}
-
-
-bool CollisionRectangle::rectangleOverlapsPoint(Position point)
-{
-		float additionalAngle = 90;
-		float T[] = { this->getFarthestPointVector().Y, this->getFarthestPointVector().X };
-
-		for (int i = 0; i < 2; i++) {
-
-			// New perspective vector
-			Vector2D P;
-			P.setVectorByAngleAndLength(this->wTransform.rotationX + additionalAngle*i, 1);
-
-			Vector2D dTmp;
-			dTmp = Vector2D(point) - this->wTransform.position.invertY(); // INVERT ??
-			float dist = fabs(dTmp * P); // distance between point and rectangle on new perspective
-
-			if (dist > T[i])
-			{
-				//not touching for sure
-				return false;
-			}
-		}
-		return true;
-
-	/*
-	if (this->lowestX() <= point.X && point.X <= this->biggestX() && this->biggestY() <= point.Y && point.Y <= this->lowestY())
-	{
-		return true;
-	}
-	return false;
-	*/
 }
 
 bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
@@ -193,7 +175,10 @@ bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
 	return false;
 }
 
-//////////////////////////////////////////////////////////////////////////
+#pragma endregion
+
+
+#pragma region CollisionCircle
 
 CollisionCircle::CollisionCircle(double radius, double worldCoordinateX, double worldCoordinateY)
 {
@@ -205,18 +190,13 @@ CollisionCircle::CollisionCircle(double radius, double worldCoordinateX, double 
 	this->nearestPoint = radius;
 }
 
-//double CollisionCircle::preciseTouchRange(double otherColliderXCoordinate, double otherColliderYCoordinate)
-//{
-//	return radius;
-//}
-
 bool CollisionCircle::isCollidingWith(Collision *otherCollider)
 {
 	if (otherCollider->getCollisionType() == 'c') // for circle
 	{
 		float distance = GMath::twoPointsDistance(this->wTransform.position, this->wTransform.position);
 
-		if (this->radius + otherCollider->lowestX() >= distance)
+		if (this->radius + otherCollider->getFarthestPoint() >= distance)
 			return true;
 		else
 			return false;
@@ -228,24 +208,4 @@ bool CollisionCircle::isCollidingWith(Collision *otherCollider)
 	return false;
 }
 
-float CollisionCircle::getFarthestPoint()
-{
-	return radius;
-}
-
-double CollisionCircle::lowestX()
-{
-	return this->getXWorldPosition() - radius;
-}
-double CollisionCircle::lowestY()
-{
-	return this->getYWorldPosition() + radius;
-}
-double CollisionCircle::biggestX()
-{
-	return this->getXWorldPosition() + radius;
-}
-double CollisionCircle::biggestY()
-{
-	return this->getYWorldPosition() - radius;
-}
+#pragma endregion
