@@ -39,6 +39,10 @@ public:
 
 	/// <summary>Returns vector with length equal 1</summary>
 	Vector2D normalize() const;
+
+	Vector2D invertX() const;
+	Vector2D invertY() const;
+	Vector2D invert() const;
 };
 
 #endif // !VECTOR2D_H

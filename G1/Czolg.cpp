@@ -24,7 +24,7 @@ void Czolg::beginPlay()
 	this->movementToRotationDirection = true;
 	this->movementAcceleration = 100;
 	this->movementDecrementation = 150;
-	this->shootRate = 1;
+	this->shootRate = 0.1;
 	this->aShootRate = 0;
 
 
@@ -35,7 +35,7 @@ void Czolg::beginPlay()
 	sS[1] = new Rectangle(40, 75, sf::Color(0, 255, 0, 255));
 	Mesh * m = new Mesh(sS, nrOfShapes);
 	m->setName("Body");
-	Collision *c = new CollisionRectangle(54, 54, 0, 0);
+	Collision *c = new CollisionRectangle(54, 75, 0, 0);
 	m->setCollider(c);
 	m->setRotateToMovementDirection(false);
 	this->components.push_back(m);
@@ -64,14 +64,14 @@ void Czolg::EventTick()
 
 	//components.at(2)->setLocalRotation(rot - components.at(2)->getXWorldRotation());
 
-	if (playerInput->a_KeyboardKeyPressed())
-	{
-		this->wTransform.rotationX -= deltaTime.asSeconds() * rotationSpeed;
-	}
-	if (playerInput->d_KeyboardKeyPressed())
-	{
-		this->wTransform.rotationX += deltaTime.asSeconds() * rotationSpeed;
-	}
+	//if (playerInput->a_KeyboardKeyPressed())
+	//{
+	//	this->wTransform.rotationX -= deltaTime.asSeconds() * rotationSpeed;
+	//}
+	//if (playerInput->d_KeyboardKeyPressed())
+	//{
+	//	this->wTransform.rotationX += deltaTime.asSeconds() * rotationSpeed;
+	//}
 
 	//shooting
 	if (playerInput->space_KeyboardKeyPressed())//|| playerInput->leftMouseButtonPressed())
@@ -106,14 +106,28 @@ void Czolg::movement()
 	}
 	else
 		movementForward(0);
-	//if (playerInput->d_KeyboardKeyPressed() || playerInput->a_KeyboardKeyPressed())
-	//{
-	//	if (playerInput->d_KeyboardKeyPressed())
-	//		movementRight(1);
-	//	else if (playerInput->a_KeyboardKeyPressed())
-	//		movementRight(-1);
-	//}
-	//else
-	//	movementRight(0);
+	if (playerInput->d_KeyboardKeyPressed() || playerInput->a_KeyboardKeyPressed())
+	{
+		if (playerInput->d_KeyboardKeyPressed())
+			movementRight(1);
+		else if (playerInput->a_KeyboardKeyPressed())
+			movementRight(-1);
+	}
+	else
+		movementRight(0);
 }
 
+void Czolg::startOverlaping(Object *overlaped)
+{
+	if (dynamic_cast<Wall *>(overlaped))
+	{
+		std::cout << "TOUChing\n";
+	}
+}
+
+void Czolg::endOverlaping(Object *overlaped)
+{
+	if (dynamic_cast<Wall *>(overlaped))
+		std::cout << "stop TOUChing\n";
+
+}

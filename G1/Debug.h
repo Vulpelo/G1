@@ -9,6 +9,7 @@
 
 class Debug
 {
+	static bool debugOn;
 	static clock_t target;
 	static float waitTime;
 	static bool block;

@@ -4,6 +4,8 @@ Object::Object()
 {
 	this->wTransform.position.X = 0;
 	this->wTransform.position.Y = 0;
+	this->wTransform.rotationX = 0;
+
 	mainBeginPlay();
 }
 
@@ -65,7 +67,7 @@ void Object::updateMesh()
 	for (int i = 0; i < components.size(); i++)
 	{
 		components.at(i)->setPosition(wTransform.position.X, wTransform.position.Y);
-		//components.at(i)->setRotation(wTransform.rotationX);
+		components.at(i)->setRotation(wTransform.rotationX);
 	}
 }
 

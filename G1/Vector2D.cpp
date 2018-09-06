@@ -90,3 +90,18 @@ Vector2D Vector2D::normalize() const
 	nV.Y = this->Y / this->length();
 	return nV;
 }
+
+Vector2D Vector2D::invertX() const
+{
+	return Vector2D(-X, Y);
+}
+
+Vector2D Vector2D::invertY() const
+{
+	return Vector2D(X, -Y);
+}
+
+Vector2D Vector2D::invert() const
+{
+	return Vector2D(-X, -Y);
+}

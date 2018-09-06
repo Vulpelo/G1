@@ -24,6 +24,7 @@ public:
 	
 	// returns distance from origin of colider to the farthest point of colider
 	float getFarthestPoint();
+	virtual Vector2D getFarthestPointVector();
 	// returns distance from origin of colider to the nearest point of colider
 	float getNearestPoint();
 
@@ -46,13 +47,14 @@ private:
 	double height, length;
 
 public:
-	CollisionRectangle(double height, double length, double worldCoordinateX, double worldCoordinateY);
+	CollisionRectangle(double length, double height, double worldCoordinateX, double worldCoordinateY, float rot = 0);
 	bool isCollidingWith(Collision *otherCollider);
 
 	double lowestX();
 	double lowestY();
 	double biggestX();
 	double biggestY();
+	Vector2D CollisionRectangle::getFarthestPointVector();
 	//double preciseTouchRange(double otherColliderXCoordinate, double otherColliderYCoordinate);
 	bool rectangleOverlapsPoint(Position point);
 };
