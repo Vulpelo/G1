@@ -49,6 +49,56 @@ bool Collision::rectangleOverlapsCircle(Collision * rect, Collision * cirl)
 	}
 }
 
+bool Collision::rectangleOverlapsRectangle(Collision * rect, Collision * otherRect)
+{
+	float additionalAngle = 90;
+	float T[] = { rect->getFarthestPointVector().Y, rect->getFarthestPointVector().X };
+
+	// THIS COLLIDER
+	for (int i = 0; i < 2; i++) {
+
+		// New perspective vector
+		Vector2D P;
+		P.setVectorByAngleAndLength(rect->wTransform.rotationX + additionalAngle*i, 1);
+
+		// distance between two rectangles
+		Vector2D dTmp;
+		dTmp = otherRect->wTransform.position.invertY() - rect->wTransform.position.invertY();
+		float dist = fabs(dTmp * P);
+
+		// sum of max and min distance of vertex
+		float vertDist = T[i];
+
+		// figure 2: half diagonal
+		float hDiag;
+		Vector2D oR;
+		// geting otherCollider farthest point and rotating it
+		oR.setVectorByAngleAndLength
+		(otherRect->wTransform.rotationX + otherRect->getFarthestPointVector().angle(),
+			otherRect->getFarthestPoint());
+		hDiag = fabs(oR * P);
+
+		//Second diagonal check if is longer on new perspective
+		oR.setVectorByAngleAndLength
+		(otherRect->wTransform.rotationX + (otherRect->getFarthestPointVector().invertY()).angle(),
+			otherRect->getFarthestPoint());
+		float tmp = fabs(oR * P);
+		if (hDiag < tmp) {
+			hDiag = tmp;
+		}
+
+		// rzutowanie na nowy wektor
+		vertDist += hDiag;
+
+		if (dist > vertDist)
+		{
+			//not touching for sure
+			return false;
+		}
+	}
+	return true;
+}
+
 //////////////////////////////////////////////////////////////////////////
 
 CollisionRectangle::CollisionRectangle(double length, double height, double worldCoordinateX, double worldCoordinateY, float rot)
@@ -102,103 +152,8 @@ bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
 	}
 	else if (otherCollider->getCollisionType() == 'r') //for rectangle
 	{
-		// TODO: CHANGE COLLISION ALGORYTHM FOR RECTANGLE. CHECKING COL. FOR ROTATED COLIDERS
-
-		float additionalAngle = 90;
-
-		float T[] = { height / 2.0, length / 2.0 };
-		
-		// THIS COLLIDER
-		for (int i = 0; i < 2; i++) {
-
-			// New perspective vector
-			Vector2D P;
-			P.setVectorByAngleAndLength(this->wTransform.rotationX + additionalAngle*i, 1);
-
-			// distance between two rectangles
-			Vector2D dTmp;
-			dTmp = otherCollider->wTransform.position.invertY() - this->wTransform.position.invertY();
-			float dist = fabs(dTmp * P);
-
-			// sum of max and min distance of vertex
-			float vertDist = T[i];
-
-			// figure 2: half diagonal
-			float hDiag;
-			Vector2D oR;
-			// geting otherCollider farthest point and rotating it
-			oR.setVectorByAngleAndLength
-			(otherCollider->wTransform.rotationX + otherCollider->getFarthestPointVector().angle(),
-				otherCollider->getFarthestPoint());
-			hDiag = fabs(oR * P);
-
-			//Second diagonal check if is longer on new perspective
-			oR.setVectorByAngleAndLength
-			(otherCollider->wTransform.rotationX + (otherCollider->getFarthestPointVector().invertY()).angle(),
-				otherCollider->getFarthestPoint());
-			float tmp = fabs(oR * P);
-			if (hDiag < tmp) {
-				hDiag = tmp;
-			}
-
-			// rzutowanie na nowy wektor
-			vertDist += hDiag;
-
-			if (dist > vertDist)
-			{
-				//not touching for sure
-				return false;
-			}
-		}
-
-		T[0] = otherCollider->getFarthestPointVector().Y;
-		T[1] = otherCollider->getFarthestPointVector().X;
-
-		// OTHER COLLIDER
-		for (int i = 0; i < 2; i++) {
-
-			// New perspective vector
-			Vector2D P;
-			P.setVectorByAngleAndLength(otherCollider->wTransform.rotationX + additionalAngle*i, 1);
-
-			// two rectangle distance
-			Vector2D dTmp;
-			dTmp = this->wTransform.position.invertY() - otherCollider->wTransform.position.invertY();
-			float dist = fabs(dTmp * P);
-
-			// sum of max and min distance of vertex
-			float vertDist = T[i];
-
-			// figure 2: half diagonal
-			float hDiag;
-			Vector2D oR;
-			// geting otherCollider farthest point and rotating it
-			oR.setVectorByAngleAndLength
-			(this->wTransform.rotationX + this->getFarthestPointVector().angle(),
-				this->getFarthestPoint());
-			hDiag = fabs(oR * P);
-
-			//Second diagonal check if is longer on new perspective
-			oR.setVectorByAngleAndLength
-			(this->wTransform.rotationX + (this->getFarthestPointVector().invertY()).angle(),
-				this->getFarthestPoint());
-			float tmp = fabs(oR * P);
-			if (hDiag < tmp) {
-				hDiag = tmp;
-			}
-
-			// rzutowanie na nowy wektor
-			vertDist += hDiag;
-
-			if (dist > vertDist)
-			{
-				//not touching for sure
-				return false;
-			}
-		}
-
-		return true;
-
+		if (rectangleOverlapsRectangle(this, otherCollider) && rectangleOverlapsRectangle(otherCollider, this))
+			return true;
 	}
 	return false;
 }

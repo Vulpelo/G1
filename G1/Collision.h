@@ -17,6 +17,7 @@ protected:
 	//not actually used
 	void draw(sf::RenderWindow * w);
 	bool rectangleOverlapsCircle(Collision*rect, Collision*cirl);
+	bool rectangleOverlapsRectangle(Collision*rect, Collision*otherRect);
 public:
 	Collision();
 	char getCollisionType();
