@@ -68,6 +68,7 @@ private:
 public:
 	CollisionCircle(double radius, double worldCoordinateX, double worldCoordinateY);
 	bool isCollidingWith(Collision *otherCollider);
+	float getFarthestPoint();
 	double lowestX();
 	double lowestY();
 	double biggestX();

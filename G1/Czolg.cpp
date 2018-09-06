@@ -29,13 +29,17 @@ void Czolg::beginPlay()
 
 
 
-	int nrOfShapes = 2;
+	int nrOfShapes = 3;
 	SimpleShape **sS = new SimpleShape*[nrOfShapes];
 	sS[0] = new Rectangle(54, 75, sf::Color(0, 0, 255, 255));
 	sS[1] = new Rectangle(40, 75, sf::Color(0, 255, 0, 255));
+	sS[2] = new Circle(40, sf::Color(255, 255, 0, 255));
+
 	Mesh * m = new Mesh(sS, nrOfShapes);
 	m->setName("Body");
-	Collision *c = new CollisionRectangle(54, 75, 0, 0);
+	//Collision *c = new CollisionRectangle(54, 75, 0, 0);
+	Collision *c = new CollisionCircle(40, 0, 0);
+
 	m->setCollider(c);
 	m->setRotateToMovementDirection(false);
 	this->components.push_back(m);

@@ -41,11 +41,23 @@ bool Collision::rectangleOverlapsCircle(Collision * rect, Collision * cirl)
 	// Not sure, need extra check
 	else {
 		// TODO : instead Position struct use Vector2 for location
-		Vector2D rec(rect->wTransform.position); Vector2D cir(cirl->wTransform.position);
-		Vector2D nV = (rec - cir).normalize();
-		nV = cir + nV * cirl->getFarthestPoint();
+		float additionalAngle = 90;
+		float T[] = { rect->getFarthestPointVector().Y, rect->getFarthestPointVector().X };
 
-		return rect->rectangleOverlapsPoint(Position(nV.X, nV.Y));
+		for (int i = 0; i < 2; i++) {
+			// New perspective vector
+			Vector2D P;
+			P.setVectorByAngleAndLength(rect->wTransform.rotationX + additionalAngle*i, 1);
+
+			Vector2D distance;
+			distance = cirl->wTransform.position.invertY() - this->wTransform.position.invertY();
+			// fabs(distance * P) - distance between circle and rectangle on new perspective
+			if (fabs(distance * P) > T[i] + cirl->getFarthestPoint() ) {
+				//not touching for sure
+				return false;
+			}
+		}
+		return true;
 	}
 }
 
@@ -137,11 +149,34 @@ Vector2D CollisionRectangle::getFarthestPointVector() {
 
 bool CollisionRectangle::rectangleOverlapsPoint(Position point)
 {
+		float additionalAngle = 90;
+		float T[] = { this->getFarthestPointVector().Y, this->getFarthestPointVector().X };
+
+		for (int i = 0; i < 2; i++) {
+
+			// New perspective vector
+			Vector2D P;
+			P.setVectorByAngleAndLength(this->wTransform.rotationX + additionalAngle*i, 1);
+
+			Vector2D dTmp;
+			dTmp = Vector2D(point) - this->wTransform.position.invertY(); // INVERT ??
+			float dist = fabs(dTmp * P); // distance between point and rectangle on new perspective
+
+			if (dist > T[i])
+			{
+				//not touching for sure
+				return false;
+			}
+		}
+		return true;
+
+	/*
 	if (this->lowestX() <= point.X && point.X <= this->biggestX() && this->biggestY() <= point.Y && point.Y <= this->lowestY())
 	{
 		return true;
 	}
 	return false;
+	*/
 }
 
 bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
@@ -191,6 +226,11 @@ bool CollisionCircle::isCollidingWith(Collision *otherCollider)
 		return rectangleOverlapsCircle(otherCollider, this);
 	}
 	return false;
+}
+
+float CollisionCircle::getFarthestPoint()
+{
+	return radius;
 }
 
 double CollisionCircle::lowestX()
