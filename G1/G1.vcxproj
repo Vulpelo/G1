@@ -150,6 +150,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Properties.cpp" />
     <ClCompile Include="Przeciwnik1.cpp" />
+    <ClCompile Include="Render.cpp" />
     <ClCompile Include="SimpleShape.cpp" />
     <ClCompile Include="Turret.cpp" />
     <ClCompile Include="Vector2D.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="MojaPostac.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Ray.h" />
+    <ClInclude Include="Render.h" />
     <ClInclude Include="SimpleShape.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Transform.h" />

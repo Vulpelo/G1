@@ -9,18 +9,17 @@
 
 class Debug
 {
+	Debug();
+	Debug(const Debug&);
 	static bool debugOn;
 	static clock_t target;
 	static float waitTime;
 	static bool block;
 public:
-	Debug();
 	static void update();
 	static void addText(const char*);
 	static void addText(int);
 	static void addText(const char*, int);
-
-	~Debug();
 };
 
 #endif // !DEBUG_H

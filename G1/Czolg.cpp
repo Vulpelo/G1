@@ -29,16 +29,16 @@ void Czolg::beginPlay()
 
 
 
-	int nrOfShapes = 3;
+	int nrOfShapes = 2;
 	SimpleShape **sS = new SimpleShape*[nrOfShapes];
 	sS[0] = new Rectangle(54, 75, sf::Color(0, 0, 255, 255));
 	sS[1] = new Rectangle(40, 75, sf::Color(0, 255, 0, 255));
-	sS[2] = new Circle(40, sf::Color(255, 255, 0, 255));
+	//sS[2] = new Circle(40, sf::Color(255, 255, 0, 255));
 
 	Mesh * m = new Mesh(sS, nrOfShapes);
 	m->setName("Body");
-	//Collision *c = new CollisionRectangle(54, 75, 0, 0);
-	Collision *c = new CollisionCircle(40, 0, 0);
+	Collision *c = new CollisionRectangle(54, 75, 0, 0);
+	//Collision *c = new CollisionCircle(40, 0, 0);
 
 	m->setCollider(c);
 	m->setRotateToMovementDirection(false);
@@ -68,14 +68,14 @@ void Czolg::EventTick()
 
 	//components.at(2)->setLocalRotation(rot - components.at(2)->getXWorldRotation());
 
-	//if (playerInput->a_KeyboardKeyPressed())
-	//{
-	//	this->wTransform.rotationX -= deltaTime.asSeconds() * rotationSpeed;
-	//}
-	//if (playerInput->d_KeyboardKeyPressed())
-	//{
-	//	this->wTransform.rotationX += deltaTime.asSeconds() * rotationSpeed;
-	//}
+	if (playerInput->a_KeyboardKeyPressed())
+	{
+		this->wTransform.rotationX -= deltaTime.asSeconds() * rotationSpeed;
+	}
+	if (playerInput->d_KeyboardKeyPressed())
+	{
+		this->wTransform.rotationX += deltaTime.asSeconds() * rotationSpeed;
+	}
 
 	//shooting
 	if (playerInput->space_KeyboardKeyPressed())//|| playerInput->leftMouseButtonPressed())
@@ -110,15 +110,15 @@ void Czolg::movement()
 	}
 	else
 		movementForward(0);
-	if (playerInput->d_KeyboardKeyPressed() || playerInput->a_KeyboardKeyPressed())
-	{
-		if (playerInput->d_KeyboardKeyPressed())
-			movementRight(1);
-		else if (playerInput->a_KeyboardKeyPressed())
-			movementRight(-1);
-	}
-	else
-		movementRight(0);
+	//if (playerInput->d_KeyboardKeyPressed() || playerInput->a_KeyboardKeyPressed())
+	//{
+	//	if (playerInput->d_KeyboardKeyPressed())
+	//		movementRight(1);
+	//	else if (playerInput->a_KeyboardKeyPressed())
+	//		movementRight(-1);
+	//}
+	//else
+	//	movementRight(0);
 }
 
 void Czolg::startOverlaping(Object *overlaped)

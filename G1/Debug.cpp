@@ -42,8 +42,3 @@ void Debug::addText(const char * t, int number)
 		printf("%s %i", t, number);
 		//printText += t + to_string(number);
 }
-
-
-Debug::~Debug()
-{
-}

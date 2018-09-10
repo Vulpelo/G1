@@ -24,7 +24,7 @@ void Bullet::beginPlay()
 	sS[0] = new Rectangle(5, 15, sf::Color(255, 255, 0, 255));
 	Mesh *m = new Mesh(sS, nrOfShapes);
 	//Collision *c = new CollisionCircle(8, 0, 0);
-	Collision *c = new CollisionRectangle(8, 0, 0, 0);
+	Collision *c = new CollisionRectangle(5, 15, 0, 0);
 
 	m->setCollider(c);
 	m->setRotateToMovementDirection(false);
