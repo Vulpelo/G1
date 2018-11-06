@@ -55,6 +55,11 @@ Vector2D Vector2D::operator*(const float &f) const
 	return Vector2D(this->X * f, this->Y * f);
 }
 
+float Vector2D::operator*(const Vector2D &vec) const
+{
+	return this->X * vec.X + this->Y * vec.Y;
+}
+
 double Vector2D::angle() const
 {
 	double value = 0;
@@ -84,4 +89,19 @@ Vector2D Vector2D::normalize() const
 	nV.X = this->X / this->length();
 	nV.Y = this->Y / this->length();
 	return nV;
+}
+
+Vector2D Vector2D::invertX() const
+{
+	return Vector2D(-X, Y);
+}
+
+Vector2D Vector2D::invertY() const
+{
+	return Vector2D(X, -Y);
+}
+
+Vector2D Vector2D::invert() const
+{
+	return Vector2D(-X, -Y);
 }

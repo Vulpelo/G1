@@ -25,6 +25,9 @@ public:
 	Vector2D operator +(const Vector2D&) const;
 	Vector2D operator *(const float&) const;
 
+	/// <summary> Result is a scalar </summary>
+	float operator *(const Vector2D&) const;
+
 	/// <summary>
 	/// Direction of vector in witch is facing. Angle is 0 when vector is pointing straight up.
 	/// Return's 0 also when x and y are equal 0.
@@ -36,6 +39,10 @@ public:
 
 	/// <summary>Returns vector with length equal 1</summary>
 	Vector2D normalize() const;
+
+	Vector2D invertX() const;
+	Vector2D invertY() const;
+	Vector2D invert() const;
 };
 
 #endif // !VECTOR2D_H

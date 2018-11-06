@@ -4,6 +4,8 @@ Object::Object()
 {
 	this->wTransform.position.X = 0;
 	this->wTransform.position.Y = 0;
+	this->wTransform.rotationX = 0;
+
 	mainBeginPlay();
 }
 
@@ -21,7 +23,6 @@ Object::~Object()
 	}
 	components.clear();
 
-	layers.clear();
 	overlapingObjects.clear();
 	newOverlapingObjects.clear();
 }
@@ -43,7 +44,7 @@ void Object::addNewOverlapingObject(Object * overlaped)
 
 void Object::mainBeginPlay()
 {
-	layers.insert(Layer::DEFAULT);
+	layer = Layer::DEFAULT;
 	this->lifeTime = 0;
 	this->currentLifeTime = 0;
 	this->destroyObject = false;
@@ -66,7 +67,7 @@ void Object::updateMesh()
 	for (int i = 0; i < components.size(); i++)
 	{
 		components.at(i)->setPosition(wTransform.position.X, wTransform.position.Y);
-		//components.at(i)->setRotation(wTransform.rotationX);
+		components.at(i)->setRotation(wTransform.rotationX);
 	}
 }
 

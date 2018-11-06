@@ -1,13 +1,9 @@
 #include "Engine.h"
 
-#include "Properties.h"
-#include "MapManager.h"
-#include "Map001.h"
 
 Engine::Engine()
 {
-	window = new sf::RenderWindow(sf::VideoMode(Properties::width, Properties::height, Properties::bitPerPixel), "G1");
-	controlInput = new ControlInput(window);
+	controlInput = new ControlInput(render.getWindow());
 
 	//DO GRY
 	GameMap *map = new Map001;
@@ -19,20 +15,17 @@ Engine::~Engine()
 {
 	if(controlInput) 
 		delete controlInput;
-	if(window)
-		delete window;
 }
 
 void Engine::mainLoop()
 {
-	while (window->isOpen())
+	while (render.getWindow()->isOpen())
 	{
 		clock_t b1, e1, e, b = clock();
 	
 		mainEventTick();
-		window->clear();
-		windowRender();
-		window->display();
+
+		render.renderWindow();
 
 		e = clock();
 		Debug::addText(" overallTime:", e-b);
@@ -47,9 +40,3 @@ void Engine::mainEventTick()
 	MapManager::get_aMap()->mainEventTick(deltaTime);
 	controlInput->mainEventTick();
 }
-
-void Engine::windowRender()
-{
-	MapManager::get_aMap()->render(window);
-}
-

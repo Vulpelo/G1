@@ -9,5 +9,8 @@ class Physics
 	friend class PhysicsHandle;
 public:
 	static bool raycast(Position origin, Vector2D direction, float maxDistance = INFINITY, Layer layerMask = Layer::DEFAULT);
+	static std::vector<Object*>* circleColider(Transform pos, float radious);
+	static std::vector<Object*>* rectangleColider(Transform pos, float width, float height);
+
 };
 

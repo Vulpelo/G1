@@ -15,9 +15,12 @@ class PhysicsHandle {
 	friend class Physics;
 	friend class GameMap;
 
+	static std::vector<Object*> emptyVector; // empty 
+	static std::vector<Object*>& objects;
 	static Object* overlapsPoint(Position pos) {
 		return nullptr;
 	}
+
 	/// <summary> Return's true as soon as any component from container, overlaps any component from another container</summary>
 	static bool overlapsAnyComponent(std::vector <Component*> &components, std::vector <Component*> &otherComponents);
 	
@@ -27,6 +30,7 @@ class PhysicsHandle {
 	static void overlapDetectionUpdate(std::vector<Object*>&);
 	static bool overlapsComponentsUpdate(std::vector <Component*> &components, std::vector <Component*> &otherComponents);
 	static void overlapingEndMain(Object* object);
+	static std::vector<Object*>* overlapsCollider(Collision*);
 };
 
 #endif // !PHYSICS_H

@@ -24,7 +24,7 @@ void Czolg::beginPlay()
 	this->movementToRotationDirection = true;
 	this->movementAcceleration = 100;
 	this->movementDecrementation = 150;
-	this->shootRate = 1;
+	this->shootRate = 0.1;
 	this->aShootRate = 0;
 
 
@@ -33,9 +33,13 @@ void Czolg::beginPlay()
 	SimpleShape **sS = new SimpleShape*[nrOfShapes];
 	sS[0] = new Rectangle(54, 75, sf::Color(0, 0, 255, 255));
 	sS[1] = new Rectangle(40, 75, sf::Color(0, 255, 0, 255));
+	//sS[2] = new Circle(40, sf::Color(255, 255, 0, 255));
+
 	Mesh * m = new Mesh(sS, nrOfShapes);
 	m->setName("Body");
-	Collision *c = new CollisionRectangle(54, 54, 0, 0);
+	Collision *c = new CollisionRectangle(54, 75, 0, 0);
+	//Collision *c = new CollisionCircle(40, 0, 0);
+
 	m->setCollider(c);
 	m->setRotateToMovementDirection(false);
 	this->components.push_back(m);
@@ -83,11 +87,8 @@ void Czolg::EventTick()
 			Transform nTran(this->get_wTransform().position);
 			nTran.rotationX = this->wTransform.rotationX;
 
-			Vector2D vec(nTran.position);
 			Vector2D offset; offset.setVectorByAngleAndLength(nTran.rotationX, -50);
-			vec = vec - offset;
-			nTran.position.X = vec.X;
-			nTran.position.Y = vec.Y;
+			nTran.position = nTran.position - offset;
 
 			spawnObject(new Bullet(nTran));
 		}
@@ -120,3 +121,17 @@ void Czolg::movement()
 	//	movementRight(0);
 }
 
+void Czolg::startOverlaping(Object *overlaped)
+{
+	if (dynamic_cast<Wall *>(overlaped))
+	{
+		std::cout << "TOUChing\n";
+	}
+}
+
+void Czolg::endOverlaping(Object *overlaped)
+{
+	if (dynamic_cast<Wall *>(overlaped))
+		std::cout << "stop TOUChing\n";
+
+}

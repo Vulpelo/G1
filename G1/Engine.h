@@ -3,29 +3,26 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include <SFML\Graphics.hpp>
+#include "Properties.h"
 
+#include "Render.h"
 #include "ControlInput.h"
-#include "GameMap.h"
 
 class Engine
 {
 private:
-	sf::RenderWindow * window;
 	sf::Event inputEvent;
 	sf::Clock deltaClock;
 	sf::Time deltaTime;
+	Render render;
 	
 	ControlInput * controlInput;
 
 public:
 	Engine();
 	~Engine();
-	void windowRender();
 	void mainEventTick();
 	void mainLoop();
-	//void loadMap(int);
-	//void loadMap(GameMap*);
 };
 
 #endif // !ENGINE_H
