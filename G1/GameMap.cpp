@@ -24,7 +24,9 @@ void GameMap::mainEventTick(sf::Time deltaTime)
 			objects.at(i-1)->mainEventTick(deltaTime);
 	}
 	clock_t e,b = clock();
-	PhysicsHandle::overlapDetectionUpdate(objects);
+	
+	//--PhysicsHandle::overlapDetectionUpdate(objects);
+	
 	e = clock();
 	Debug::addText(" physicsTime:", double(e-b));
 
@@ -63,3 +65,5 @@ void GameMap::setInput(ControlInput * input)
 		}
 	}
 }
+
+

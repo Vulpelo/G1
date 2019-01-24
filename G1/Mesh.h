@@ -12,6 +12,7 @@ private:
 	SimpleShape ** shapes;
 	int numberOfShapes;
 	bool rotateToMovementDirection;
+
 public:
 	Mesh();
 	Mesh(SimpleShape ** shapesZ, int numberOfShapesZ);

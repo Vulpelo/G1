@@ -62,19 +62,19 @@ void Czolg::EventTick()
 {
 	movement();
 	//rotation
-	/*this->wTransform.rotationX = GMath::twoPointsAngle
-	(this->wTransform.position.X, this->wTransform.position.Y,
+	/*this->transform.rotationX = GMath::twoPointsAngle
+	(this->transform.position.X, this->transform.position.Y,
 		this->playerInput->mousePosition().x, -this->playerInput->mousePosition().y);*/
 
-	//components.at(2)->setLocalRotation(rot - components.at(2)->getXWorldRotation());
+	//components.at(2)->setRotation(rot - components.at(2)->getWorldRotation());
 
 	if (playerInput->a_KeyboardKeyPressed())
 	{
-		this->wTransform.rotationX -= deltaTime.asSeconds() * rotationSpeed;
+		this->transform.rotationX -= deltaTime.asSeconds() * rotationSpeed;
 	}
 	if (playerInput->d_KeyboardKeyPressed())
 	{
-		this->wTransform.rotationX += deltaTime.asSeconds() * rotationSpeed;
+		this->transform.rotationX += deltaTime.asSeconds() * rotationSpeed;
 	}
 
 	//shooting
@@ -85,7 +85,7 @@ void Czolg::EventTick()
 			this->aShootRate = this->shootRate;
 
 			Transform nTran(this->get_wTransform().position);
-			nTran.rotationX = this->wTransform.rotationX;
+			nTran.rotationX = this->transform.rotationX;
 
 			Vector2D offset; offset.setVectorByAngleAndLength(nTran.rotationX, -50);
 			nTran.position = nTran.position - offset;

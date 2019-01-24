@@ -48,12 +48,12 @@ void Actor::updateMesh()
 		if (components.at(i)->getRotateToMovementDirection())
 			components.at(i)->setRotation(velocity.angle());
 		else
-			components.at(i)->setRotation(wTransform.rotationX);
+			components.at(i)->setRotation(transform.rotationX);
 	}
 
 	/*---Mesh position---*/
 	for (int i = 0; i<components.size(); i++)
-		components.at(i)->setPosition(wTransform.position.X, wTransform.position.Y);
+		components.at(i)->setPosition(transform.position.X, transform.position.Y);
 }
 
 
@@ -61,16 +61,16 @@ void Actor::worldCoordinateMovement()
 {
 	if (movementToRotationDirection)
 	{
-		this->wTransform.position.X += (velocity.Y * sin((wTransform.rotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
-		this->wTransform.position.Y += (velocity.Y * cos((wTransform.rotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->transform.position.X += (velocity.Y * sin((transform.rotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->transform.position.Y += (velocity.Y * cos((transform.rotationX * M_PI) / 180.0)) * deltaTime.asSeconds();
 
-		this->wTransform.position.X += (velocity.X * sin(((wTransform.rotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
-		this->wTransform.position.Y += (velocity.X * cos(((wTransform.rotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->transform.position.X += (velocity.X * sin(((transform.rotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
+		this->transform.position.Y += (velocity.X * cos(((transform.rotationX + 90) * M_PI) / 180.0)) * deltaTime.asSeconds();
 	}
 	else
 	{
-		this->wTransform.position.X += deltaTime.asSeconds() * velocity.X;
-		this->wTransform.position.Y += deltaTime.asSeconds() * velocity.Y;
+		this->transform.position.X += deltaTime.asSeconds() * velocity.X;
+		this->transform.position.Y += deltaTime.asSeconds() * velocity.Y;
 	}
 }
 
@@ -104,9 +104,9 @@ void Actor::spawnObject(Object* a)
 bool Actor::simpleMoveTo(Position cor, double distancePrecision)
 {
 	double angle;
-	if ( GMath::twoPointsDistance(this->wTransform.position.X, this->wTransform.position.Y, cor.X, cor.Y) > distancePrecision)
+	if ( GMath::twoPointsDistance(this->transform.position.X, this->transform.position.Y, cor.X, cor.Y) > distancePrecision)
 	{
-		double angle = GMath::twoPointsAngle(this->wTransform.position.X, this->wTransform.position.Y, cor.X, cor.Y);
+		double angle = GMath::twoPointsAngle(this->transform.position.X, this->transform.position.Y, cor.X, cor.Y);
 		velocity.setVectorByAngleAndLength(angle, maxWalkSpeedForwad);
 		return false;
 	}
@@ -117,9 +117,9 @@ bool Actor::simpleMoveTo(Position cor, double distancePrecision)
 bool Actor::simpleMoveTo(Vector2D cor, double distancePrecision)
 {
 	double angle;
-	if (GMath::twoPointsDistance(this->wTransform.position.X, this->wTransform.position.Y, cor.X, cor.Y) > distancePrecision)
+	if (GMath::twoPointsDistance(this->transform.position.X, this->transform.position.Y, cor.X, cor.Y) > distancePrecision)
 	{
-		double angle = GMath::twoPointsAngle(this->wTransform.position.X, this->wTransform.position.Y, cor.X, cor.Y);
+		double angle = GMath::twoPointsAngle(this->transform.position.X, this->transform.position.Y, cor.X, cor.Y);
 		velocity.setVectorByAngleAndLength(angle, maxWalkSpeedForwad);
 		return false;
 	}
@@ -134,7 +134,7 @@ bool Actor::lookAt(Component *m, Position point, double anglePrecision)
 	double rot;
 	if ((rot = GMath::twoPointsAngle(xCor, -yCor, point.X, -point.Y)) > anglePrecision)
 	{
-		m->setLocalRotation(rot - m->getXWorldRotation());
+		m->setRotation(rot - m->getWorldRotation());
 		return false;
 	}
 	return true;
@@ -148,7 +148,7 @@ bool Actor::lookAt(SimpleShape *s, Position point, double anglePrecision)
 
 	if (rot > anglePrecision) 
 	{
-		s->setLocalRotation(rot - s->getXWorldRotation());
+		s->setRotation(rot - s->getXWorldRotation());
 		return false;
 	}
 	return true;
@@ -156,8 +156,8 @@ bool Actor::lookAt(SimpleShape *s, Position point, double anglePrecision)
 
 bool Actor::lookAt(Position point, double anglePrecision)
 {
-	this->wTransform.rotationX = GMath::twoPointsAngle
-	(this->wTransform.position.X, this->wTransform.position.Y,
+	this->transform.rotationX = GMath::twoPointsAngle
+	(this->transform.position.X, this->transform.position.Y,
 		point.X, -point.Y);
 
 	//!!!!????!?!??!

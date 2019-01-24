@@ -1,10 +1,7 @@
 #include "Component.h"
 
 Component::Component()
-	: collision(NULL),
-	name(""),
-	localPositionX(0),
-	localPositionY(0) {}
+	: name("") {}
 
 Component::~Component()
 {
@@ -13,7 +10,7 @@ Component::~Component()
 	//startOverlapingComp.clear();
 	//isOverlapingComp.clear();
 	//endOverlapingComp.clear();
-	delete collision;
+	//delete collision;
 }
 
 //std::vector<Component*>& Component::getStartOverlapingComp()
@@ -36,76 +33,86 @@ void Component::addOverlapComponent(Component * newComponent)
 	newOverlapingComponents.push_back(newComponent);
 }
 
-Collision* Component::getCollider()
+//Collision* Component::getCollider()
+//{
+//	return collision;
+//}
+
+//bool Component::collides(Collision *otherCollider)
+//{
+//	//if (collision != NULL) // is checked earlier
+//		return collision->isCollidingWith(otherCollider);
+//	//return false;
+//}
+
+void Component::setPosition(double x, double y)
 {
-	return collision;
+	this->transform.position.X = x;
+	this->transform.position.Y = y;
 }
 
-bool Component::collides(Collision *otherCollider)
+void Component::setTransform(Transform transform)
 {
-	//if (collision != NULL) // is checked earlier
-		return collision->isCollidingWith(otherCollider);
-	//return false;
+	this->transform = transform;
 }
 
-void Component::setLocalPosition(double x, double y)
+Transform Component::getTransform()
 {
-	localPositionX = x;
-	localPositionY = y;
+	return this->transform;
 }
 
-double Component::getXWorldPosition()
-{ 
-	if (localPositionX != 0 && localPositionY != 0)
-	{
-		double beginRotFromObject = GMath::vectorAngle(localPositionX, localPositionY);
+//double Component::getXWorldPosition()
+//{ 
+//	if (localPositionX != 0 && localPositionY != 0)
+//	{
+//		double beginRotFromObject = GMath::vectorAngle(localPositionX, localPositionY);
+//
+//		double c = sqrt((localPositionX)*(localPositionX)
+//			+(localPositionY)*(localPositionY));
+//		double lPX = c * sin((transform.rotationX + beginRotFromObject)*M_PI / 180);
+//
+//		return transform.position.X + lPX;
+//	}
+//	return transform.position.X + localPositionX;
+//};
+//
+//double Component::getYWorldPosition()
+//{
+//	if (localPositionX != 0 && localPositionY != 0)
+//	{
+//		double beginRotFromObject = GMath::vectorAngle(localPositionX, localPositionY);
+//		double minuendOfRot;
+//		if (beginRotFromObject > 270)
+//			minuendOfRot = 450;
+//		else if (beginRotFromObject > 90)
+//			minuendOfRot = 270;
+//		else
+//			minuendOfRot = 90;
+//
+//		double c = sqrt((localPositionX)*(localPositionX)
+//			+(localPositionY)*(localPositionY));
+//		double lPX = c * sin((transform.rotationX + beginRotFromObject)*M_PI / 180);
+//
+//		double lPY = 0;
+//		if (transform.rotationX >= minuendOfRot - beginRotFromObject && transform.rotationX <= minuendOfRot + 180 - beginRotFromObject)
+//		{
+//			lPY = sqrt(c*c - lPX*lPX);
+//		}
+//		else
+//		{
+//			lPY = -sqrt(c*c - lPX*lPX);
+//		}
+//		if (minuendOfRot == 270)
+//			lPY = -lPY;
+//
+//		return -transform.position.Y + lPY;
+//	}
+//	return -transform.position.Y - localPositionY;
+//};
 
-		double c = sqrt((localPositionX)*(localPositionX)
-			+(localPositionY)*(localPositionY));
-		double lPX = c * sin((wTransform.rotationX + beginRotFromObject)*M_PI / 180);
-
-		return wTransform.position.X + lPX;
-	}
-	return wTransform.position.X + localPositionX;
-};
-
-double Component::getYWorldPosition()
+void Component::setRotation(double x)
 {
-	if (localPositionX != 0 && localPositionY != 0)
-	{
-		double beginRotFromObject = GMath::vectorAngle(localPositionX, localPositionY);
-		double minuendOfRot;
-		if (beginRotFromObject > 270)
-			minuendOfRot = 450;
-		else if (beginRotFromObject > 90)
-			minuendOfRot = 270;
-		else
-			minuendOfRot = 90;
-
-		double c = sqrt((localPositionX)*(localPositionX)
-			+(localPositionY)*(localPositionY));
-		double lPX = c * sin((wTransform.rotationX + beginRotFromObject)*M_PI / 180);
-
-		double lPY = 0;
-		if (wTransform.rotationX >= minuendOfRot - beginRotFromObject && wTransform.rotationX <= minuendOfRot + 180 - beginRotFromObject)
-		{
-			lPY = sqrt(c*c - lPX*lPX);
-		}
-		else
-		{
-			lPY = -sqrt(c*c - lPX*lPX);
-		}
-		if (minuendOfRot == 270)
-			lPY = -lPY;
-
-		return -wTransform.position.Y + lPY;
-	}
-	return -wTransform.position.Y - localPositionY;
-};
-
-void Component::setLocalRotation(double x)
-{
-	wTransform.rotationX = x;
+	transform.rotationX = x;
 	setRotation(x);
 }
 
@@ -118,6 +125,8 @@ char* Component::getName() const
 {
 	return name;
 }
+
+
 
 //void Component::overlapingEndMain()
 //{

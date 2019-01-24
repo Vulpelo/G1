@@ -64,7 +64,7 @@ public:
 	bool lookAt(Component *m, Position point, double anglePrecision);
 	/*Rotate simpleShape to given position with rotationSpeed. anglePrecision in degrees.*/
 	bool lookAt(SimpleShape *s, Position point, double anglePrecision);
-	/*Changes value of wTransform.rotationX and rotates it to given position with rotationSpeed. 
+	/*Changes value of transform.rotationX and rotates it to given position with rotationSpeed. 
 	anglePrecision in degrees.*/
 	bool lookAt(Position point, double anglePrecision);
 };
