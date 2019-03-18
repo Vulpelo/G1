@@ -1,33 +1,30 @@
-Game engine 
-================================================
-## Silnik graficzny
-Wykorzystuje OpenGL który jest wbudowany w wykorzystywaną bibliotekę SFML. SFML upraszcza obsługę OpenGL'a.
+## Game engine 
+#### Used libraries:
+* SFML-2.3.2 32bit
+#### IDE:
+* Visual Studio 2015
 
 Spis
 ===
 ## Klasy
-* Object
-* GameObject : Object
-* Actor : GameObject
-* Player : Actor
+* GameObject
 
 * GameMap
 
 * Component
-* Mesh : Component
 
 * SimpleShape
 * ControlInput
 * Collision
 
 * MathFunctions
-* Vector2D
+* Vector2
 * Coordinate
 * Transform
 
 ---
 
-# **Object**
+# **GameObject**
  Protected Variables                 | Description
  ------------------------------------|-----------------------------------------------------------------------------------------
  `int layer`                         | Layers to which this Object belongs
@@ -50,36 +47,7 @@ Spis
  `isOverlaping(Object*)`    		 | Called when some of other's Object colliders is still overtaping this Object's colliders
  `endOverlaping(Object*)`   		 | Called when all other's Object Colliders exited all Colliders of this Object
 
----
-
-# **GameObject** :inherates from Object
-
-                            
----
-
-# **Actor** :inherates from GameObject
-
- Protected Variables                 | Description
- ------------------------------------|-----------------------------------------------------------------------------------------
-                                     |
- 
- Public Methods             		 | Description
- ------------------------------------|-----------------------------------------------------------------------------------------
-                            		 |
-
----
-
-# **Player** :inherates from Actor
-
- Protected Variables                 | Description
- ------------------------------------|-----------------------------------------------------------------------------------------
-                                     |
- 
- Public Methods              		 | Description
- ------------------------------------|-----------------------------------------------------------------------------------------
-                            		 |
-
--------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------
 ## Funkcjonalności
 ### Layer
    Each Object has int variable layer. Engine can have up to 32 different layers. Each layer is a seperate integer's bit (that is why up to 32 layers).
