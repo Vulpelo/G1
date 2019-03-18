@@ -3,55 +3,42 @@
 #ifndef _Component_H_
 #define _Component_H_
 
-//#include "SimpleShape.h"
 #include <iostream>
 #include <vector>
 #include <SFML\Graphics.hpp>
-//#include "Collision.h"
 #include "Transform.h"
+#include "Transformable.h"
 
-class Component
-{
-	friend class PhysicsHandle;
+namespace G1 {
 
-	std::vector <Component *> newOverlapingComponents;
+	class Component : public Transformable
+	{
+		friend class PhysicsHandle;
 
-protected:
-	//overlaping
-	char* name;
-	std::vector <Component *> overlapingComponents;
-	
-	Transform transform;
+		std::vector <Component *> newOverlapingComponents;
 
-public:
-	//Collision * collision;
+	protected:
+		//overlaping
+		char* name;
+		std::vector <Component *> overlapingComponents;
 
-	Component();
-	
-	void setName(char* name);
-	char* getName() const;
+	public:
+		Component();
 
+		void setName(char* name);
+		char* getName() const;
 
-	void addOverlapComponent(Component*);
-	//Collision* getCollider();
-	//bool collides(Collision *otherCollider);
+		void addOverlapComponent(Component*);
 
-	void setPosition(double, double);
-	Vector2 getWorldPosition();
-	
-	void setTransform(Transform transform);
-	Transform getTransform();
+		virtual void setRotateToMovementDirection(bool a) {};
+		// virtual bool getRotateToMovementDirection() = 0;
 
-	double getWorldRotation() { return transform.rotationX; };
-	void setRotation(double x);
-	
-	virtual void setRotateToMovementDirection(bool a) {};
-	// virtual bool getRotateToMovementDirection() = 0;
-	
-	virtual void render(sf::RenderWindow *) {};
-	
-	//void overlapingEndMain();
-	~Component();
-};
+		virtual void render(sf::RenderWindow *) {};
+
+		//void overlapingEndMain();
+		~Component();
+	};
+
+}
 
 #endif // !_Component_H_

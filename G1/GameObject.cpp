@@ -8,7 +8,7 @@ namespace G1 {
 		this->transform.position.Y = 0;
 		this->transform.rotationX = 0;
 
-		setWorldRotation(this->transform.rotationX);
+		//setRotation(this->transform.rotationX);
 		//GameObject::updateMesh();
 
 		layer = Layer::DEFAULT;
@@ -38,23 +38,21 @@ namespace G1 {
 	{
 	}
 
+	void GameObject::mainBeginPlay()
+	{
+		beginPlay();
+	}
+
 	void GameObject::mainEventTick()
 	{
 		if (lifeTime > 0.0 && currentLifeTime >= lifeTime) {
 			this->destroyObject = true;
 		}
 		currentLifeTime += Time::getDeltaTime();
-	}
 
-	void GameObject::updateMesh()
-	{
-		for (int i = 0; i < int(components.size()); i++)
-		{
-			components.at(i)->setPosition(transform.position.X, transform.position.Y);
-			components.at(i)->setRotation(transform.rotationX);
-		}
+		eventTick();
 	}
-
+	
 	void GameObject::render(sf::RenderWindow * w)
 	{
 		for (unsigned int i = 0; i < components.size(); i++)
@@ -76,44 +74,6 @@ namespace G1 {
 		return newOverlapingObjects;
 	}
 
-	Transform GameObject::getTransform()
-	{
-		return this->transform;
-	}
-
-	Vector2 GameObject::getWorldPosition()
-	{
-		Vector2 worldPos;
-
-		GameObject *next = this;
-		do {
-			worldPos = worldPos + next->getTransform().position;
-			next = next->getParent();
-		} while (next != NULL);
-
-		return worldPos;
-	}
-
-	void GameObject::setTransform(Transform nTran)
-	{
-		transform = nTran;
-	}
-
-	void GameObject::setWorldRotation(double x)
-	{
-		this->transform.rotationX = x;
-	}
-
-	GameObject * GameObject::getParent()
-	{
-		return parent;
-	}
-
-	void GameObject::setParent(GameObject * parent)
-	{
-		this->parent = parent;
-	}
-
 	void GameObject::DestroyObject(float nlifeTime)
 	{
 		this->lifeTime = this->currentLifeTime + nlifeTime;
@@ -127,6 +87,12 @@ namespace G1 {
 	std::vector <Component*> &GameObject::getComponents()
 	{
 		return components;
+	}
+
+	void GameObject::addComponent(Component * component)
+	{
+		component->setParent(this);
+		components.push_back(component);
 	}
 
 }

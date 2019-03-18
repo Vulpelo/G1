@@ -6,13 +6,17 @@
 #include "Collision.h"
 #include "SimpleShape.h"
 
-class CollisionCircle : public Collision
-{
-	double radius;
+namespace G1 {
 
-public:
-	CollisionCircle(double radius, double worldCoordinateX, double worldCoordinateY);
-	bool isCollidingWith(Collision *otherCollider);
-};
+	class CollisionCircle : public Collision
+	{
+		double radius;
+
+	public:
+		CollisionCircle(double radius, double worldCoordinateX, double worldCoordinateY);
+		bool isCollidingWith(Collision *otherCollider);
+	};
+
+}
 
 #endif // !COLLISION_CIRCLE_H

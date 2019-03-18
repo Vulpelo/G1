@@ -150,6 +150,7 @@
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="SimpleShape.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Transformable.cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,7 +165,6 @@
     <ClInclude Include="GameMap.h" />
     <ClInclude Include="ControlInput.h" />
     <ClInclude Include="GameObject001.h" />
-    <ClInclude Include="IGameObject.h" />
     <ClInclude Include="Map001.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="MathVariables.h" />
@@ -180,6 +180,7 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="Transformable.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

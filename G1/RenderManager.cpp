@@ -2,6 +2,8 @@
 
 namespace G1 {
 
+	sf::RenderWindow* RenderManager::window = NULL;
+
 	RenderManager::RenderManager()
 	{
 		window = new sf::RenderWindow(sf::VideoMode(Properties::width, Properties::height, Properties::bitPerPixel), "G1");

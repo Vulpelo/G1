@@ -15,7 +15,7 @@ namespace G1 {
 	{
 		for each (GameObject* go in objects)
 		{
-			go->beginPlay();
+			go->mainBeginPlay();
 		}
 	}
 
@@ -53,12 +53,6 @@ namespace G1 {
 	void GameMap::eventTick()
 	{
 	}
-
-	//void GameMap::render(sf::RenderWindow * w)
-	//{
-	//	for (unsigned int i = 0; i < objects.size(); i++)
-	//		objects.at(i)->render(w);
-	//}
 
 	void GameMap::setInput(ControlInput * input)
 	{

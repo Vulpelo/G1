@@ -18,13 +18,15 @@ namespace G1 {
 
 		rRectangle.setOrigin(sf::Vector2f(length / 2.0, height / 2.0));
 		rRectangle.setSize(sf::Vector2f(length, height));
-		rRectangle.setFillColor(color);
 		rRectangle.setPosition(transform.position.X + transform.position.X, transform.position.Y + transform.position.Y);
 		rRectangle.setRotation(transform.rotationX + transform.rotationX);
+		rRectangle.setFillColor(color);
 	}
 
 	void RectangleRenderer::render(sf::RenderWindow * w)
 	{
+		rRectangle.setPosition(transform.position.X + transform.position.X, transform.position.Y + transform.position.Y);
+		rRectangle.setRotation(transform.rotationX + transform.rotationX);
 		w->draw(rRectangle);
 	}
 

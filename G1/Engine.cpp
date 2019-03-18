@@ -32,7 +32,8 @@ namespace G1 {
 
 	void Engine::mainEventTick()
 	{
-		//MapManager::get_aMap()->mainEventTick();
+		MapManager::get_aMap()->mainEventTick();
+
 		controlInput->mainEventTick();
 	}
 

@@ -13,12 +13,12 @@ namespace G1 {
 
 	class RenderManager
 	{
-		sf::RenderWindow * window;
+		static sf::RenderWindow * window;
 		void renderGameObjects(std::vector<GameObject*> gameObjects);
 	public:
 		RenderManager();
 		~RenderManager();
-		sf::RenderWindow*getWindow();
+		static sf::RenderWindow*getWindow();
 		void renderWindow();
 	};
 

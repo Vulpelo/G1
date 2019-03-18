@@ -5,7 +5,7 @@
 
 #include "ControlInput.h"
 #include "Layer.h"
-#include "Transform.h"
+#include "Transformable.h"
 #include "Component.h"
 #include "Time.h"
 
@@ -15,12 +15,10 @@
 
 namespace G1 {
 
-	class GameObject
+	class GameObject : public Transformable
 	{
 		friend class GameMap;
 		friend class RenderManager;
-
-		GameObject* parent;
 
 		// Displays object's components on screen
 		void render(sf::RenderWindow * w);
@@ -36,6 +34,7 @@ namespace G1 {
 		bool destroyObject;
 		float currentLifeTime;
 		float lifeTime;
+
 	protected:
 #pragma region protected Variables
 		int layer;
@@ -45,20 +44,14 @@ namespace G1 {
 		Transform transform;
 
 		std::vector<GameObject*>& getNewOverlapingObjects();
-
-		//Mesh/Components
 #pragma endregion
 
+		virtual void mainBeginPlay();
 		virtual void mainEventTick();
-		virtual void updateMesh();
 
 	public:
 		GameObject();
-
-		GameObject* getParent();
-		void setParent(GameObject* parent);
-
-		virtual ~GameObject();
+		~GameObject();
 
 		/// <summary>Function played at the begining when object is created</summary>
 		virtual void beginPlay();
@@ -66,21 +59,10 @@ namespace G1 {
 		/// <summary>Function if played every frame of object life span</summary>
 		virtual void eventTick();
 
-#pragma region set/get functions
 		/// <summary>Return's reference to container with all GameObject's components</summary>
 		std::vector <Component*> &getComponents();
 
-		Transform getTransform();
-
-		/// <summary> Returns copy of world Transform of this object in world space</summary>
-		Vector2 getWorldPosition();
-
-		/// <summary> Sets world Transform of this object in world space</summary>
-		void setTransform(Transform);
-
-		/// <summary>Sets rotation of an object in world wide</summary>
-		void setWorldRotation(double x);
-#pragma endregion
+		void addComponent(Component* component);
 
 #pragma region Overlaping interactions
 		/// <summary>Function is called every time when new object just touched this object</summary>
@@ -103,12 +85,6 @@ namespace G1 {
 
 		/// <summary>Checks if object is going to be destroyed</summary>
 		bool shouldBeDestroyed();
-
-
-
-
-
-
 	};
 
 }

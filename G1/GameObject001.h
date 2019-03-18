@@ -10,5 +10,6 @@ class GameObject001 :
 {
 public:
 	void beginPlay();
+	void eventTick();
 };
 
