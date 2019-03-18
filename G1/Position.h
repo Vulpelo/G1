@@ -6,11 +6,11 @@
 struct Position
 {
 public:
-	double X;
-	double Y;
+	float X;
+	float Y;
 
 	Position() : X(0), Y(0) {};
-	Position(double x, double y) : X(x), Y(y) {};
+	Position(float x, float y) : X(x), Y(y) {};
 };
 
 #endif // !_Position_H_

@@ -14,9 +14,9 @@ public:
 	Bullet();
 	Bullet(Transform nWTransform);
 	void beginPlay();
-	void EventTick();
+	void eventTick();
 
-	void startOverlaping(Object *overlaped);
-	void endOverlaping(Object *overlaped);
-	//void isOverlaping(Object *overlaped);
+	void startOverlaping(GameObject *overlaped);
+	void endOverlaping(GameObject *overlaped);
+	//void isOverlaping(GameObject *overlaped);
 };

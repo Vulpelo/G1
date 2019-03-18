@@ -1,17 +1,22 @@
 #include "MapManager.h"
 
-GameMap* MapManager::aMap = nullptr;
+namespace G1 {
 
-void MapManager::loadMap(GameMap* nMap)
-{
-	MapManager::aMap = nMap;
-}
+	GameMap* MapManager::aMap = nullptr;
 
-GameMap * MapManager::get_aMap()
-{
-	return MapManager::aMap;
-}
+	void MapManager::loadMap(GameMap* nMap)
+	{
+		MapManager::aMap = nMap;
+		MapManager::aMap->mainBeginPlay();
+	}
 
-MapManager::~MapManager()
-{
+	GameMap * MapManager::get_aMap()
+	{
+		return MapManager::aMap;
+	}
+
+	MapManager::~MapManager()
+	{
+	}
+
 }

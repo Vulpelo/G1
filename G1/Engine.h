@@ -5,24 +5,34 @@
 
 #include "Properties.h"
 
-#include "Render.h"
+#include "RenderManager.h"
 #include "ControlInput.h"
+#include "Time.h"
 
-class Engine
-{
-private:
-	sf::Event inputEvent;
-	sf::Clock deltaClock;
-	sf::Time deltaTime;
-	Render render;
-	
-	ControlInput * controlInput;
 
-public:
-	Engine();
-	~Engine();
-	void mainEventTick();
-	void mainLoop();
-};
+// for game
+#include "Map001.h"
+
+namespace G1 {
+
+	class Engine
+	{
+	private:
+		Time time;
+
+		sf::Event inputEvent;
+
+		RenderManager render;
+
+		ControlInput * controlInput;
+
+	public:
+		Engine();
+		~Engine();
+		void mainEventTick();
+		void mainLoop();
+	};
+
+}
 
 #endif // !ENGINE_H

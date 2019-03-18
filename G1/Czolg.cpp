@@ -17,48 +17,48 @@ Czolg::Czolg()
 
 void Czolg::beginPlay()
 {
-	this->maxWalkSpeedForwad = 100;
-	this->maxWalkSpeedRight = 100;
-	this->rotationSpeed = 100;
-	this->havePlayerInput = true;
-	this->movementToRotationDirection = true;
-	this->movementAcceleration = 100;
-	this->movementDecrementation = 150;
-	this->shootRate = 0.1;
-	this->aShootRate = 0;
+	//this->maxWalkSpeedForwad = 100;
+	//this->maxWalkSpeedRight = 100;
+	//this->rotationSpeed = 100;
+	//this->havePlayerInput = true;
+	//this->movementToRotationDirection = true;
+	//this->movementAcceleration = 100;
+	//this->movementDecrementation = 150;
+	//this->shootRate = 0.1;
+	//this->aShootRate = 0;
 
 
 
-	int nrOfShapes = 2;
-	SimpleShape **sS = new SimpleShape*[nrOfShapes];
-	sS[0] = new Rectangle(54, 75, sf::Color(0, 0, 255, 255));
-	sS[1] = new Rectangle(40, 75, sf::Color(0, 255, 0, 255));
-	//sS[2] = new Circle(40, sf::Color(255, 255, 0, 255));
+	//int nrOfShapes = 2;
+	//SimpleShape **sS = new SimpleShape*[nrOfShapes];
+	//sS[0] = new Rectangle(54, 75, sf::Color(0, 0, 255, 255));
+	//sS[1] = new Rectangle(40, 75, sf::Color(0, 255, 0, 255));
+	////sS[2] = new Circle(40, sf::Color(255, 255, 0, 255));
 
-	Mesh * m = new Mesh(sS, nrOfShapes);
-	m->setName("Body");
-	Collision *c = new CollisionRectangle(54, 75, 0, 0);
-	//Collision *c = new CollisionCircle(40, 0, 0);
+	//Mesh * m = new Mesh(sS, nrOfShapes);
+	//m->setName("Body");
+	//Collision *c = new CollisionRectangle(54, 75, 0, 0);
+	////Collision *c = new CollisionCircle(40, 0, 0);
 
-	m->setCollider(c);
-	m->setRotateToMovementDirection(false);
-	this->components.push_back(m);
+	//m->setCollider(c);
+	//m->setRotateToMovementDirection(false);
+	//this->components.push_back(m);
 
-	nrOfShapes = 2;
-	sS = new SimpleShape*[nrOfShapes];
-	sS[0] = new Rectangle(30,40, sf::Color(255, 0, 0, 255));
-	sS[1] = new Rectangle(10, 40, sf::Color(255, 0, 0, 255));
-	sS[1]->setLocalCoordinate(0, 20);
-	m = new Mesh(sS, nrOfShapes);
-	m->setLocalPosition(0, 0);
-	m->setName("Gun");
-	m->setRotateToMovementDirection(false);
-	this->components.push_back(m);
+	//nrOfShapes = 2;
+	//sS = new SimpleShape*[nrOfShapes];
+	//sS[0] = new Rectangle(30,40, sf::Color(255, 0, 0, 255));
+	//sS[1] = new Rectangle(10, 40, sf::Color(255, 0, 0, 255));
+	//sS[1]->setLocalCoordinate(0, 20);
+	//m = new Mesh(sS, nrOfShapes);
+	//m->setLocalPosition(0, 0);
+	//m->setName("Gun");
+	//m->setRotateToMovementDirection(false);
+	//this->components.push_back(m);
 
 	updateMesh();
 }
 
-void Czolg::EventTick()
+void Czolg::eventTick()
 {
 	movement();
 	//rotation
@@ -84,10 +84,10 @@ void Czolg::EventTick()
 		{
 			this->aShootRate = this->shootRate;
 
-			Transform nTran(this->get_wTransform().position);
+			Transform nTran(this->getWorldPosition().position);
 			nTran.rotationX = this->transform.rotationX;
 
-			Vector2D offset; offset.setVectorByAngleAndLength(nTran.rotationX, -50);
+			Vector2 offset; offset.setVectorByAngleAndLength(nTran.rotationX, -50);
 			nTran.position = nTran.position - offset;
 
 			spawnObject(new Bullet(nTran));
@@ -121,7 +121,7 @@ void Czolg::movement()
 	//	movementRight(0);
 }
 
-void Czolg::startOverlaping(Object *overlaped)
+void Czolg::startOverlaping(GameObject *overlaped)
 {
 	if (dynamic_cast<Wall *>(overlaped))
 	{
@@ -129,7 +129,7 @@ void Czolg::startOverlaping(Object *overlaped)
 	}
 }
 
-void Czolg::endOverlaping(Object *overlaped)
+void Czolg::endOverlaping(GameObject *overlaped)
 {
 	if (dynamic_cast<Wall *>(overlaped))
 		std::cout << "stop TOUChing\n";

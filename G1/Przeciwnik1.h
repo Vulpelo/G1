@@ -15,11 +15,11 @@ public:
 	Przeciwnik1(Transform nWTransform);
 	~Przeciwnik1();
 
-	void EventTick();
+	void eventTick();
 	void beginPlay();
-	void startOverlaping(Object *overlaped);
-	void isOverlaping(Object *overlaped);
-	void endOverlaping(Object *overlaped);
+	void startOverlaping(GameObject *overlaped);
+	void isOverlaping(GameObject *overlaped);
+	void endOverlaping(GameObject *overlaped);
 
 
 };

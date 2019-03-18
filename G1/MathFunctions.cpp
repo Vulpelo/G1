@@ -22,7 +22,7 @@ namespace GMath
 		return sqrt(X + Y);
 	}
 
-	double twoPointsDistance(Vector2D cor1, Vector2D cor2)
+	double twoPointsDistance(Vector2 cor1, Vector2 cor2)
 	{
 		double X = cor1.X - cor2.Y;
 		double Y = cor1.Y - cor2.Y;

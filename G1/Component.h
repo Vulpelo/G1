@@ -7,10 +7,10 @@
 #include <iostream>
 #include <vector>
 #include <SFML\Graphics.hpp>
-#include "Collision.h"
-#include "Object.h"
+//#include "Collision.h"
+#include "Transform.h"
 
-class Component : public Object
+class Component
 {
 	friend class PhysicsHandle;
 
@@ -32,12 +32,12 @@ public:
 	char* getName() const;
 
 
-
 	void addOverlapComponent(Component*);
 	//Collision* getCollider();
 	//bool collides(Collision *otherCollider);
 
 	void setPosition(double, double);
+	Vector2 getWorldPosition();
 	
 	void setTransform(Transform transform);
 	Transform getTransform();
@@ -46,7 +46,7 @@ public:
 	void setRotation(double x);
 	
 	virtual void setRotateToMovementDirection(bool a) {};
-	virtual bool getRotateToMovementDirection() = 0;
+	// virtual bool getRotateToMovementDirection() = 0;
 	
 	virtual void render(sf::RenderWindow *) {};
 	

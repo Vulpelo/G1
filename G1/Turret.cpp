@@ -11,7 +11,7 @@ Turret::~Turret()
 {
 }
 
-void Turret::EventTick()
+void Turret::eventTick()
 {
 }
 

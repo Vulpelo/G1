@@ -17,7 +17,7 @@ public:
 	MojaPostac();
 	MojaPostac(Transform nWTransform);
 	void beginPlay();
-	void EventTick();
+	void eventTick();
 	void movement();//!-przeniesc do klasy wy¿ej_?
 	void worldCoordinateMovement();
 

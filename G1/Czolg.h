@@ -12,9 +12,9 @@ public:
 	Czolg(Transform nWTransform);
 
 	void beginPlay();
-	void EventTick();
-	void startOverlaping(Object *overlaped);
-	void endOverlaping(Object *overlaped);
+	void eventTick();
+	void startOverlaping(GameObject *overlaped);
+	void endOverlaping(GameObject *overlaped);
 	void movement();//!-przeniesc do klasy wy¿ej_?
 };
 

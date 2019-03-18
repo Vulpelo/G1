@@ -5,14 +5,14 @@
 class CzolgZombie : public Actor
 {
 public:
-	Object* target;
+	GameObject* target;
 
 	CzolgZombie();
 	CzolgZombie(Transform nWTransform);
 	void beginPlay();
-	void EventTick();
+	void eventTick();
 	~CzolgZombie();
 
-	void startOverlaping(Object* obj);
+	void startOverlaping(GameObject* obj);
 };
 

@@ -1,64 +1,116 @@
 #pragma once
 
-#include "Object.h"
-#include "PhysicsHandle.h"
-#include "Mesh.h"
-#include <iostream>
+#ifndef _GameObject_H_
+#define _GameObject_H_
+
+#include "ControlInput.h"
+#include "Layer.h"
+#include "Transform.h"
 #include "Component.h"
+#include "Time.h"
 
-class GameObject : public Object
-{
-	virtual void mainBeginPlay();
+// containers
+#include <vector>
+#include <set>
 
-	//collision interactions (interacts any of objects components)
-	std::vector <Object *> overlapingObjects;
-	std::vector <Object *> newOverlapingObjects;
+namespace G1 {
 
-	std::vector<Object*>& getOverlapingObjects();
-	std::vector<Object*>& getNewOverlapingObjects();
-	void addNewOverlapingObject(Object* overlaped);
-	//Object distruct
-	bool destroyObject;
-	float currentLifeTime;
-	float lifeTime;
-protected:
-	int layer;
-	virtual void mainEventTick(sf::Time deltaTime);
+	class GameObject
+	{
+		friend class GameMap;
+		friend class RenderManager;
 
-	std::vector <Component*> components;
-	virtual void updateMesh() = 0;
+		GameObject* parent;
 
-public:
-	GameObject();
-	GameObject(Transform nWTransform);
+		// Displays object's components on screen
+		void render(sf::RenderWindow * w);
 
-	void render(sf::RenderWindow * w);
-	void updateMesh();
+		//collision interactions (interacts any of objects components)
+		std::vector <GameObject *> overlapingObjects;
+		std::vector <GameObject *> newOverlapingObjects;
 
-#pragma region Overlaping interactions
-	/// <summary>Function is called every time when new object just touched this object</summary>
-	virtual void startOverlaping(Object *overlaped) {};
+		std::vector<GameObject*>& getOverlapingObjects();
+		void addNewOverlapingObject(GameObject* overlaped);
 
-	/// <summary>Function is called every time when some object is still coliding with this object</summary>
-	virtual void isOverlaping(Object *overlaped) {};
+		//GameObject distruct
+		bool destroyObject;
+		float currentLifeTime;
+		float lifeTime;
+	protected:
+#pragma region protected Variables
+		int layer;
 
-	/// <summary>Function is called every time when some object is no longer coliding with this object</summary>
-	virtual void endOverlaping(Object *overlaped) {};
+		std::vector <Component*> components;
+		// transform related to parent
+		Transform transform;
 
-	//chosen parts of this object are touching other parts of other object
-	virtual void startOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
-	virtual void isOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
-	virtual void endOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
+		std::vector<GameObject*>& getNewOverlapingObjects();
+
+		//Mesh/Components
 #pragma endregion
 
-	/// <summary>Return's reference to container with all Object's components</summary>
-	std::vector <Component*> &getComponents();
+		virtual void mainEventTick();
+		virtual void updateMesh();
 
-	/// <summary>Destroys object before next tick</summary>
-	void DestroyObject(float nlifeTime = 0.);
+	public:
+		GameObject();
 
-	/// <summary>Checks if object is going to be destroyed</summary>
-	bool shouldBeDestroyed();
+		GameObject* getParent();
+		void setParent(GameObject* parent);
 
-	~GameObject();
-};
+		virtual ~GameObject();
+
+		/// <summary>Function played at the begining when object is created</summary>
+		virtual void beginPlay();
+
+		/// <summary>Function if played every frame of object life span</summary>
+		virtual void eventTick();
+
+#pragma region set/get functions
+		/// <summary>Return's reference to container with all GameObject's components</summary>
+		std::vector <Component*> &getComponents();
+
+		Transform getTransform();
+
+		/// <summary> Returns copy of world Transform of this object in world space</summary>
+		Vector2 getWorldPosition();
+
+		/// <summary> Sets world Transform of this object in world space</summary>
+		void setTransform(Transform);
+
+		/// <summary>Sets rotation of an object in world wide</summary>
+		void setWorldRotation(double x);
+#pragma endregion
+
+#pragma region Overlaping interactions
+		/// <summary>Function is called every time when new object just touched this object</summary>
+		virtual void startOverlaping(GameObject *overlaped) {};
+
+		/// <summary>Function is called every time when some object is still coliding with this object</summary>
+		virtual void isOverlaping(GameObject *overlaped) {};
+
+		/// <summary>Function is called every time when some object is no longer coliding with this object</summary>
+		virtual void endOverlaping(GameObject *overlaped) {};
+
+		//chosen parts of this object are touching other parts of other object
+		virtual void startOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
+		virtual void isOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
+		virtual void endOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
+#pragma endregion
+
+		/// <summary>Destroys object before next tick</summary>
+		void DestroyObject(float nlifeTime = 0.);
+
+		/// <summary>Checks if object is going to be destroyed</summary>
+		bool shouldBeDestroyed();
+
+
+
+
+
+
+	};
+
+}
+
+#endif // !_GameObject_H_

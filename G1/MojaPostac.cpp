@@ -16,68 +16,68 @@ MojaPostac::MojaPostac()
 
 void MojaPostac::beginPlay()
 {
-	this->maxWalkSpeedForwad = 100;
-	this->maxWalkSpeedRight = 100;
-	this->rotationSpeed = 200;
-	this->havePlayerInput = true;
-	this->movementToRotationDirection = false;
-	this->movementAcceleration = 100;
-	this->movementDecrementation = 150;
-	this->shootRate = 0.2;
+	//this->maxWalkSpeedForwad = 100;
+	//this->maxWalkSpeedRight = 100;
+	//this->rotationSpeed = 200;
+	//this->havePlayerInput = true;
+	//this->movementToRotationDirection = false;
+	//this->movementAcceleration = 100;
+	//this->movementDecrementation = 150;
+	//this->shootRate = 0.2;
 
 
-	int nrOfShapes = 1;
-	SimpleShape **sS = new SimpleShape*[nrOfShapes];
-	sS[0] = new Rectangle(50, 50, sf::Color(0, 0, 255, 255));
-	Mesh * m = new Mesh(sS, nrOfShapes);
-	m->setName("Legs");
-	Collision *c = new CollisionRectangle(50,50,0,0);
-	m->setCollider(c);
-	m->setRotateToMovementDirection(true);
-	this->components.push_back(m);
+	//int nrOfShapes = 1;
+	//SimpleShape **sS = new SimpleShape*[nrOfShapes];
+	//sS[0] = new Rectangle(50, 50, sf::Color(0, 0, 255, 255));
+	//Mesh * m = new Mesh(sS, nrOfShapes);
+	//m->setName("Legs");
+	//Collision *c = new CollisionRectangle(50,50,0,0);
+	//m->setCollider(c);
+	//m->setRotateToMovementDirection(true);
+	//this->components.push_back(m);
 
-	nrOfShapes = 4;
-	sS = new SimpleShape*[nrOfShapes];
-	sS[0] = new Rectangle(75, 5, sf::Color(220,255,0,255));
-	sS[0]->rotationByOwnOrigin(true);
-	sS[0]->setLocalCoordinate(0, 0);
+	//nrOfShapes = 4;
+	//sS = new SimpleShape*[nrOfShapes];
+	//sS[0] = new Rectangle(75, 5, sf::Color(220,255,0,255));
+	//sS[0]->rotationByOwnOrigin(true);
+	//sS[0]->setLocalCoordinate(0, 0);
 
-	sS[1] = new Circle(25, sf::Color(255,0,0,255));
-	sS[1]->rotationByOwnOrigin(true);
-	sS[1]->setLocalCoordinate(0, 0);
+	//sS[1] = new Circle(25, sf::Color(255,0,0,255));
+	//sS[1]->rotationByOwnOrigin(true);
+	//sS[1]->setLocalCoordinate(0, 0);
 
-	sS[2] = new Rectangle(75, 5, sf::Color(220, 255, 0, 255));
-	sS[2]->rotationByOwnOrigin(true);
-	sS[2]->setLocalCoordinate(0, -70);
-
-	sS[3] = new Circle(25, sf::Color(255, 125, 0, 255));
-	sS[3]->rotationByOwnOrigin(true);
-	sS[3]->setLocalCoordinate(0, -70);
-
-	//sS[2] = new Rectangle(8, 15, sf::Color(0, 255, 0, 255));
+	//sS[2] = new Rectangle(75, 5, sf::Color(220, 255, 0, 255));
 	//sS[2]->rotationByOwnOrigin(true);
-	//sS[2]->setLocalCoordinate(10, 15);
-	//sS[2] = new Triangle(12, 5);
-	m = new Mesh(sS, nrOfShapes);
-	m->setName("Body");
-	m->setRotateToMovementDirection(false);
-	this->components.push_back(m);
+	//sS[2]->setLocalCoordinate(0, -70);
 
-	nrOfShapes = 1;
-	sS = new SimpleShape*[nrOfShapes];
-	sS[0] = new Rectangle(8, 15, sf::Color(0, 255, 0, 255));
-	sS[0]->rotationByOwnOrigin(true);
-	sS[0]->setLocalCoordinate(0, 0);
-	m = new Mesh(sS, nrOfShapes);
-	m->setLocalPosition(10, 10);
-	m->setName("Gun");
-	m->setRotateToMovementDirection(false);
-	this->components.push_back(m);
+	//sS[3] = new Circle(25, sf::Color(255, 125, 0, 255));
+	//sS[3]->rotationByOwnOrigin(true);
+	//sS[3]->setLocalCoordinate(0, -70);
+
+	////sS[2] = new Rectangle(8, 15, sf::Color(0, 255, 0, 255));
+	////sS[2]->rotationByOwnOrigin(true);
+	////sS[2]->setLocalCoordinate(10, 15);
+	////sS[2] = new Triangle(12, 5);
+	//m = new Mesh(sS, nrOfShapes);
+	//m->setName("Body");
+	//m->setRotateToMovementDirection(false);
+	//this->components.push_back(m);
+
+	//nrOfShapes = 1;
+	//sS = new SimpleShape*[nrOfShapes];
+	//sS[0] = new Rectangle(8, 15, sf::Color(0, 255, 0, 255));
+	//sS[0]->rotationByOwnOrigin(true);
+	//sS[0]->setLocalCoordinate(0, 0);
+	//m = new Mesh(sS, nrOfShapes);
+	//m->setLocalPosition(10, 10);
+	//m->setName("Gun");
+	//m->setRotateToMovementDirection(false);
+	//this->components.push_back(m);
 
 	updateMesh();
 }
 
-void MojaPostac::EventTick()
+void MojaPostac::eventTick()
 {
 	movement();
 	//rotation

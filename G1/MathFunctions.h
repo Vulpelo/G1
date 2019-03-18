@@ -4,13 +4,13 @@
 #define _MathFunction_H_
 
 #include "MathVariables.h"
-#include "Vector2D.h"
+#include "Vector2.h"
 
 namespace GMath
 {
 	double twoPointsDistance(double X1, double Y1, double X2, double Y2);
 	double twoPointsDistance(Position, Position);
-	double twoPointsDistance(Vector2D, Vector2D);
+	double twoPointsDistance(Vector2, Vector2);
 	/// <summary> Angle 0 is on +y axis and is rising rotating to right. So on +x is 90 degree
 	/// Angle is measuring at first point </summary>
 	double twoPointsAngle(double X1, double Y1, double X2, double Y2);

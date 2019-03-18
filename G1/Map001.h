@@ -1,12 +1,15 @@
 #pragma once
 
 #include "GameMap.h"
-#include "Mesh.h"
+#include <iostream>
+#include "GameObject001.h"
+
+using namespace G1;
 
 class Map001 : public GameMap
 {
 private:
-	Object* player;
+	GameObject* player;
 	double spawnEnemyTime;
 	double actualSpawnEnemyTime;
 public:

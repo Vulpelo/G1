@@ -51,6 +51,11 @@ void Component::setPosition(double x, double y)
 	this->transform.position.Y = y;
 }
 
+Vector2 Component::getWorldPosition()
+{
+	return transform.position;
+}
+
 void Component::setTransform(Transform transform)
 {
 	this->transform = transform;

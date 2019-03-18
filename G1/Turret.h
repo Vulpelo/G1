@@ -8,7 +8,7 @@ class Turret : public Actor
 public:
 	Turret();
 	~Turret();
-	void EventTick();
+	void eventTick();
 	void beginPlay();
 };
 
