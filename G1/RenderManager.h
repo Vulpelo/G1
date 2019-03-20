@@ -7,7 +7,6 @@
 
 #include "Properties.h"
 #include "MapManager.h"
-#include "GameMap.h"
 
 namespace G1 {
 
