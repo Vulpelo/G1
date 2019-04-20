@@ -4,6 +4,8 @@
 #define GAMEMAP_H
 
 #include "GameObject.h"
+
+#include "GameObjectsData.h"
 #include <vector>
 
 #include <SFML\Graphics.hpp>

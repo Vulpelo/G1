@@ -34,18 +34,17 @@ namespace G1 {
 		//--PhysicsHandle::overlapDetectionUpdate(objects);
 
 		/*--Spawning new actors--*/
-		for (unsigned int i = 0; i < objects.size(); i++)
+		auto spawnables = GameObjectsData::getInstantiates();
+		while (!spawnables->empty())
 		{
-			if (GameObject* act = dynamic_cast <GameObject*>(objects.at(i)))
+			if (GameObject* act = dynamic_cast <GameObject*>(spawnables->back()))
 			{
-				//std::vector <GameObject*> ac = act->toSpawn();
-				//while (!ac.empty())
-				//{
-				//	this->objects.push_back(ac.back());
-				//	ac.pop_back();
-				//}
+				this->objects.push_back(act);
+				act->mainBeginPlay();
+				spawnables->pop_back();
 			}
 		}
+		//--
 
 		this->eventTick();
 	}

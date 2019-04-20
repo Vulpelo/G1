@@ -30,6 +30,11 @@ namespace G1 {
 		newOverlapingObjects.clear();
 	}
 
+	void GameObject::instantiate(ISpawnable* spawnable)
+	{
+		GameObjectsData::addInstantiate(spawnable);
+	}
+
 	void GameObject::beginPlay()
 	{
 	}

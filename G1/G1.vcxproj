@@ -138,6 +138,8 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="GameObject001.cpp" />
+    <ClCompile Include="GameObject002_Bullet.cpp" />
+    <ClCompile Include="GameObjectsData.cpp" />
     <ClCompile Include="Map001.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="main.cpp" />
@@ -165,6 +167,9 @@
     <ClInclude Include="GameMap.h" />
     <ClInclude Include="ControlInput.h" />
     <ClInclude Include="GameObject001.h" />
+    <ClInclude Include="GameObject002_Bullet.h" />
+    <ClInclude Include="GameObjectsData.h" />
+    <ClInclude Include="ISpawnable.h" />
     <ClInclude Include="Map001.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="MathVariables.h" />

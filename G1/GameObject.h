@@ -5,8 +5,13 @@
 
 #include "ControlInput.h"
 #include "Layer.h"
+
 #include "Transformable.h"
 #include "Component.h"
+#include "ISpawnable.h"
+
+#include "GameObjectsData.h"
+
 #include "Time.h"
 
 // containers
@@ -15,7 +20,7 @@
 
 namespace G1 {
 
-	class GameObject : public Transformable
+	class GameObject : public ISpawnable, public Transformable
 	{
 		friend class GameMap;
 		friend class RenderManager;
@@ -52,6 +57,9 @@ namespace G1 {
 	public:
 		GameObject();
 		~GameObject();
+
+		/// <summary>Spawns new GameObject in the game</summary>
+		void instantiate(ISpawnable* spawnable);
 
 		/// <summary>Function played at the begining when object is created</summary>
 		virtual void beginPlay();

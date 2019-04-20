@@ -159,6 +159,12 @@
     <ClCompile Include="Transformable.cpp">
       <Filter>Source Files\Engine\Components</Filter>
     </ClCompile>
+    <ClCompile Include="GameObjectsData.cpp">
+      <Filter>Source Files\Engine\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject002_Bullet.cpp">
+      <Filter>Source Files\G1Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -244,6 +250,15 @@
     </ClInclude>
     <ClInclude Include="Transformable.h">
       <Filter>Header Files\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectsData.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ISpawnable.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject002_Bullet.h">
+      <Filter>Header Files\G1Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
