@@ -23,6 +23,12 @@ namespace G1 {
 		circle.setFillColor(color);
 	}
 
+	void CircleRenderer::setColor(sf::Color color)
+	{
+		this->color = color;
+		circle.setFillColor(color);
+	}
+
 	void CircleRenderer::render(sf::RenderWindow * w)
 	{
 		circle.setPosition(getWorldPosition().X, getWorldPosition().Y);

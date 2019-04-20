@@ -3,6 +3,8 @@
 #include "GameMap.h"
 #include <iostream>
 #include "GameObject001.h"
+#include "GameObject003_wall.h"
+
 
 using namespace G1;
 

@@ -165,6 +165,9 @@
     <ClCompile Include="GameObject002_Bullet.cpp">
       <Filter>Source Files\G1Game</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject003_wall.cpp">
+      <Filter>Source Files\G1Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -258,6 +261,9 @@
       <Filter>Header Files\Engine\Object</Filter>
     </ClInclude>
     <ClInclude Include="GameObject002_Bullet.h">
+      <Filter>Header Files\G1Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject003_wall.h">
       <Filter>Header Files\G1Game</Filter>
     </ClInclude>
   </ItemGroup>

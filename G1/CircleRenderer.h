@@ -12,6 +12,7 @@ namespace G1 {
 	public:
 		CircleRenderer();
 		CircleRenderer(float radiusTemp, sf::Color);
+		void setColor(sf::Color color);
 		~CircleRenderer();
 	};
 

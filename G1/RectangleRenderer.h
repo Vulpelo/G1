@@ -14,6 +14,7 @@ namespace G1 {
 	public:
 		RectangleRenderer();
 		RectangleRenderer(float leng, float heig, sf::Color c);
+		void setColor(sf::Color color);
 		~RectangleRenderer();
 	};
 

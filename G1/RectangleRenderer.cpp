@@ -23,10 +23,16 @@ namespace G1 {
 		rRectangle.setFillColor(color);
 	}
 
+	void RectangleRenderer::setColor(sf::Color color)
+	{
+		this->color = color;
+		rRectangle.setFillColor(color);
+	}
+
 	void RectangleRenderer::render(sf::RenderWindow * w)
 	{
-		rRectangle.setPosition(transform.position.X + transform.position.X, transform.position.Y + transform.position.Y);
-		rRectangle.setRotation(transform.rotationX + transform.rotationX);
+		rRectangle.setPosition(getWorldPosition().X, getWorldPosition().Y);
+		rRectangle.setRotation(getWorldRotation());
 		w->draw(rRectangle);
 	}
 

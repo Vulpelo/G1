@@ -15,6 +15,12 @@ class GameObject001 :
 	float shootingSpeed;
 	float a_shootingSpeed;
 
+	CircleRenderer* circleRend;
+	
+	sf::Color color1;
+	sf::Color color2;
+	bool aColor;
+
 	ControlInput c;
 public:
 	void beginPlay();
