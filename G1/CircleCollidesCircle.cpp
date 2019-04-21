@@ -12,15 +12,19 @@ namespace G1 {
 		CollisionCircle* circle2 = dynamic_cast<CollisionCircle*>(collider2);
 
 		if (circle1 && circle2) {
-			// TODO: CHECK COLLISION CODE
-			return CollisionCheck::NOT_COLLIDES;
+			return isColliding(collider1, collider2);
 		}
 		return CollisionCheck::WRONG_TYPE;
 	}
 
-	CollisionCheck CircleCollidesCircle::isColliding(Collider * collider1, Collider * collider2)
+	CollisionCheck CircleCollidesCircle::isColliding(Collider * cir1, Collider * cir2)
 	{
-		return CollisionCheck();
+		float distance = GMath::twoPointsDistance(cir1->getWorldPosition(), cir2->getWorldPosition());
+
+		if (cir1->getFarthestPoint() + cir2->getFarthestPoint() >= distance)
+			return CollisionCheck::COLLIDES;
+		else
+			return CollisionCheck::NOT_COLLIDES;
 	}
 
 
