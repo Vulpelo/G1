@@ -56,7 +56,7 @@ namespace G1 {
 			i < collisionTypes.size() && check == CollisionCheck::WRONG_TYPE;
 			i++)
 		{
-			check = collisionTypes.at(i)->isColliding(collider1, collider2);
+			check = collisionTypes.at(i)->checkCollision(collider1, collider2);
 		}
 
 		return check;

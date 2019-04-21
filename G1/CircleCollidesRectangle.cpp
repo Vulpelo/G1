@@ -6,14 +6,13 @@ namespace G1 {
 	{
 	}
 
-	CollisionCheck CircleCollidesRectangle::isColliding(Collider * collider1, Collider * collider2)
+	CollisionCheck CircleCollidesRectangle::checkCollision(Collider * collider1, Collider * collider2)
 	{
 		CollisionRectangle* rectangle = dynamic_cast<CollisionRectangle*>(collider1);
 		CollisionCircle* circle = dynamic_cast<CollisionCircle*>(collider2);
 
 		if (rectangle && circle) {
-			// TODO: CHECK COLLISION CODE
-			return CollisionCheck::NOT_COLLIDES;
+			return isColliding(collider1, collider2);
 		}
 
 
@@ -21,11 +20,46 @@ namespace G1 {
 		circle = dynamic_cast<CollisionCircle*>(collider1);
 
 		if (rectangle && circle) {
-			// TODO: CHECK COLLISION CODE
-			return CollisionCheck::NOT_COLLIDES;
+			return isColliding(collider2, collider1);
 		}
 
 		return CollisionCheck::WRONG_TYPE;
+	}
+
+	CollisionCheck CircleCollidesRectangle::isColliding(Collider * rect, Collider * cirl)
+	{
+		float distance =
+			GMath::twoPointsDistance(rect->getWorldPosition().X, rect->getWorldPosition().Y,
+				cirl->getWorldPosition().X, cirl->getWorldPosition().Y);
+
+		// Does not overlap for sure
+		if (cirl->getFarthestPoint() + rect->getFarthestPoint() < distance)
+			return CollisionCheck::NOT_COLLIDES;
+		// Does overlap for sure
+		else if (cirl->getNearestPoint() + rect->getNearestPoint() >= distance)
+			return CollisionCheck::COLLIDES;
+		// Not sure, need extra check
+		else {
+			// TODO : instead Position struct use Vector2 for location
+			float additionalAngle = 90;
+			float T[] = { rect->getFarthestPointVector().Y, rect->getFarthestPointVector().X };
+
+			for (int i = 0; i < 2; i++) {
+				// New perspective vector
+				Vector2 P;
+				P.setVectorByAngleAndLength(rect->getWorldRotation() + additionalAngle*i, 1);
+
+				Vector2 distance;
+				distance = cirl->getWorldPosition().invertY() - rect->getWorldPosition().invertY();
+				// fabs(distance * P) - distance between circle and rectangle on new perspective
+				if (fabs(distance * P) > T[i] + cirl->getFarthestPoint()) {
+					//not touching for sure
+
+					return CollisionCheck::NOT_COLLIDES;
+				}
+			}
+			return CollisionCheck::COLLIDES;
+		}
 	}
 
 
