@@ -144,6 +144,7 @@
     <ClCompile Include="GameObject001.cpp" />
     <ClCompile Include="GameObject002_Bullet.cpp" />
     <ClCompile Include="GameObject003_wall.cpp" />
+    <ClCompile Include="GameObject004_CircleWall.cpp" />
     <ClCompile Include="GameObjectsData.cpp" />
     <ClCompile Include="Map001.cpp" />
     <ClCompile Include="OverlapingGameObjectsStates.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="GameObject001.h" />
     <ClInclude Include="GameObject002_Bullet.h" />
     <ClInclude Include="GameObject003_wall.h" />
+    <ClInclude Include="GameObject004_CircleWall.h" />
     <ClInclude Include="GameObjectsData.h" />
     <ClInclude Include="ISpawnable.h" />
     <ClInclude Include="Map001.h" />

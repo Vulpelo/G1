@@ -195,6 +195,9 @@
     <ClCompile Include="OverlapingGameObjectsStates.cpp">
       <Filter>Source Files\Engine\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject004_CircleWall.cpp">
+      <Filter>Source Files\G1Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -316,6 +319,9 @@
     </ClInclude>
     <ClInclude Include="OverlapingGameObjectsStates.h">
       <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject004_CircleWall.h">
+      <Filter>Header Files\G1Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

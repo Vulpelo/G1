@@ -4,7 +4,7 @@
 #include <iostream>
 #include "GameObject001.h"
 #include "GameObject003_wall.h"
-
+#include "GameObject004_CircleWall.h"
 
 using namespace G1;
 
