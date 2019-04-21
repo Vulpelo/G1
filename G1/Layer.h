@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef Layer_H
+#define Layer_H
+
 enum Layer {
 	DEFAULT = 1,
 	PLAYER = 2,
@@ -32,5 +35,8 @@ enum Layer {
 	LAYER29 = 268435456,
 	LAYER30 = 536870912,
 	LAYER31 = 1073741824,
-	LAYER32 = LAYER31 * 2
+	LAYER32 = 2147483648
 };
+
+#endif // !Layer_H
+

@@ -36,8 +36,8 @@ void Vector2::setVector(float x, float y)
 void Vector2::setVectorByAngleAndLength(float angle, float length)
 {
 	double s = angle * M_PI / 180;
-	this->X = length * sin(s);
-	this->Y = length * cos(s);
+	this->X = length * sinf(s);
+	this->Y = length * cosf(s);
 }
 
 Vector2 Vector2::operator-(const Vector2 & other) const
@@ -64,7 +64,7 @@ float Vector2::angle() const
 {
 	float value = 0;
 	if (Y != 0) {
-		value = (180 * atan(X / Y)) / M_PI;
+		value = (180 * atanf(X / Y)) / M_PI;
 		if (Y < 0)
 			value += 180;
 		if (X < 0 && Y >= 0)
@@ -80,7 +80,7 @@ float Vector2::angle() const
 
 float Vector2::length() const
 {
-	return sqrt(X*X + Y*Y);
+	return sqrtf(X*X + Y*Y);
 }
 
 Vector2 Vector2::normalize() const

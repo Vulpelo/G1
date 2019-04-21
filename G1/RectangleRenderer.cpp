@@ -16,7 +16,7 @@ namespace G1 {
 	{
 		color = c;
 
-		rRectangle.setOrigin(sf::Vector2f(length / 2.0, height / 2.0));
+		rRectangle.setOrigin(sf::Vector2f(length / 2.0f, height / 2.0f));
 		rRectangle.setSize(sf::Vector2f(length, height));
 		rRectangle.setPosition(transform.position.X + transform.position.X, transform.position.Y + transform.position.Y);
 		rRectangle.setRotation(transform.rotationX + transform.rotationX);

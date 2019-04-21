@@ -13,7 +13,7 @@ namespace G1 {
 		double height, length;
 
 	public:
-		CollisionRectangle(double length, double height, double worldCoordinateX, double worldCoordinateY, float rot = 0);
+		CollisionRectangle(float length, float height, float worldCoordinateX, float worldCoordinateY, float rot = 0);
 		bool isCollidingWith(Collider *otherCollider);
 		Vector2 CollisionRectangle::getFarthestPointVector();
 	};

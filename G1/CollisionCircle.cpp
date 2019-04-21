@@ -2,7 +2,7 @@
 
 namespace G1 {
 
-	CollisionCircle::CollisionCircle(double radius, double worldCoordinateX, double worldCoordinateY)
+	CollisionCircle::CollisionCircle(float radius, float worldCoordinateX, float worldCoordinateY)
 	{
 		this->radius = radius;
 		this->setTransform(Transform(worldCoordinateX, worldCoordinateY, 0));

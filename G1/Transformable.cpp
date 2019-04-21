@@ -19,8 +19,6 @@ namespace G1 {
 		} while (next != NULL);
 
 		return worldPos;
-
-		return transform.position;
 	}
 
 	void Transformable::setTransform(Transform transform)

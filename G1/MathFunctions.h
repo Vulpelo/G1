@@ -8,17 +8,17 @@
 
 namespace GMath
 {
-	double twoPointsDistance(double X1, double Y1, double X2, double Y2);
-	double twoPointsDistance(Position, Position);
-	double twoPointsDistance(Vector2, Vector2);
+	float twoPointsDistance(float X1, float Y1, float X2, float Y2);
+	float twoPointsDistance(Position, Position);
+	float twoPointsDistance(Vector2, Vector2);
 	/// <summary> Angle 0 is on +y axis and is rising rotating to right. So on +x is 90 degree
 	/// Angle is measuring at first point </summary>
-	double twoPointsAngle(double X1, double Y1, double X2, double Y2);
+	float twoPointsAngle(float X1, float Y1, float X2, float Y2);
 	/// <summary> Angle 0 is on +y axis and is rising rotating to right. So on +x is 90 degree
 	/// Angle is measuring at first point </summary>
-	double twoPointsAngle(Position, Position);
+	float twoPointsAngle(Position, Position);
 
-	double vectorAngle(double X, double Y);
+	float vectorAngle(float X, float Y);
 };
 
 #endif // !_MathFunction_H_

@@ -13,7 +13,7 @@ namespace G1 {
 		double radius;
 
 	public:
-		CollisionCircle(double radius, double worldCoordinateX, double worldCoordinateY);
+		CollisionCircle(float radius, float worldCoordinateX, float worldCoordinateY);
 		bool isCollidingWith(Collider *otherCollider);
 	};
 
