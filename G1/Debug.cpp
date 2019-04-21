@@ -25,14 +25,14 @@ void Debug::update()
 void Debug::addText(const char *t)
 {
 	if (!block && debugOn)
-		printf("%s", &t);
+		printf("%s", t);
 		//printText += t;
 }
 
 void Debug::addText(int number)
 {
 	if (!block && debugOn)
-		printf("%d", &number);
+		printf("%d", number);
 		//printText += to_string(number);
 }
 
