@@ -2,7 +2,10 @@
 // G1
 #include "GameObject.h"
 #include "CircleRenderer.h"
+#include "RectangleRenderer.h"
+
 #include "CollisionCircle.h"
+#include "CollisionRectangle.h"
 
 // Game
 #include "GameObject002_Bullet.h"
@@ -15,6 +18,8 @@ class GameObject001 :
 	float speed;
 	float shootingSpeed;
 	float a_shootingSpeed;
+	bool s_keyPressed;
+	bool changeColor;
 
 	CircleRenderer* circleRend;
 	
@@ -30,4 +35,5 @@ public:
 private:
 	void movement();
 	void shooting();
+	void shapeShift();
 };
