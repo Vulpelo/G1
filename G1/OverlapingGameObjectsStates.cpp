@@ -12,10 +12,10 @@ namespace G1 {
 			std::vector<GameObject*>& ovObj = gameObject->getOverlapingObjects();
 			std::vector<GameObject*>& nOvObj = gameObject->getNewOverlapingObjects();
 
-			for (int i = 0; i < ovObj.size(); i++)
+			for (unsigned int i = 0; i < ovObj.size(); i++)
 			{
 				bool overlaping = false;
-				int j = 0;
+				unsigned int j = 0;
 				for (j = 0; j < nOvObj.size(); j++)
 				{
 					if (ovObj.at(i) == nOvObj.at(j))
@@ -37,7 +37,7 @@ namespace G1 {
 						nOvObj.erase(nOvObj.begin() + j);
 				}
 			}
-			for (int i = 0; i < nOvObj.size(); i++)
+			for (unsigned int i = 0; i < nOvObj.size(); i++)
 			{
 				gameObject->startOverlaping(nOvObj.at(i));
 				ovObj.push_back(nOvObj.at(i));

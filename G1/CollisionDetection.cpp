@@ -13,8 +13,8 @@ namespace G1 {
 	{
 		auto gameObjects = MapManager::get_aMap()->getAllObjects();
 
-		for (int i = 0; i < gameObjects.size(); i++) {
-			for (int j = i+1; j < gameObjects.size(); j++) {
+		for (unsigned int i = 0; i < gameObjects.size(); i++) {
+			for (unsigned int j = i+1; j < gameObjects.size(); j++) {
 				checkGameObjects(gameObjects.at(i), gameObjects.at(j));
 			}
 		}
@@ -29,10 +29,10 @@ namespace G1 {
 		Collider* collider1;
 		Collider* collider2;
 
-		for (int i = 0; i < components1.size(); i++) {
+		for (unsigned int i = 0; i < components1.size(); i++) {
 			
 			if ( collider1 = dynamic_cast<Collider*>(components1.at(i)) ) {
-				for (int j = 0; j < components2.size(); j++) {
+				for (unsigned int j = 0; j < components2.size(); j++) {
 				
 					if (collider2 = dynamic_cast<Collider*>(components2.at(j))) {
 						if (areColliding(collider1, collider2) == CollisionCheck::COLLIDES) {
@@ -52,7 +52,7 @@ namespace G1 {
 	CollisionCheck CollisionDetection::areColliding(Collider * collider1, Collider * collider2)
 	{
 		CollisionCheck check = CollisionCheck::WRONG_TYPE;
-		for (int i = 0;
+		for (unsigned int i = 0;
 			i < collisionTypes.size() && check == CollisionCheck::WRONG_TYPE;
 			i++)
 		{
