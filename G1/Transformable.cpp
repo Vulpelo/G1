@@ -30,6 +30,19 @@ namespace G1 {
 	{
 		return this->transform;
 	}
+
+	float Transformable::getWorldRotation()
+	{
+		float worldRotation = 0;
+
+		Transformable *next = this;
+		do {
+			worldRotation = worldRotation + next->getTransform().rotationX;
+			next = next->getParent();
+		} while (next != NULL);
+
+		return worldRotation;
+	}
 	
 	void Transformable::setRotation(float x)
 	{

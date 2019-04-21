@@ -31,7 +31,7 @@ namespace G1 {
 		/// <summary> gets Transform of this object in relative to parent</summary>
 		Transform getTransform();
 
-		float getWorldRotation() { return transform.rotationX; };
+		float getWorldRotation();
 		/// <summary>Sets rotation of an object</summary>
 		void setRotation(float x);
 	};
