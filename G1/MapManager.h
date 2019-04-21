@@ -15,8 +15,6 @@ namespace G1 {
 		static void loadMap(GameMap*);
 		static GameMap* get_aMap();
 		~MapManager();
-
-		friend class PhysicsHandle;
 	};
 
 }

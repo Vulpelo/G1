@@ -35,12 +35,12 @@ namespace G1 {
 		newOverlapingComponents.push_back(newComponent);
 	}
 
-	//Collision* Component::getCollider()
+	//Collider* Component::getCollider()
 	//{
 	//	return collision;
 	//}
 
-	//bool Component::collides(Collision *otherCollider)
+	//bool Component::collides(Collider *otherCollider)
 	//{
 	//	//if (collision != NULL) // is checked earlier
 	//		return collision->isCollidingWith(otherCollider);

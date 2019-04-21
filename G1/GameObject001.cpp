@@ -12,8 +12,10 @@ void GameObject001::beginPlay() {
 
 
 	circleRend = new CircleRenderer(30, color1);
-
 	addComponent(circleRend);
+
+	auto collidor = new CollisionCircle(30, 0, 0);
+	addComponent(collidor);
 }
 
 void GameObject001::eventTick() {

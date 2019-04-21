@@ -11,7 +11,7 @@ namespace G1 {
 		this->nearestPoint = radius;
 	}
 
-	bool CollisionCircle::isCollidingWith(Collision *otherCollider)
+	bool CollisionCircle::isCollidingWith(Collider *otherCollider)
 	{
 		if (otherCollider->getCollisionType() == 'c') // for circle
 		{

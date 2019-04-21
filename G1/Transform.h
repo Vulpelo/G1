@@ -8,9 +8,9 @@
 struct Transform
 {
 	Vector2 position;
-	double rotationX;
-	double scaleX;
-	double scaleY;
+	float rotationX;
+	float scaleX;
+	float scaleY;
 
 	Transform() : rotationX(0), scaleX(1), scaleY(1) {};
 	Transform(float x, float y, float rot) : position(Vector2(x,y)), rotationX(rot), scaleX(1), scaleY(1) {}

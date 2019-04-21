@@ -128,9 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="CircleCollidesCircle.cpp" />
+    <ClCompile Include="CircleCollidesRectangle.cpp" />
     <ClCompile Include="CircleRenderer.cpp" />
+    <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionCircle.cpp" />
+    <ClCompile Include="CollisionDetection.cpp" />
     <ClCompile Include="CollisionRectangle.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ControlInput.cpp" />
@@ -142,6 +146,9 @@
     <ClCompile Include="GameObject003_wall.cpp" />
     <ClCompile Include="GameObjectsData.cpp" />
     <ClCompile Include="Map001.cpp" />
+    <ClCompile Include="OverlapingGameObjectsStates.cpp" />
+    <ClCompile Include="PhysicsManager.cpp" />
+    <ClCompile Include="RectangleCollidesRectangle.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapManager.cpp" />
@@ -158,9 +165,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="CircleCollidesCircle.h" />
+    <ClInclude Include="CircleCollidesRectangle.h" />
     <ClInclude Include="CircleRenderer.h" />
+    <ClInclude Include="Collider.h" />
     <ClInclude Include="Collision.h" />
+    <ClInclude Include="CollisionCheck.h" />
     <ClInclude Include="CollisionCircle.h" />
+    <ClInclude Include="CollisionDetection.h" />
     <ClInclude Include="CollisionRectangle.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Debug.h" />
@@ -173,6 +185,9 @@
     <ClInclude Include="GameObjectsData.h" />
     <ClInclude Include="ISpawnable.h" />
     <ClInclude Include="Map001.h" />
+    <ClInclude Include="OverlapingGameObjectsStates.h" />
+    <ClInclude Include="PhysicsManager.h" />
+    <ClInclude Include="RectangleCollidesRectangle.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="MathVariables.h" />
     <ClInclude Include="MapManager.h" />

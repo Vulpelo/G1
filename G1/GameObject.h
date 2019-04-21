@@ -24,6 +24,8 @@ namespace G1 {
 	{
 		friend class GameMap;
 		friend class RenderManager;
+		friend class CollisionDetection;
+		friend class OverlapingGameObjectsStates;
 
 		// Displays object's components on screen
 		void render(sf::RenderWindow * w);

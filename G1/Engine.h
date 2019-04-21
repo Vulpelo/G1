@@ -6,6 +6,7 @@
 #include "Properties.h"
 
 #include "RenderManager.h"
+#include "PhysicsManager.h"
 #include "ControlInput.h"
 #include "Time.h"
 
@@ -23,6 +24,7 @@ namespace G1 {
 		sf::Event inputEvent;
 
 		RenderManager render;
+		PhysicsManager physics;
 
 		ControlInput * controlInput;
 

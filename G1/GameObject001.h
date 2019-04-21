@@ -2,6 +2,7 @@
 // G1
 #include "GameObject.h"
 #include "CircleRenderer.h"
+#include "CollisionCircle.h"
 
 // Game
 #include "GameObject002_Bullet.h"

@@ -24,6 +24,7 @@ namespace G1 {
 		{
 			mainEventTick();
 
+			physics.handle();
 			render.renderWindow();
 
 			time.restart();

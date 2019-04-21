@@ -13,8 +13,6 @@ namespace G1 {
 
 	class Component : public Transformable
 	{
-		friend class PhysicsHandle;
-
 		std::vector <Component *> newOverlapingComponents;
 
 	protected:

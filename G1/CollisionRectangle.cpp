@@ -16,7 +16,7 @@ namespace G1 {
 		return Vector2(this->length / 2.0, height / 2.0);
 	}
 
-	bool CollisionRectangle::isCollidingWith(Collision *otherCollider)
+	bool CollisionRectangle::isCollidingWith(Collider *otherCollider)
 	{
 		if (otherCollider->getCollisionType() == 'c') //for circle
 		{

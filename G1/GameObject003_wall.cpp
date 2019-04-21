@@ -3,7 +3,42 @@
 
 void GameObject003_wall::beginPlay()
 {
-	RectangleRenderer* cRend = new RectangleRenderer(30 ,30, sf::Color::Red);
+	overlaps = false;
 
-	addComponent(cRend);
+	color1 = sf::Color::Red;
+	color2 = sf::Color::Green;
+	
+	rRend = new RectangleRenderer(30 ,30, color1);
+	addComponent(rRend);
+
+	auto collidor = new CollisionRectangle(30, 30, 0, 0);
+	addComponent(collidor);
+}
+
+void GameObject003_wall::eventTick()
+{
+	if (overlaps) {
+		rRend->setColor(color2);
+		overlaps = false;
+	}
+	else {
+		rRend->setColor(color1);
+	}
+}
+
+
+
+void GameObject003_wall::startOverlaping(GameObject *overlaped)
+{
+	//rRend->setColor(color2);
+}
+
+void GameObject003_wall::isOverlaping(GameObject *overlaped) {
+	overlaps = true;
+}
+
+
+void GameObject003_wall::endOverlaping(GameObject *overlaped) 
+{
+	//rRend->setColor(color1);
 }
