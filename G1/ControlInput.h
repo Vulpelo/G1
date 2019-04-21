@@ -9,6 +9,15 @@
 
 namespace G1 {
 
+	enum Key {
+		A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,
+		LEFT_ARROW, RIGHT_ARROW, UP_ARROW, DOWN_ARROW,
+		SPACE, TAB, ENTER,
+		LEFT_CTRL, RIGHT_CTRL,
+		LEFT_ALT, RIGHT_ALT,
+		LEFT_SHIFT, RIGHT_SHIFT
+	};
+
 	class ControlInput
 	{
 	private:
@@ -20,15 +29,8 @@ namespace G1 {
 		ControlInput(sf::RenderWindow * w);
 		void mainEventTick();
 
-		bool down_KeyboardKeyPressed();
-		bool up_KeyboardKeyPressed();
-		bool right_KeyboardKeyPressed();
-		bool left_KeyboardKeyPressed();
-		bool a_KeyboardKeyPressed();
-		bool d_KeyboardKeyPressed();
-		bool s_KeyboardKeyPressed();
-		bool w_KeyboardKeyPressed();
-		bool space_KeyboardKeyPressed();
+		/// <summary> "Returns true if selected key is held down" </summary>
+		bool isKeyDown(Key key);
 
 		sf::Vector2i mousePosition();
 		bool leftMouseButtonPressed();

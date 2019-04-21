@@ -20,7 +20,7 @@ void GameObject001::beginPlay() {
 }
 
 void GameObject001::eventTick() {
-	if (c.s_KeyboardKeyPressed()) {
+	if (c.isKeyDown(Key::S)) {
 		s_keyPressed = true;
 	}
 	else {
@@ -33,7 +33,7 @@ void GameObject001::eventTick() {
 }
 
 void GameObject001::movement() {
-	if (c.right_KeyboardKeyPressed()) {
+	if (c.isKeyDown(Key::RIGHT_ARROW)) {
 		Transform tran = getTransform();
 		Vector2 pos = tran.position;
 		pos.X += Time::getDeltaTime() * speed;
@@ -41,7 +41,7 @@ void GameObject001::movement() {
 
 		setTransform(tran);
 	}
-	else if (c.left_KeyboardKeyPressed()) {
+	else if (c.isKeyDown(Key::LEFT_ARROW)) {
 		Transform tran = getTransform();
 		Vector2 pos = tran.position;
 		pos.X -= Time::getDeltaTime() * speed;
@@ -50,7 +50,7 @@ void GameObject001::movement() {
 		setTransform(tran);
 	}
 
-	if (c.up_KeyboardKeyPressed()) {
+	if (c.isKeyDown(Key::UP_ARROW)) {
 		Transform tran = getTransform();
 		Vector2 pos = tran.position;
 		pos.Y -= Time::getDeltaTime() * speed;
@@ -58,7 +58,7 @@ void GameObject001::movement() {
 
 		setTransform(tran);
 	}
-	else if (c.down_KeyboardKeyPressed()) {
+	else if (c.isKeyDown(Key::DOWN_ARROW)) {
 		Transform tran = getTransform();
 		Vector2 pos = tran.position;
 		pos.Y += Time::getDeltaTime() * speed;
@@ -69,7 +69,7 @@ void GameObject001::movement() {
 }
 
 void GameObject001::shooting() {
-	if (a_shootingSpeed <= 0 && c.space_KeyboardKeyPressed()) {
+	if (a_shootingSpeed <= 0 && c.isKeyDown(Key::SPACE)) {
 		a_shootingSpeed = shootingSpeed;
 
 		auto bullet = new GameObject002_Bullet();
