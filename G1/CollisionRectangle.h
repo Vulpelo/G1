@@ -10,7 +10,7 @@ namespace G1 {
 
 	class CollisionRectangle : public Collider
 	{
-		double height, length;
+		float height, length;
 
 	public:
 		CollisionRectangle(float length, float height, float worldCoordinateX, float worldCoordinateY, float rot = 0);

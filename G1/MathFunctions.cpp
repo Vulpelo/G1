@@ -34,7 +34,7 @@ namespace GMath
 
 	float twoPointsAngle(float X1, float Y1, float X2, float Y2)
 	{
-		float value = (180 * atanf((X1 - X2) / (Y1 - Y2))) / M_PI;
+		float value = (180 * atanf((X1 - X2) / (Y1 - Y2))) / float(M_PI);
 		if (Y1 >= Y2)
 			value += 180;
 		if (X1 > X2 && Y1 < Y2)
@@ -44,7 +44,7 @@ namespace GMath
 	float twoPointsAngle(Position cor1, Position cor2)
 	{
 		float value;
-		value = (180 * atanf((cor1.X - cor2.X) / (cor1.Y - cor2.Y))) / M_PI;
+		value = (180 * atanf((cor1.X - cor2.X) / (cor1.Y - cor2.Y))) / float(M_PI);
 		if (cor1.Y < cor2.Y)
 			value += 180;
 		if (cor1.X < cor2.X && cor1.Y >= cor2.Y)
@@ -55,7 +55,7 @@ namespace GMath
 	float vectorAngle(float X, float Y)
 	{
 		float value;
-		value = (180 * atanf(X / Y)) / M_PI;
+		value = (180 * atanf(X / Y)) / float(M_PI);
 		if (Y < 0)
 			value += 180;
 		if (X < 0 && Y >= 0)

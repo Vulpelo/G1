@@ -13,7 +13,7 @@ namespace G1 {
 	}
 
 	Vector2 CollisionRectangle::getFarthestPointVector() {
-		return Vector2(this->length / 2.0f, height / 2.0f);
+		return Vector2(this->length / 2.0f, this->height / 2.0f);
 	}
 
 	bool CollisionRectangle::isCollidingWith(Collider *otherCollider)

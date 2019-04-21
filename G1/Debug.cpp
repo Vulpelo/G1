@@ -3,7 +3,7 @@
 using namespace std;
 
 float Debug::waitTime = 500;
-clock_t Debug::target = clock() + Debug::waitTime;
+float Debug::target = clock() + Debug::waitTime;
 bool Debug::block = false;
 bool Debug::debugOn = false;
 
