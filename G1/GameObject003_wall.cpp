@@ -8,10 +8,10 @@ void GameObject003_wall::beginPlay()
 	color1 = sf::Color::Red;
 	color2 = sf::Color::Green;
 	
-	rRend = new RectangleRenderer(30 ,30, color1);
+	rRend = new RectangleRenderer(60 ,60, color1);
 	addComponent(rRend);
 
-	auto collidor = new CollisionRectangle(30, 30, 0, 0);
+	auto collidor = new CollisionRectangle(60, 60, 0, 0);
 	addComponent(collidor);
 }
 

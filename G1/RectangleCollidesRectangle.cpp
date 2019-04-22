@@ -31,6 +31,7 @@ namespace G1 {
 
 			// distance between two rectangles
 			Vector2 dTmp;
+			//dist = GMath::twoPointsDistance(rect2->getWorldPosition(), rect1->getWorldPosition());
 			dTmp = rect2->getWorldPosition().invertY() - rect1->getWorldPosition().invertY();
 			float dist = fabs(dTmp * P);
 

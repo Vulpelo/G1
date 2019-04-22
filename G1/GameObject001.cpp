@@ -14,10 +14,10 @@ void GameObject001::beginPlay() {
 	color2 = sf::Color::Blue;
 
 
-	rend = new RectangleRenderer(30, 30, color1);
+	rend = new RectangleRenderer(60, 60, color1);
 	addComponent(rend);
 
-	auto collidor = new CollisionRectangle(30, 30, 0, 0);
+	auto collidor = new CollisionRectangle(60, 60, 0, 0);
 	addComponent(collidor);
 }
 
