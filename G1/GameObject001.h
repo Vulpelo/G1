@@ -16,12 +16,13 @@ class GameObject001 :
 	public GameObject
 {
 	float speed;
+	float rotationSpeed;
 	float shootingSpeed;
 	float a_shootingSpeed;
 	bool s_keyPressed;
 	bool changeColor;
 
-	CircleRenderer* circleRend;
+	Renderer* rend;
 	
 	sf::Color color1;
 	sf::Color color2;
@@ -34,6 +35,7 @@ public:
 
 private:
 	void movement();
+	void rotation();
 	void shooting();
 	void shapeShift();
 };

@@ -3,8 +3,10 @@
 
 void GameObject001::beginPlay() {
 	speed = 100.0f;
+	rotationSpeed = 50.0f;
 	shootingSpeed = 1.0f;
 	a_shootingSpeed = 0.2f;
+
 	aColor = false;
 	changeColor = false;
 
@@ -12,10 +14,10 @@ void GameObject001::beginPlay() {
 	color2 = sf::Color::Blue;
 
 
-	circleRend = new CircleRenderer(30, color1);
-	addComponent(circleRend);
+	rend = new RectangleRenderer(30, 30, color1);
+	addComponent(rend);
 
-	auto collidor = new CollisionCircle(30, 0, 0);
+	auto collidor = new CollisionRectangle(30, 30, 0, 0);
 	addComponent(collidor);
 }
 
@@ -28,6 +30,7 @@ void GameObject001::eventTick() {
 	}
 
 	movement();
+	rotation();
 	shapeShift();
 	shooting();
 }
@@ -68,6 +71,17 @@ void GameObject001::movement() {
 	}
 }
 
+void GameObject001::rotation()
+{
+	auto tmp = this->getTransform();
+	if (c.isKeyDown(Key::Q)) {
+		this->setTransform(Transform(tmp.position, tmp.rotationX - Time::getDeltaTime() * rotationSpeed));
+	}
+	else if (c.isKeyDown(Key::E)) {
+		this->setTransform(Transform(tmp.position, tmp.rotationX + Time::getDeltaTime() * rotationSpeed));
+	}
+}
+
 void GameObject001::shooting() {
 	if (a_shootingSpeed <= 0 && c.isKeyDown(Key::SPACE)) {
 		a_shootingSpeed = shootingSpeed;
@@ -88,10 +102,10 @@ void GameObject001::shapeShift()
 
 		aColor = !aColor;
 		if (aColor) {
-			circleRend->setColor(color2);
+			rend->setColor(color2);
 		}
 		else {
-			circleRend->setColor(color1);
+			rend->setColor(color1);
 		}
 	}
 	else if (!s_keyPressed) {

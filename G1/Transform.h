@@ -15,7 +15,9 @@ struct Transform
 	Transform() : rotationX(0), scaleX(1), scaleY(1) {};
 	Transform(float x, float y, float rot) : position(Vector2(x,y)), rotationX(rot), scaleX(1), scaleY(1) {}
 	Transform(Position pos) : position(pos), rotationX(0), scaleX(1), scaleY(1) {}
+	Transform(Position pos, float rotationX) : position(pos), rotationX(rotationX), scaleX(1), scaleY(1) {}
 	Transform(Vector2& vec) : position(vec), rotationX(0), scaleX(1), scaleY(1) {}
+	Transform(Vector2 pos, float rotationX) : position(pos), rotationX(rotationX), scaleX(1), scaleY(1) {}
 };
 
 #endif // !TRANSFORM_H
