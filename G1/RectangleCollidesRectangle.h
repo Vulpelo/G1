@@ -1,6 +1,6 @@
 #pragma once
 #include "Collision.h"
-#include "CollisionRectangle.h"
+#include "RectangleCollider.h"
 
 namespace G1 {
 

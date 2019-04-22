@@ -8,16 +8,16 @@ namespace G1 {
 
 	CollisionCheck CircleCollidesRectangle::checkCollision(Collider * collider1, Collider * collider2)
 	{
-		CollisionRectangle* rectangle = dynamic_cast<CollisionRectangle*>(collider1);
-		CollisionCircle* circle = dynamic_cast<CollisionCircle*>(collider2);
+		RectangleCollider* rectangle = dynamic_cast<RectangleCollider*>(collider1);
+		CircleCollider* circle = dynamic_cast<CircleCollider*>(collider2);
 
 		if (rectangle && circle) {
 			return isColliding(collider1, collider2);
 		}
 
 
-		rectangle = dynamic_cast<CollisionRectangle*>(collider2);
-		circle = dynamic_cast<CollisionCircle*>(collider1);
+		rectangle = dynamic_cast<RectangleCollider*>(collider2);
+		circle = dynamic_cast<CircleCollider*>(collider1);
 
 		if (rectangle && circle) {
 			return isColliding(collider2, collider1);

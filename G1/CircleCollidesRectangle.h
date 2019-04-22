@@ -1,7 +1,7 @@
 #pragma once
 #include "Collision.h"
-#include "CollisionRectangle.h"
-#include "CollisionCircle.h"
+#include "RectangleCollider.h"
+#include "CircleCollider.h"
 
 namespace G1 {
 

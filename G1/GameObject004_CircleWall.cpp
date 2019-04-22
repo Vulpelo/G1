@@ -10,7 +10,7 @@ void GameObject004_CircleWall::beginPlay()
 	rRend = new CircleRenderer(30, color1);
 	addComponent(rRend);
 
-	auto collidor = new CollisionCircle(30, 0, 0);
+	auto collidor = new CircleCollider(30, 0, 0);
 	addComponent(collidor);
 }
 

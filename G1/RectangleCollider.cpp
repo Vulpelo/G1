@@ -1,8 +1,8 @@
-#include "CollisionRectangle.h"
+#include "RectangleCollider.h"
 
 namespace G1 {
 
-	CollisionRectangle::CollisionRectangle(float length, float height, float worldCoordinateX, float worldCoordinateY, float rot)
+	RectangleCollider::RectangleCollider(float length, float height, float worldCoordinateX, float worldCoordinateY, float rot)
 	{
 		this->length = length;
 		this->height = height;
@@ -12,11 +12,11 @@ namespace G1 {
 		this->nearestPoint = (length < height ? length / 2.0f : height / 2.0f);
 	}
 
-	Vector2 CollisionRectangle::getFarthestPointVector() {
+	Vector2 RectangleCollider::getFarthestPointVector() {
 		return Vector2(this->length / 2.0f, this->height / 2.0f);
 	}
 
-	bool CollisionRectangle::isCollidingWith(Collider *otherCollider)
+	bool RectangleCollider::isCollidingWith(Collider *otherCollider)
 	{
 		if (otherCollider->getCollisionType() == 'c') //for circle
 		{

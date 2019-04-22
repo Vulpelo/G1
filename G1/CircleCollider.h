@@ -8,12 +8,12 @@
 
 namespace G1 {
 
-	class CollisionCircle : public Collider
+	class CircleCollider : public Collider
 	{
 		double radius;
 
 	public:
-		CollisionCircle(float radius, float worldCoordinateX, float worldCoordinateY);
+		CircleCollider(float radius, float worldCoordinateX, float worldCoordinateY);
 		bool isCollidingWith(Collider *otherCollider);
 	};
 

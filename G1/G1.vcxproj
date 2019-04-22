@@ -133,9 +133,9 @@
     <ClCompile Include="CircleRenderer.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Collision.cpp" />
-    <ClCompile Include="CollisionCircle.cpp" />
+    <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
-    <ClCompile Include="CollisionRectangle.cpp" />
+    <ClCompile Include="RectangleCollider.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ControlInput.cpp" />
     <ClCompile Include="Debug.cpp" />
@@ -172,9 +172,9 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionCheck.h" />
-    <ClInclude Include="CollisionCircle.h" />
+    <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="CollisionDetection.h" />
-    <ClInclude Include="CollisionRectangle.h" />
+    <ClInclude Include="RectangleCollider.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Engine.h" />

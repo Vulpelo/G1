@@ -1,6 +1,6 @@
 #pragma once
 #include "Collision.h"
-#include "CollisionCircle.h"
+#include "CircleCollider.h"
 
 namespace G1 {
 

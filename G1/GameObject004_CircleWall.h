@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "CircleRenderer.h"
-#include "CollisionCircle.h"
+#include "CircleCollider.h"
 
 using namespace G1;
 

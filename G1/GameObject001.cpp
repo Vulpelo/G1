@@ -17,7 +17,7 @@ void GameObject001::beginPlay() {
 	rend = new RectangleRenderer(60, 60, color1);
 	addComponent(rend);
 
-	auto collidor = new CollisionRectangle(60, 60, 0, 0);
+	auto collidor = new RectangleCollider(60, 60, 0, 0);
 	addComponent(collidor);
 }
 

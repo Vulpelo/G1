@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-#include "CollisionRectangle.h"
+#include "RectangleCollider.h"
 #include "RectangleRenderer.h"
 
 using namespace G1;

@@ -1,8 +1,8 @@
-#include "CollisionCircle.h"
+#include "CircleCollider.h"
 
 namespace G1 {
 
-	CollisionCircle::CollisionCircle(float radius, float worldCoordinateX, float worldCoordinateY)
+	CircleCollider::CircleCollider(float radius, float worldCoordinateX, float worldCoordinateY)
 	{
 		this->radius = radius;
 		this->setTransform(Transform(worldCoordinateX, worldCoordinateY, 0));
@@ -11,7 +11,7 @@ namespace G1 {
 		this->nearestPoint = radius;
 	}
 
-	bool CollisionCircle::isCollidingWith(Collider *otherCollider)
+	bool CircleCollider::isCollidingWith(Collider *otherCollider)
 	{
 		if (otherCollider->getCollisionType() == 'c') // for circle
 		{

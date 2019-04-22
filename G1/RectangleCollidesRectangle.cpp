@@ -15,7 +15,6 @@ namespace G1 {
 
 			// distance between two rectangles
 			Vector2 dTmp;
-			//dist = GMath::twoPointsDistance(rect2->getWorldPosition(), rect1->getWorldPosition());
 			dTmp = rect2->getWorldPosition().invertY() - rect1->getWorldPosition().invertY();
 			float dist = fabs(dTmp * P);
 
@@ -58,8 +57,8 @@ namespace G1 {
 
 	CollisionCheck RectangleCollidesRectangle::checkCollision(Collider * collider1, Collider * collider2)
 	{
-		CollisionRectangle* rectangle1 = dynamic_cast<CollisionRectangle*>(collider1);
-		CollisionRectangle* rectangle2 = dynamic_cast<CollisionRectangle*>(collider2);
+		RectangleCollider* rectangle1 = dynamic_cast<RectangleCollider*>(collider1);
+		RectangleCollider* rectangle2 = dynamic_cast<RectangleCollider*>(collider2);
 
 		if (rectangle1 && rectangle2) {
 			return isColliding(collider1, collider2);

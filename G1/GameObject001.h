@@ -4,8 +4,8 @@
 #include "CircleRenderer.h"
 #include "RectangleRenderer.h"
 
-#include "CollisionCircle.h"
-#include "CollisionRectangle.h"
+#include "CircleCollider.h"
+#include "RectangleCollider.h"
 
 // Game
 #include "GameObject002_Bullet.h"

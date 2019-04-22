@@ -8,14 +8,14 @@
 
 namespace G1 {
 
-	class CollisionRectangle : public Collider
+	class RectangleCollider : public Collider
 	{
 		float height, length;
 
 	public:
-		CollisionRectangle(float length, float height, float worldCoordinateX, float worldCoordinateY, float rot = 0);
+		RectangleCollider(float length, float height, float worldCoordinateX, float worldCoordinateY, float rot = 0);
 		bool isCollidingWith(Collider *otherCollider);
-		Vector2 CollisionRectangle::getFarthestPointVector();
+		Vector2 RectangleCollider::getFarthestPointVector();
 	};
 
 }

@@ -114,12 +114,6 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\Engine\Object</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionCircle.cpp">
-      <Filter>Source Files\Engine\Components\Collider</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionRectangle.cpp">
-      <Filter>Source Files\Engine\Components\Collider</Filter>
-    </ClCompile>
     <ClCompile Include="RenderManager.cpp">
       <Filter>Source Files\Engine\Rendering</Filter>
     </ClCompile>
@@ -198,6 +192,12 @@
     <ClCompile Include="GameObject004_CircleWall.cpp">
       <Filter>Source Files\G1Game</Filter>
     </ClCompile>
+    <ClCompile Include="CircleCollider.cpp">
+      <Filter>Source Files\Engine\Components\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleCollider.cpp">
+      <Filter>Source Files\Engine\Components\Collider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -232,12 +232,6 @@
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\Engine\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionRectangle.h">
-      <Filter>Header Files\Engine\Components\Collider</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionCircle.h">
-      <Filter>Header Files\Engine\Components\Collider</Filter>
     </ClInclude>
     <ClInclude Include="MapManager.h">
       <Filter>Header Files\Engine\Map</Filter>
@@ -322,6 +316,12 @@
     </ClInclude>
     <ClInclude Include="GameObject004_CircleWall.h">
       <Filter>Header Files\G1Game</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleCollider.h">
+      <Filter>Header Files\Engine\Components\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollider.h">
+      <Filter>Header Files\Engine\Components\Collider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
