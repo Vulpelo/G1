@@ -1,23 +1,7 @@
 #include "RectangleCollidesRectangle.h"
 
 namespace G1 {
-
-	RectangleCollidesRectangle::RectangleCollidesRectangle()
-	{
-	}
-
-	CollisionCheck RectangleCollidesRectangle::checkCollision(Collider * collider1, Collider * collider2)
-	{
-		CollisionRectangle* rectangle1 = dynamic_cast<CollisionRectangle*>(collider1);
-		CollisionRectangle* rectangle2 = dynamic_cast<CollisionRectangle*>(collider2);
-
-		if (rectangle1 && rectangle2) {
-			return isColliding(collider1, collider2);
-		}
-		return CollisionCheck::WRONG_TYPE;
-	}
-
-	CollisionCheck RectangleCollidesRectangle::isColliding(Collider * rect1, Collider * rect2)
+	bool RectangleCollidesRectangle::check(Collider * rect1, Collider * rect2)
 	{
 		float additionalAngle = 90;
 		float T[] = { rect1->getFarthestPointVector().Y, rect1->getFarthestPointVector().X };
@@ -62,10 +46,34 @@ namespace G1 {
 			if (dist > vertDist)
 			{
 				//not touching for sure
-				return CollisionCheck::NOT_COLLIDES;
+				return false;
 			}
 		}
-		return CollisionCheck::COLLIDES;
+		return true;
+	}
+
+	RectangleCollidesRectangle::RectangleCollidesRectangle()
+	{
+	}
+
+	CollisionCheck RectangleCollidesRectangle::checkCollision(Collider * collider1, Collider * collider2)
+	{
+		CollisionRectangle* rectangle1 = dynamic_cast<CollisionRectangle*>(collider1);
+		CollisionRectangle* rectangle2 = dynamic_cast<CollisionRectangle*>(collider2);
+
+		if (rectangle1 && rectangle2) {
+			return isColliding(collider1, collider2);
+		}
+		return CollisionCheck::WRONG_TYPE;
+	}
+
+	CollisionCheck RectangleCollidesRectangle::isColliding(Collider * rect1, Collider * rect2)
+	{
+		if (check(rect1, rect2) && check(rect2, rect1))
+		{
+			return CollisionCheck::COLLIDES;
+		}
+		return CollisionCheck::NOT_COLLIDES;
 	}
 
 

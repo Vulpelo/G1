@@ -7,6 +7,7 @@ namespace G1 {
 	class RectangleCollidesRectangle :
 		public Collision
 	{
+		bool check(Collider* rect1, Collider* rect2);
 	public:
 		RectangleCollidesRectangle();
 		CollisionCheck checkCollision(Collider* collider1, Collider* collider2);
