@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef _TRANSFORMABLE_H_
+#define _TRANSFORMABLE_H_
+
 #include "Transform.h"
 
 namespace G1 {
@@ -37,3 +40,5 @@ namespace G1 {
 	};
 
 }
+
+#endif // !_TRANSFORMABLE_H_

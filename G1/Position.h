@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _Position_H_
-#define _Position_H_
+#ifndef _POSITION_H_
+#define _POSITION_H_
 
 struct Position
 {
@@ -13,4 +13,4 @@ public:
 	Position(float x, float y) : X(x), Y(y) {};
 };
 
-#endif // !_Position_H_
+#endif // !_POSITION_H_

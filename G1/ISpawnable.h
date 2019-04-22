@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _ISpawnable_H_
-#define _ISpawnable_H_
+#ifndef _ISPAWNABLE_H_
+#define _ISPAWNABLE_H_
 
 namespace G1 {
 
@@ -11,4 +11,4 @@ namespace G1 {
 
 }
 
-#endif // !_ISpawnable_H_
+#endif // !_ISPAWNABLE_H_

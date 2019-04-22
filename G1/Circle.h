@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef _CIRCLE_H_
+#define _CIRCLE_H_
+
 #include "SimpleShape.h"
 
 namespace G1 {
@@ -15,3 +18,5 @@ namespace G1 {
 	};
 
 }
+
+#endif // !_CIRCLE_H_

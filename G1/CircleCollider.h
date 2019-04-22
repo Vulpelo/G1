@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef COLLISION_CIRCLE_H
-#define COLLISION_CIRCLE_H
+#ifndef _CIRCLE_COLLIDER_H_
+#define _CIRCLE_COLLIDER_H_
 
 #include "Collider.h"
 #include "SimpleShape.h"
@@ -19,4 +19,4 @@ namespace G1 {
 
 }
 
-#endif // !COLLISION_CIRCLE_H
+#endif // !_CIRCLE_COLLIDER_H_

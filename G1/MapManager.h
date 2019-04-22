@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef MAP_MANAGER_H
-#define MAP_MANAGER_H
+#ifndef _MAP_MANAGER_H_
+#define _MAP_MANAGER_H_
 
 #include "GameMap.h"
 
@@ -19,4 +19,4 @@ namespace G1 {
 
 }
 
-#endif // !MAP_MANAGER_H
+#endif // !_MAP_MANAGER_H_

@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef RENDER_MANAGER_H
-#define RENDER_MANAGER_H
+#ifndef _RENDER_MANAGER_H_
+#define _RENDER_MANAGER_H_
 
 #include <SFML\Graphics.hpp>
 
@@ -23,4 +23,4 @@ namespace G1 {
 
 }
 
-#endif // !RENDER_MANAGER_H
+#endif // !_RENDER_MANAGER_H_

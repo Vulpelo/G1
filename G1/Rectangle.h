@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef _RECTANGLE_H_
+#define _RECTANGLE_H_
+
 #include "SimpleShape.h"
 
 namespace G1 {
@@ -15,3 +18,5 @@ namespace G1 {
 	};
 
 }
+
+#endif // !_RECTANGLE_H_

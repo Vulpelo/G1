@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _MathFunction_H_
-#define _MathFunction_H_
+#ifndef _MATH_FUNCTIONS_H_
+#define _MATH_FUNCTIONS_H_
 
 #include "MathVariables.h"
 #include "Vector2.h"
@@ -21,4 +21,4 @@ namespace GMath
 	float vectorAngle(float X, float Y);
 };
 
-#endif // !_MathFunction_H_
+#endif // !_MATH_FUNCTIONS_H_

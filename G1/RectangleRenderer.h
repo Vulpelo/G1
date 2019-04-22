@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef _RECTANGLE_RENDERER_H_
+#define _RECTANGLE_RENDERER_H_
+
 #include "Renderer.h"
 #include "Rectangle.h"
 
@@ -19,3 +23,5 @@ namespace G1 {
 	};
 
 }
+
+#endif // !_RECTANGLE_RENDERER_H_

@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef GAMEMAP_H
-#define GAMEMAP_H
+#ifndef _GAME_MAP_H_
+#define _GAME_MAP_H_
 
 #include "GameObject.h"
 
@@ -30,4 +30,4 @@ namespace G1 {
 
 }
 
-#endif // !GAMEMAP_H
+#endif // !_GAME_MAP_H_

@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _Component_H_
-#define _Component_H_
+#ifndef _COMPONENT_H_
+#define _COMPONENT_H_
 
 #include <iostream>
 #include <vector>
@@ -39,4 +39,4 @@ namespace G1 {
 
 }
 
-#endif // !_Component_H_
+#endif // !_COMPONENT_H_

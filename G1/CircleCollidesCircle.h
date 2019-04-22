@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef _CIRCLE_COLLIDES_CIRCLE_H_
+#define _CIRCLE_COLLIDES_CIRCLE_H_
+
 #include "Collision.h"
 #include "CircleCollider.h"
 
@@ -15,3 +19,5 @@ namespace G1 {
 	};
 
 }
+
+#endif // !_CIRCLE_COLLIDES_CIRCLE_H_

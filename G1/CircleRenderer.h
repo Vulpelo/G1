@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef _CIRCLE_RENDERER_H_
+#define _CIRCLE_RENDERER_H_
+
 #include "Renderer.h"
 
 namespace G1 {
@@ -17,3 +21,5 @@ namespace G1 {
 	};
 
 }
+
+#endif // !_RENDERER_H_

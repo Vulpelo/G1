@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef _OVERLAPING_GAME_OBJECTS_STATES_H_
+#define _OVERLAPING_GAME_OBJECTS_STATES_H_
+
 #include "MapManager.h"
 
 namespace G1 {
@@ -11,3 +14,5 @@ namespace G1 {
 	};
 
 }
+
+#endif // !_OVERLAPING_GAME_OBJECTS_STATES_H_

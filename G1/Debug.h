@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef DEBUG_H
-#define DEBUG_H
+#ifndef _DEBUG_H_
+#define _DEBUG_H_
 
 #include <iostream>
 #include <string>
@@ -22,4 +22,4 @@ public:
 	static void addText(const char*, int);
 };
 
-#endif // !DEBUG_H
+#endif // !_DEBUG_H_

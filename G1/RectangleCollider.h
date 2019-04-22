@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef COLLISION_RECTANGLE_H
-#define COLLISION_RECTANGLE_H
+#ifndef _RECTANGLE_COLLIDER_H_
+#define _RECTANGLE_COLLIDER_H_
 
 #include "Collider.h"
 #include "SimpleShape.h"
@@ -20,4 +20,4 @@ namespace G1 {
 
 }
 
-#endif // COLLISION_RECTANGLE_H
+#endif // !_RECTANGLE_COLLIDER_H_

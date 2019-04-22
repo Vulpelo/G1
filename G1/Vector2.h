@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef VECTOR2D_H
-#define VECTOR2D_H
+#ifndef _VECTOR2_H_
+#define _VECTOR2_H_
 
 #include "MathVariables.h"
 
@@ -45,4 +45,4 @@ public:
 	Vector2 invert() const;
 };
 
-#endif // !VECTOR2D_H
+#endif // !_VECTOR2_H_

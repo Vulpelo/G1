@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _GameObjectsData_H_
-#define _GameObjectsData_H_
+#ifndef _GAME_OBJECTS_DATA_H_
+#define _GAME_OBJECTS_DATA_H_
 
 #include "ISpawnable.h"
 
@@ -21,4 +21,4 @@ namespace G1 {
 
 }
 
-#endif // !_GameObjectsData_H_
+#endif // !_GAME_OBJECTS_DATA_H_

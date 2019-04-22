@@ -1,8 +1,7 @@
 #pragma once
 
-#ifndef PHYSICS_MANAGER_H
-#define PHYSICS_MANAGER_H
-
+#ifndef _PHYSICS_MANAGER_H_
+#define _PHYSICS_MANAGER_H_
 
 #include "CollisionDetection.h"
 #include "OverlapingGameObjectsStates.h"
@@ -22,4 +21,4 @@ namespace G1 {
 
 }
 
-#endif // !PHYSICS_MANAGER_H
+#endif // !_PHYSICS_MANAGER_H_

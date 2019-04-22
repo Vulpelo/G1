@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef _COLLISION_H_
+#define _COLLISION_H_
+
 #include "CollisionCheck.h"
 #include "Collider.h"
 
@@ -12,3 +15,5 @@ namespace G1 {
 	};
 
 }
+
+#endif // !_COLLISION_H_

@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef CONTROLINPUT_H
-#define CONTROLINPUT_H
+#ifndef _CONTROL_INPUT_H_
+#define _CONTROL_INPUT_H_
 
 #include <SFML\Graphics.hpp>
 #include <SFML\Window\Keyboard.hpp>
@@ -38,4 +38,4 @@ namespace G1 {
 
 }
 
-#endif // !CONTROLINPUT_H
+#endif // !_CONTROL_INPUT_H_

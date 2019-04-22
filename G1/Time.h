@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef _TIME_H_
+#define _TIME_H_
+
 #include <SFML\Graphics.hpp>
 
 namespace G1 {
@@ -16,3 +19,5 @@ namespace G1 {
 	};
 
 }
+
+#endif // !_TIME_H_

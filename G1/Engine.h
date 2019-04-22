@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef ENGINE_H
-#define ENGINE_H
+#ifndef _ENGINE_H_
+#define _ENGINE_H_
 
 #include "Properties.h"
 
@@ -37,4 +37,4 @@ namespace G1 {
 
 }
 
-#endif // !ENGINE_H
+#endif // !_ENGINE_H_

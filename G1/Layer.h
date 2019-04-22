@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef Layer_H
-#define Layer_H
+#ifndef _LAYER_H_
+#define _LAYER_H_
 
 enum Layer {
 	DEFAULT = 1,
@@ -38,5 +38,5 @@ enum Layer {
 	LAYER32 = 2147483648
 };
 
-#endif // !Layer_H
+#endif // !_LAYER_H_
 

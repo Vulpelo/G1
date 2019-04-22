@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef _RENDERER_H_
+#define _RENDERER_H_
+
 #include "Component.h"
 #include <SFML\Graphics.hpp>
 
@@ -12,3 +16,5 @@ namespace G1 {
 	};
 
 }
+
+#endif // !_RENDERER_H_

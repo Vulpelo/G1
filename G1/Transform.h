@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef TRANSFORM_H
-#define TRANSFORM_H
+#ifndef _TRANSFORM_H_
+#define _TRANSFORM_H_
 
 #include "Vector2.h"
 
@@ -20,4 +20,4 @@ struct Transform
 	Transform(Vector2 pos, float rotationX) : position(pos), rotationX(rotationX), scaleX(1), scaleY(1) {}
 };
 
-#endif // !TRANSFORM_H
+#endif // !_TRANSFORM_H_

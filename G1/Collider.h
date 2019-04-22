@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef COLLIDER_H
-#define COLLIDER_H
+#ifndef _COLLIDER_H_
+#define _COLLIDER_H_
 
 #include "MathFunctions.h"
 #include "Component.h"
@@ -34,4 +34,4 @@ namespace G1 {
 
 }
 
-#endif // !COLLIDER_H
+#endif // !_COLLIDER_H_

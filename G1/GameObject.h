@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _GameObject_H_
-#define _GameObject_H_
+#ifndef _GAME_OBJECT_H_
+#define _GAME_OBJECT_H_
 
 #include "ControlInput.h"
 #include "Layer.h"
@@ -99,4 +99,4 @@ namespace G1 {
 
 }
 
-#endif // !_GameObject_H_
+#endif // !_GAME_OBJECT_H_
