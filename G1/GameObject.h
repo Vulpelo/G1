@@ -103,7 +103,7 @@ namespace G1 {
 
 
 	template<class T>
-	inline T * GameObject::instantiate()
+	T * GameObject::instantiate()
 	{
 		static_assert(std::is_base_of<GameObject, T>::value, "instantiate<T>: T must inherit from GameObject");
 		
