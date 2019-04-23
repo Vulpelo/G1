@@ -8,14 +8,10 @@ namespace G1 {
 		this->transform.position.Y = 0;
 		this->transform.rotationX = 0;
 
-		//setRotation(this->transform.rotationX);
-		//GameObject::updateMesh();
-
 		layer = Layer::DEFAULT;
 		this->lifeTime = 0;
 		this->currentLifeTime = 0;
 		this->toDestroy = false;
-		//setWorldCoordinate(this->transform.position.X, this->transform.position.Y);
 	}
 
 	GameObject::~GameObject()
@@ -28,11 +24,6 @@ namespace G1 {
 
 		overlapingObjects.clear();
 		newOverlapingObjects.clear();
-	}
-
-	void GameObject::instantiate(ISpawnable* spawnable)
-	{
-		GameObjectsData::addInstantiate(spawnable);
 	}
 
 	void GameObject::beginPlay()

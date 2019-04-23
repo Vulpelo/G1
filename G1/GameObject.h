@@ -60,13 +60,6 @@ namespace G1 {
 		GameObject();
 		~GameObject();
 
-		/// <summary>Spawns new GameObject in the game</summary>
-		void instantiate(ISpawnable* spawnable);
-		
-		/// <summary>Creates new GameObject in the game and returns pointer to it</summary>
-		template<class T>
-		T* instantiate();
-
 		/// <summary>Function played at the begining when object is created</summary>
 		virtual void beginPlay();
 
@@ -101,16 +94,6 @@ namespace G1 {
 		bool shouldBeDestroyed();
 	};
 
-
-	template<class T>
-	T * GameObject::instantiate()
-	{
-		static_assert(std::is_base_of<GameObject, T>::value, "instantiate<T>: T must inherit from GameObject");
-		
-		T* obj = new T();
-		GameObjectsData::addInstantiate(obj);
-		return obj;
-	}
 }
 
 #endif // !_GAME_OBJECT_H_

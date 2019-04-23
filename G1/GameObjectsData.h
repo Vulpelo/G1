@@ -12,6 +12,7 @@ namespace G1 {
 	class GameObjectsData {
 		friend class GameObject;
 		friend class GameMap;
+		friend class ISpawnable;
 
 		static std::vector<ISpawnable*> toSpawn;
 
