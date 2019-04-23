@@ -116,7 +116,7 @@ namespace G1 {
 		return true;
 	}
 
-	bool Collider::rectangleOverlapsPoint(Position point)
+	bool Collider::rectangleOverlapsPoint(Vector2 point)
 	{
 		float additionalAngle = 90;
 		float T[] = { this->getFarthestPointVector().Y, this->getFarthestPointVector().X };

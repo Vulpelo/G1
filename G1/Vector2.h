@@ -14,7 +14,6 @@ public:
 	Vector2();
 	Vector2(const Vector2*);
 	Vector2(float x, float y);
-	Vector2(Position pos);
 	Vector2(Vector2&);
 
 	void setVector(Vector2);

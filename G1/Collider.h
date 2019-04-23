@@ -18,7 +18,7 @@ namespace G1 {
 		void draw(sf::RenderWindow * w);
 		bool rectangleOverlapsCircle(Collider*rect, Collider*cirl);
 		bool rectangleOverlapsRectangle(Collider*rect, Collider*otherRect);
-		bool rectangleOverlapsPoint(Position point);
+		bool rectangleOverlapsPoint(Vector2 point);
 
 	public:
 		Collider();

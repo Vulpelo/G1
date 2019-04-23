@@ -12,16 +12,6 @@ namespace GMath
 		return sqrtf(X + Y);
 	}
 
-	float twoPointsDistance(Position cor1, Position cor2)
-	{
-		float X = cor1.X - cor2.X;
-		float Y = cor1.Y - cor2.Y;
-		X *= X;
-		Y *= Y;
-
-		return sqrtf(X + Y);
-	}
-
 	float twoPointsDistance(Vector2 cor1, Vector2 cor2)
 	{
 		float X = cor1.X - cor2.X;
@@ -41,7 +31,7 @@ namespace GMath
 			value += 360;
 		return value;
 	}
-	float twoPointsAngle(Position cor1, Position cor2)
+	float twoPointsAngle(Vector2 cor1, Vector2 cor2)
 	{
 		float value;
 		value = (180 * atanf((cor1.X - cor2.X) / (cor1.Y - cor2.Y))) / float(M_PI);

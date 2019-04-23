@@ -7,12 +7,6 @@ Vector2::Vector2()
 Vector2::Vector2(float x, float y)
 	: X(x), Y(y) {}
 
-Vector2::Vector2(Position pos)
-{
-	X = pos.X;
-	Y = pos.Y;
-}
-
 Vector2::Vector2(Vector2 &vec)
 {
 	this->X = vec.X;

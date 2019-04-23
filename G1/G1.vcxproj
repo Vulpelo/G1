@@ -194,7 +194,6 @@
     <ClInclude Include="MathVariables.h" />
     <ClInclude Include="MapManager.h" />
     <ClInclude Include="MathFunctions.h" />
-    <ClInclude Include="Position.h" />
     <ClInclude Include="Properties.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Rectangle.h" />

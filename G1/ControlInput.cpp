@@ -104,6 +104,7 @@ namespace G1 {
 		case G1::RIGHT_SHIFT:
 			return sf::Keyboard::isKeyPressed(sf::Keyboard::RShift);
 		}
+		return false;
 	}
 
 	
