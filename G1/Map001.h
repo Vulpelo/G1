@@ -1,5 +1,18 @@
 #pragma once
 
+/*
+TEST MAP
+
+player - GameObject001
+
+KEY BINDINGS:
+	arrow keys - move player around
+	Q and E - rotate player
+	S - switch player color
+	SPACE - spawn at the player's position another GameObject
+
+*/
+
 #include "GameMap.h"
 #include <iostream>
 #include "GameObject001.h"
