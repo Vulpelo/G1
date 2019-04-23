@@ -38,7 +38,7 @@ namespace G1 {
 		void addNewOverlapingObject(GameObject* overlaped);
 
 		//GameObject distruct
-		bool destroyObject;
+		bool toDestroy;
 		float currentLifeTime;
 		float lifeTime;
 
@@ -95,7 +95,7 @@ namespace G1 {
 #pragma endregion
 
 		/// <summary>Destroys object before next tick</summary>
-		void DestroyObject(float nlifeTime = 0.);
+		void destroy(float nlifeTime = 0.0f);
 
 		/// <summary>Checks if object is going to be destroyed</summary>
 		bool shouldBeDestroyed();

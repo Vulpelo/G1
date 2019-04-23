@@ -14,7 +14,7 @@ namespace G1 {
 		layer = Layer::DEFAULT;
 		this->lifeTime = 0;
 		this->currentLifeTime = 0;
-		this->destroyObject = false;
+		this->toDestroy = false;
 		//setWorldCoordinate(this->transform.position.X, this->transform.position.Y);
 	}
 
@@ -51,7 +51,7 @@ namespace G1 {
 	void GameObject::mainEventTick()
 	{
 		if (lifeTime > 0.0 && currentLifeTime >= lifeTime) {
-			this->destroyObject = true;
+			this->toDestroy = true;
 		}
 		currentLifeTime += Time::getDeltaTime();
 
@@ -79,14 +79,14 @@ namespace G1 {
 		return newOverlapingObjects;
 	}
 
-	void GameObject::DestroyObject(float nlifeTime)
+	void GameObject::destroy(float nlifeTime)
 	{
 		this->lifeTime = this->currentLifeTime + nlifeTime;
 	}
 
 	bool GameObject::shouldBeDestroyed()
 	{
-		return this->destroyObject;
+		return this->toDestroy;
 	}
 
 	std::vector <Component*> &GameObject::getComponents()

@@ -2,6 +2,7 @@
 #include "GameObject.h"
 
 #include "CircleRenderer.h"
+#include <iostream>
 
 using namespace G1;
 
