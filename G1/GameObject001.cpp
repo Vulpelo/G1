@@ -86,8 +86,7 @@ void GameObject001::shooting() {
 	if (a_shootingSpeed <= 0 && c.isKeyDown(Key::SPACE)) {
 		a_shootingSpeed = shootingSpeed;
 
-		auto bullet = new GameObject002_Bullet();
-		instantiate(bullet);
+		auto bullet = instantiate<GameObject002_Bullet>();
 		bullet->setTransform(Transform(this->getWorldPosition()));
 	}
 	else if (a_shootingSpeed > 0) {
