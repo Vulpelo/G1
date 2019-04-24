@@ -69,9 +69,11 @@ namespace G1 {
 		/// <summary>Return's reference to container with all GameObject's components</summary>
 		std::vector <Component*> &getComponents();
 
+		/// <summary>Return's only components that inherite from given class</summary>
 		template <class T>
 		std::vector <Component*> *getComponents();
 
+		/// <summary>Adds new component to GameObject</summary>
 		void addComponent(Component* component);
 
 #pragma region Overlaping interactions
