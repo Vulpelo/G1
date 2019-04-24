@@ -69,6 +69,9 @@ namespace G1 {
 		/// <summary>Return's reference to container with all GameObject's components</summary>
 		std::vector <Component*> &getComponents();
 
+		template <class T>
+		std::vector <Component*> *getComponents();
+
 		void addComponent(Component* component);
 
 #pragma region Overlaping interactions
@@ -94,6 +97,20 @@ namespace G1 {
 		bool shouldBeDestroyed();
 	};
 
+	template<class T>
+	std::vector<Component*>* GameObject::getComponents()
+	{
+		std::vector <Component*> *chosen = new std::vector<Component*>();
+
+		for each (Component* component in this->components)
+		{
+			if (dynamic_cast<T*>(component)) {
+				chosen->push_back(component);
+			}
+		}
+
+		return chosen;
+	}
 }
 
 #endif // !_GAME_OBJECT_H_

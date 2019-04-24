@@ -19,6 +19,9 @@ void GameObject001::beginPlay() {
 
 	auto collidor = new RectangleCollider(60, 60, 0, 0);
 	addComponent(collidor);
+
+	auto tmp = getComponents<Collider>();
+	tmp->pop_back();
 }
 
 void GameObject001::eventTick() {
