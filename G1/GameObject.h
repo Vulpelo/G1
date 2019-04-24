@@ -69,9 +69,13 @@ namespace G1 {
 		/// <summary>Return's reference to container with all GameObject's components</summary>
 		std::vector <Component*> &getComponents();
 
-		/// <summary>Return's only components that inherite from given class</summary>
+		/// <summary>Return's list of components that inherite from given class</summary>
 		template <class T>
 		std::vector <Component*> *getComponents();
+
+		/// <summary>Return's first component in list of components that inherite from given class or NULL if no component found</summary>
+		template <class T>
+		T* getComponent();
 
 		/// <summary>Adds new component to GameObject</summary>
 		void addComponent(Component* component);
@@ -112,6 +116,19 @@ namespace G1 {
 		}
 
 		return chosen;
+	}
+
+	template<class T>
+	T* GameObject::getComponent()
+	{
+		T* getComp;
+		for each (Component* component in components)
+		{
+			if (getComp = dynamic_cast<T*>(component)) {
+				return getComp;
+			}
+		}
+		return NULL;
 	}
 }
 
