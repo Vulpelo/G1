@@ -8,7 +8,7 @@
 
 namespace G1 {
 
-	class Renderer : public Component
+	class Renderer : public Component, public Transformable
 	{
 		virtual void render(sf::RenderWindow * w) = 0;
 	public:

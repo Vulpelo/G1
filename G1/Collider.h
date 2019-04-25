@@ -8,7 +8,7 @@
 
 namespace G1 {
 
-	class Collider : public Component
+	class Collider : public Component, public Transformable
 	{
 	protected:
 		char collisionType;

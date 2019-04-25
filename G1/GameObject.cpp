@@ -87,8 +87,12 @@ namespace G1 {
 
 	void GameObject::addComponent(Component * component)
 	{
-		component->setParent(this);
 		components.push_back(component);
+
+		auto transformableComponent = dynamic_cast<Transformable*>(component);
+		if (transformableComponent) {
+			transformableComponent->setParent(this);
+		}
 	}
 
 }

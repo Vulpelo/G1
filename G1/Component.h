@@ -11,7 +11,7 @@
 
 namespace G1 {
 
-	class Component : public Transformable
+	class Component
 	{
 		std::vector <Component *> newOverlapingComponents;
 
