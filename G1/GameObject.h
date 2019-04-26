@@ -44,7 +44,7 @@ namespace G1 {
 
 	protected:
 #pragma region protected Variables
-		int layer;
+		Layer layer;
 		int sortingLayer;
 
 		std::vector <Component*> components;
@@ -66,6 +66,20 @@ namespace G1 {
 
 		/// <summary>Function if played every frame of object life span</summary>
 		virtual void eventTick();
+
+#pragma region Layer
+		/// <summary>Returns layer</summary>
+		Layer getLayer();
+
+		/// <summary>Sets new layer</summary>
+		void setLayer(Layer layer);
+
+		/// <summary>Check if GameObject's layer is contained in passed layer</summary>
+		bool inLayer(int layer);
+		
+		/// <summary>Check if those are the same layers</summary>
+		bool isLayer(Layer layer);
+#pragma endregion
 
 #pragma region Rendering
 		void setSortingLayer(int sortingLayer);

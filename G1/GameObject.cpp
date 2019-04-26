@@ -36,6 +36,26 @@ namespace G1 {
 	{
 	}
 
+	Layer GameObject::getLayer()
+	{
+		return layer;
+	}
+
+	void GameObject::setLayer(Layer layer)
+	{
+		this->layer = layer;
+	}
+
+	bool GameObject::inLayer(int layer)
+	{
+		return (layer & this->layer) != 0;
+	}
+
+	bool GameObject::isLayer(Layer layer)
+	{
+		return this->layer == layer;
+	}
+
 	void GameObject::setSortingLayer(int sortingLayer)
 	{
 		this->sortingLayer = sortingLayer;
