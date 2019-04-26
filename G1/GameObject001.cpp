@@ -13,7 +13,6 @@ void GameObject001::beginPlay() {
 	color1 = sf::Color::Yellow;
 	color2 = sf::Color::Blue;
 
-
 	rend = new RectangleRenderer(60, 60, color1);
 	addComponent(rend);
 
@@ -91,6 +90,7 @@ void GameObject001::shooting() {
 
 		auto bullet = instantiate<GameObject002_Bullet>();
 		bullet->setTransform(Transform(this->getWorldPosition()));
+		bullet->setSortingLayer(1);
 	}
 	else if (a_shootingSpeed > 0) {
 		a_shootingSpeed -= Time::getDeltaTime();

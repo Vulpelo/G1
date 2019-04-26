@@ -2,6 +2,16 @@
 
 
 namespace G1 {
+	void GameMap::insertGameObjectBySortingLayer(GameObject * gameObject)
+	{
+		for (unsigned int j = 0; j < objects.size(); j++) {
+			if (gameObject->getSortingLayer() <= objects[j]->getSortingLayer()) {
+				objects.insert(objects.begin() + j, gameObject);
+				return;
+			}
+		}
+		objects.push_back(gameObject);
+	}
 
 	GameMap::GameMap() {
 	}
@@ -31,7 +41,20 @@ namespace G1 {
 				objects.at(i - 1)->mainEventTick();
 		}
 
-		//--PhysicsHandle::overlapDetectionUpdate(objects);
+		/*---Sorting gameObjects by sorting layer---*/
+		auto forSorting = GameObjectsData::toSortingLayer;
+		if (!forSorting.empty()) {
+			for (unsigned int i = 0; i < forSorting.size(); i++) {
+				
+				for (unsigned int j = 0; j < objects.size(); j++) {
+					if (forSorting[i] == objects[j]) {
+						objects.erase(objects.begin() + j, objects.begin() + j + 1);
+					}
+				}
+
+				insertGameObjectBySortingLayer(forSorting[i]);
+			}
+		}
 
 		/*--Spawning new actors--*/
 		auto spawnables = GameObjectsData::getInstantiates();
@@ -39,7 +62,9 @@ namespace G1 {
 		{
 			if (GameObject* act = dynamic_cast <GameObject*>(spawnables->back()))
 			{
-				this->objects.push_back(act);
+				insertGameObjectBySortingLayer(act);
+
+				// this->objects.push_back(act);
 				act->mainBeginPlay();
 				spawnables->pop_back();
 			}

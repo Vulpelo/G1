@@ -15,9 +15,12 @@ namespace G1 {
 		friend class ISpawnable;
 
 		static std::vector<ISpawnable*> toSpawn;
+		static std::vector<GameObject*> toSortingLayer;
 
 		static void addInstantiate(ISpawnable* spawnable);
 		static std::vector<ISpawnable*>* getInstantiates();
+
+		static void updateSortingLayer(GameObject* gameObject);
 	};
 
 }

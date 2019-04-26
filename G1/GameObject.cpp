@@ -8,7 +8,9 @@ namespace G1 {
 		this->transform.position.Y = 0;
 		this->transform.rotationX = 0;
 
+		sortingLayer = 0;
 		layer = Layer::DEFAULT;
+		
 		this->lifeTime = 0;
 		this->currentLifeTime = 0;
 		this->toDestroy = false;
@@ -32,6 +34,17 @@ namespace G1 {
 
 	void GameObject::eventTick()
 	{
+	}
+
+	void GameObject::setSortingLayer(int sortingLayer)
+	{
+		this->sortingLayer = sortingLayer;
+		GameObjectsData::updateSortingLayer(this);
+	}
+
+	int GameObject::getSortingLayer()
+	{
+		return this->sortingLayer;
 	}
 
 	void GameObject::mainBeginPlay()

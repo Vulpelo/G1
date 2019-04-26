@@ -45,6 +45,7 @@ namespace G1 {
 	protected:
 #pragma region protected Variables
 		int layer;
+		int sortingLayer;
 
 		std::vector <Component*> components;
 		// transform related to parent
@@ -66,6 +67,12 @@ namespace G1 {
 		/// <summary>Function if played every frame of object life span</summary>
 		virtual void eventTick();
 
+#pragma region Rendering
+		void setSortingLayer(int sortingLayer);
+		int getSortingLayer();
+#pragma endregion
+
+#pragma region Component management
 		/// <summary>Return's reference to container with all GameObject's components</summary>
 		std::vector <Component*> &getComponents();
 
@@ -79,6 +86,7 @@ namespace G1 {
 
 		/// <summary>Adds new component to GameObject</summary>
 		void addComponent(Component* component);
+#pragma endregion
 
 #pragma region Overlaping interactions
 		/// <summary>Function is called every time when new object just touched this object</summary>

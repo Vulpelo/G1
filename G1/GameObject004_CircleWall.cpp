@@ -2,6 +2,8 @@
 
 void GameObject004_CircleWall::beginPlay()
 {
+	setSortingLayer(2);
+
 	overlaps = false;
 
 	color1 = sf::Color::Red;

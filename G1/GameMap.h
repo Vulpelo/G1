@@ -15,6 +15,7 @@ namespace G1 {
 	class GameMap
 	{
 		//friend class PhysicsHandle;
+		void insertGameObjectBySortingLayer(GameObject* gameObject);
 	protected:
 		std::vector <GameObject *> objects;
 	public:
