@@ -27,32 +27,28 @@ namespace G1 {
 		friend class CollisionDetection;
 		friend class OverlapingGameObjectsStates;
 
-		// Displays object's components on screen
-		void render(sf::RenderWindow * w);
+		// transform related to parent
+		Transform transform;
+
+		Layer layer;
+		int sortingLayer;
+		
+		bool toDestroy;
+		float currentLifeTime;
+		float lifeTime;
+		
+		std::vector <Component*> components;
 
 		//collision interactions (interacts any of objects components)
 		std::vector <GameObject *> overlapingObjects;
 		std::vector <GameObject *> newOverlapingObjects;
 
+		std::vector<GameObject*>& getNewOverlapingObjects();
 		std::vector<GameObject*>& getOverlapingObjects();
 		void addNewOverlapingObject(GameObject* overlaped);
 
-		//GameObject distruct
-		bool toDestroy;
-		float currentLifeTime;
-		float lifeTime;
-
-	protected:
-#pragma region protected Variables
-		Layer layer;
-		int sortingLayer;
-
-		std::vector <Component*> components;
-		// transform related to parent
-		Transform transform;
-
-		std::vector<GameObject*>& getNewOverlapingObjects();
-#pragma endregion
+		// Displays object's components on screen
+		void render(sf::RenderWindow * w);
 
 		virtual void mainBeginPlay();
 		virtual void mainEventTick();
@@ -74,7 +70,7 @@ namespace G1 {
 		/// <summary>Sets new layer</summary>
 		void setLayer(Layer layer);
 
-		/// <summary>Check if GameObject's layer is contained in passed layer</summary>
+		/// <summary>Check if GameObject's layer is one of the given layers</summary>
 		bool inLayer(int layer);
 		
 		/// <summary>Check if those are the same layers</summary>
@@ -82,7 +78,10 @@ namespace G1 {
 #pragma endregion
 
 #pragma region Rendering
+		/// <summary>Sets sortingLayer</summary>
 		void setSortingLayer(int sortingLayer);
+
+		/// <summary>Returns actual SortingLayer</summary>
 		int getSortingLayer();
 #pragma endregion
 
@@ -118,11 +117,14 @@ namespace G1 {
 		virtual void endOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
 #pragma endregion
 
+#pragma region Destroy 
 		/// <summary>Destroys object before next tick</summary>
 		void destroy(float nlifeTime = 0.0f);
 
 		/// <summary>Checks if object is going to be destroyed</summary>
 		bool shouldBeDestroyed();
+#pragma endregion
+
 	};
 
 	template<class T>
