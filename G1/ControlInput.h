@@ -36,11 +36,15 @@ namespace G1 {
 
 		void setRenderWindow(sf::RenderWindow *window);
 
-		/// <summary> "Returns true if selected key is held down" </summary>
+		/// <summary> Returns true if selected key is held down </summary>
 		bool isKeyDown(Key key);
 
+		/// <summary>Returns position of mouse cursor relative to window</summary>
 		sf::Vector2i mousePosition();
-		bool leftMouseButtonPressed();
+
+		/// <summary>0-left mouse button; 1-middle mouse button; 2-right mouse button</summary>
+		/// <returns>True if given mouse button is being pressed</returns>
+		bool mouseButtonDown(int button = 0);
 	};
 
 }

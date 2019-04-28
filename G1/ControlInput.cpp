@@ -122,9 +122,18 @@ namespace G1 {
 	{
 		return sf::Mouse::getPosition(*window);
 	}
-	bool ControlInput::leftMouseButtonPressed()
+	bool ControlInput::mouseButtonDown(int button)
 	{
-		return sf::Mouse::isButtonPressed(sf::Mouse::Left);
+		switch (button)
+		{
+		case 0:
+			return sf::Mouse::isButtonPressed(sf::Mouse::Left);
+		case 1:
+			return sf::Mouse::isButtonPressed(sf::Mouse::Middle);
+		case 2:
+			return sf::Mouse::isButtonPressed(sf::Mouse::Right);
+		}
+		return false;
 	}
 
 }

@@ -88,6 +88,9 @@
     <Filter Include="Header Files\Engine\Physics\Collision">
       <UniqueIdentifier>{ead24288-5845-41c6-ac1b-822a1e11e7fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\GMath\Transform\Vector2">
+      <UniqueIdentifier>{f401293b-cf85-4114-8cd1-05216ce3d55b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -224,9 +227,6 @@
     <ClInclude Include="Properties.h">
       <Filter>Header Files\Engine\Config</Filter>
     </ClInclude>
-    <ClInclude Include="MathVariables.h">
-      <Filter>Header Files\Engine\GMath\Transform</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\Engine\Object</Filter>
     </ClInclude>
@@ -256,9 +256,6 @@
     </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Header Files\Engine\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2.h">
-      <Filter>Header Files\Engine\GMath</Filter>
     </ClInclude>
     <ClInclude Include="Map001.h">
       <Filter>Header Files\G1Game</Filter>
@@ -319,6 +316,12 @@
     </ClInclude>
     <ClInclude Include="CircleCollider.h">
       <Filter>Header Files\Engine\Components\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Header Files\Engine\GMath\Transform\Vector2</Filter>
+    </ClInclude>
+    <ClInclude Include="MathVariables.h">
+      <Filter>Header Files\Engine\GMath</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
