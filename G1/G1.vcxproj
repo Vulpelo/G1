@@ -159,6 +159,7 @@
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="RectangleRenderer.cpp" />
     <ClCompile Include="RenderManager.cpp" />
+    <ClCompile Include="Rigidbody.cpp" />
     <ClCompile Include="SimpleShape.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Transformable.cpp" />
@@ -199,6 +200,7 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RectangleRenderer.h" />
     <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="Rigidbody.h" />
     <ClInclude Include="SimpleShape.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Time.h" />

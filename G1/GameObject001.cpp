@@ -93,6 +93,12 @@ void GameObject001::shooting() {
 		auto bullet = instantiate<GameObject002_Bullet>();
 		bullet->setTransform(Transform(this->getWorldPosition()));
 		bullet->setSortingLayer(1);
+		
+		auto bullet_rb = bullet->getComponent<Rigidbody>();
+
+		Vector2 vec; 
+		vec.setVectorByAngleAndLength(-getTransform().rotationX, 50);
+		bullet_rb->addForce(vec); 
 	}
 	else if (a_shootingSpeed > 0) {
 		a_shootingSpeed -= Time::getDeltaTime();

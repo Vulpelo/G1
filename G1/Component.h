@@ -13,7 +13,10 @@ namespace G1 {
 
 	class Component
 	{
+		friend class GameObject;
 		std::vector <Component *> newOverlapingComponents;
+
+		virtual void mainEventTick();
 
 	protected:
 		//overlaping
