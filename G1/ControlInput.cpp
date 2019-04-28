@@ -2,14 +2,24 @@
 
 namespace G1 {
 
+	ControlInput* ControlInput::controlInput = NULL;
+
 	ControlInput::ControlInput()
 	{
 		//window = RenderManager::getWindow();
 	}
 
-	ControlInput::ControlInput(sf::RenderWindow * w)
+	ControlInput* ControlInput::getInstantiate()
 	{
-		window = w;
+		if (controlInput == NULL) {
+			controlInput = new ControlInput();
+		}
+		return controlInput;
+	}
+
+	void ControlInput::setRenderWindow(sf::RenderWindow * window)
+	{
+		this->window = window;
 	}
 
 	void ControlInput::mainEventTick()

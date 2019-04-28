@@ -4,7 +4,8 @@ namespace G1 {
 
 	Engine::Engine()
 	{
-		controlInput = new ControlInput(render.getWindow());
+		controlInput = ControlInput::getInstantiate();
+		controlInput->setRenderWindow(render.getWindow());
 
 		//DO GRY
 		GameMap *map = new Map001();

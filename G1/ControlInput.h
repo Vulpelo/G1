@@ -20,14 +20,21 @@ namespace G1 {
 
 	class ControlInput
 	{
-	private:
+		friend class Engine;
+
+		static ControlInput* controlInput;
+
 		sf::Event input;
 		sf::RenderWindow * window;
 
+		void mainEventTick();
+
 	public:
 		ControlInput();
-		ControlInput(sf::RenderWindow * w);
-		void mainEventTick();
+
+		static ControlInput* getInstantiate();
+
+		void setRenderWindow(sf::RenderWindow *window);
 
 		/// <summary> "Returns true if selected key is held down" </summary>
 		bool isKeyDown(Key key);
