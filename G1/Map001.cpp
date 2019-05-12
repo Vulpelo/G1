@@ -1,44 +1,37 @@
 #include "Map001.h"
-#include "MojaPostac.h"
-#include "Czolg.h"
-#include "Wall.h"
-#include "CzolgZombie.h"
-#include "Przeciwnik1.h"
-#include <iostream>
 
 Map001::Map001()
 {
-	srand(time(NULL));
-	
-	//objects.push_back(new Wall(Transform(Position(250, -100))));
-	//objects.push_back(new Wall(Transform(Position(350, -400))));
-	//objects.push_back(new Wall(Transform(Position(650, -300))));
-	objects.push_back(new Wall(Transform(850, -700, 45)));
+	{
+		GameObject001* o = new GameObject001();
+		o->setTransform(Transform(500, 300, 0));
 
-	player = new Czolg(Transform(Position(800, -400)));
-	objects.push_back(player);
-	
-	//auto* enemy = new CzolgZombie(Transform(Position(10, -10)));
-	//enemy->target = player;
-	//objects.push_back(enemy);
+		objects.push_back(o);
+	}
 
-	//objects.push_back(new Przeciwnik1(400, -400, 0));
-	spawnEnemyTime = 3;
-	actualSpawnEnemyTime = 0;
+	{
+		GameObject003_wall* w = new GameObject003_wall();
+		w->setTransform(Transform(700, 500, 45));
+
+		objects.push_back(w);
+	}
+
+	{
+		GameObject003_wall* w = new GameObject003_wall();
+		w->setTransform(Transform(700, 300, 0));
+
+		objects.push_back(w);
+	}
+
+	{
+		GameObject004_CircleWall* w = new GameObject004_CircleWall();
+		w->setTransform(Transform(700, 100, 0));
+
+		objects.push_back(w);
+	}
+
 }
 
 void Map001::EventTick()
 {
-
-	//if (actualSpawnEnemyTime >= spawnEnemyTime)
-	//{
-	//	Transform nTran(Position(rand()%900, -rand() % 900));
-	//	
-	//	auto* enemy = new CzolgZombie(nTran);
-	//	enemy->target = player;
-	//	objects.push_back(enemy);
-
-	//	actualSpawnEnemyTime = 0;
-	//}
-	actualSpawnEnemyTime += deltaTime.asSeconds();
 }

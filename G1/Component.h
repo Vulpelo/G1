@@ -1,60 +1,50 @@
 #pragma once
 
-#ifndef _Component_H_
-#define _Component_H_
+#ifndef _COMPONENT_H_
+#define _COMPONENT_H_
 
-#include "SimpleShape.h"
 #include <iostream>
 #include <vector>
 #include <SFML\Graphics.hpp>
-#include "Collision.h"
+#include "Transform.h"
+#include "Transformable.h"
 
-class Component
-{
-	friend class PhysicsHandle;
-	std::vector <Component *> newOverlapingComponents;
+namespace G1 {
 
-protected:
-	//overlaping
-	//std::string name;
-	char* name;
-	std::vector <Component *> overlapingComponents;
-	
-	//std::vector <Component *> startOverlapingComp;
-	//std::vector <Component *> isOverlapingComp;
-	//std::vector <Component *> endOverlapingComp;
-	
-	double localPositionX;
-	double localPositionY;
+	class Component
+	{
+		friend class GameObject;
+		std::vector <Component *> newOverlapingComponents;
 
-	Transform wTransform;
-public:
-	Collision * collision;
+		bool enabled;
 
-	Component();
-	//std::vector <Component *>& getStartOverlapingComp();
-	//std::vector <Component *>& getIsOverlapingComp();
-	//std::vector <Component *>& getEndOverlapingComp();
-	
-	void addOverlapComponent(Component*);
-	Collision* getCollider();
-	bool collides(Collision *otherCollider);
+		virtual void mainEventTick();
 
-	virtual void setPosition(double, double) = 0;
-	virtual void setLocalPosition(double, double);
-	double getXWorldPosition();
-	double getYWorldPosition();
-	double getXWorldRotation() { return wTransform.rotationX; };
-	void setLocalRotation(double x);
-	virtual void render(sf::RenderWindow *) {};
-	virtual void setRotation(double) {};
-	virtual void setRotateToMovementDirection(bool a) {};
-	virtual bool getRotateToMovementDirection() = 0;
+	protected:
+		//overlaping
+		char* name;
+		std::vector <Component *> overlapingComponents;
 
-	void setName(char* name);
-	char* getName() const;
-	//void overlapingEndMain();
-	~Component();
-};
+	public:
+		Component();
 
-#endif // !_Component_H_
+		void setName(char* name);
+		char* getName() const;
+
+		void setEnabled(bool enable);
+		bool isEnabled();
+
+		void addOverlapComponent(Component*);
+
+		virtual void setRotateToMovementDirection(bool a) {};
+		// virtual bool getRotateToMovementDirection() = 0;
+
+		virtual void render(sf::RenderWindow *) {};
+
+		//void overlapingEndMain();
+		~Component();
+	};
+
+}
+
+#endif // !_COMPONENT_H_

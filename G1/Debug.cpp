@@ -3,7 +3,7 @@
 using namespace std;
 
 float Debug::waitTime = 500;
-clock_t Debug::target = clock() + Debug::waitTime;
+float Debug::target = clock() + Debug::waitTime;
 bool Debug::block = false;
 bool Debug::debugOn = false;
 
@@ -25,14 +25,14 @@ void Debug::update()
 void Debug::addText(const char *t)
 {
 	if (!block && debugOn)
-		printf("%s", &t);
+		printf("%s", t);
 		//printText += t;
 }
 
 void Debug::addText(int number)
 {
 	if (!block && debugOn)
-		printf("%d", &number);
+		printf("%d", number);
 		//printText += to_string(number);
 }
 

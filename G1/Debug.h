@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef DEBUG_H
-#define DEBUG_H
+#ifndef _DEBUG_H_
+#define _DEBUG_H_
 
 #include <iostream>
 #include <string>
@@ -12,7 +12,7 @@ class Debug
 	Debug();
 	Debug(const Debug&);
 	static bool debugOn;
-	static clock_t target;
+	static float target;
 	static float waitTime;
 	static bool block;
 public:
@@ -22,4 +22,4 @@ public:
 	static void addText(const char*, int);
 };
 
-#endif // !DEBUG_H
+#endif // !_DEBUG_H_

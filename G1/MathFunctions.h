@@ -1,24 +1,23 @@
 #pragma once
 
-#ifndef _MathFunction_H_
-#define _MathFunction_H_
+#ifndef _MATH_FUNCTIONS_H_
+#define _MATH_FUNCTIONS_H_
 
 #include "MathVariables.h"
-#include "Vector2D.h"
+#include "Vector2.h"
 
 namespace GMath
 {
-	double twoPointsDistance(double X1, double Y1, double X2, double Y2);
-	double twoPointsDistance(Position, Position);
-	double twoPointsDistance(Vector2D, Vector2D);
+	float twoPointsDistance(float X1, float Y1, float X2, float Y2);
+	float twoPointsDistance(Vector2, Vector2);
 	/// <summary> Angle 0 is on +y axis and is rising rotating to right. So on +x is 90 degree
 	/// Angle is measuring at first point </summary>
-	double twoPointsAngle(double X1, double Y1, double X2, double Y2);
+	float twoPointsAngle(float X1, float Y1, float X2, float Y2);
 	/// <summary> Angle 0 is on +y axis and is rising rotating to right. So on +x is 90 degree
 	/// Angle is measuring at first point </summary>
-	double twoPointsAngle(Position, Position);
+	float twoPointsAngle(Vector2, Vector2);
 
-	double vectorAngle(double X, double Y);
+	float vectorAngle(float X, float Y);
 };
 
-#endif // !_MathFunction_H_
+#endif // !_MATH_FUNCTIONS_H_

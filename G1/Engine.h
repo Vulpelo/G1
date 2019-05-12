@@ -1,28 +1,40 @@
 #pragma once
 
-#ifndef ENGINE_H
-#define ENGINE_H
+#ifndef _ENGINE_H_
+#define _ENGINE_H_
 
 #include "Properties.h"
 
-#include "Render.h"
+#include "RenderManager.h"
+#include "PhysicsManager.h"
 #include "ControlInput.h"
+#include "Time.h"
 
-class Engine
-{
-private:
-	sf::Event inputEvent;
-	sf::Clock deltaClock;
-	sf::Time deltaTime;
-	Render render;
-	
-	ControlInput * controlInput;
 
-public:
-	Engine();
-	~Engine();
-	void mainEventTick();
-	void mainLoop();
-};
+// for game
+#include "Map001.h"
 
-#endif // !ENGINE_H
+namespace G1 {
+
+	class Engine
+	{
+	private:
+		Time time;
+
+		sf::Event inputEvent;
+
+		RenderManager render;
+		PhysicsManager physics;
+
+		ControlInput * controlInput;
+
+	public:
+		Engine();
+		~Engine();
+		void mainEventTick();
+		void mainLoop();
+	};
+
+}
+
+#endif // !_ENGINE_H_

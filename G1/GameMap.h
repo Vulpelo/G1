@@ -1,29 +1,33 @@
 #pragma once
 
-#ifndef GAMEMAP_H
-#define GAMEMAP_H
+#ifndef _GAME_MAP_H_
+#define _GAME_MAP_H_
 
-#include "Actor.h"
-#include "Object.h"
+#include "GameObject.h"
+
+#include "GameObjectsData.h"
 #include <vector>
-#include "Debug.h"
 
-class GameMap
-{
-	friend class PhysicsHandle;
-protected:
-	std::vector <Object *> objects;
-	sf::Time deltaTime;
-public:
-	GameMap();
-	/// <summary> Return's a colection of Objects that where
-	/// created in this GameMap </summary>
-	std::vector <Object*> getAllObjects();
-	void mainEventTick(sf::Time deltaTime);
-	virtual void EventTick() = 0; //rdzen ustalany od postaci
-	virtual void render(sf::RenderWindow * w);
-	void setInput(ControlInput * input);
+#include <SFML\Graphics.hpp>
 
-};
+namespace G1 {
 
-#endif // !GAMEMAP_H
+	class GameMap
+	{
+		//friend class PhysicsHandle;
+		void insertGameObjectBySortingLayer(GameObject* gameObject);
+	protected:
+		std::vector <GameObject *> objects;
+	public:
+		GameMap();
+		/// <summary> Return's a colection of Objects that where
+		/// created in this GameMap </summary>
+		std::vector <GameObject*> getAllObjects();
+		void mainBeginPlay();
+		void mainEventTick();
+		virtual void eventTick(); //rdzen ustalany od postaci
+	};
+
+}
+
+#endif // !_GAME_MAP_H_

@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef PROPERTIES_H
-#define PROPERTIES_H
+#ifndef _PROPERTIES_H_
+#define _PROPERTIES_H_
 
 //#include "GameMap.h"
 
@@ -20,4 +20,4 @@ public:
 	~Properties();
 };
 
-#endif // !PROPERTIES_H
+#endif // !_PROPERTIES_H_

@@ -1,20 +1,22 @@
 #pragma once
 
-#ifndef MAPMANAGER_H
-#define MAPMANAGER_H
+#ifndef _MAP_MANAGER_H_
+#define _MAP_MANAGER_H_
 
 #include "GameMap.h"
 
-class MapManager
-{
-	static GameMap* aMap;
+namespace G1 {
 
-public:
-	static void loadMap(GameMap*);
-	static GameMap* get_aMap();
-	~MapManager();
+	class MapManager
+	{
+		static GameMap* aMap;
 
-	friend class PhysicsHandle;
-};
+	public:
+		static void loadMap(GameMap*);
+		static GameMap* get_aMap();
+		~MapManager();
+	};
 
-#endif // !MAPMANAGER_H
+}
+
+#endif // !_MAP_MANAGER_H_

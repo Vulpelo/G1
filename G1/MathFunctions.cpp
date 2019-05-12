@@ -2,49 +2,39 @@
 
 namespace GMath 
 {
-	double twoPointsDistance(double X1, double Y1, double X2, double Y2)
+	float twoPointsDistance(float X1, float Y1, float X2, float Y2)
 	{
-		double X = X1 - X2;
-		double Y = Y1 - Y2;
+		float X = X1 - X2;
+		float Y = Y1 - Y2;
 		X *= X;
 		Y *= Y;
 
-		return sqrt(X + Y);
+		return sqrtf(X + Y);
 	}
 
-	double twoPointsDistance(Position cor1, Position cor2)
+	float twoPointsDistance(Vector2 cor1, Vector2 cor2)
 	{
-		double X = cor1.X - cor2.Y;
-		double Y = cor1.Y - cor2.Y;
+		float X = cor1.X - cor2.X;
+		float Y = cor1.Y - cor2.Y;
 		X *= X;
 		Y *= Y;
 
-		return sqrt(X + Y);
+		return sqrtf(X + Y);
 	}
 
-	double twoPointsDistance(Vector2D cor1, Vector2D cor2)
+	float twoPointsAngle(float X1, float Y1, float X2, float Y2)
 	{
-		double X = cor1.X - cor2.Y;
-		double Y = cor1.Y - cor2.Y;
-		X *= X;
-		Y *= Y;
-
-		return sqrt(X + Y);
-	}
-
-	double twoPointsAngle(double X1, double Y1, double X2, double Y2)
-	{
-		double value = (180 * atan((X1 - X2) / (Y1 - Y2))) / M_PI;
+		float value = (180 * atanf((X1 - X2) / (Y1 - Y2))) / float(M_PI);
 		if (Y1 >= Y2)
 			value += 180;
 		if (X1 > X2 && Y1 < Y2)
 			value += 360;
 		return value;
 	}
-	double twoPointsAngle(Position cor1, Position cor2)
+	float twoPointsAngle(Vector2 cor1, Vector2 cor2)
 	{
-		double value;
-		value = (180 * atan((cor1.X - cor2.X) / (cor1.Y - cor2.Y))) / M_PI;
+		float value;
+		value = (180 * atanf((cor1.X - cor2.X) / (cor1.Y - cor2.Y))) / float(M_PI);
 		if (cor1.Y < cor2.Y)
 			value += 180;
 		if (cor1.X < cor2.X && cor1.Y >= cor2.Y)
@@ -52,10 +42,10 @@ namespace GMath
 		return value;
 	}
 
-	double vectorAngle(double X, double Y)
+	float vectorAngle(float X, float Y)
 	{
-		double value;
-		value = (180 * atan(X / Y)) / M_PI;
+		float value;
+		value = (180 * atanf(X / Y)) / float(M_PI);
 		if (Y < 0)
 			value += 180;
 		if (X < 0 && Y >= 0)

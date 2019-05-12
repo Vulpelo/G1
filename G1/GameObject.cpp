@@ -1,30 +1,141 @@
 #include "GameObject.h"
 
+namespace G1 {
+
+	GameObject::GameObject()
+	{
+		this->transform.position.X = 0;
+		this->transform.position.Y = 0;
+		this->transform.rotationX = 0;
+
+		sortingLayer = 0;
+		layer = Layer::DEFAULT;
+		
+		this->lifeTime = 0;
+		this->currentLifeTime = 0;
+		this->toDestroy = false;
+	}
+
+	GameObject::~GameObject()
+	{
+		for each (Component* c in components)
+		{
+			delete c;
+		}
+		components.clear();
+
+		overlapingObjects.clear();
+		newOverlapingObjects.clear();
+	}
+
+	void GameObject::beginPlay()
+	{
+	}
+
+	void GameObject::eventTick()
+	{
+	}
+
+	Layer GameObject::getLayer()
+	{
+		return layer;
+	}
+
+	void GameObject::setLayer(Layer layer)
+	{
+		this->layer = layer;
+	}
+
+	bool GameObject::inLayer(int layer)
+	{
+		return (layer & this->layer) != 0;
+	}
+
+	bool GameObject::isLayer(Layer layer)
+	{
+		return this->layer == layer;
+	}
+
+	void GameObject::setSortingLayer(int sortingLayer)
+	{
+		this->sortingLayer = sortingLayer;
+		GameObjectsData::updateSortingLayer(this);
+	}
+
+	int GameObject::getSortingLayer()
+	{
+		return this->sortingLayer;
+	}
+
+	void GameObject::mainBeginPlay()
+	{
+		beginPlay();
+	}
+
+	void GameObject::mainEventTick()
+	{
+		if (lifeTime > 0.0 && currentLifeTime >= lifeTime) {
+			this->toDestroy = true;
+		}
+		currentLifeTime += Time::getDeltaTime();
 
 
+		for each (Component* component in components) {
+			if (component->isEnabled()) {
+				component->mainEventTick();
+			}
+		}
+		this->eventTick();
+	}
+	
+	void GameObject::render(sf::RenderWindow * w)
+	{
+		for each (Component* component in components)
+		{
+			if (component->isEnabled()) {
+				component->render(w);
+			}
+		}
+	}
 
+	void GameObject::addNewOverlapingObject(GameObject * overlaped)
+	{
+		newOverlapingObjects.push_back(overlaped);
+	}
 
-GameObject::GameObject()
-	: Object()
-{
-	mainBeginPlay();
-}
+	std::vector<GameObject*>& GameObject::getOverlapingObjects()
+	{
+		return overlapingObjects;
+	}
 
-GameObject::GameObject(Transform nWTransform)
-	: Object(nWTransform)
-{
-	mainBeginPlay();
-}
+	std::vector<GameObject*>& GameObject::getNewOverlapingObjects()
+	{
+		return newOverlapingObjects;
+	}
 
-void GameObject::mainBeginPlay()
-{
-}
+	void GameObject::destroy(float nlifeTime)
+	{
+		this->lifeTime = this->currentLifeTime + nlifeTime;
+	}
 
-void GameObject::mainEventTick(sf::Time deltaTime)
-{
-	Object::mainEventTick(deltaTime);
-}
+	bool GameObject::shouldBeDestroyed()
+	{
+		return this->toDestroy;
+	}
 
-GameObject::~GameObject()
-{
+	std::vector <Component*> &GameObject::getComponents()
+	{
+		return components;
+	}
+
+	void GameObject::addComponent(Component * component)
+	{
+		components.push_back(component);
+
+		auto transformableComponent = dynamic_cast<Transformable*>(component);
+		if (transformableComponent) {
+			transformableComponent->setParent(this);
+		}
+	}
+
 }

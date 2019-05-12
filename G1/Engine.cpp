@@ -1,42 +1,41 @@
 #include "Engine.h"
 
+namespace G1 {
 
-Engine::Engine()
-{
-	controlInput = new ControlInput(render.getWindow());
-
-	//DO GRY
-	GameMap *map = new Map001;
-	map->setInput(controlInput);
-	MapManager::loadMap(map);
-}
-
-Engine::~Engine()
-{
-	if(controlInput) 
-		delete controlInput;
-}
-
-void Engine::mainLoop()
-{
-	while (render.getWindow()->isOpen())
+	Engine::Engine()
 	{
-		clock_t b1, e1, e, b = clock();
-	
-		mainEventTick();
+		controlInput = ControlInput::getInstantiate();
+		controlInput->setRenderWindow(render.getWindow());
 
-		render.renderWindow();
-
-		e = clock();
-		Debug::addText(" overallTime:", e-b);
-		Debug::addText(" FPS:", 1000./ (e - b));
-		Debug::update();
-		deltaTime = deltaClock.restart();
+		//DO GRY
+		GameMap *map = new Map001();
+		MapManager::loadMap(map);
 	}
-}
 
-void Engine::mainEventTick()
-{
-	MapManager::get_aMap()->mainEventTick(deltaTime);
-	controlInput->mainEventTick();
+	Engine::~Engine()
+	{
+		if(controlInput) 
+			delete controlInput;
+	}
+
+	void Engine::mainLoop()
+	{
+		while (render.getWindow()->isOpen())
+		{
+			mainEventTick();
+
+			physics.handle();
+			render.renderWindow();
+
+			time.restart();
+		}
+	}
+
+	void Engine::mainEventTick()
+	{
+		MapManager::get_aMap()->mainEventTick();
+
+		controlInput->mainEventTick();
+	}
+
 }
