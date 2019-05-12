@@ -91,7 +91,7 @@ namespace G1 {
 
 		/// <summary>Return's list of components that inherite from given class</summary>
 		template <class T>
-		std::vector <Component*> *getComponents();
+		std::vector <T*> *getComponents();
 
 		/// <summary>Return's first component in list of components that inherite from given class or NULL if no component found</summary>
 		template <class T>
@@ -128,11 +128,11 @@ namespace G1 {
 	};
 
 	template<class T>
-	std::vector<Component*>* GameObject::getComponents()
+	std::vector<T*>* GameObject::getComponents()
 	{
-		std::vector <Component*> *chosen = new std::vector<Component*>();
+		std::vector <T*> *chosen = new std::vector<T*>();
 
-		for each (Component* component in this->components)
+		for each (T* component in this->components)
 		{
 			if (dynamic_cast<T*>(component)) {
 				chosen->push_back(component);

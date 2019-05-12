@@ -26,13 +26,13 @@ namespace G1 {
 		auto components1 = gameObject1->getComponents<Collider>();
 		auto components2 = gameObject2->getComponents<Collider>();
 
-		for each (Component* component1 in *components1) 
+		for each (Collider* component1 in *components1)
 		{
 			if (component1->isEnabled()) {
-				for each (Component* component2 in *components2)
+				for each (Collider* component2 in *components2)
 				{
 					if (component2->isEnabled()) {
-						if (areColliding((Collider*)component1, (Collider*)component2) == CollisionCheck::COLLIDES) {
+						if (areColliding(component1, component2) == CollisionCheck::COLLIDES) {
 
 							// TODO: physics colision here
 
