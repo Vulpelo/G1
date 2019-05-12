@@ -64,4 +64,4 @@ Usage:
  `isOverlaping(GameObject*)`    | Called when some of other's Object colliders is still overtaping this Object's colliders
  `endOverlaping(GameObject*)`	| Called when all other's Object Colliders exited all Colliders of this Object
 
-----------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
