@@ -7,7 +7,9 @@ namespace G1 {
 	}
 
 	Component::Component()
-		: name("") {}
+		: name("") {
+		this->enabled = true;
+	}
 
 	Component::~Component()
 	{
@@ -111,6 +113,16 @@ namespace G1 {
 	char* Component::getName() const
 	{
 		return name;
+	}
+
+	void Component::setEnabled(bool enable)
+	{
+		this->enabled = enable;
+	}
+
+	bool Component::isEnabled()
+	{
+		return this->enabled;
 	}
 
 

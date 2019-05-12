@@ -26,7 +26,6 @@ namespace G1 {
 		void mainBeginPlay();
 		void mainEventTick();
 		virtual void eventTick(); //rdzen ustalany od postaci
-		void setInput(ControlInput * input);
 	};
 
 }

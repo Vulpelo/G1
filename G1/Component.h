@@ -16,6 +16,8 @@ namespace G1 {
 		friend class GameObject;
 		std::vector <Component *> newOverlapingComponents;
 
+		bool enabled;
+
 		virtual void mainEventTick();
 
 	protected:
@@ -28,6 +30,9 @@ namespace G1 {
 
 		void setName(char* name);
 		char* getName() const;
+
+		void setEnabled(bool enable);
+		bool isEnabled();
 
 		void addOverlapComponent(Component*);
 

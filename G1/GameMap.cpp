@@ -78,16 +78,4 @@ namespace G1 {
 	{
 	}
 
-	void GameMap::setInput(ControlInput * input)
-	{
-		//for (unsigned int i = 0; i < objects.size(); i++)
-		//{
-		//	if (GameObject *ac = dynamic_cast <GameObject*>(objects.at(i)))
-		//	{
-		//		if (ac->hasPlayerInput())
-		//			ac->setPlayerInput(input);
-		//	}
-		//}
-	}
-
 }

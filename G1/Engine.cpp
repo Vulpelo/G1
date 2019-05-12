@@ -9,7 +9,6 @@ namespace G1 {
 
 		//DO GRY
 		GameMap *map = new Map001();
-		map->setInput(controlInput);
 		MapManager::loadMap(map);
 	}
 

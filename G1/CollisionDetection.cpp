@@ -23,23 +23,22 @@ namespace G1 {
 
 	void CollisionDetection::checkGameObjects(GameObject * gameObject1, GameObject * gameObject2)
 	{
-		auto components1 = gameObject1->getComponents();
-		auto components2 = gameObject2->getComponents();
+		auto components1 = gameObject1->getComponents<Collider>();
+		auto components2 = gameObject2->getComponents<Collider>();
 
-		Collider* collider1;
-		Collider* collider2;
+		for each (Component* component1 in *components1) 
+		{
+			if (component1->isEnabled()) {
+				for each (Component* component2 in *components2)
+				{
+					if (component2->isEnabled()) {
+						if (areColliding((Collider*)component1, (Collider*)component2) == CollisionCheck::COLLIDES) {
 
-		for (unsigned int i = 0; i < components1.size(); i++) {
-			
-			if ( collider1 = dynamic_cast<Collider*>(components1.at(i)) ) {
-				for (unsigned int j = 0; j < components2.size(); j++) {
-				
-					if (collider2 = dynamic_cast<Collider*>(components2.at(j))) {
-						if (areColliding(collider1, collider2) == CollisionCheck::COLLIDES) {
-							
+							// TODO: physics colision here
+
 							gameObject1->addNewOverlapingObject(gameObject2);
 							gameObject2->addNewOverlapingObject(gameObject1);
-							
+
 							return;
 						}
 					}

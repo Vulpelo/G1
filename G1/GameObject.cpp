@@ -81,15 +81,21 @@ namespace G1 {
 
 
 		for each (Component* component in components) {
-			component->mainEventTick();
+			if (component->isEnabled()) {
+				component->mainEventTick();
+			}
 		}
 		this->eventTick();
 	}
 	
 	void GameObject::render(sf::RenderWindow * w)
 	{
-		for (unsigned int i = 0; i < components.size(); i++)
-			components.at(i)->render(w);
+		for each (Component* component in components)
+		{
+			if (component->isEnabled()) {
+				component->render(w);
+			}
+		}
 	}
 
 	void GameObject::addNewOverlapingObject(GameObject * overlaped)

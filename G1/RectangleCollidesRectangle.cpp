@@ -18,9 +18,6 @@ namespace G1 {
 			dTmp = rect2->getWorldPosition().invertY() - rect1->getWorldPosition().invertY();
 			float dist = fabs(dTmp * P);
 
-			// sum of max and min distance of vertex
-			float vertDist = T[i];
-
 			// figure 2: half diagonal
 			float hDiag;
 			Vector2 oR;
@@ -35,15 +32,16 @@ namespace G1 {
 			(rect2->getWorldRotation() + (rect2->getFarthestPointVector().invertY()).angle(),
 				rect2->getFarthestPoint());
 			float tmp = fabs(oR * P);
+
 			if (hDiag < tmp) {
 				hDiag = tmp;
 			}
 
 			// rzutowanie na nowy wektor
-			vertDist += hDiag;
+			// sum of max and min distance of vertex
+			T[i] += hDiag;
 
-			if (dist > vertDist)
-			{
+			if (dist > T[i]) {
 				//not touching for sure
 				return false;
 			}
