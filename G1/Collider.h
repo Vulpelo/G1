@@ -10,6 +10,8 @@ namespace G1 {
 
 	class Collider : public Component, public Transformable
 	{
+		bool overlappable;
+
 	protected:
 		char collisionType;
 		float farthestPoint;
@@ -24,6 +26,9 @@ namespace G1 {
 		Collider();
 		char getCollisionType();
 		virtual bool isCollidingWith(Collider *otherCollider) = 0;
+
+		bool isOverlappable();
+		void setOverlappable(bool overlappable);
 
 		virtual Vector2 getFarthestPointVector();
 		// returns distance from origin of colider to the farthest point on the colider

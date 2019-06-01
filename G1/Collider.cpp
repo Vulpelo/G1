@@ -5,7 +5,7 @@ namespace G1 {
 	Collider::Collider()
 		: Component()
 	{
-
+		this->overlappable = true;
 	}
 
 	void Collider::draw(sf::RenderWindow * w)
@@ -14,6 +14,16 @@ namespace G1 {
 	char Collider::getCollisionType()
 	{
 		return collisionType;
+	}
+
+	bool Collider::isOverlappable()
+	{
+		return this->overlappable;
+	}
+
+	void Collider::setOverlappable(bool overlappable)
+	{
+		this->overlappable = overlappable;
 	}
 
 	Vector2 Collider::getFarthestPointVector()

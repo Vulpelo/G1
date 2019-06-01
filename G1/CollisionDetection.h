@@ -6,9 +6,9 @@
 #include "MapManager.h"
 #include "CollisionCheck.h"
 
-#include "CircleCollidesCircle.h"
-#include "RectangleCollidesRectangle.h"
-#include "CircleCollidesRectangle.h"
+#include "CircleOverlapsCircle.h"
+#include "RectangleOverlapsRectangle.h"
+#include "CircleOverlapsRectangle.h"
 
 namespace G1 {
 

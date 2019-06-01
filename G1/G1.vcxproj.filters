@@ -180,15 +180,6 @@
     <ClCompile Include="Collision.cpp">
       <Filter>Source Files\Engine\Physics\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="RectangleCollidesRectangle.cpp">
-      <Filter>Source Files\Engine\Physics\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="CircleCollidesCircle.cpp">
-      <Filter>Source Files\Engine\Physics\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="CircleCollidesRectangle.cpp">
-      <Filter>Source Files\Engine\Physics\Collision</Filter>
-    </ClCompile>
     <ClCompile Include="OverlapingGameObjectsStates.cpp">
       <Filter>Source Files\Engine\Physics</Filter>
     </ClCompile>
@@ -203,6 +194,15 @@
     </ClCompile>
     <ClCompile Include="Rigidbody.cpp">
       <Filter>Source Files\Engine\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleOverlapsRectangle.cpp">
+      <Filter>Source Files\Engine\Physics\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleOverlapsRectangle.cpp">
+      <Filter>Source Files\Engine\Physics\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleOverlapsCircle.cpp">
+      <Filter>Source Files\Engine\Physics\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -296,15 +296,6 @@
     <ClInclude Include="Collision.h">
       <Filter>Header Files\Engine\Physics\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="RectangleCollidesRectangle.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleCollidesCircle.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleCollidesRectangle.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="CollisionCheck.h">
       <Filter>Header Files\Engine\Physics\Collision</Filter>
     </ClInclude>
@@ -328,6 +319,15 @@
     </ClInclude>
     <ClInclude Include="Rigidbody.h">
       <Filter>Header Files\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleOverlapsCircle.h">
+      <Filter>Header Files\Engine\Physics\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleOverlapsRectangle.h">
+      <Filter>Header Files\Engine\Physics\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleOverlapsRectangle.h">
+      <Filter>Header Files\Engine\Physics\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

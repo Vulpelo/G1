@@ -1,24 +1,24 @@
 #pragma once
 
-#ifndef _RECTANGLE_COLLIDES_RECTANGLE_H_
-#define _RECTANGLE_COLLIDES_RECTANGLE_H_
+#ifndef _RECTANGLE_OVERLAPS_RECTANGLE_H_
+#define _RECTANGLE_OVERLAPS_RECTANGLE_H_
 
 #include "Collision.h"
 #include "RectangleCollider.h"
 
 namespace G1 {
 
-	class RectangleCollidesRectangle :
+	class RectangleOverlapsRectangle :
 		public Collision
 	{
 		bool check(Collider* rect1, Collider* rect2);
 	public:
-		RectangleCollidesRectangle();
+		RectangleOverlapsRectangle();
 		CollisionCheck checkCollision(Collider* collider1, Collider* collider2);
 		CollisionCheck isColliding(Collider* collider1, Collider* collider2);
-		~RectangleCollidesRectangle();
+		~RectangleOverlapsRectangle();
 	};
 
 }
 
-#endif // !_RECTANGLE_COLLIDES_RECTANGLE_H_
+#endif // !_RECTANGLE_OVERLAPS_RECTANGLE_H_

@@ -4,9 +4,9 @@ namespace G1 {
 
 	CollisionDetection::CollisionDetection()
 	{
-		collisionTypes.push_back(new CircleCollidesCircle());
-		collisionTypes.push_back(new CircleCollidesRectangle());
-		collisionTypes.push_back(new RectangleCollidesRectangle());
+		collisionTypes.push_back(new CircleOverlapsCircle());
+		collisionTypes.push_back(new CircleOverlapsRectangle());
+		collisionTypes.push_back(new RectangleOverlapsRectangle());
 	}
 
 	void CollisionDetection::checkCollisions()
@@ -26,18 +26,25 @@ namespace G1 {
 		auto components1 = gameObject1->getComponents<Collider>();
 		auto components2 = gameObject2->getComponents<Collider>();
 
-		for each (Collider* component1 in *components1)
+		for each (Collider* collider1 in *components1)
 		{
-			if (component1->isEnabled()) {
-				for each (Collider* component2 in *components2)
+			if (collider1->isEnabled()) {
+				for each (Collider* collider2 in *components2)
 				{
-					if (component2->isEnabled()) {
-						if (areColliding(component1, component2) == CollisionCheck::COLLIDES) {
+					if (collider2->isEnabled()) {
+						if (areColliding(collider1, collider2) == CollisionCheck::COLLIDES) {
 
-							// TODO: physics colision here
+							if (collider1->isOverlappable()) {
+								gameObject1->addNewOverlapingObject(gameObject2);
+							}
+							if (collider2->isOverlappable()) {
+								gameObject2->addNewOverlapingObject(gameObject1);
+								return;
+							}
 
-							gameObject1->addNewOverlapingObject(gameObject2);
-							gameObject2->addNewOverlapingObject(gameObject1);
+							if (!collider1->isOverlappable() && !collider2->isOverlappable()) {
+								// TODO: physics colision here
+							}
 
 							return;
 						}

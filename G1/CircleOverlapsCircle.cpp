@@ -1,12 +1,12 @@
-#include "CircleCollidesCircle.h"
+#include "CircleOverlapsCircle.h"
 
 namespace G1 {
 
-	CircleCollidesCircle::CircleCollidesCircle()
+	CircleOverlapsCircle::CircleOverlapsCircle()
 	{
 	}
 
-	CollisionCheck CircleCollidesCircle::checkCollision(Collider * collider1, Collider * collider2)
+	CollisionCheck CircleOverlapsCircle::checkCollision(Collider * collider1, Collider * collider2)
 	{
 		CircleCollider* circle1 = dynamic_cast<CircleCollider*>(collider1);
 		CircleCollider* circle2 = dynamic_cast<CircleCollider*>(collider2);
@@ -17,7 +17,7 @@ namespace G1 {
 		return CollisionCheck::WRONG_TYPE;
 	}
 
-	CollisionCheck CircleCollidesCircle::isColliding(Collider * cir1, Collider * cir2)
+	CollisionCheck CircleOverlapsCircle::isColliding(Collider * cir1, Collider * cir2)
 	{
 		float distance = GMath::twoPointsDistance(cir1->getWorldPosition(), cir2->getWorldPosition());
 
@@ -28,7 +28,7 @@ namespace G1 {
 	}
 
 
-	CircleCollidesCircle::~CircleCollidesCircle()
+	CircleOverlapsCircle::~CircleOverlapsCircle()
 	{
 	}
 

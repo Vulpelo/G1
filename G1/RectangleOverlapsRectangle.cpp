@@ -1,7 +1,7 @@
-#include "RectangleCollidesRectangle.h"
+#include "RectangleOverlapsRectangle.h"
 
 namespace G1 {
-	bool RectangleCollidesRectangle::check(Collider * rect1, Collider * rect2)
+	bool RectangleOverlapsRectangle::check(Collider * rect1, Collider * rect2)
 	{
 		float additionalAngle = 90;
 		float T[] = { rect1->getFarthestPointVector().Y, rect1->getFarthestPointVector().X };
@@ -49,11 +49,11 @@ namespace G1 {
 		return true;
 	}
 
-	RectangleCollidesRectangle::RectangleCollidesRectangle()
+	RectangleOverlapsRectangle::RectangleOverlapsRectangle()
 	{
 	}
 
-	CollisionCheck RectangleCollidesRectangle::checkCollision(Collider * collider1, Collider * collider2)
+	CollisionCheck RectangleOverlapsRectangle::checkCollision(Collider * collider1, Collider * collider2)
 	{
 		RectangleCollider* rectangle1 = dynamic_cast<RectangleCollider*>(collider1);
 		RectangleCollider* rectangle2 = dynamic_cast<RectangleCollider*>(collider2);
@@ -64,7 +64,7 @@ namespace G1 {
 		return CollisionCheck::WRONG_TYPE;
 	}
 
-	CollisionCheck RectangleCollidesRectangle::isColliding(Collider * rect1, Collider * rect2)
+	CollisionCheck RectangleOverlapsRectangle::isColliding(Collider * rect1, Collider * rect2)
 	{
 		if (check(rect1, rect2) && check(rect2, rect1))
 		{
@@ -74,7 +74,7 @@ namespace G1 {
 	}
 
 
-	RectangleCollidesRectangle::~RectangleCollidesRectangle()
+	RectangleOverlapsRectangle::~RectangleOverlapsRectangle()
 	{
 	}
 
