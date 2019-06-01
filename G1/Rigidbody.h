@@ -18,6 +18,8 @@ namespace G1 {
 		~Rigidbody();
 		void mainEventTick();
 		void addForce(Vector2 force);
+		Vector2 getVelocity();
+		void setVelocity(Vector2 velocity);
 	};
 
 }

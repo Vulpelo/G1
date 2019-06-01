@@ -25,6 +25,8 @@ namespace G1 {
 	{
 		auto components1 = gameObject1->getComponents<Collider>();
 		auto components2 = gameObject2->getComponents<Collider>();
+		bool overlappingFunNotFired1 = true;
+		bool overlappingFunNotFired2 = true;
 
 		for each (Collider* collider1 in *components1)
 		{
@@ -34,19 +36,19 @@ namespace G1 {
 					if (collider2->isEnabled()) {
 						if (areColliding(collider1, collider2) == OverlappingCheck::OVERLAPPING) {
 
-							if (collider1->isOverlappable()) {
+							if (overlappingFunNotFired1 && collider1->isOverlappable()) {
+								overlappingFunNotFired1 = false;
 								gameObject1->addNewOverlapingObject(gameObject2);
 							}
-							if (collider2->isOverlappable()) {
+							if (overlappingFunNotFired2 && collider2->isOverlappable()) {
+								overlappingFunNotFired2 = false;
 								gameObject2->addNewOverlapingObject(gameObject1);
-								return;
 							}
 
 							if (!collider1->isOverlappable() && !collider2->isOverlappable()) {
-								// TODO: physics colision here
+								collisionCallculation.doCalculation(collider1, collider2);
 							}
 
-							return;
 						}
 					}
 				}

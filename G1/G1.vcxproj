@@ -129,11 +129,14 @@
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleCollidesCircle.cpp" />
+    <ClCompile Include="CircleDynamicCollidesCircleDynamic.cpp" />
     <ClCompile Include="CircleDynamicCollidesCircleStatic.cpp" />
     <ClCompile Include="CircleOverlapsCircle.cpp" />
     <ClCompile Include="CircleOverlapsRectangle.cpp" />
     <ClCompile Include="CircleRenderer.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="CollisionCalculation.cpp" />
     <ClCompile Include="Overlapping.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
@@ -168,6 +171,8 @@
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CircleDynamicCollidesCircleDynamic.h" />
+    <ClInclude Include="CollisionCheck.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleCollidesCircle.h" />
     <ClInclude Include="CircleDynamicCollidesCircleStatic.h" />
@@ -175,6 +180,8 @@
     <ClInclude Include="CircleOverlapsRectangle.h" />
     <ClInclude Include="CircleRenderer.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="Collision.h" />
+    <ClInclude Include="CollisionCalculation.h" />
     <ClInclude Include="Overlapping.h" />
     <ClInclude Include="OverlappingCheck.h" />
     <ClInclude Include="CircleCollider.h" />

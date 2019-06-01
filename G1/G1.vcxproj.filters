@@ -91,17 +91,23 @@
     <Filter Include="Header Files\Engine\Physics\Overlap">
       <UniqueIdentifier>{ead24288-5845-41c6-ac1b-822a1e11e7fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Physics\Collision">
+    <Filter Include="Source Files\Engine\Physics\CalculatingCollision">
+      <UniqueIdentifier>{a325bf8c-cac1-4036-9367-19a5da4c4b80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision">
       <UniqueIdentifier>{b3fee5e4-a8c5-4195-ae6d-8b257cf494bb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\Physics\Collision">
+    <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle">
+      <UniqueIdentifier>{181527c7-bdd1-4f50-985c-ed8c0f5f9bbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\CalculatingCollision">
+      <UniqueIdentifier>{de85c16f-7cdf-4da6-bb4e-08b373688089}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision">
       <UniqueIdentifier>{35e3b574-6cc5-4f76-abe7-1486d556275c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\Physics\Collision\CircleCollidesCircle">
+    <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle">
       <UniqueIdentifier>{6a4cdf00-f5cf-4eb0-a236-732abff7b2fe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Physics\Collision\CircleCollidesCircle">
-      <UniqueIdentifier>{181527c7-bdd1-4f50-985c-ed8c0f5f9bbf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -214,13 +220,22 @@
       <Filter>Source Files\Engine\Physics\Overlap</Filter>
     </ClCompile>
     <ClCompile Include="CircleCollidesCircle.cpp">
-      <Filter>Source Files\Engine\Physics\Collision\CircleCollidesCircle</Filter>
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle</Filter>
     </ClCompile>
     <ClCompile Include="CircleDynamicCollidesCircleStatic.cpp">
-      <Filter>Source Files\Engine\Physics\Collision\CircleCollidesCircle</Filter>
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle</Filter>
     </ClCompile>
     <ClCompile Include="Overlapping.cpp">
       <Filter>Source Files\Engine\Physics\Overlap</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionCalculation.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleDynamicCollidesCircleDynamic.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -342,16 +357,28 @@
       <Filter>Header Files\Engine\Physics\Overlap</Filter>
     </ClInclude>
     <ClInclude Include="CircleCollidesCircle.h">
-      <Filter>Header Files\Engine\Physics\Collision\CircleCollidesCircle</Filter>
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle</Filter>
     </ClInclude>
     <ClInclude Include="CircleDynamicCollidesCircleStatic.h">
-      <Filter>Header Files\Engine\Physics\Collision\CircleCollidesCircle</Filter>
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle</Filter>
     </ClInclude>
     <ClInclude Include="Overlapping.h">
       <Filter>Header Files\Engine\Physics\Overlap</Filter>
     </ClInclude>
     <ClInclude Include="OverlappingCheck.h">
       <Filter>Header Files\Engine\Physics\Overlap</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionCalculation.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionCheck.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleDynamicCollidesCircleDynamic.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

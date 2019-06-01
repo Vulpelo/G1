@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _COLLISION_H_
-#define _COLLISION_H_
+#ifndef _OVERLAPPING_H_
+#define _OVERLAPPING_H_
 
 #include "OverlappingCheck.h"
 #include "Collider.h"
@@ -16,4 +16,4 @@ namespace G1 {
 
 }
 
-#endif // !_COLLISION_H_
+#endif // !_OVERLAPPING_H_

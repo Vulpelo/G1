@@ -24,4 +24,13 @@ namespace G1 {
 		velocity = velocity + force;
 	}
 
+	Vector2 Rigidbody::getVelocity()
+	{
+		return velocity;
+	}
+
+	void Rigidbody::setVelocity(Vector2 velocity)
+	{
+		this->velocity = velocity;
+	}
 }
