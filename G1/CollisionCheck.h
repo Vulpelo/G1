@@ -9,7 +9,6 @@ namespace G1 {
 		CALCULATED,
 		ERROR_TYPE
 	};
-
 }
 
 #endif // !_COLLISION_CHECK_H_

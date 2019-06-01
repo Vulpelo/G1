@@ -22,7 +22,7 @@ void GameObject001::beginPlay() {
 	addComponent(collidor);
 
 	auto tmp = getComponents<Collider>();
-	tmp->pop_back();
+	tmp.pop_back();
 }
 
 void GameObject001::eventTick() {

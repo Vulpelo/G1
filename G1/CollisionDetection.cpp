@@ -28,10 +28,10 @@ namespace G1 {
 		bool overlappingFunNotFired1 = true;
 		bool overlappingFunNotFired2 = true;
 
-		for each (Collider* collider1 in *components1)
+		for each (Collider* collider1 in components1)
 		{
 			if (collider1->isEnabled()) {
-				for each (Collider* collider2 in *components2)
+				for each (Collider* collider2 in components2)
 				{
 					if (collider2->isEnabled()) {
 						if (areColliding(collider1, collider2) == OverlappingCheck::OVERLAPPING) {
