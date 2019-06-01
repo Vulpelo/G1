@@ -32,7 +32,7 @@ namespace G1 {
 				for each (Collider* collider2 in *components2)
 				{
 					if (collider2->isEnabled()) {
-						if (areColliding(collider1, collider2) == CollisionCheck::COLLIDES) {
+						if (areColliding(collider1, collider2) == OverlappingCheck::OVERLAPPING) {
 
 							if (collider1->isOverlappable()) {
 								gameObject1->addNewOverlapingObject(gameObject2);
@@ -55,11 +55,11 @@ namespace G1 {
 
 	}
 
-	CollisionCheck CollisionDetection::areColliding(Collider * collider1, Collider * collider2)
+	OverlappingCheck CollisionDetection::areColliding(Collider * collider1, Collider * collider2)
 	{
-		CollisionCheck check = CollisionCheck::WRONG_TYPE;
+		OverlappingCheck check = OverlappingCheck::WRONG_TYPE;
 		for (unsigned int i = 0;
-			i < collisionTypes.size() && check == CollisionCheck::WRONG_TYPE;
+			i < collisionTypes.size() && check == OverlappingCheck::WRONG_TYPE;
 			i++)
 		{
 			check = collisionTypes.at(i)->checkCollision(collider1, collider2);

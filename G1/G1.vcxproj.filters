@@ -82,14 +82,26 @@
     <Filter Include="Source Files\Engine\Map">
       <UniqueIdentifier>{b396d0cf-4179-469e-a09f-2c3380340e7a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Physics\Collision">
-      <UniqueIdentifier>{929e1179-e228-4251-a34d-8fde2e335347}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Engine\Physics\Collision">
-      <UniqueIdentifier>{ead24288-5845-41c6-ac1b-822a1e11e7fa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Engine\GMath\Transform\Vector2">
       <UniqueIdentifier>{f401293b-cf85-4114-8cd1-05216ce3d55b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics\Overlap">
+      <UniqueIdentifier>{929e1179-e228-4251-a34d-8fde2e335347}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\Overlap">
+      <UniqueIdentifier>{ead24288-5845-41c6-ac1b-822a1e11e7fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics\Collision">
+      <UniqueIdentifier>{b3fee5e4-a8c5-4195-ae6d-8b257cf494bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\Collision">
+      <UniqueIdentifier>{35e3b574-6cc5-4f76-abe7-1486d556275c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\Collision\CircleCollidesCircle">
+      <UniqueIdentifier>{6a4cdf00-f5cf-4eb0-a236-732abff7b2fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics\Collision\CircleCollidesCircle">
+      <UniqueIdentifier>{181527c7-bdd1-4f50-985c-ed8c0f5f9bbf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -177,9 +189,6 @@
     <ClCompile Include="Collider.cpp">
       <Filter>Source Files\Engine\Components\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>Source Files\Engine\Physics\Collision</Filter>
-    </ClCompile>
     <ClCompile Include="OverlapingGameObjectsStates.cpp">
       <Filter>Source Files\Engine\Physics</Filter>
     </ClCompile>
@@ -196,13 +205,22 @@
       <Filter>Source Files\Engine\Components</Filter>
     </ClCompile>
     <ClCompile Include="RectangleOverlapsRectangle.cpp">
-      <Filter>Source Files\Engine\Physics\Collision</Filter>
+      <Filter>Source Files\Engine\Physics\Overlap</Filter>
     </ClCompile>
     <ClCompile Include="CircleOverlapsRectangle.cpp">
-      <Filter>Source Files\Engine\Physics\Collision</Filter>
+      <Filter>Source Files\Engine\Physics\Overlap</Filter>
     </ClCompile>
     <ClCompile Include="CircleOverlapsCircle.cpp">
-      <Filter>Source Files\Engine\Physics\Collision</Filter>
+      <Filter>Source Files\Engine\Physics\Overlap</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollidesCircle.cpp">
+      <Filter>Source Files\Engine\Physics\Collision\CircleCollidesCircle</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleDynamicCollidesCircleStatic.cpp">
+      <Filter>Source Files\Engine\Physics\Collision\CircleCollidesCircle</Filter>
+    </ClCompile>
+    <ClCompile Include="Overlapping.cpp">
+      <Filter>Source Files\Engine\Physics\Overlap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -293,12 +311,6 @@
     <ClInclude Include="Collider.h">
       <Filter>Header Files\Engine\Components\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionCheck.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="OverlapingGameObjectsStates.h">
       <Filter>Header Files\Engine\Physics</Filter>
     </ClInclude>
@@ -321,13 +333,25 @@
       <Filter>Header Files\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="CircleOverlapsCircle.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
+      <Filter>Header Files\Engine\Physics\Overlap</Filter>
     </ClInclude>
     <ClInclude Include="CircleOverlapsRectangle.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
+      <Filter>Header Files\Engine\Physics\Overlap</Filter>
     </ClInclude>
     <ClInclude Include="RectangleOverlapsRectangle.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
+      <Filter>Header Files\Engine\Physics\Overlap</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollidesCircle.h">
+      <Filter>Header Files\Engine\Physics\Collision\CircleCollidesCircle</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleDynamicCollidesCircleStatic.h">
+      <Filter>Header Files\Engine\Physics\Collision\CircleCollidesCircle</Filter>
+    </ClInclude>
+    <ClInclude Include="Overlapping.h">
+      <Filter>Header Files\Engine\Physics\Overlap</Filter>
+    </ClInclude>
+    <ClInclude Include="OverlappingCheck.h">
+      <Filter>Header Files\Engine\Physics\Overlap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="CircleCollidesCircle.cpp" />
+    <ClCompile Include="CircleDynamicCollidesCircleStatic.cpp" />
     <ClCompile Include="CircleOverlapsCircle.cpp" />
     <ClCompile Include="CircleOverlapsRectangle.cpp" />
     <ClCompile Include="CircleRenderer.cpp" />
     <ClCompile Include="Collider.cpp" />
-    <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="Overlapping.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
     <ClCompile Include="RectangleCollider.cpp" />
@@ -167,12 +169,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="CircleCollidesCircle.h" />
+    <ClInclude Include="CircleDynamicCollidesCircleStatic.h" />
     <ClInclude Include="CircleOverlapsCircle.h" />
     <ClInclude Include="CircleOverlapsRectangle.h" />
     <ClInclude Include="CircleRenderer.h" />
     <ClInclude Include="Collider.h" />
-    <ClInclude Include="Collision.h" />
-    <ClInclude Include="CollisionCheck.h" />
+    <ClInclude Include="Overlapping.h" />
+    <ClInclude Include="OverlappingCheck.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="CollisionDetection.h" />
     <ClInclude Include="RectangleCollider.h" />

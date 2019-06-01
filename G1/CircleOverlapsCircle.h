@@ -3,18 +3,18 @@
 #ifndef _CIRCLE_OVERLAPS_CIRCLE_H_
 #define _CIRCLE_OVERLAPS_CIRCLE_H_
 
-#include "Collision.h"
+#include "Overlapping.h"
 #include "CircleCollider.h"
 
 namespace G1 {
 
 	class CircleOverlapsCircle :
-		public Collision
+		public Overlapping
 	{
 	public:
 		CircleOverlapsCircle();
-		CollisionCheck checkCollision(Collider* collider1, Collider* collider2);
-		CollisionCheck isColliding(Collider* collider1, Collider* collider2);
+		OverlappingCheck checkCollision(Collider* collider1, Collider* collider2);
+		OverlappingCheck isColliding(Collider* collider1, Collider* collider2);
 		~CircleOverlapsCircle();
 	};
 

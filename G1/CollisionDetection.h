@@ -4,7 +4,7 @@
 #define _COLLISION_DETECTION_H_
 
 #include "MapManager.h"
-#include "CollisionCheck.h"
+#include "OverlappingCheck.h"
 
 #include "CircleOverlapsCircle.h"
 #include "RectangleOverlapsRectangle.h"
@@ -14,8 +14,8 @@ namespace G1 {
 
 	class CollisionDetection
 	{
-		std::vector<Collision*> collisionTypes;
-		CollisionCheck areColliding(Collider * collider1, Collider * collider2);
+		std::vector<Overlapping*> collisionTypes;
+		OverlappingCheck areColliding(Collider * collider1, Collider * collider2);
 		void checkGameObjects(GameObject* gameObject1, GameObject* gameObject2);
 	public:
 		CollisionDetection();

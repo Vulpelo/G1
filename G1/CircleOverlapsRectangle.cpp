@@ -6,7 +6,7 @@ namespace G1 {
 	{
 	}
 
-	CollisionCheck CircleOverlapsRectangle::checkCollision(Collider * collider1, Collider * collider2)
+	OverlappingCheck CircleOverlapsRectangle::checkCollision(Collider * collider1, Collider * collider2)
 	{
 		RectangleCollider* rectangle = dynamic_cast<RectangleCollider*>(collider1);
 		CircleCollider* circle = dynamic_cast<CircleCollider*>(collider2);
@@ -23,10 +23,10 @@ namespace G1 {
 			return isColliding(collider2, collider1);
 		}
 
-		return CollisionCheck::WRONG_TYPE;
+		return OverlappingCheck::WRONG_TYPE;
 	}
 
-	CollisionCheck CircleOverlapsRectangle::isColliding(Collider * rect, Collider * cirl)
+	OverlappingCheck CircleOverlapsRectangle::isColliding(Collider * rect, Collider * cirl)
 	{
 		float distance =
 			GMath::twoPointsDistance(rect->getWorldPosition().X, rect->getWorldPosition().Y,
@@ -34,10 +34,10 @@ namespace G1 {
 
 		// Does not overlap for sure
 		if (cirl->getFarthestPoint() + rect->getFarthestPoint() < distance)
-			return CollisionCheck::NOT_COLLIDES;
+			return OverlappingCheck::NOT_OVERLAPPING;
 		// Does overlap for sure
 		else if (cirl->getNearestPoint() + rect->getNearestPoint() >= distance)
-			return CollisionCheck::COLLIDES;
+			return OverlappingCheck::OVERLAPPING;
 		// Not sure, need extra check
 		else {
 			// TODO : instead Position struct use Vector2 for location
@@ -55,10 +55,10 @@ namespace G1 {
 				if (fabs(distance * P) > T[i] + cirl->getFarthestPoint()) {
 					//not touching for sure
 
-					return CollisionCheck::NOT_COLLIDES;
+					return OverlappingCheck::NOT_OVERLAPPING;
 				}
 			}
-			return CollisionCheck::COLLIDES;
+			return OverlappingCheck::OVERLAPPING;
 		}
 	}
 

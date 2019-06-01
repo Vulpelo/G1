@@ -53,7 +53,7 @@ namespace G1 {
 	{
 	}
 
-	CollisionCheck RectangleOverlapsRectangle::checkCollision(Collider * collider1, Collider * collider2)
+	OverlappingCheck RectangleOverlapsRectangle::checkCollision(Collider * collider1, Collider * collider2)
 	{
 		RectangleCollider* rectangle1 = dynamic_cast<RectangleCollider*>(collider1);
 		RectangleCollider* rectangle2 = dynamic_cast<RectangleCollider*>(collider2);
@@ -61,16 +61,16 @@ namespace G1 {
 		if (rectangle1 && rectangle2) {
 			return isColliding(collider1, collider2);
 		}
-		return CollisionCheck::WRONG_TYPE;
+		return OverlappingCheck::WRONG_TYPE;
 	}
 
-	CollisionCheck RectangleOverlapsRectangle::isColliding(Collider * rect1, Collider * rect2)
+	OverlappingCheck RectangleOverlapsRectangle::isColliding(Collider * rect1, Collider * rect2)
 	{
 		if (check(rect1, rect2) && check(rect2, rect1))
 		{
-			return CollisionCheck::COLLIDES;
+			return OverlappingCheck::OVERLAPPING;
 		}
-		return CollisionCheck::NOT_COLLIDES;
+		return OverlappingCheck::NOT_OVERLAPPING;
 	}
 
 
