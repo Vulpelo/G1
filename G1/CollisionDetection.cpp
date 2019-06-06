@@ -47,6 +47,8 @@ namespace G1 {
 
 							if (!collider1->isOverlappable() && !collider2->isOverlappable()) {
 								collisionCallculation.doCalculation(collider1, collider2);
+								gameObject1->isColliding(gameObject2);
+								gameObject2->isColliding(gameObject1);
 							}
 
 						}

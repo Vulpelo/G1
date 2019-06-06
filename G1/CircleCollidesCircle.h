@@ -20,6 +20,7 @@ namespace G1 {
 		CircleCollidesCircle();
 		CollisionCheck calculate(Collider* collider1, Collider* collider2);
 		void calculate(CircleCollider* circleColliderDynamic, Vector2 velocityDynamic, CircleCollider* circleColliderStatic);
+		void calculateVelocityDirection(GameObject* gameObject1, Rigidbody* rigidbody1, GameObject* gameObject2, Rigidbody* rigidbody2);
 		~CircleCollidesCircle();
 	};
 

@@ -235,7 +235,7 @@
       <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClCompile>
     <ClCompile Include="CircleDynamicCollidesCircleDynamic.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -378,7 +378,7 @@
       <Filter>Header Files\Engine\Physics\CalculatingCollision</Filter>
     </ClInclude>
     <ClInclude Include="CircleDynamicCollidesCircleDynamic.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

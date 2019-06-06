@@ -101,7 +101,9 @@ namespace G1 {
 		void addComponent(Component* component);
 #pragma endregion
 
-#pragma region Overlaping interactions
+#pragma region Overlaping/Colliding interactions
+		virtual void isColliding(GameObject* gameObject) {};
+
 		/// <summary>Function is called every time when new object just touched this object</summary>
 		virtual void startOverlaping(GameObject *overlaped) {};
 
@@ -116,6 +118,7 @@ namespace G1 {
 		virtual void isOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
 		virtual void endOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
 #pragma endregion
+
 
 #pragma region Destroy 
 		/// <summary>Destroys object before next tick</summary>
