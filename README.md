@@ -6,26 +6,25 @@
 
 Table of Contents
 =================================
-1. [Other functionalities](#1. Other functionalities)  
-	* Layer - for grouping GameObjects
-	* SortingLayer - rendering order of GameObjects
+[Other functionalities](#otherfunctionalities)  
+	* [Layer](#layer) - for grouping GameObjects
 	* overlap detection between GameObjects with colliders
 2. Spawnable classes
-	* GameObject
+	* [GameObject](#GameObject)
 3. Rendering
-	* SortingLayer
+	* [SortingLayer](#SortingLayer) - rendering order of GameObjects
 	* Components
-		* CircleRenderer
-		* RectangleRenderer
+		* [CircleRenderer](#CircleRenderer)
+		* [RectangleRenderer](#RectangleRenderer)
 4. Physics
 	* Components
-		* CircleCollider
-		* RectangleCollider
-		* Rigidbody
+		* [CircleCollider](#CircleCollider)
+		* [RectangleCollider](#RectangleCollider)
+		* [Rigidbody](#Rigidbody)
 
----------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 
-## 1. Other functionalities
+## Other functionalities
 ### Layer
    Each Object has enum Layer variable called layer. Engine can have up to 32 different layers. Each layer is a seperate integer's bit (that is why up to 32 layers).
 Layers are allowing to group many different GameObjects. That makes easier to, for example to check if some objects can colliding with others.
