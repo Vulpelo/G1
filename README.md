@@ -4,17 +4,28 @@
 #### IDE:
 * Visual Studio 2015
 
-Spis
+Table of Contents
 =================================
-1. Functionalities
+1. [Other functionalities](#1. Other functionalities)  
 	* Layer - for grouping GameObjects
 	* SortingLayer - rendering order of GameObjects
 	* overlap detection between GameObjects with colliders
-2. Usable classes
+2. Spawnable classes
+	* GameObject
+3. Rendering
+	* SortingLayer
+	* Components
+		* CircleRenderer
+		* RectangleRenderer
+4. Physics
+	* Components
+		* CircleCollider
+		* RectangleCollider
+		* Rigidbody
 
 ---------------------------------------------------------------------------------------------------------------------
 
-## 1. Functionalities
+## 1. Other functionalities
 ### Layer
    Each Object has enum Layer variable called layer. Engine can have up to 32 different layers. Each layer is a seperate integer's bit (that is why up to 32 layers).
 Layers are allowing to group many different GameObjects. That makes easier to, for example to check if some objects can colliding with others.
@@ -31,17 +42,9 @@ Usage:
 		// 'true if gameObject belongs to one of the given layers	
 	}
 	
-### SortingLayer
-Allowes to order GameObjects in which they should be rendered. GameObject in the lowerest layer is drawn first. With the highest is drawn last and will be on top of all rendered objects. If there are multiple GameObjects with the same SortingLayer will be drawn in order in which the they where added/created.
-	
-Usage:
-	
-	// GameObject* gameObject;
-	int newSortingLayer = 5;
-	gameObject->setSortingLayer(newSortingLayer);
 
 ---------------------------------------------------------------------------------------------------------------------
-## 2. Classes
+## 2. Spawnable classes
 ### **GameObject** : inherits public Transformable, public ISpawnable
  Public Methods                      | Description
  ------------------------------------|-----------------------------------------------------------------------------------------
@@ -65,3 +68,25 @@ Usage:
  `endOverlaping(GameObject*)`	| Called when all other's Object Colliders exited all Colliders of this Object
 
 --------------------------------------------------------------------------------------------------------------------------
+
+## 3. Rendering
+### SortingLayer
+Allowes to order GameObjects in which they should be rendered. GameObject in the lowerest layer is drawn first. With the highest is drawn last and will be on top of all rendered objects. If there are multiple GameObjects with the same SortingLayer will be drawn in order in which the they where added/created.
+	
+Usage:
+	
+	// GameObject* gameObject;
+	int newSortingLayer = 5;
+	gameObject->setSortingLayer(newSortingLayer);
+	
+### CircleRenderer
+
+### RectangleRenderer
+
+---------------------------------------------------------------------------------------------------------------------
+
+## 4. Physics
+
+### CircleCollider
+### CircleCollider
+### Rigidbody
