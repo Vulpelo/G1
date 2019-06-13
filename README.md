@@ -1,8 +1,8 @@
 ## Game engine 
 #### Used libraries:
-* SFML-2.3.2 32bit
+* [SFML-2.3.2 32bit](https://www.sfml-dev.org/)  
 #### IDE:
-* Visual Studio 2015
+* [Visual Studio 2015](https://visualstudio.microsoft.com/products/)  
 
 #### Table of Contents
 
