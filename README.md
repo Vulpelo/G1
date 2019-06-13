@@ -7,17 +7,17 @@
 #### Table of Contents
 
 [Other](#other)  
-[Layer](#layer) 
-[Spawnable classes](#spawnableclasses)
-[GameObject](#GameObject)
-[Rendering](#Rendering)
-[SortingLayer](#SortingLayer)
-[CircleRenderer](#CircleRenderer)
-[RectangleRenderer](#RectangleRenderer)
-[Physics](#Physics)
-[CircleCollider](#CircleCollider)
-[RectangleCollider](#RectangleCollider)
-[Rigidbody](#Rigidbody)
+[Layer](#layer)  
+[Spawnable classes](#spawnableclasses)  
+[GameObject](#GameObject)  
+[Rendering](#Rendering)  
+[SortingLayer](#SortingLayer)  
+[CircleRenderer](#CircleRenderer)  
+[RectangleRenderer](#RectangleRenderer)  
+[Physics](#Physics)  
+[CircleCollider](#CircleCollider)  
+[RectangleCollider](#RectangleCollider)  
+[Rigidbody](#Rigidbody)  
 
 --------------------------------------------------------------------------------------------------------------------
 
