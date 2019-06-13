@@ -44,8 +44,11 @@ Usage:
 
 ---------------------------------------------------------------------------------------------------------------------
 <a name="spawnableclasses"/>
+
 ## Spawnable classes
+
 ### **GameObject** : inherits public Transformable, public ISpawnable
+
  Public Methods                      | Description
  ------------------------------------|-----------------------------------------------------------------------------------------
  `getLayer(): Layer` |
