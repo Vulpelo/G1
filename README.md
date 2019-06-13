@@ -4,28 +4,25 @@
 #### IDE:
 * Visual Studio 2015
 
-Table of Contents
-=================================
-[Other functionalities](#otherfunctionalities)  
-	* [Layer](#layer) - for grouping GameObjects
-	* overlap detection between GameObjects with colliders
-2. Spawnable classes
-	* [GameObject](#GameObject)
-3. Rendering
-	* [SortingLayer](#SortingLayer) - rendering order of GameObjects
-	* Components
-		* [CircleRenderer](#CircleRenderer)
-		* [RectangleRenderer](#RectangleRenderer)
-4. Physics
-	* Components
-		* [CircleCollider](#CircleCollider)
-		* [RectangleCollider](#RectangleCollider)
-		* [Rigidbody](#Rigidbody)
+#### Table of Contents
+
+[Other](#other)  
+[Layer](#layer) 
+[Spawnable classes](#spawnableclasses)
+[GameObject](#GameObject)
+[Rendering](#Rendering)
+[SortingLayer](#SortingLayer)
+[CircleRenderer](#CircleRenderer)
+[RectangleRenderer](#RectangleRenderer)
+[Physics](#Physics)
+[CircleCollider](#CircleCollider)
+[RectangleCollider](#RectangleCollider)
+[Rigidbody](#Rigidbody)
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Other functionalities
-### Layer
+## Other
+### Layer - for grouping GameObjects
    Each Object has enum Layer variable called layer. Engine can have up to 32 different layers. Each layer is a seperate integer's bit (that is why up to 32 layers).
 Layers are allowing to group many different GameObjects. That makes easier to, for example to check if some objects can colliding with others.
 
@@ -43,7 +40,8 @@ Usage:
 	
 
 ---------------------------------------------------------------------------------------------------------------------
-## 2. Spawnable classes
+<a name="spawnableclasses"/>
+## Spawnable classes
 ### **GameObject** : inherits public Transformable, public ISpawnable
  Public Methods                      | Description
  ------------------------------------|-----------------------------------------------------------------------------------------
@@ -68,8 +66,8 @@ Usage:
 
 --------------------------------------------------------------------------------------------------------------------------
 
-## 3. Rendering
-### SortingLayer
+## Rendering
+### SortingLayer - rendering order of GameObjects
 Allowes to order GameObjects in which they should be rendered. GameObject in the lowerest layer is drawn first. With the highest is drawn last and will be on top of all rendered objects. If there are multiple GameObjects with the same SortingLayer will be drawn in order in which the they where added/created.
 	
 Usage:
@@ -84,7 +82,7 @@ Usage:
 
 ---------------------------------------------------------------------------------------------------------------------
 
-## 4. Physics
+## Physics
 
 ### CircleCollider
 ### CircleCollider
