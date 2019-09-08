@@ -6,7 +6,7 @@ namespace G1 {
 	{
 	}
 
-	void CircleDynamicCollidesCircleStatic::calculate(CircleCollider* circleColliderDynamic, Vector2 velocityDynamic, CircleCollider* circleColliderStatic)
+	void CircleDynamicCollidesCircleStatic::calculate(CircleCollider* circleColliderDynamic, const Vector2& velocityDynamic, CircleCollider* circleColliderStatic)
 	{
 		// there can be only one collider in gameobject tree hierarchy. Only First gameObect (with paret=null) can have collider
 		// collider cant have offset.
@@ -38,11 +38,6 @@ namespace G1 {
 		cirTran.position = S1;
 
 		circleColliderDynamic->getParent()->setTransform(cirTran);
-	}
-
-
-	CircleDynamicCollidesCircleStatic::~CircleDynamicCollidesCircleStatic()
-	{
 	}
 
 }

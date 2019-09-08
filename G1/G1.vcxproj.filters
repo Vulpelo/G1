@@ -109,6 +109,12 @@
     <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle">
       <UniqueIdentifier>{6a4cdf00-f5cf-4eb0-a236-732abff7b2fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision\RectangleCollidesRectangle">
+      <UniqueIdentifier>{59226d4f-77d1-4591-9e60-7a9511de03a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision\RectangleCollidesRectangle">
+      <UniqueIdentifier>{79dbb48f-73fa-49e8-aae4-36e66478dbe6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -236,6 +242,15 @@
     </ClCompile>
     <ClCompile Include="CircleDynamicCollidesCircleDynamic.cpp">
       <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleDynamicCollidesRectangleStatic.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\RectangleCollidesRectangle</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleCollidesRectangle.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\RectangleCollidesRectangle</Filter>
+    </ClCompile>
+    <ClCompile Include="Segment.cpp">
+      <Filter>Source Files\Engine\GMath</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -379,6 +394,15 @@
     </ClInclude>
     <ClInclude Include="CircleDynamicCollidesCircleDynamic.h">
       <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleCollidesRectangle.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\RectangleCollidesRectangle</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleDynamicCollidesRectangleStatic.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\RectangleCollidesRectangle</Filter>
+    </ClInclude>
+    <ClInclude Include="Segment.h">
+      <Filter>Header Files\Engine\GMath</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

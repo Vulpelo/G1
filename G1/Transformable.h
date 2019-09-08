@@ -26,7 +26,9 @@ namespace G1 {
 		};
 
 		void setPosition(float, float);
-		/// <summary> Returns copy of world position of this object in world space</summary>
+		void setPosition(const Vector2& position);
+
+		/// /// <summary> Returns copy of world position of this object in world space</summary>
 		Vector2 getWorldPosition();
 
 		/// <summary> Sets Transform of this object in relative to parent</summary>

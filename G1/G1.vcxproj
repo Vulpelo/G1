@@ -154,6 +154,8 @@
     <ClCompile Include="Map001.cpp" />
     <ClCompile Include="OverlapingGameObjectsStates.cpp" />
     <ClCompile Include="PhysicsManager.cpp" />
+    <ClCompile Include="RectangleCollidesRectangle.cpp" />
+    <ClCompile Include="RectangleDynamicCollidesRectangleStatic.cpp" />
     <ClCompile Include="RectangleOverlapsRectangle.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="main.cpp" />
@@ -165,6 +167,7 @@
     <ClCompile Include="RectangleRenderer.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Rigidbody.cpp" />
+    <ClCompile Include="Segment.cpp" />
     <ClCompile Include="SimpleShape.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Transformable.cpp" />
@@ -201,6 +204,8 @@
     <ClInclude Include="Map001.h" />
     <ClInclude Include="OverlapingGameObjectsStates.h" />
     <ClInclude Include="PhysicsManager.h" />
+    <ClInclude Include="RectangleCollidesRectangle.h" />
+    <ClInclude Include="RectangleDynamicCollidesRectangleStatic.h" />
     <ClInclude Include="RectangleOverlapsRectangle.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="MathVariables.h" />
@@ -212,6 +217,7 @@
     <ClInclude Include="RectangleRenderer.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Rigidbody.h" />
+    <ClInclude Include="Segment.h" />
     <ClInclude Include="SimpleShape.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Time.h" />

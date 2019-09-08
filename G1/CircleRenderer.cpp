@@ -18,7 +18,7 @@ namespace G1 {
 
 		circle.setOrigin(sf::Vector2f(radius, radius));
 		circle.setRadius(radius);
-		circle.setPosition(getWorldPosition().X, getWorldPosition().Y);
+		circle.setPosition(getWorldPosition().x, getWorldPosition().y);
 		circle.setRotation(getWorldRotation());
 		circle.setFillColor(color);
 	}
@@ -31,7 +31,7 @@ namespace G1 {
 
 	void CircleRenderer::render(sf::RenderWindow * w)
 	{
-		circle.setPosition(getWorldPosition().X, getWorldPosition().Y);
+		circle.setPosition(getWorldPosition().x, getWorldPosition().y);
 		circle.setRotation(getWorldRotation());
 		w->draw(circle);
 	}

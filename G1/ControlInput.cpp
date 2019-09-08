@@ -81,9 +81,9 @@ namespace G1 {
 			return sf::Keyboard::isKeyPressed(sf::Keyboard::V);
 		case G1::W:
 			return sf::Keyboard::isKeyPressed(sf::Keyboard::W);
-		case G1::X:
+		case G1::x:
 			return sf::Keyboard::isKeyPressed(sf::Keyboard::X);
-		case G1::Y:
+		case G1::y:
 			return sf::Keyboard::isKeyPressed(sf::Keyboard::Y);
 		case G1::Z:
 			return sf::Keyboard::isKeyPressed(sf::Keyboard::Z);

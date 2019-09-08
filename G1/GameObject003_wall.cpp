@@ -3,15 +3,14 @@
 
 void GameObject003_wall::beginPlay()
 {
-	overlaps = false;
-
 	color1 = sf::Color::Red;
 	color2 = sf::Color::Green;
 	
-	rRend = new RectangleRenderer(60 ,60, color1);
+	rRend = new RectangleRenderer(rectangleLength, rectangleHeight, color1);
 	addComponent(rRend);
 
-	auto collidor = new RectangleCollider(60, 60, 0, 0);
+	auto collidor = new RectangleCollider(rectangleLength, rectangleHeight, 0, 0);
+	collidor->setOverlappable(false);
 	addComponent(collidor);
 }
 

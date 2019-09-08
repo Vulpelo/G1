@@ -12,8 +12,7 @@ namespace G1 {
 		friend class CircleCollidesCircle;
 
 		CircleDynamicCollidesCircleStatic();
-		void calculate(CircleCollider* circleColliderDynamic, Vector2 velocityDynamic, CircleCollider* circleColliderStatic);
-		~CircleDynamicCollidesCircleStatic();
+		void calculate(CircleCollider* circleColliderDynamic, const Vector2& velocityDynamic, CircleCollider* circleColliderStatic);
 	};
 
 }

@@ -29,8 +29,8 @@ namespace G1 {
 	OverlappingCheck CircleOverlapsRectangle::isColliding(Collider * rect, Collider * cirl)
 	{
 		float distance =
-			GMath::twoPointsDistance(rect->getWorldPosition().X, rect->getWorldPosition().Y,
-				cirl->getWorldPosition().X, cirl->getWorldPosition().Y);
+			GMath::twoPointsDistance(rect->getWorldPosition().x, rect->getWorldPosition().y,
+				cirl->getWorldPosition().x, cirl->getWorldPosition().y);
 
 		// Does not overlap for sure
 		if (cirl->getFarthestPoint() + rect->getFarthestPoint() < distance)
@@ -42,7 +42,7 @@ namespace G1 {
 		else {
 			// TODO : instead Position struct use Vector2 for location
 			float additionalAngle = 90;
-			float T[] = { rect->getFarthestPointVector().Y, rect->getFarthestPointVector().X };
+			float T[] = { rect->getFarthestPointVector().y, rect->getFarthestPointVector().x };
 
 			for (int i = 0; i < 2; i++) {
 				// New perspective vector

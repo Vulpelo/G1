@@ -4,8 +4,8 @@ namespace G1 {
 
 	GameObject::GameObject()
 	{
-		this->transform.position.X = 0;
-		this->transform.position.Y = 0;
+		this->transform.position.x = 0;
+		this->transform.position.y = 0;
 		this->transform.rotationX = 0;
 
 		sortingLayer = 0;

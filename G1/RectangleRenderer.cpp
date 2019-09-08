@@ -18,7 +18,7 @@ namespace G1 {
 
 		rRectangle.setOrigin(sf::Vector2f(length / 2.0f, height / 2.0f));
 		rRectangle.setSize(sf::Vector2f(length, height));
-		rRectangle.setPosition(transform.position.X + transform.position.X, transform.position.Y + transform.position.Y);
+		rRectangle.setPosition(transform.position.x + transform.position.x, transform.position.y + transform.position.y);
 		rRectangle.setRotation(transform.rotationX + transform.rotationX);
 		rRectangle.setFillColor(color);
 	}
@@ -31,7 +31,7 @@ namespace G1 {
 
 	void RectangleRenderer::render(sf::RenderWindow * w)
 	{
-		rRectangle.setPosition(getWorldPosition().X, getWorldPosition().Y);
+		rRectangle.setPosition(getWorldPosition().x, getWorldPosition().y);
 		rRectangle.setRotation(getWorldRotation());
 		w->draw(rRectangle);
 	}

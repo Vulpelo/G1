@@ -4,8 +4,14 @@ namespace G1 {
 
 	void Transformable::setPosition(float x, float y)
 	{
-		this->transform.position.X = x;
-		this->transform.position.Y = y;
+		this->transform.position.x = x;
+		this->transform.position.y = y;
+	}
+
+	void Transformable::setPosition(const Vector2& position)
+	{
+		this->transform.position.x = position.x;
+		this->transform.position.y = position.y;
 	}
 
 	Vector2 Transformable::getWorldPosition()

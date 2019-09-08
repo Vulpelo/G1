@@ -4,7 +4,7 @@
 void GameObject001::beginPlay() {
 	c = *ControlInput::getInstantiate();
 
-	speed = 100.0f;
+	speed = 500.0f;
 	rotationSpeed = 50.0f;
 	shootingSpeed = 1.0f;
 	a_shootingSpeed = 0.2f;
@@ -19,7 +19,11 @@ void GameObject001::beginPlay() {
 	addComponent(rend);
 
 	auto collidor = new RectangleCollider(60, 60, 0, 0);
+	collidor->setOverlappable(false);
 	addComponent(collidor);
+
+	rb = new Rigidbody();
+	addComponent(rb);
 
 	auto tmp = getComponents<Collider>();
 	tmp.pop_back();
@@ -41,37 +45,17 @@ void GameObject001::eventTick() {
 
 void GameObject001::movement() {
 	if (c.isKeyDown(Key::RIGHT_ARROW)) {
-		Transform tran = getTransform();
-		Vector2 pos = tran.position;
-		pos.X += Time::getDeltaTime() * speed;
-		tran.position = pos;
-
-		setTransform(tran);
+		rb->addForce(Vector2::right() * (Time::getDeltaTime() * speed));
 	}
 	else if (c.isKeyDown(Key::LEFT_ARROW)) {
-		Transform tran = getTransform();
-		Vector2 pos = tran.position;
-		pos.X -= Time::getDeltaTime() * speed;
-		tran.position = pos;
-
-		setTransform(tran);
+		rb->addForce(Vector2::left() * (Time::getDeltaTime() * speed));
 	}
 
 	if (c.isKeyDown(Key::UP_ARROW)) {
-		Transform tran = getTransform();
-		Vector2 pos = tran.position;
-		pos.Y -= Time::getDeltaTime() * speed;
-		tran.position = pos;
-
-		setTransform(tran);
+		rb->addForce(Vector2::up() * (Time::getDeltaTime() * speed));
 	}
 	else if (c.isKeyDown(Key::DOWN_ARROW)) {
-		Transform tran = getTransform();
-		Vector2 pos = tran.position;
-		pos.Y += Time::getDeltaTime() * speed;
-		tran.position = pos;
-
-		setTransform(tran);
+		rb->addForce(Vector2::down() * (Time::getDeltaTime() * speed));
 	}
 }
 

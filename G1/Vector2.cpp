@@ -2,71 +2,62 @@
 
 
 Vector2::Vector2()
-	: X(0), Y(0) {}
+	: x(0), y(0) {}
 
 Vector2::Vector2(float x, float y)
-	: X(x), Y(y) {}
+	: x(x), y(y) {}
 
-Vector2::Vector2(Vector2 &vec)
+Vector2::Vector2(const Vector2 &vec)
 {
-	this->X = vec.X;
-	this->Y = vec.Y;
-}
-
-Vector2::Vector2(const Vector2* vec)
-	: X(vec->X), Y(vec->Y) {}
-
-void Vector2::setVector(Vector2 vec)
-{
-	Vector2::Vector2(&vec);
-}
-
-void Vector2::setVector(float x, float y)
-{
-	this->X = x;
-	this->Y = y;
+	this->x = vec.x;
+	this->y = vec.y;
 }
 
 void Vector2::setVectorByAngleAndLength(float angle, float length)
 {
 	float s = angle * float(M_PI) / 180;
-	this->X = length * sinf(s);
-	this->Y = length * cosf(s);
+	this->x = length * sinf(s);
+	this->y = length * cosf(s);
 }
 
 Vector2 Vector2::operator-(const Vector2 & other) const
 {
-	return Vector2(this->X - other.X, this->Y - other.Y);
+	return Vector2(this->x - other.x, this->y - other.y);
 }
 
 Vector2 Vector2::operator+(const Vector2 & other) const
 {
-	return Vector2(this->X + other.X, this->Y + other.Y);
+	return Vector2(this->x + other.x, this->y + other.y);
 }
 
-Vector2 Vector2::operator*(const float &f) const
+Vector2 Vector2::operator*(const float & f)
 {
-	return Vector2(this->X * f, this->Y * f);
+	return Vector2(this->x * f, this->y * f);
 }
 
-float Vector2::operator*(const Vector2 &vec) const
+float Vector2::operator*(const Vector2 & vector) const
 {
-	return this->X * vec.X + this->Y * vec.Y;
+	return this->x * vector.x + this->y * vector.y;
+}
+
+Vector2 operator*(const float & f, const Vector2 & vector)
+{
+	return Vector2(vector.x * f, vector.y * f);
 }
 
 float Vector2::angle() const
 {
 	float value = 0;
-	if (Y != 0) {
-		value = (180 * atanf(X / Y)) / float(M_PI);
-		if (Y < 0)
+	if (y != 0) {
+		value = (180 * atanf(x / y)) / float(M_PI);
+		if (y < 0)
 			value += 180;
-		if (X < 0 && Y >= 0)
+		if (x < 0 && y >= 0)
 			value += 360;
 	}
-	else if (X > 0)
+	else if (x > 0)
 		value = 90;
-	else if (X < 0)
+	else if (x < 0)
 		value = 270;
 
 	return value;
@@ -74,28 +65,52 @@ float Vector2::angle() const
 
 float Vector2::length() const
 {
-	return sqrtf(X*X + Y*Y);
+	return sqrtf(x*x + y*y);
+}
+
+float Vector2::lengthNoSqrt() const {
+	return x*x + y*y;
 }
 
 Vector2 Vector2::normalize() const
 {
 	Vector2 nV;
-	nV.X = this->X / this->length();
-	nV.Y = this->Y / this->length();
+	nV.x = this->x / this->length();
+	nV.y = this->y / this->length();
 	return nV;
 }
 
 Vector2 Vector2::invertX() const
 {
-	return Vector2(-X, Y);
+	return Vector2(-x, y);
 }
 
 Vector2 Vector2::invertY() const
 {
-	return Vector2(X, -Y);
+	return Vector2(x, -y);
 }
 
 Vector2 Vector2::invert() const
 {
-	return Vector2(-X, -Y);
+	return Vector2(-x, -y);
+}
+
+short Vector2::quadrant() const
+{
+	if (x < 0) {
+		if (y < 0) {
+			return 3;
+		}
+		else {
+			return 2;
+		}
+	}
+	else {
+		if (y < 0) {
+			return 4;
+		}
+		else {
+			return 1;
+		}
+	}
 }

@@ -4,7 +4,7 @@ namespace G1 {
 	bool RectangleOverlapsRectangle::check(Collider * rect1, Collider * rect2)
 	{
 		float additionalAngle = 90;
-		float T[] = { rect1->getFarthestPointVector().Y, rect1->getFarthestPointVector().X };
+		float T[] = { rect1->getFarthestPointVector().y, rect1->getFarthestPointVector().x };
 
 		// THIS COLLIDER
 		for (int i = 0; i < 2; i++) {
@@ -22,15 +22,17 @@ namespace G1 {
 			float hDiag;
 			Vector2 oR;
 			// geting otherCollider farthest point and rotating it
-			oR.setVectorByAngleAndLength
-			(rect2->getWorldRotation() + rect2->getFarthestPointVector().angle(),
-				rect2->getFarthestPoint());
+			oR.setVectorByAngleAndLength(
+				rect2->getWorldRotation() + rect2->getFarthestPointVector().angle(),
+				rect2->getFarthestPoint()
+			);
 			hDiag = fabs(oR * P);
 
 			//Second diagonal check if is longer on new perspective
-			oR.setVectorByAngleAndLength
-			(rect2->getWorldRotation() + (rect2->getFarthestPointVector().invertY()).angle(),
-				rect2->getFarthestPoint());
+			oR.setVectorByAngleAndLength(
+				rect2->getWorldRotation() + rect2->getFarthestPointVector().invertY().angle(),
+				rect2->getFarthestPoint()
+			);
 			float tmp = fabs(oR * P);
 
 			if (hDiag < tmp) {

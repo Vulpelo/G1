@@ -10,7 +10,7 @@
 namespace G1 {
 
 	enum Key {
-		A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,
+		A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,x,y,Z,
 		LEFT_ARROW, RIGHT_ARROW, UP_ARROW, DOWN_ARROW,
 		SPACE, TAB, ENTER,
 		LEFT_CTRL, RIGHT_CTRL,

@@ -17,7 +17,7 @@ namespace GMath
 	/// Angle is measuring at first point </summary>
 	float twoPointsAngle(Vector2, Vector2);
 
-	float vectorAngle(float X, float Y);
+	float vectorAngle(float x, float y);
 };
 
 #endif // !_MATH_FUNCTIONS_H_

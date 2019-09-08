@@ -23,6 +23,7 @@ class GameObject001 :
 	bool changeColor;
 
 	Renderer* rend;
+	Rigidbody* rb;
 	
 	sf::Color color1;
 	sf::Color color2;
