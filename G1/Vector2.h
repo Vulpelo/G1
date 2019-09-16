@@ -29,6 +29,7 @@ public:
 
 	Vector2 operator -(const Vector2&) const;
 	Vector2 operator +(const Vector2&) const;
+	Vector2& operator +=(const Vector2&);
 	Vector2 operator*(const float& f);
 	friend Vector2 operator*(const float&, const Vector2&);
 

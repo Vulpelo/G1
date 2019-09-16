@@ -34,9 +34,9 @@ namespace G1 {
 		/// <summary> Sets Transform of this object in relative to parent</summary>
 		void setTransform(Transform transform);
 		/// <summary> gets Transform of this object in relative to parent</summary>
-		Transform getTransform();
+		virtual Transform getTransform();
 
-		float getWorldRotation();
+		virtual float getWorldRotation();
 		/// <summary>Sets rotation of an object</summary>
 		void setRotation(float x);
 	};

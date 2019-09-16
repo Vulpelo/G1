@@ -35,6 +35,14 @@ namespace G1 {
 		float getFarthestPoint();
 		// returns distance from origin of colider to the nearest point on the colider
 		float getNearestPoint();
+
+		/// <summary>Gets Transform of this object in relative to parent. Rotation is 0.0f if collider is not overlappable</summary>
+		Transform getTransform();
+
+		/// <summary>
+		/// If not collider is not overlappable then returns 0.0f
+		/// </summary>
+		float getWorldRotation();
 	};
 
 }

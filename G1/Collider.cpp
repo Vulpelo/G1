@@ -41,6 +41,22 @@ namespace G1 {
 		return this->nearestPoint;
 	}
 
+	Transform Collider::getTransform()
+	{
+		if (overlappable) {
+			return Transformable::getTransform();
+		}
+		return Transform(Transformable::getTransform().position, 0);
+	}
+
+	float Collider::getWorldRotation()
+	{
+		if (overlappable) {
+			return Transformable::getWorldRotation();
+		}
+		return 0.0f;
+	}
+
 	bool Collider::rectangleOverlapsCircle(Collider * rect, Collider * cirl)
 	{
 		float distance =

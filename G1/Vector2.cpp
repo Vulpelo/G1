@@ -30,6 +30,14 @@ Vector2 Vector2::operator+(const Vector2 & other) const
 	return Vector2(this->x + other.x, this->y + other.y);
 }
 
+Vector2 & Vector2::operator+=(const Vector2 & vec)
+{
+	this->x += vec.x;
+	this->y += vec.y;
+
+	return *this;
+}
+
 Vector2 Vector2::operator*(const float & f)
 {
 	return Vector2(this->x * f, this->y * f);
