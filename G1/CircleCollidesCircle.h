@@ -7,15 +7,13 @@
 #include "CircleCollider.h"
 #include "GameObject.h"
 #include "Rigidbody.h"
-#include "CircleDynamicCollidesCircleStatic.h"
-#include "CircleDynamicCollidesCircleDynamic.h"
 
 namespace G1 {
 
 	class CircleCollidesCircle : public Collision
 	{
-		CircleDynamicCollidesCircleStatic cirDynCirStat;
-		CircleDynamicCollidesCircleDynamic cirDynCirDyn;
+		Vector2 oneNewColliderPosition(CircleCollider* circleColliderDynamic, const Vector2& velocityDynamic, CircleCollider* circleColliderStatic);
+
 	public:
 		CircleCollidesCircle();
 		CollisionCheck calculate(Collider* collider1, Collider* collider2);

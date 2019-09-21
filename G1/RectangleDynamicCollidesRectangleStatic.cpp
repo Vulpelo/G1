@@ -95,7 +95,7 @@ namespace G1 {
 			velocityDynamic.y << " DWP>" << rectangleColliderDynamic->getWorldPosition().x << ":" << 
 			rectangleColliderDynamic->getWorldPosition().y << " q:" << quadrant << std::endl;*/
 		
-		rectangleColliderDynamic->getParent()->setPosition(crossPoint);
+		rectangleColliderDynamic->getParent()->setPosition(crossPoint);// TODO: get top parent?
 	}
 
 }

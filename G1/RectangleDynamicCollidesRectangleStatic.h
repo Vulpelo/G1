@@ -8,14 +8,6 @@
 
 namespace G1 {
 
-	enum class SideOfRectangle {
-		Undefined = -1,
-		Up = 0,
-		Right = 1,
-		Down = 2,
-		Left = 3
-	};
-
 	class RectangleDynamicCollidesRectangleStatic
 	{
 		friend class RectangleCollidesRectangle;

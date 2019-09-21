@@ -129,8 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleCollidesCircle.cpp" />
-    <ClCompile Include="CircleDynamicCollidesCircleDynamic.cpp" />
-    <ClCompile Include="CircleDynamicCollidesCircleStatic.cpp" />
+    <ClCompile Include="CircleCollidesRectangle.cpp" />
     <ClCompile Include="CircleOverlapsCircle.cpp" />
     <ClCompile Include="CircleOverlapsRectangle.cpp" />
     <ClCompile Include="CircleRenderer.cpp" />
@@ -155,7 +154,6 @@
     <ClCompile Include="OverlapingGameObjectsStates.cpp" />
     <ClCompile Include="PhysicsManager.cpp" />
     <ClCompile Include="RectangleCollidesRectangle.cpp" />
-    <ClCompile Include="RectangleDynamicCollidesRectangleStatic.cpp" />
     <ClCompile Include="RectangleOverlapsRectangle.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="main.cpp" />
@@ -174,11 +172,10 @@
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CircleDynamicCollidesCircleDynamic.h" />
+    <ClInclude Include="CircleCollidesRectangle.h" />
     <ClInclude Include="CollisionCheck.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleCollidesCircle.h" />
-    <ClInclude Include="CircleDynamicCollidesCircleStatic.h" />
     <ClInclude Include="CircleOverlapsCircle.h" />
     <ClInclude Include="CircleOverlapsRectangle.h" />
     <ClInclude Include="CircleRenderer.h" />
@@ -205,7 +202,6 @@
     <ClInclude Include="OverlapingGameObjectsStates.h" />
     <ClInclude Include="PhysicsManager.h" />
     <ClInclude Include="RectangleCollidesRectangle.h" />
-    <ClInclude Include="RectangleDynamicCollidesRectangleStatic.h" />
     <ClInclude Include="RectangleOverlapsRectangle.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="MathVariables.h" />

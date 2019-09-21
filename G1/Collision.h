@@ -6,6 +6,7 @@
 #include "CollisionCheck.h"
 #include "Collider.h"
 #include "Rigidbody.h"
+#include "GameObject.h"
 
 namespace G1 {
 
