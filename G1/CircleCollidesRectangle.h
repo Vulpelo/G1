@@ -9,11 +9,19 @@
 namespace G1 {
 	class CircleCollidesRectangle : public Collision
 	{
+		enum class VelocityFor {
+			CIRCLE,
+			RECTANGLE
+		} velocityFor;
+
+		RectangleCollidesRectangle rcr;
+
+		Vector2 oneNewColliderPosition(Collider* dynamicCollider, Vector2 velocityDynamic, Collider * staticCollider);
+		void calculateVelocityDirection(GameObject * gameObject1, Rigidbody * rigidbody1, GameObject * gameObject2, Rigidbody * rigidbody2);
+		RectangleCollider CircleCollidesRectangle::rectangleFromCircle(CircleCollider& circle);
 
 	public:
 		CollisionCheck calculate(Collider* collider1, Collider* collider2);
-
-
 	};
 }
 

@@ -31,7 +31,7 @@ namespace G1 {
 		return Vector2();
 	}
 
-	float Collider::getFarthestPoint()
+	float Collider::getFarthestPoint() const
 	{
 		return this->farthestPoint;
 	}

@@ -12,6 +12,8 @@ namespace G1 {
 
 	class CircleCollidesCircle : public Collision
 	{
+		friend class CircleCollidesRectangle;
+
 		Vector2 oneNewColliderPosition(CircleCollider* circleColliderDynamic, const Vector2& velocityDynamic, CircleCollider* circleColliderStatic);
 
 	public:

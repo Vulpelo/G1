@@ -9,13 +9,11 @@ namespace G1 {
 
 	class Transformable {
 	protected:
-		Transformable* parent;
+		Transformable* parent = NULL;
 		Transform transform;
 
 	public:
-		Transformable() {
-			parent = NULL;
-		}
+		Transformable() {}
 
 		Transformable* getParent() {
 			return parent;

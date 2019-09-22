@@ -6,6 +6,7 @@ namespace G1 {
 	{
 		collisionTypes.push_back(new CircleCollidesCircle());
 		collisionTypes.push_back(new RectangleCollidesRectangle());
+		collisionTypes.push_back(new CircleCollidesRectangle());
 	}
 
 	void CollisionCalculation::doCalculation(Collider* collider1, Collider* collider2)

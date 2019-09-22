@@ -2,7 +2,6 @@
 
 namespace G1 {
 
-
 	CollisionCheck RectangleCollidesRectangle::calculate(Collider * collider1, Collider * collider2)
 	{
 		RectangleCollider* col1 = dynamic_cast<RectangleCollider*>(collider1);
@@ -17,7 +16,13 @@ namespace G1 {
 
 			// Dynamic x Dynamic
 			if (rb1 && rb2) {
-				//cirDynCirDyn.calculate(col1, rb1->getVelocity(), col2, rb2->getVelocity());
+				col1->getParent()->setPosition(
+					oneNewColliderPosition(col1, rb1->getVelocity(), col2)
+				);// TODO: get top parent?
+
+				calculateVelocityDirection(g1, rb1, NULL, NULL);
+				calculateVelocityDirection(g2, rb2, NULL, NULL);
+
 				return CollisionCheck::CALCULATED;
 			}
 
@@ -28,8 +33,8 @@ namespace G1 {
 					oneNewColliderPosition(col1, rb1->getVelocity(), col2)
 					);// TODO: get top parent?
 
-				//dynamicXStatic.calculate(col1, rb1->getVelocity(), col2);
-				calculateVelocityDirection(g1, rb1, g2, NULL);
+				calculateVelocityDirection(g1, rb1, NULL, NULL);
+
 				return CollisionCheck::CALCULATED;
 			}// Static x Dynamic
 			else if (!rb1 && rb2) {
@@ -37,8 +42,7 @@ namespace G1 {
 					oneNewColliderPosition(col2, rb2->getVelocity(), col1)
 				);// TODO: get top parent?
 				
-				//dynamicXStatic.calculate(col2, rb2->getVelocity(), col1);
-				calculateVelocityDirection(g2, rb2, g1, NULL);
+				calculateVelocityDirection(g2, rb2, NULL, NULL);
 				return CollisionCheck::CALCULATED;
 			}
 		}
@@ -89,7 +93,6 @@ namespace G1 {
 		}
 		return crossPoint;
 	}
-
 
 	void RectangleCollidesRectangle::calculateVelocityDirection(GameObject * gameObject1, Rigidbody * rigidbody1, GameObject * gameObject2, Rigidbody * rigidbody2)
 	{

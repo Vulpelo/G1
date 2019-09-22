@@ -8,6 +8,7 @@
 #include "Collider.h"
 #include "Collision.h"
 #include "CircleCollidesCircle.h"
+#include "CircleCollidesRectangle.h"
 #include "RectangleCollidesRectangle.h"
 
 namespace G1 {

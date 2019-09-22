@@ -58,6 +58,10 @@ namespace G1 {
 				circle1->getParent()->setPosition(
 					oneNewColliderPosition(circle1, rb1->getVelocity(), circle2)
 				);
+
+				calculateVelocityDirection(g1, rb1, g2, NULL);
+				calculateVelocityDirection(g2, rb2, g1, NULL);
+
 				return CollisionCheck::CALCULATED;
 			}
 

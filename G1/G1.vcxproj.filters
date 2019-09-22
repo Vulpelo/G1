@@ -228,9 +228,6 @@
     <ClCompile Include="CircleOverlapsCircle.cpp">
       <Filter>Source Files\Engine\Physics\Overlap</Filter>
     </ClCompile>
-    <ClCompile Include="CircleCollidesCircle.cpp">
-      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle</Filter>
-    </ClCompile>
     <ClCompile Include="Overlapping.cpp">
       <Filter>Source Files\Engine\Physics\Overlap</Filter>
     </ClCompile>
@@ -240,13 +237,16 @@
     <ClCompile Include="Collision.cpp">
       <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="RectangleCollidesRectangle.cpp">
-      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\RectangleCollidesRectangle</Filter>
-    </ClCompile>
     <ClCompile Include="Segment.cpp">
       <Filter>Source Files\Engine\GMath</Filter>
     </ClCompile>
     <ClCompile Include="CircleCollidesRectangle.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollidesCircle.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleCollidesRectangle.cpp">
       <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClCompile>
   </ItemGroup>
@@ -368,9 +368,6 @@
     <ClInclude Include="RectangleOverlapsRectangle.h">
       <Filter>Header Files\Engine\Physics\Overlap</Filter>
     </ClInclude>
-    <ClInclude Include="CircleCollidesCircle.h">
-      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle</Filter>
-    </ClInclude>
     <ClInclude Include="Overlapping.h">
       <Filter>Header Files\Engine\Physics\Overlap</Filter>
     </ClInclude>
@@ -386,14 +383,17 @@
     <ClInclude Include="CollisionCheck.h">
       <Filter>Header Files\Engine\Physics\CalculatingCollision</Filter>
     </ClInclude>
-    <ClInclude Include="RectangleCollidesRectangle.h">
-      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\RectangleCollidesRectangle</Filter>
-    </ClInclude>
     <ClInclude Include="Segment.h">
       <Filter>Header Files\Engine\GMath</Filter>
     </ClInclude>
+    <ClInclude Include="CircleCollidesCircle.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
+    </ClInclude>
     <ClInclude Include="CircleCollidesRectangle.h">
-      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesRectangle</Filter>
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleCollidesRectangle.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

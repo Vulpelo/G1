@@ -32,7 +32,7 @@ namespace G1 {
 
 		virtual Vector2 getFarthestPointVector();
 		// returns distance from origin of colider to the farthest point on the colider
-		float getFarthestPoint();
+		float getFarthestPoint() const;
 		// returns distance from origin of colider to the nearest point on the colider
 		float getNearestPoint();
 

@@ -19,6 +19,8 @@ namespace G1 {
 	};
 
 	class RectangleCollidesRectangle : public Collision {
+		friend class CircleCollidesRectangle;
+
 		SideOfRectangle sideOfRectangle;
 
 		/// <summary>
