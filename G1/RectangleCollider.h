@@ -13,7 +13,7 @@ namespace G1 {
 		float height, length;
 
 	public:
-		RectangleCollider(float length, float height, float worldCoordinateX, float worldCoordinateY, float rot = 0);
+		RectangleCollider(float length, float height, float posX = 0, float posY = 0, float rot = 0);
 		bool isCollidingWith(Collider *otherCollider);
 		Vector2 RectangleCollider::getFarthestPointVector();
 	};

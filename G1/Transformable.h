@@ -15,6 +15,8 @@ namespace G1 {
 	public:
 		Transformable() {}
 
+		Transformable& getTopParent();
+
 		Transformable* getParent() {
 			return parent;
 		};

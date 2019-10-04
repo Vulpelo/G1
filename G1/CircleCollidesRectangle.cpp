@@ -9,17 +9,19 @@ namespace G1 {
 			dynamic_cast<RectangleCollider*>(collider2) && dynamic_cast<CircleCollider*>(collider1)) 
 		{
 			auto g1 = ((GameObject*)(collider1->getParent()));
-			auto g2 = ((GameObject*)collider2->getParent());
+			auto g2 = ((GameObject*)(collider2->getParent()));
 			// TODO: world Velocity
 			auto rb1 = g1->getComponent<Rigidbody>();
 			auto rb2 = g2->getComponent<Rigidbody>();
 
+			Transformable& topParentCollider1 = collider1->getTopParent();
+			Transformable& topParentCollider2 = collider2->getTopParent();
+
 			// Dynamic x Dynamic
 			if (rb1 && rb2) {
-				collider1->getParent()->setPosition(
+				topParentCollider1.setPosition(
 					oneNewColliderPosition(collider1, rb1->getVelocity(), collider2)
-				);// TODO: get top parent?
-
+				);
 
 				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, g2, NULL));
 				applyNewVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, g1, NULL));
@@ -30,17 +32,17 @@ namespace G1 {
 			// Dynamic x Static
 			if (rb1 && !rb2) {
 
-				collider1->getParent()->setPosition(
+				topParentCollider1.setPosition(
 					oneNewColliderPosition(collider1, rb1->getVelocity(), collider2)
-				);// TODO: get top parent?
+				);
 
 				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, g2, NULL));
 				return CollisionCheck::CALCULATED;
 			}// Static x Dynamic
 			else if (!rb1 && rb2) {
-				collider2->getParent()->setPosition(
+				topParentCollider2.setPosition(
 					oneNewColliderPosition(collider2, rb2->getVelocity(), collider1)
-				);// TODO: get top parent?
+				);
 
 				applyNewVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, g1, NULL));
 				return CollisionCheck::CALCULATED;
@@ -52,15 +54,18 @@ namespace G1 {
 	Vector2 CircleCollidesRectangle::oneNewColliderPosition(Collider* dynamicCollider, Vector2 velocityDynamic, Collider * staticCollider) 
 	{
 		velocityFor = VelocityFor::RECTANGLE;
+
+		Vector2 posAddForTopParent = dynamicCollider->getTopParent().getWorldPosition() - dynamicCollider->getWorldPosition();
+
 		Vector2 newPositon;
-		{
+		{ // cirStat x recDyn
 			RectangleCollider* recDynCol = dynamic_cast<RectangleCollider*>(dynamicCollider);
 			CircleCollider* cirStatCol = dynamic_cast<CircleCollider*>(staticCollider);
 
 			if (recDynCol && cirStatCol) {
 				RectangleCollider cirAsRecCollider = rectangleFromCircle(*cirStatCol);
 				newPositon = rcr.oneNewColliderPosition(recDynCol, velocityDynamic, &cirAsRecCollider);
-				return newPositon;
+				return newPositon + posAddForTopParent;
 			}
 		}
 
@@ -116,11 +121,11 @@ namespace G1 {
 
 					CircleCollidesCircle ccc;
 					velocityFor = VelocityFor::CIRCLE;
-					return ccc.oneNewColliderPosition(&smallerCirDyn, velocityDynamic, &recApexAsCircle);
+					return ccc.oneNewColliderPosition(&smallerCirDyn, velocityDynamic, &recApexAsCircle) + posAddForTopParent;
 				}
 			}
 		}
-		return newPositon;
+		return newPositon + posAddForTopParent;
 	}
 
 	RectangleCollider CircleCollidesRectangle::rectangleFromCircle(CircleCollider& circle) {

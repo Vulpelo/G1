@@ -11,16 +11,19 @@ namespace G1 {
 
 		if (col1 && col2) {
 			auto g1 = ((GameObject*)(col1->getParent()));
-			auto g2 = ((GameObject*)col2->getParent());
+			auto g2 = ((GameObject*)(col2->getParent()));
 			// TODO: world Velocity
 			auto rb1 = g1->getComponent<Rigidbody>();
 			auto rb2 = g2->getComponent<Rigidbody>();
 
+			Transformable& topParentCollider1 = collider1->getTopParent();
+			Transformable& topParentCollider2 = collider2->getTopParent();
+
 			// Dynamic x Dynamic
 			if (rb1 && rb2) {
-				col1->getParent()->setPosition(
+				topParentCollider1.setPosition(
 					oneNewColliderPosition(col1, rb1->getVelocity(), col2)
-				);// TODO: get top parent?
+				);
 
 				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, NULL, NULL));
 				applyNewVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, NULL, NULL));
@@ -30,17 +33,17 @@ namespace G1 {
 
 			// Dynamic x Static
 			if (rb1 && !rb2) {
-				col1->getParent()->setPosition(
+				topParentCollider1.setPosition(
 					oneNewColliderPosition(col1, rb1->getVelocity(), col2)
-					);// TODO: get top parent?
+					);
 
 				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, NULL, NULL));
 				return CollisionCheck::CALCULATED;
 			}// Static x Dynamic
 			else if (!rb1 && rb2) {
-				col2->getParent()->setPosition(
+				topParentCollider2.setPosition(
 					oneNewColliderPosition(col2, rb2->getVelocity(), col1)
-				);// TODO: get top parent?
+				);
 				
 				applyNewVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, NULL, NULL));
 				return CollisionCheck::CALCULATED;
@@ -51,6 +54,7 @@ namespace G1 {
 
 	Vector2 RectangleCollidesRectangle::oneNewColliderPosition(RectangleCollider * rectangleColliderDynamic, Vector2 velocityDynamic, RectangleCollider * rectangleColliderStatic)
 	{
+		Vector2 topParentColliderDynPosition = rectangleColliderDynamic->getTopParent().getWorldPosition();
 		Vector2 rectangleColliderDynamicWorldPosition = rectangleColliderDynamic->getWorldPosition();
 
 		Vector2 longVec = rectangleColliderDynamic->getFarthestPointVector() + rectangleColliderStatic->getFarthestPointVector();
@@ -101,11 +105,9 @@ namespace G1 {
 
 		if (onlyParaller) {
 			crossPoint = rectangleColliderDynamicWorldPosition;
-			//std::cout << "paraller:";
 		}
 			 
-		//std::cout << (crossPoint).x << ":" << (crossPoint).y << std::endl;
-		return crossPoint;
+		return (crossPoint - rectangleColliderDynamicWorldPosition) + topParentColliderDynPosition;
 	}
 
 	Vector2 RectangleCollidesRectangle::calculateVelocityDirection(GameObject * gameObject1, Rigidbody * rigidbody1, GameObject * gameObject2, Rigidbody * rigidbody2)

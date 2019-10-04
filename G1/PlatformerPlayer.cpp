@@ -9,7 +9,7 @@ void PlatformerPlayer::beginPlay() {
 
 	c = *ControlInput::getInstantiate();
 
-	auto collidor = new RectangleCollider(40, 80, 0, 0);
+	auto collidor = new RectangleCollider(40, 80);
 	collidor->setOverlappable(false);
 	addComponent(collidor);
 

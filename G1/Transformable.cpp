@@ -1,6 +1,14 @@
 #include "Transformable.h"
 
 namespace G1 {
+	Transformable& Transformable::getTopParent()
+	{
+		Transformable *next = this;
+		while (next->getParent() != NULL) {
+			next = next->getParent();
+		}
+		return *next;
+	}
 
 	void Transformable::setPosition(float x, float y)
 	{

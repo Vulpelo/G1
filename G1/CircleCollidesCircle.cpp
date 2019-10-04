@@ -6,7 +6,7 @@ namespace G1 {
 		// there can be only one collider in gameobject tree hierarchy. Only First gameObect (with paret=null) can have collider
 		// collider cant have offset.
 		// get worldPosition of circleColliderDynamic as position
-		Transform cirTran = circleColliderDynamic->getParent()->getTransform();
+		Vector2 topParentPosition = circleColliderDynamic->getTopParent().getWorldPosition();
 
 		Vector2 V1j = velocityDynamic.normalize(); // creating unitary vector
 
@@ -29,10 +29,7 @@ namespace G1 {
 
 		float rest = (circleColliderDynamic->getWorldPosition() - velocityDynamic - S1).length();
 
-		// setting new position
-		cirTran.position = S1;
-
-		return S1;
+		return (S1 - circleColliderDynamic->getWorldPosition()) + topParentPosition;
 	}
 
 	CircleCollidesCircle::CircleCollidesCircle()
@@ -47,15 +44,18 @@ namespace G1 {
 
 		if (circle1 && circle2) {
 			auto g1 = ((GameObject*)(circle1->getParent()));
-			auto g2 = ((GameObject*)circle2->getParent());
+			auto g2 = ((GameObject*)(circle2->getParent()));
 			// TODO: world Velocity
 			auto rb1 = g1->getComponent<Rigidbody>();
 			auto rb2 = g2->getComponent<Rigidbody>();
 			
+			Transformable& topParentCircle1 = circle1->getTopParent();
+			Transformable& topParentCircle2 = circle2->getTopParent();
+
 			// TODO: Dynamic x Dynamic
 			if (rb1 && rb2) {
 
-				circle1->getParent()->setPosition(
+				topParentCircle1.setPosition(
 					oneNewColliderPosition(circle1, rb1->getVelocity(), circle2)
 				);
 
@@ -68,7 +68,7 @@ namespace G1 {
 			// Dynamic x Static
 			if (rb1 && !rb2) { 
 
-				circle1->getParent()->setPosition(
+				topParentCircle1.setPosition(
 					oneNewColliderPosition(circle1, rb1->getVelocity(), circle2)
 				);
 				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, g2, NULL));
@@ -77,7 +77,7 @@ namespace G1 {
 			// Static x Dynamic
 			else if (!rb1 && rb2) {
 
-				circle2->getParent()->setPosition(
+				topParentCircle2.setPosition(
 					oneNewColliderPosition(circle2, rb2->getVelocity(), circle1)
 				);
 
