@@ -20,7 +20,8 @@ class PlatformerPlayer :
 
 	bool grounded = false;
 
-	float jumpForce = 10.f;
+	bool toJump = false;
+	float jumpForce{ 10.f };
 
 	float shootingSpeed = 1.f;
 	float a_shootingSpeed = 0.2f;

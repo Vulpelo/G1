@@ -9,25 +9,22 @@
 
 namespace G1 {
 
-	enum Key {
-		A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,x,y,Z,
-		LEFT_ARROW, RIGHT_ARROW, UP_ARROW, DOWN_ARROW,
-		SPACE, TAB, ENTER,
-		LEFT_CTRL, RIGHT_CTRL,
-		LEFT_ALT, RIGHT_ALT,
-		LEFT_SHIFT, RIGHT_SHIFT
-	};
-
 	class ControlInput
 	{
 		friend class Engine;
 
 		static ControlInput* controlInput;
 
+		static bool keyDownTable[(unsigned int)sf::Keyboard::Key::KeyCount];
+		static bool keyDownTablePrevious[(unsigned int)sf::Keyboard::Key::KeyCount];
+
 		sf::Event input;
 		sf::RenderWindow * window;
 
 		void mainEventTick();
+
+		void resetKeyDownTable();
+		void updateKeyDownTable();
 
 	public:
 		ControlInput();
@@ -37,7 +34,16 @@ namespace G1 {
 		void setRenderWindow(sf::RenderWindow *window);
 
 		/// <summary> Returns true if selected key is held down </summary>
-		bool isKeyDown(Key key);
+		bool isKeyDown(sf::Keyboard::Key key);
+
+		/// <summary>
+		/// Returns true if selected key was pressed before this frame
+		/// </summary>
+		bool keyDown(sf::Keyboard::Key key);
+		/// <summary>
+		/// Returns true if selected key was release before this frame
+		/// </summary>
+		bool keyUp(sf::Keyboard::Key key);
 
 		/// <summary>Returns position of mouse cursor relative to window</summary>
 		sf::Vector2i mousePosition();

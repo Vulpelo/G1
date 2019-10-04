@@ -32,7 +32,7 @@ void GameObject001::beginPlay() {
 }
 
 void GameObject001::eventTick() {
-	if (c.isKeyDown(Key::S)) {
+	if (c.isKeyDown(sf::Keyboard::Key::S)) {
 		s_keyPressed = true;
 	}
 	else {
@@ -46,17 +46,17 @@ void GameObject001::eventTick() {
 }
 
 void GameObject001::movement() {
-	if (c.isKeyDown(Key::RIGHT_ARROW)) {
+	if (c.isKeyDown(sf::Keyboard::Key::Right)) {
 		rb->addForce(Vector2::right() * (Time::getDeltaTime() * speed));
 	}
-	else if (c.isKeyDown(Key::LEFT_ARROW)) {
+	else if (c.isKeyDown(sf::Keyboard::Key::Left)) {
 		rb->addForce(Vector2::left() * (Time::getDeltaTime() * speed));
 	}
 
-	if (c.isKeyDown(Key::UP_ARROW)) {
+	if (c.isKeyDown(sf::Keyboard::Key::Up)) {
 		rb->addForce(Vector2::up() * (Time::getDeltaTime() * speed));
 	}
-	else if (c.isKeyDown(Key::DOWN_ARROW)) {
+	else if (c.isKeyDown(sf::Keyboard::Key::Down)) {
 		rb->addForce(Vector2::down() * (Time::getDeltaTime() * speed));
 	}
 }
@@ -64,16 +64,16 @@ void GameObject001::movement() {
 void GameObject001::rotation()
 {
 	auto tmp = this->getTransform();
-	if (c.isKeyDown(Key::Q)) {
+	if (c.isKeyDown(sf::Keyboard::Key::Q)) {
 		this->setTransform(Transform(tmp.position, tmp.rotationX - Time::getDeltaTime() * rotationSpeed));
 	}
-	else if (c.isKeyDown(Key::E)) {
+	else if (c.isKeyDown(sf::Keyboard::Key::E)) {
 		this->setTransform(Transform(tmp.position, tmp.rotationX + Time::getDeltaTime() * rotationSpeed));
 	}
 }
 
 void GameObject001::shooting() {
-	if (a_shootingSpeed <= 0 && c.isKeyDown(Key::SPACE)) {
+	if (a_shootingSpeed <= 0 && c.isKeyDown(sf::Keyboard::Key::Space)) {
 		a_shootingSpeed = shootingSpeed;
 
 		auto bullet = instantiate<GameObject002_Bullet>();

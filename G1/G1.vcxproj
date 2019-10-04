@@ -76,6 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>D:\Dokumenty\Projects\Biblioteki\SFML-2.3.2 32bit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>D:\Dokumenty\Projects\Biblioteki\SFML-2.3.2 32bit\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

@@ -5,7 +5,7 @@
 void PlatformerPlayer::beginPlay() {
 	setLayer(Layer::PLAYER);
 
-	jumpForce = 50.f;
+	jumpForce = 100.f;
 
 	c = *ControlInput::getInstantiate();
 
@@ -21,7 +21,7 @@ void PlatformerPlayer::beginPlay() {
 }
 
 void PlatformerPlayer::eventTick() {
-	if (c.isKeyDown(Key::S)) {
+	if (c.isKeyDown(sf::Keyboard::Key::S)) {
 		s_keyPressed = true;
 	}
 	else {
@@ -40,16 +40,16 @@ void PlatformerPlayer::eventTick() {
 	movement();
 	shapeShift();
 	shooting();
+
+	std::cout << rb->getVelocity().x << ":" << rb->getVelocity().y << std::endl;
 }
 
 void PlatformerPlayer::movement() {
-	if (c.isKeyDown(Key::RIGHT_ARROW)) {
+	if (c.isKeyDown(sf::Keyboard::Key::Right)) {
 		targetMoveVelocity = Vector2::right();
-		//rb->addForce(Vector2::right() * (Time::getDeltaTime() * speed));
 	}
-	else if (c.isKeyDown(Key::LEFT_ARROW)) {
+	else if (c.isKeyDown(sf::Keyboard::Key::Left)) {
 		targetMoveVelocity = Vector2::left();
-		//rb->addForce(Vector2::left() * (Time::getDeltaTime() * speed));
 	}
 	else {
 		targetMoveVelocity.set(0, 0);
@@ -61,18 +61,17 @@ void PlatformerPlayer::movement() {
 		Vector2::smoothDump(rb->getVelocity(), targetMoveVelocity, actualMoveVelocity, smoothMove)
 	);
 
-
-	if (grounded && c.isKeyDown(Key::UP_ARROW)) {
+	if (grounded && c.keyDown(sf::Keyboard::Key::Up)) {
 		rb->addForce(Vector2::up() * jumpForce);
 	}
-	else if (c.isKeyDown(Key::DOWN_ARROW)) {
-		//rb->addForce(Vector2::down() * (Time::getDeltaTime() * speed));
+	else if (c.keyUp(sf::Keyboard::Key::Up)) {
+		rb->addForce(Vector2::up() * jumpForce);
 	}
 }
 
 
 void PlatformerPlayer::shooting() {
-	if (a_shootingSpeed <= 0 && c.isKeyDown(Key::SPACE)) {
+	if (a_shootingSpeed <= 0 && c.isKeyDown(sf::Keyboard::Key::Space)) {
 		a_shootingSpeed = shootingSpeed;
 
 		auto bullet = instantiate<GameObject002_Bullet>();

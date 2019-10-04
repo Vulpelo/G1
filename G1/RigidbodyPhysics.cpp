@@ -35,7 +35,6 @@ namespace G1 {
 
 
 		rb1.setVelocity(bounceVec + frictionVec);
-		std::cout << rb1.getVelocity().x << ":" << rb1.getVelocity().y << std::endl;
 	}
 
 	float RigidbodyPhysics::calculateCombineValue(float val1, float val2, Combine combine1) const {
