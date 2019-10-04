@@ -8,9 +8,26 @@
 
 namespace G1 {
 
+	enum class Combine {
+		MINIMUM,
+		AVERAGE,
+		MULTIPLY,
+		MAXIMUM
+	};
+
+	struct PhysicMaterial {
+		float friction = 0.f;
+		float bounciness = 0.f;
+
+		Combine frictionCombine = Combine::AVERAGE;
+		Combine bouncyCombine = Combine::MAXIMUM;
+	};
+
 	class Collider : public Component, public Transformable
 	{
 		bool overlappable;
+		
+		PhysicMaterial physicMaterial;
 
 	protected:
 		char collisionType;
@@ -43,6 +60,9 @@ namespace G1 {
 		/// If not collider is not overlappable then returns 0.0f
 		/// </summary>
 		float getWorldRotation();
+
+		void setPhysicMaterial(const PhysicMaterial& physicMaterial) { this->physicMaterial = physicMaterial; }
+		const PhysicMaterial& getPhysicMaterial() const { return this->physicMaterial; }
 	};
 
 }

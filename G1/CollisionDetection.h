@@ -15,15 +15,16 @@ namespace G1 {
 
 	class CollisionDetection
 	{
+		friend class Physics;
+
 		CollisionCalculation collisionCallculation;
 
-		std::vector<Overlapping*> collisionTypes;
-		OverlappingCheck areColliding(Collider * collider1, Collider * collider2);
+		static std::vector<Overlapping*> collisionTypes;
+		static OverlappingCheck areColliding(Collider * collider1, Collider * collider2);
 		void checkGameObjects(GameObject* gameObject1, GameObject* gameObject2);
 	public:
 		CollisionDetection();
 		void checkCollisions();
-		~CollisionDetection();
 	};
 
 }

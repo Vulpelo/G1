@@ -24,6 +24,7 @@ namespace G1 {
 		/// Calculates cross point of two lines. First/Second line goes thru points of segment1/segment2.
 		/// </summary>
 		static Vector2 crossPointOfLines(const Segment& segment1, const Segment& segment2);
+		static bool Segment::areParallel(const Segment & segment1, const Segment & segment2);
 	};
 
 }

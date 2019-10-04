@@ -133,16 +133,17 @@ namespace G1 {
 	template<class T>
 	std::vector<T*> GameObject::getComponents()
 	{
-		std::vector <T*> chosen;
+		std::vector <T*> chosenComponents;
 
-		for each (T* component in this->components)
+		T* chosenComponent;
+		for each (Component* component in this->components)
 		{
-			if (dynamic_cast<T*>(component)) {
-				chosen.push_back(component);
+			if (chosenComponent = dynamic_cast<T*>(component)) {
+				chosenComponents.push_back(chosenComponent);
 			}
 		}
 
-		return chosen;
+		return chosenComponents;
 	}
 
 	template<class T>

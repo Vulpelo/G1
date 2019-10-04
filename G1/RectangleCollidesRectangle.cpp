@@ -4,6 +4,8 @@ namespace G1 {
 
 	CollisionCheck RectangleCollidesRectangle::calculate(Collider * collider1, Collider * collider2)
 	{
+		CollisionData collisionData;
+
 		RectangleCollider* col1 = dynamic_cast<RectangleCollider*>(collider1);
 		RectangleCollider* col2 = dynamic_cast<RectangleCollider*>(collider2);
 
@@ -20,21 +22,19 @@ namespace G1 {
 					oneNewColliderPosition(col1, rb1->getVelocity(), col2)
 				);// TODO: get top parent?
 
-				calculateVelocityDirection(g1, rb1, NULL, NULL);
-				calculateVelocityDirection(g2, rb2, NULL, NULL);
+				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, NULL, NULL));
+				applyNewVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, NULL, NULL));
 
 				return CollisionCheck::CALCULATED;
 			}
 
 			// Dynamic x Static
 			if (rb1 && !rb2) {
-
 				col1->getParent()->setPosition(
 					oneNewColliderPosition(col1, rb1->getVelocity(), col2)
 					);// TODO: get top parent?
 
-				calculateVelocityDirection(g1, rb1, NULL, NULL);
-
+				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, NULL, NULL));
 				return CollisionCheck::CALCULATED;
 			}// Static x Dynamic
 			else if (!rb1 && rb2) {
@@ -42,7 +42,7 @@ namespace G1 {
 					oneNewColliderPosition(col2, rb2->getVelocity(), col1)
 				);// TODO: get top parent?
 				
-				calculateVelocityDirection(g2, rb2, NULL, NULL);
+				applyNewVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, NULL, NULL));
 				return CollisionCheck::CALCULATED;
 			}
 		}
@@ -51,6 +51,8 @@ namespace G1 {
 
 	Vector2 RectangleCollidesRectangle::oneNewColliderPosition(RectangleCollider * rectangleColliderDynamic, Vector2 velocityDynamic, RectangleCollider * rectangleColliderStatic)
 	{
+		Vector2 rectangleColliderDynamicWorldPosition = rectangleColliderDynamic->getWorldPosition();
+
 		Vector2 longVec = rectangleColliderDynamic->getFarthestPointVector() + rectangleColliderStatic->getFarthestPointVector();
 		Vector2 staticColliderPos = rectangleColliderStatic->getWorldPosition();
 
@@ -66,8 +68,8 @@ namespace G1 {
 			Segment(p4, p1)
 		};
 
-		Segment dynamicColliderSegment = Segment(rectangleColliderDynamic->getWorldPosition(),
-			rectangleColliderDynamic->getWorldPosition() - velocityDynamic);
+		Segment dynamicColliderSegment = Segment(rectangleColliderDynamicWorldPosition,
+			rectangleColliderDynamicWorldPosition - velocityDynamic);
 
 		// getting quadrant to limit number of lines used in calculation of new position of the rectangle
 		short quadrant = (rectangleColliderDynamic->getWorldPosition() - rectangleColliderStatic->getWorldPosition()).quadrant();
@@ -76,12 +78,16 @@ namespace G1 {
 		Vector2 tmpCrossPoint;
 		short segmentIndex;
 
+		bool onlyParaller = true;
+
 		// for (int i = quadrant + 3; i <= quadrant + 5; i++) {
 		for (int i = quadrant + 2; i <= quadrant + 3; i++) {
 			segmentIndex = i%segments.size();
-			tmpCrossPoint = Segment::crossPointOfLines(dynamicColliderSegment, segments.at(segmentIndex));
 
-			std::cout << segmentIndex << ".";
+			if (Segment::areParallel(dynamicColliderSegment, segments.at(segmentIndex))) {
+				continue;
+			}
+			tmpCrossPoint = Segment::crossPointOfLines(dynamicColliderSegment, segments.at(segmentIndex));
 
 			if ((tmpCrossPoint - dynamicColliderSegment.getPoint1()).lengthNoSqrt()
 				<
@@ -90,24 +96,59 @@ namespace G1 {
 				sideOfRectangle = SideOfRectangle(segmentIndex);
 				crossPoint = tmpCrossPoint;
 			}
+			onlyParaller = false;
 		}
+
+		if (onlyParaller) {
+			crossPoint = rectangleColliderDynamicWorldPosition;
+			//std::cout << "paraller:";
+		}
+			 
+		//std::cout << (crossPoint).x << ":" << (crossPoint).y << std::endl;
 		return crossPoint;
 	}
 
-	void RectangleCollidesRectangle::calculateVelocityDirection(GameObject * gameObject1, Rigidbody * rigidbody1, GameObject * gameObject2, Rigidbody * rigidbody2)
+	Vector2 RectangleCollidesRectangle::calculateVelocityDirection(GameObject * gameObject1, Rigidbody * rigidbody1, GameObject * gameObject2, Rigidbody * rigidbody2)
 	{
+		Vector2 vec;
 		switch (sideOfRectangle)
 		{
-		case SideOfRectangle::Down:
-		case SideOfRectangle::Up:
-			rigidbody1->setVelocity(rigidbody1->getVelocity().invertY());
-			break;
-		case SideOfRectangle::Right:
-		case SideOfRectangle::Left:
-			rigidbody1->setVelocity(rigidbody1->getVelocity().invertX());
-			break;
+		case SideOfRectangle::Down: {
+			// velocity allready pointing up, so dont change direction
+			if (rigidbody1->getVelocity().y <= 0) {
+				vec = rigidbody1->getVelocity();
+			}
+			else {
+				vec = rigidbody1->getVelocity().invertY();
+			}
+		} break;
+		case SideOfRectangle::Up: {
+			if (rigidbody1->getVelocity().y >= 0) {
+				vec = rigidbody1->getVelocity();
+			}
+			else {
+				vec = rigidbody1->getVelocity().invertY();
+			}
+		} break;
+		case SideOfRectangle::Right: {
+			if (rigidbody1->getVelocity().x >= 0) {
+				vec = rigidbody1->getVelocity();
+			}
+			else {
+				vec = rigidbody1->getVelocity().invertX();
+			}
+		} break;
+		case SideOfRectangle::Left: {
+			if (rigidbody1->getVelocity().x <= 0) {
+				vec = rigidbody1->getVelocity();
+			}
+			else {
+				vec = rigidbody1->getVelocity().invertX();
+			}
+		} break;
 		} 
 		sideOfRectangle = SideOfRectangle::Undefined;
+		return vec;
 	}
 
 	RectangleCollidesRectangle::~RectangleCollidesRectangle()

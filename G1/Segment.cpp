@@ -10,6 +10,15 @@ namespace G1 {
 		//this->point2 = point2;
 	}
 
+	bool Segment::areParallel(const Segment & segment1, const Segment & segment2) {
+		float A = segment1.point1.y - segment1.point2.y;
+		float A2 = segment2.point1.y - segment2.point2.y;
+		float B = segment1.point2.x - segment1.point1.x;
+		float B2 = segment2.point2.x - segment2.point1.x;
+
+		return A*B2 == A2*B;
+	}
+
 	Vector2 Segment::crossPointOfLines(const Segment & segment1, const Segment & segment2)
 	{
 		// line going thru points of the dynamic collider

@@ -48,7 +48,7 @@ namespace G1 {
 
 	bool GameObject::inLayer(int layer)
 	{
-		return (layer & this->layer) != 0;
+		return (layer & static_cast<int>(this->layer)) != 0;
 	}
 
 	bool GameObject::isLayer(Layer layer)

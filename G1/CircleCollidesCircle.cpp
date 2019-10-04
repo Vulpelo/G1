@@ -59,8 +59,8 @@ namespace G1 {
 					oneNewColliderPosition(circle1, rb1->getVelocity(), circle2)
 				);
 
-				calculateVelocityDirection(g1, rb1, g2, NULL);
-				calculateVelocityDirection(g2, rb2, g1, NULL);
+				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, g2, NULL));
+				applyNewVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, g1, NULL));
 
 				return CollisionCheck::CALCULATED;
 			}
@@ -71,8 +71,7 @@ namespace G1 {
 				circle1->getParent()->setPosition(
 					oneNewColliderPosition(circle1, rb1->getVelocity(), circle2)
 				);
-
-				calculateVelocityDirection(g1, rb1, g2, NULL);
+				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, g2, NULL));
 				return CollisionCheck::CALCULATED;
 			}
 			// Static x Dynamic
@@ -82,7 +81,7 @@ namespace G1 {
 					oneNewColliderPosition(circle2, rb2->getVelocity(), circle1)
 				);
 
-				calculateVelocityDirection(g2, rb2, g1, NULL);
+				applyNewVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, g1, NULL));
 				return CollisionCheck::CALCULATED;
 			}
 		}
@@ -94,11 +93,11 @@ namespace G1 {
 	{
 	}
 
-	void CircleCollidesCircle::calculateVelocityDirection(GameObject * gameObject1, Rigidbody * rigidbody1, GameObject * gameObject2, Rigidbody * rigidbody2)
+	Vector2 CircleCollidesCircle::calculateVelocityDirection(GameObject * gameObject1, Rigidbody * rigidbody1, GameObject * gameObject2, Rigidbody * rigidbody2)
 	{
 		Vector2 Vsoj = (gameObject1->getWorldPosition() - gameObject2->getWorldPosition()).normalize();
 		Vector2 Vso = Vsoj * (rigidbody1->getVelocity() * Vsoj);
-		rigidbody1->setVelocity(rigidbody1->getVelocity() - (Vso * 2));
+		return rigidbody1->getVelocity() - (Vso * 2);
 	}
 
 

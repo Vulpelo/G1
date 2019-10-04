@@ -8,7 +8,8 @@ namespace G1 {
 		controlInput->setRenderWindow(render.getWindow());
 
 		//DO GRY
-		GameMap *map = new Map001();
+		//GameMap *map = new Map001();
+		GameMap *map = new MapPlatformer01();
 		MapManager::loadMap(map);
 	}
 

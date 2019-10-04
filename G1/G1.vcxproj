@@ -136,9 +136,13 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionCalculation.cpp" />
+    <ClCompile Include="Ground01.cpp" />
+    <ClCompile Include="MapPlatformer01.cpp" />
     <ClCompile Include="Overlapping.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
+    <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="PlatformerPlayer.cpp" />
     <ClCompile Include="RectangleCollider.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ControlInput.cpp" />
@@ -165,6 +169,7 @@
     <ClCompile Include="RectangleRenderer.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Rigidbody.cpp" />
+    <ClCompile Include="RigidbodyPhysics.cpp" />
     <ClCompile Include="Segment.cpp" />
     <ClCompile Include="SimpleShape.cpp" />
     <ClCompile Include="Time.cpp" />
@@ -182,10 +187,14 @@
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionCalculation.h" />
+    <ClInclude Include="Ground01.h" />
+    <ClInclude Include="MapPlatformer01.h" />
     <ClInclude Include="Overlapping.h" />
     <ClInclude Include="OverlappingCheck.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="CollisionDetection.h" />
+    <ClInclude Include="Physics.h" />
+    <ClInclude Include="PlatformerPlayer.h" />
     <ClInclude Include="RectangleCollider.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Debug.h" />
@@ -212,7 +221,9 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RectangleRenderer.h" />
     <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Rigidbody.h" />
+    <ClInclude Include="RigidbodyPhysics.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="SimpleShape.h" />
     <ClInclude Include="Layer.h" />

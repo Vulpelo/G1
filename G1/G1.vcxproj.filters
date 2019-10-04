@@ -118,6 +118,12 @@
     <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision\RectangleCollidesRectangle">
       <UniqueIdentifier>{79dbb48f-73fa-49e8-aae4-36e66478dbe6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\G1Game\Maps">
+      <UniqueIdentifier>{e4166e47-12ea-4613-a4c8-aa9b80c6acaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\Maps">
+      <UniqueIdentifier>{ce10a441-fd06-439b-a205-f490206dc644}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -167,9 +173,6 @@
     </ClCompile>
     <ClCompile Include="Vector2.cpp">
       <Filter>Source Files\Engine\GMath</Filter>
-    </ClCompile>
-    <ClCompile Include="Map001.cpp">
-      <Filter>Source Files\G1Game</Filter>
     </ClCompile>
     <ClCompile Include="GameObject001.cpp">
       <Filter>Source Files\G1Game</Filter>
@@ -246,8 +249,26 @@
     <ClCompile Include="CircleCollidesCircle.cpp">
       <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="RectangleCollidesRectangle.cpp">
+    <ClCompile Include="Map001.cpp">
+      <Filter>Source Files\G1Game\Maps</Filter>
+    </ClCompile>
+    <ClCompile Include="MapPlatformer01.cpp">
+      <Filter>Source Files\G1Game\Maps</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground01.cpp">
+      <Filter>Source Files\G1Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformerPlayer.cpp">
+      <Filter>Source Files\G1Game</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidbodyPhysics.cpp">
       <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleCollidesRectangle.cpp">
+      <Filter>Source Files\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source Files\Engine\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,9 +325,6 @@
     </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Header Files\Engine\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Map001.h">
-      <Filter>Header Files\G1Game</Filter>
     </ClInclude>
     <ClInclude Include="GameObject001.h">
       <Filter>Header Files\G1Game</Filter>
@@ -394,6 +412,27 @@
     </ClInclude>
     <ClInclude Include="RectangleCollidesRectangle.h">
       <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Map001.h">
+      <Filter>Header Files\G1Game\Maps</Filter>
+    </ClInclude>
+    <ClInclude Include="MapPlatformer01.h">
+      <Filter>Header Files\G1Game\Maps</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground01.h">
+      <Filter>Header Files\G1Game</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformerPlayer.h">
+      <Filter>Header Files\G1Game</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidbodyPhysics.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Header Files\Engine\Physics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

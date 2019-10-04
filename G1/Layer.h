@@ -3,7 +3,7 @@
 #ifndef _LAYER_H_
 #define _LAYER_H_
 
-enum Layer {
+enum class Layer {
 	DEFAULT = 1,
 	PLAYER = 2,
 	ENEMY = 4,
@@ -35,7 +35,11 @@ enum Layer {
 	LAYER29 = 268435456,
 	LAYER30 = 536870912,
 	LAYER31 = 1073741824,
-	LAYER32 = 2147483648
+	LAYER32 = 1 << 31
+};
+
+enum class LayerGroups {
+	ALL_LAYERS = -1
 };
 
 #endif // !_LAYER_H_

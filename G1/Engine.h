@@ -12,7 +12,9 @@
 
 
 // for game
+#include "MapPlatformer01.h"
 #include "Map001.h"
+//
 
 namespace G1 {
 

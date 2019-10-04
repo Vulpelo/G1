@@ -24,6 +24,13 @@ namespace G1 {
 		velocity = velocity + force;
 	}
 
+	void Rigidbody::setDrag(float drag)
+	{ 
+		if (drag < 0) this->drag = 0.0f; 
+		else if (drag > 1.0f) this->drag = 1.f; 
+		else this->drag = drag; 
+	}
+
 	Vector2 Rigidbody::getVelocity()
 	{
 		return velocity;

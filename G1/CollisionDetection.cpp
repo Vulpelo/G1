@@ -2,11 +2,18 @@
 
 namespace G1 {
 
+	std::vector<Overlapping*> CollisionDetection::collisionTypes = { 
+		new CircleOverlapsCircle(),
+		new CircleOverlapsRectangle(),
+		new RectangleOverlapsRectangle()
+	};
+
+
 	CollisionDetection::CollisionDetection()
 	{
-		collisionTypes.push_back(new CircleOverlapsCircle());
-		collisionTypes.push_back(new CircleOverlapsRectangle());
-		collisionTypes.push_back(new RectangleOverlapsRectangle());
+		//collisionTypes.push_back(new CircleOverlapsCircle());
+		//collisionTypes.push_back(new CircleOverlapsRectangle());
+		//collisionTypes.push_back(new RectangleOverlapsRectangle());
 	}
 
 	void CollisionDetection::checkCollisions()
@@ -72,8 +79,5 @@ namespace G1 {
 		return check;
 	}
 
-	CollisionDetection::~CollisionDetection()
-	{
-	}
 
 }

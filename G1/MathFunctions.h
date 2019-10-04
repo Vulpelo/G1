@@ -6,6 +6,8 @@
 #include "MathVariables.h"
 #include "Vector2.h"
 
+using namespace G1;
+
 namespace GMath
 {
 	float twoPointsDistance(float X1, float Y1, float X2, float Y2);
