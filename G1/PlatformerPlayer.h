@@ -23,6 +23,8 @@ class PlatformerPlayer :
 	bool toJump = false;
 	float jumpForce{ 10.f };
 
+	Collider* crouchCollider = NULL;
+
 	float shootingSpeed = 1.f;
 	float a_shootingSpeed = 0.2f;
 	bool s_keyPressed = false;

@@ -8,9 +8,15 @@ MapPlatformer01::MapPlatformer01()
 
 		objects.push_back(o);
 	}
-	{
+	{ // ground
 		Ground01* o = new Ground01(1000, 50);
 		o->setTransform(Transform(500, 800, 0));
+
+		objects.push_back(o);
+	}
+	{// floating block
+		Ground01* o = new Ground01(50, 50);
+		o->setTransform(Transform(500, 700, 0));
 
 		objects.push_back(o);
 	}

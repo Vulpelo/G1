@@ -9,9 +9,13 @@ void PlatformerPlayer::beginPlay() {
 
 	c = *ControlInput::getInstantiate();
 
-	auto collidor = new RectangleCollider(40, 80);
+	auto collidor = new RectangleCollider(40, 40, 0, 20);
 	collidor->setOverlappable(false);
 	addComponent(collidor);
+
+	crouchCollider = new RectangleCollider(40, 40, 0, -20);
+	crouchCollider->setOverlappable(false);
+	addComponent(crouchCollider);
 
 	addComponent(rend);
 	addComponent(rb);
@@ -66,6 +70,13 @@ void PlatformerPlayer::movement() {
 	}
 	else if (c.keyUp(sf::Keyboard::Key::Up)) {
 		rb->addForce(Vector2::up() * jumpForce);
+	}
+
+	if (c.keyDown(sf::Keyboard::Key::Down)) {
+		crouchCollider->setEnabled(false);
+	}
+	else if (c.keyUp(sf::Keyboard::Key::Down)) {
+		crouchCollider->setEnabled(true);
 	}
 }
 

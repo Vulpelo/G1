@@ -35,6 +35,8 @@ namespace G1 {
 		bool overlappingFunNotFired1 = true;
 		bool overlappingFunNotFired2 = true;
 
+		bool collisionNotCalculated = true;
+
 		for each (Collider* collider1 in components1)
 		{
 			if (collider1->isEnabled()) {
@@ -52,10 +54,11 @@ namespace G1 {
 								gameObject2->addNewOverlapingObject(gameObject1);
 							}
 
-							if (!collider1->isOverlappable() && !collider2->isOverlappable()) {
+							if (collisionNotCalculated && !collider1->isOverlappable() && !collider2->isOverlappable()) {
 								collisionCallculation.doCalculation(collider1, collider2);
 								gameObject1->isColliding(gameObject2);
 								gameObject2->isColliding(gameObject1);
+								collisionNotCalculated = false;
 							}
 
 						}
