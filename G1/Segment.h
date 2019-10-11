@@ -25,6 +25,7 @@ namespace G1 {
 		/// </summary>
 		static Vector2 crossPointOfLines(const Segment& segment1, const Segment& segment2);
 		static bool Segment::areParallel(const Segment & segment1, const Segment & segment2);
+		bool pointOnSegment(const Vector2& point) const;
 	};
 
 }

@@ -19,6 +19,27 @@ namespace G1 {
 		return A*B2 == A2*B;
 	}
 
+	bool Segment::pointOnSegment(const Vector2 & point) const
+	{
+		if (
+			(point1.x >= point.x && point.x >= point2.x &&
+				point1.y >= point.y && point.y >= point2.y)
+			||
+			(point1.x <= point.x && point.x <= point2.x &&
+				point1.y >= point.y && point.y >= point2.y)
+			||
+			(point1.x >= point.x && point.x >= point2.x &&
+				point1.y <= point.y && point.y <= point2.y)
+			||
+			(point1.x <= point.x && point.x <= point2.x &&
+				point1.y <= point.y && point.y <= point2.y)
+			) 
+		{
+			return true;
+		}
+		return false;
+	}
+
 	Vector2 Segment::crossPointOfLines(const Segment & segment1, const Segment & segment2)
 	{
 		// line going thru points of the dynamic collider

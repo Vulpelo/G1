@@ -3,15 +3,22 @@
 #include "Rigidbody.h"
 #include "RectangleRenderer.h"
 #include "RectangleCollider.h"
+#include "Sprite.h"
 
 #include "GameObject002_Bullet.h"
 #include "Physics.h"
+
+#include "resource.h"
 
 using namespace G1;
 
 class PlatformerPlayer :
 	public GameObject
 {
+	sf::Texture texture;
+
+
+
 	Vector2 actualMoveVelocity;
 	Vector2 targetMoveVelocity;
 	float maxSpeed = 100.f;

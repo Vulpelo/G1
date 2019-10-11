@@ -5,6 +5,7 @@
 
 #include "Component.h"
 #include <SFML\Graphics.hpp>
+#include <SFML\Graphics\Sprite.hpp>
 
 namespace G1 {
 

@@ -173,6 +173,7 @@
     <ClCompile Include="RigidbodyPhysics.cpp" />
     <ClCompile Include="Segment.cpp" />
     <ClCompile Include="SimpleShape.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Transformable.cpp" />
     <ClCompile Include="Vector2.cpp" />
@@ -228,10 +229,14 @@
     <ClInclude Include="Segment.h" />
     <ClInclude Include="SimpleShape.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Transformable.h" />
     <ClInclude Include="Vector2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\SpritesSkeleton.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

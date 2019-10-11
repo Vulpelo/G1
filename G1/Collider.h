@@ -21,6 +21,11 @@ namespace G1 {
 
 		Combine frictionCombine = Combine::AVERAGE;
 		Combine bouncyCombine = Combine::MAXIMUM;
+
+		PhysicMaterial() {}
+
+		PhysicMaterial(float friction, float bounciness)
+			: friction(friction), bounciness(bounciness) {}
 	};
 
 	class Collider : public Component, public Transformable

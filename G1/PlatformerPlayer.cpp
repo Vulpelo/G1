@@ -15,8 +15,16 @@ void PlatformerPlayer::beginPlay() {
 
 	crouchCollider = new RectangleCollider(40, 40, 0, -20);
 	crouchCollider->setOverlappable(false);
-	addComponent(crouchCollider);
 
+	if (!texture.loadFromFile("D:\\Dokumenty\\Projects\\Programowanie\\C++\\G1\\cat.jpeg")) {
+		int ass = 1;
+		std::cout << "sth is wrong\n";
+	}
+	
+	auto rendTex = new Sprite(texture, Vector2(100, 100));
+
+	addComponent(rendTex);
+	addComponent(crouchCollider);
 	addComponent(rend);
 	addComponent(rb);
 
@@ -70,6 +78,11 @@ void PlatformerPlayer::movement() {
 	}
 	else if (c.keyUp(sf::Keyboard::Key::Up)) {
 		rb->addForce(Vector2::up() * jumpForce);
+	}
+
+	if (c.isKeyDown(sf::Keyboard::Key::Down)) {
+		Vector2 v(rb->getVelocity().x, 100.f);
+		rb->setVelocity(v);
 	}
 
 	if (c.keyDown(sf::Keyboard::Key::Down)) {

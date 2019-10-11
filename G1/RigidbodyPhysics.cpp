@@ -24,7 +24,7 @@ namespace G1 {
 
 
 		/* Bounce */ 
-		Vector2 bounceVec = (rb1.getVelocity() + newVelocityDirection) / 2.0f * calculateCombineValue(pM1.bounciness, pM2.bounciness, pM1.bouncyCombine);
+		Vector2 bounceVec = (rb1.getVelocity().invert() + newVelocityDirection) / 2.0f * calculateCombineValue(pM1.bounciness, pM2.bounciness, pM1.bouncyCombine);
 		//float bounceLen = (bounceVec * newVelocityDirection);
 		//bounceLen *= calculateCombineValue(pM1.bounciness, pM2.bounciness, pM1.bouncyCombine);
 
@@ -32,7 +32,6 @@ namespace G1 {
 		Vector2 frictionVec = (rb1.getVelocity() + newVelocityDirection) / 2.0f * (1.f - calculateCombineValue(pM1.friction, pM2.friction, pM1.frictionCombine));
 		//float frictionLen = (frictionVec * newVelocityDirection);
 		//frictionLen *= calculateCombineValue(pM1.friction, pM2.friction, pM1.frictionCombine);
-
 
 		rb1.setVelocity(bounceVec + frictionVec);
 	}
@@ -60,6 +59,5 @@ namespace G1 {
 
 		/* Drag */
 		rigidbody.setVelocity (rigidbody.getVelocity() - rigidbody.getVelocity() * rigidbody.getDrag());
-
 	}
 }
