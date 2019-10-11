@@ -16,20 +16,17 @@ void PlatformerPlayer::beginPlay() {
 	crouchCollider = new RectangleCollider(40, 40, 0, -20);
 	crouchCollider->setOverlappable(false);
 
-	if (!texture.loadFromFile("D:\\Dokumenty\\Projects\\Programowanie\\C++\\G1\\cat.jpeg")) {
-		int ass = 1;
-		std::cout << "sth is wrong\n";
+	if (!texture.loadFromFile("./assets/spritesheets/player-idle.png")) {
+		int ass = 155;
 	}
 	
-	auto rendTex = new Sprite(texture, Vector2(100, 100));
+	auto rendTex = new Sprite(texture, Vector2(33, 32));
 
-	addComponent(rendTex);
-	addComponent(crouchCollider);
 	addComponent(rend);
-	addComponent(rb);
+	addComponent(rendTex);
 
-	auto tmp = getComponents<Collider>();
-	tmp.pop_back();
+	addComponent(crouchCollider);
+	addComponent(rb);
 }
 
 void PlatformerPlayer::eventTick() {

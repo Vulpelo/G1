@@ -19,7 +19,7 @@ namespace G1 {
 
 		Sprite(const sf::Texture& texture, const Vector2& imageSize, const Vector2& startPosition);
 
-		void setTexture(sf::Texture texture);
+		void setTexture(const sf::Texture& texture);
 		void setStartPosition(const Vector2& startPosition);
 		void setImageSize(const Vector2& imageSize);
 		
