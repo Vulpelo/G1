@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleCollidesCircle.cpp" />
     <ClCompile Include="CircleCollidesRectangle.cpp" />
@@ -179,6 +180,7 @@
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="CircleCollidesRectangle.h" />
     <ClInclude Include="CollisionCheck.h" />
     <ClInclude Include="Circle.h" />

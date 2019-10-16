@@ -4,6 +4,7 @@
 #include "RectangleRenderer.h"
 #include "RectangleCollider.h"
 #include "Sprite.h"
+#include "Camera.h"
 
 #include "GameObject002_Bullet.h"
 #include "Physics.h"

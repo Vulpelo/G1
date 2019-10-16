@@ -17,7 +17,6 @@ void PlatformerPlayer::beginPlay() {
 	crouchCollider->setOverlappable(false);
 
 	if (!texture.loadFromFile("./assets/spritesheets/player-idle.png")) {
-		int ass = 155;
 	}
 	
 	auto rendTex = new Sprite(texture, Vector2(33, 32));
@@ -27,6 +26,10 @@ void PlatformerPlayer::beginPlay() {
 
 	addComponent(crouchCollider);
 	addComponent(rb);
+
+	Camera* camera = new Camera(Vector2(500, 400));
+	camera->setActive(true);
+	addComponent(camera);
 }
 
 void PlatformerPlayer::eventTick() {

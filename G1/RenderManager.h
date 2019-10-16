@@ -5,8 +5,10 @@
 
 #include <SFML\Graphics.hpp>
 
+#include "Renderer.h"
 #include "Properties.h"
 #include "MapManager.h"
+#include "Camera.h"
 
 namespace G1 {
 

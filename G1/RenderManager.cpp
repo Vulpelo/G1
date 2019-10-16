@@ -22,17 +22,34 @@ namespace G1 {
 
 	void RenderManager::renderGameObjects(std::vector<GameObject*> gameObjects) {
 		for (unsigned int i = 0; i < gameObjects.size(); i++)
-			gameObjects.at(i)->render(window);
+			for each (Renderer* renderer in gameObjects.at(i)->getComponents<Renderer>())
+			{
+				renderer->render(window);
+			}
 	}
 
 	void RenderManager::renderWindow()
 	{
+		sf::FloatRect ff = sf::FloatRect(200.f, 300.f, 400.f, 300.f);
+		ff.left = 200.f;
+		ff.top = 300.f;
+
+		sf::View view(ff);
+		
+		window->setView(view);
+
+
+		for each (Camera* camera  in Camera::getActiveCameras())
+		{
+			auto cc = camera->getView();
+			window->setView(cc);
+		}
+
 		window->clear();
 
 		auto gameObjects = MapManager::get_aMap()->getAllObjects();
 
 		renderGameObjects(gameObjects);
-		//MapManager::get_aMap()->render(window);
 
 		window->display();
 	}
