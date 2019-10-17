@@ -9,27 +9,51 @@ void PlatformerPlayer::beginPlay() {
 
 	c = *ControlInput::getInstantiate();
 
+	/* == COLLIDERS == */
+	/* Setting Collider (will be allways active) */
 	auto collidor = new RectangleCollider(40, 40, 0, 20);
 	collidor->setOverlappable(false);
 	addComponent(collidor);
 
+	/* Setting crouch Collider (will not be enabled when player is crouching) */
 	crouchCollider = new RectangleCollider(40, 40, 0, -20);
 	crouchCollider->setOverlappable(false);
-
-	if (!texture.loadFromFile("./assets/spritesheets/player-idle.png")) {
-	}
-	
-	auto rendTex = new Sprite(texture, Vector2(33, 32));
-
-	addComponent(rend);
-	addComponent(rendTex);
-
 	addComponent(crouchCollider);
-	addComponent(rb);
 
+	
+	/* == SPRITES AND ANIMATION == */
+	/*Loading a texture*/
+	texture.loadFromFile("./assets/spritesheets/player-idle.png");
+	
+	/* Sprite that will be modifyied when animation is playing. Adding it as component */
+	auto renderSprite = new Sprite(texture, Vector2(33, 32));
+	addComponent(renderSprite);
+
+	/* Creating Sprite and assigning the texture to it.
+		This Sprite will be animated */
+	Sprite animationSprite(texture, Vector2(33, 32));
+
+	/* Creating SpriteAnimation and asigning a copy of animationSprite*/
+	auto spriteAnimation1 = new SpriteAnimation(animationSprite);
+
+	/* Creating Animator and adding SpriteAnimation. 
+		Animator will modify 'renderSprite' to make output of SpriteAnimaton visible */
+	auto animator = new Animator(*renderSprite);
+	animator->addAnimation(*spriteAnimation1);
+	addComponent(animator);
+
+
+	/* == CAMERA == */
+	/* Setting Camera Component*/
 	Camera* camera = new Camera(Vector2(500, 400));
 	camera->setActive(true);
 	addComponent(camera);
+
+
+	/* == OTHER COMPONENTS CREATED IN DECLARATION == */
+	/* Adding other components created in class declaration */
+	//addComponent(rend);
+	addComponent(rb);
 }
 
 void PlatformerPlayer::eventTick() {

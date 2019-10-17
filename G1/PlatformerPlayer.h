@@ -3,11 +3,12 @@
 #include "Rigidbody.h"
 #include "RectangleRenderer.h"
 #include "RectangleCollider.h"
-#include "Sprite.h"
 #include "Camera.h"
+#include "Sprite.h"
+#include "Animator.h"
+#include "Physics.h"
 
 #include "GameObject002_Bullet.h"
-#include "Physics.h"
 
 #include "resource.h"
 

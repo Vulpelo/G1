@@ -5,6 +5,8 @@
 namespace G1 {
 
 	class Sprite : public Renderer {
+		friend class SpriteAnimation;
+
 		Vector2 startPosition;
 		Vector2 imageSize;
 
@@ -13,6 +15,8 @@ namespace G1 {
 		sf::Sprite sfSprite;
 
 		void render(sf::RenderWindow * w);
+
+		Sprite() {}
 
 	public:
 		Sprite(const sf::Texture& texture, const Vector2& imageSize);
