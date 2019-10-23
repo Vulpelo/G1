@@ -128,6 +128,11 @@ namespace G1 {
 		return components;
 	}
 
+	/// <summary>
+	/// Adds another component to this GameObject.
+	/// Order of adding components is important for Renderers
+	/// </summary>
+	/// <param name="component"></param>
 	void GameObject::addComponent(Component * component)
 	{
 		components.push_back(component);

@@ -26,20 +26,20 @@ void PlatformerPlayer::beginPlay() {
 	texture.loadFromFile("./assets/spritesheets/player-idle.png");
 	
 	/* Sprite that will be modifyied when animation is playing. Adding it as component */
-	auto renderSprite = new Sprite(texture, Vector2(33, 32));
+	Sprite* renderSprite = new Sprite(texture, Vector2(33, 32));
 	addComponent(renderSprite);
 
 	/* Creating Sprite and assigning the texture to it.
 		This Sprite will be animated */
-	Sprite animationSprite(texture, Vector2(33, 32));
+	Sprite* animationSprite = new Sprite(texture, Vector2(33, 32));
 
 	/* Creating SpriteAnimation and asigning a copy of animationSprite*/
-	auto spriteAnimation1 = new SpriteAnimation(animationSprite);
+	auto spriteAnimation1 = new SpriteAnimation(*animationSprite);
 
 	/* Creating Animator and adding SpriteAnimation. 
 		Animator will modify 'renderSprite' to make output of SpriteAnimaton visible */
 	auto animator = new Animator(*renderSprite);
-	animator->addAnimation(*spriteAnimation1);
+	animator->addAnimation("idle_1", *spriteAnimation1);
 	addComponent(animator);
 
 
@@ -71,8 +71,6 @@ void PlatformerPlayer::eventTick() {
 		grounded = true;
 	}
 
-	//std::cout << grounded << std::endl;
-
 	movement();
 	shapeShift();
 	shooting();
@@ -93,8 +91,8 @@ void PlatformerPlayer::movement() {
 
 	targetMoveVelocity.x *= maxSpeed;
 	targetMoveVelocity.y = rb->getVelocity().y;
-	rb->setVelocity(
-		Vector2::smoothDump(rb->getVelocity(), targetMoveVelocity, actualMoveVelocity, smoothMove)
+	rb->setVelocity(targetMoveVelocity
+//		Vector2::smoothDump(rb->getVelocity(), targetMoveVelocity, actualMoveVelocity, smoothMove)
 	);
 
 	if (grounded && c.keyDown(sf::Keyboard::Key::Up)) {

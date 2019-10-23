@@ -10,11 +10,13 @@ namespace G1 {
 		Sprite sprite;
 
 		// Number of pixels to move by on x axis
-		int pixelJump = 0;
+		int pixelJump = 33;
+		unsigned int amountOfFrames = 3;
+		unsigned int actualFrame = 0;
 
 		float speed = 1.0f;
 
-		float timePerFrame = 0.5f;
+		float timePerFrame = 0.2f;
 		float actualTime = 0.f;
 
 		Sprite actualSpriteFrame();
@@ -32,6 +34,11 @@ namespace G1 {
 		void pause();
 		void stop();
 
+		/// <summary>
+		/// Time after which next frame is going to show up
+		/// </summary>
+		/// <param name="time"></param>
+		void setTimePerFrame(float time) { this->timePerFrame = time; }
 	};
 
 }
