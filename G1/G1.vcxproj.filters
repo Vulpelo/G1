@@ -124,6 +124,15 @@
     <Filter Include="Header Files\G1Game\Maps">
       <UniqueIdentifier>{ce10a441-fd06-439b-a205-f490206dc644}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Rendering\Animation">
+      <UniqueIdentifier>{2899a624-a07a-4f26-b241-e4361d7649f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\G1Game\Animation">
+      <UniqueIdentifier>{33586fbf-b75a-47e5-9e7c-58ece39e15e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\Animation">
+      <UniqueIdentifier>{5c5f412a-3f1f-4535-aa17-24c30ddb0045}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -277,10 +286,10 @@
       <Filter>Source Files\Engine\Components</Filter>
     </ClCompile>
     <ClCompile Include="Animator.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="SpriteAnimation.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine\Rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -453,10 +462,13 @@
       <Filter>Header Files\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="Animator.h">
-      <Filter>Header Files\Engine\Rendering</Filter>
+      <Filter>Header Files\Engine\Rendering\Animation</Filter>
     </ClInclude>
     <ClInclude Include="SpriteAnimation.h">
-      <Filter>Header Files\Engine\Rendering</Filter>
+      <Filter>Header Files\Engine\Rendering\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAnimator.h">
+      <Filter>Header Files\G1Game\Animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

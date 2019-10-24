@@ -11,7 +11,7 @@ namespace G1 {
 
 		// Number of pixels to move by on x axis
 		int pixelJump = 33;
-		unsigned int amountOfFrames = 3;
+		unsigned int amountOfFrames = 1;
 		unsigned int actualFrame = 0;
 
 		float speed = 1.0f;
@@ -21,14 +21,15 @@ namespace G1 {
 
 		Sprite actualSpriteFrame();
 
-		SpriteAnimation() {}
 
 	public:
+		SpriteAnimation() {}
+
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="sprite">Sprite that will be animated</param>
-		SpriteAnimation(const Sprite& sprite) { this->sprite = sprite; }
+		SpriteAnimation(const Sprite& sprite) { this->sprite = sprite; pixelJump = sprite.getImageSize().x; }
 
 		void play();
 		void pause();
@@ -39,6 +40,17 @@ namespace G1 {
 		/// </summary>
 		/// <param name="time"></param>
 		void setTimePerFrame(float time) { this->timePerFrame = time; }
+
+		void setAmountOfFrames(unsigned int amount) { this->amountOfFrames = amount; };
+
+		/// <summary>
+		/// Amount of pixels that animation need to move for the next frame.
+		/// By default pixel jump equals sprite's width.
+		/// </summary>
+		/// <param name="pixelJump"></param>
+		void setPixelJump(int pixelJump) { this->pixelJump = pixelJump; }
+
+		void setProperties(float timePerFrame, unsigned int amountOfFrames, int pixelJump=0);
 	};
 
 }

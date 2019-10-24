@@ -5,7 +5,7 @@ namespace G1 {
 	void Animator::mainEventTick()
 	{
 		auto parentTmp = sprite->getParent();
-		*sprite = states.at(actualState).spriteAnimation.actualSpriteFrame();
+		*sprite = states.at(actualState).nextFrame(this);
 		sprite->setParent(parentTmp);
 	}
 
@@ -14,7 +14,7 @@ namespace G1 {
 			actualState = name;
 		}
 
-		AnimationState animState(animation);
+		AnimationState animState(animation, [](Animator*) {});
 		states.insert({ name, std::move(animState)});
 	}
 
@@ -25,7 +25,7 @@ namespace G1 {
 		states.insert({ name, animation});
 	}
 
-	void Animator::setStartState(const std::string& stateName) {
+	void Animator::setState(const std::string& stateName) {
 		this->actualState = stateName;
 	}
 

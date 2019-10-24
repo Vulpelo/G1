@@ -5,10 +5,10 @@
 #include "RectangleCollider.h"
 #include "Camera.h"
 #include "Sprite.h"
-#include "Animator.h"
 #include "Physics.h"
 
 #include "GameObject002_Bullet.h"
+#include "PlayerAnimator.h"
 
 #include "resource.h"
 
@@ -19,7 +19,7 @@ class PlatformerPlayer :
 {
 	sf::Texture texture;
 
-
+	Animator* animator;
 
 	Vector2 actualMoveVelocity;
 	Vector2 targetMoveVelocity;

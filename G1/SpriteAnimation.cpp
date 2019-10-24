@@ -18,4 +18,13 @@ namespace G1 {
 		return sprite;
 	}
 
+	void SpriteAnimation::setProperties(float timePerFrame, unsigned int amountOfFrames, int pixelJump)
+	{
+		setTimePerFrame(timePerFrame);
+		setAmountOfFrames(amountOfFrames);
+		if (pixelJump != 0) {
+			setPixelJump(pixelJump);
+		}
+	}
+
 }

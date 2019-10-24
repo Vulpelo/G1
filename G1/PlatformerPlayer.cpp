@@ -22,24 +22,14 @@ void PlatformerPlayer::beginPlay() {
 
 	
 	/* == SPRITES AND ANIMATION == */
-	/*Loading a texture*/
-	texture.loadFromFile("./assets/spritesheets/player-idle.png");
-	
 	/* Sprite that will be modifyied when animation is playing. Adding it as component */
 	Sprite* renderSprite = new Sprite(texture, Vector2(33, 32));
 	addComponent(renderSprite);
 
-	/* Creating Sprite and assigning the texture to it.
-		This Sprite will be animated */
-	Sprite* animationSprite = new Sprite(texture, Vector2(33, 32));
+	/* Creating Animator and adding renderSprite. 
+		Animator will use 'renderSprite' as an output of SpriteAnimaton */
 
-	/* Creating SpriteAnimation and asigning a copy of animationSprite*/
-	auto spriteAnimation1 = new SpriteAnimation(*animationSprite);
-
-	/* Creating Animator and adding SpriteAnimation. 
-		Animator will modify 'renderSprite' to make output of SpriteAnimaton visible */
-	auto animator = new Animator(*renderSprite);
-	animator->addAnimation("idle_1", *spriteAnimation1);
+	animator = new PlayerAnimator(*renderSprite);
 	addComponent(animator);
 
 
@@ -81,12 +71,15 @@ void PlatformerPlayer::eventTick() {
 void PlatformerPlayer::movement() {
 	if (c.isKeyDown(sf::Keyboard::Key::Right)) {
 		targetMoveVelocity = Vector2::right();
+		animator->setVariable("running", true);
 	}
 	else if (c.isKeyDown(sf::Keyboard::Key::Left)) {
 		targetMoveVelocity = Vector2::left();
+		animator->setVariable("running", true);
 	}
 	else {
 		targetMoveVelocity.set(0, 0);
+		animator->setVariable("running", false);
 	}
 
 	targetMoveVelocity.x *= maxSpeed;

@@ -2,8 +2,8 @@
 
 #include "SpriteAnimation.h"
 #include "Component.h"
-#include <map>
 
+#include <map>
 
 namespace G1 {
 
@@ -11,34 +11,42 @@ namespace G1 {
 	class Animator : public Component {
 		friend class RenderManager;
 
+	protected:
 		struct AnimationState {
+			//virtual SpriteAnimation changeConditions(const Animator& animator) {};
+			void(*fun)(Animator* animator) = [](Animator* animator) {};
+
 			// Animation that is being played in this state
 			SpriteAnimation spriteAnimation;
 
+			AnimationState() {}
 			AnimationState(const SpriteAnimation& animation) { this->spriteAnimation = animation; };
+			
+			template<typename T>
+			AnimationState(const SpriteAnimation& animation, T&& conditionHandler) { 
+				this->spriteAnimation = animation; 
+				fun = conditionHandler;
+			};
+			
 			// Checking all defined conditions
-			//virtual SpriteAnimation changeConditions(const Animator& animator) {};
+			Sprite nextFrame(Animator* animator) {
+				fun(animator);
+				return spriteAnimation.actualSpriteFrame();
+			}
 		};
-
+	private:
 		std::map<std::string, AnimationState> states;
 		std::string actualState;
-
-		struct Transition {
-			SpriteAnimation targetAnimation;
-			virtual SpriteAnimation changeConditions(const Animator& animator) = 0;
-		};
-
-		Transition* transition;
-		SpriteAnimation changeCondition() { transition->changeConditions(*this); }
-
 		
+		std::map<std::string, bool> variableList;
+
 		float speed = 1.f;
 
 		Sprite* sprite;
 
 		void mainEventTick();
-
 	public:
+		Animator() {}
 		/// <summary>
 		/// Animator needs a Sprite (Renderer) component connected to the same GameObject.
 		/// Sprite will be modified to play animations
@@ -46,7 +54,7 @@ namespace G1 {
 		Animator(Sprite& sprite) : Component::Component() { this->sprite = &sprite; }
 
 		/// <summary>
-		/// adds new animation to empty state
+		/// adds new animation to new empty state
 		/// </summary>
 		void addAnimation(const std::string& name, const SpriteAnimation& animation);
 
@@ -59,8 +67,15 @@ namespace G1 {
 		/// First state that will be played on start. 
 		/// (By defalut first playing state will be one added first to Animator)
 		/// </summary>
-		/// <param name=""></param>
-		void setStartState(const std::string& stateName);
+		void setState(const std::string& stateName);
+
+		void setVariable(std::string name, bool value) {
+			variableList.insert_or_assign(name, value);
+		};
+
+		bool getVariable(std::string name) {
+			return variableList.at(name);
+		};
 	};
 
 }

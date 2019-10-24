@@ -16,11 +16,14 @@ namespace G1 {
 
 		void render(sf::RenderWindow * w);
 
-		Sprite() {}
 
 	public:
-		Sprite(const sf::Texture& texture, const Vector2& imageSize);
+		/// <summary>
+		/// Only for declaration as class's variable
+		/// </summary>
+		Sprite() {}
 
+		Sprite(const sf::Texture& texture, const Vector2& imageSize);
 		Sprite(const sf::Texture& texture, const Vector2& imageSize, const Vector2& startPosition);
 
 		void setTexture(const sf::Texture& texture);
@@ -30,6 +33,8 @@ namespace G1 {
 		void setStartPosition(const Vector2& startPosition);
 		
 		void setImageSize(const Vector2& imageSize);
+
+		Vector2 getImageSize() const { return imageSize; }
 		
 		void setColor(sf::Color color);
 	};
