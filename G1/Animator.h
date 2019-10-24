@@ -7,7 +7,6 @@
 
 namespace G1 {
 
-	/* Uses State pattern */
 	class Animator : public Component {
 		friend class RenderManager;
 
@@ -34,17 +33,35 @@ namespace G1 {
 				return spriteAnimation.actualSpriteFrame();
 			}
 		};
+
+		/// <summary> Creates or assings new value to boolean under given name</summary>
+		void addBool(std::string name, bool value) { boolList[name] = value; };
+		/// <summary> Creates or assings new value to float under given name </summary>
+		void addFloat(std::string name, float value) { floatList[name] = value; };
+		/// <summary> Creates or assings new value to integer under given name </summary>
+		void addInt(std::string name, int value) { intList[name] = value; };
+
+		/// <summary>
+		/// adds new animation to new empty state
+		/// </summary>
+		void addAnimation(const std::string& name, const SpriteAnimation& animation);
+		/// <summary> Adds new sate </summary>
+		void addState(const std::string& name, const AnimationState& animation);
+
 	private:
 		std::map<std::string, AnimationState> states;
 		std::string actualState;
 		
-		std::map<std::string, bool> variableList;
+		std::map<std::string, bool> boolList;
+		std::map<std::string, int> intList;
+		std::map<std::string, float> floatList;
 
 		float speed = 1.f;
 
 		Sprite* sprite;
 
 		void mainEventTick();
+
 	public:
 		Animator() {}
 		/// <summary>
@@ -54,28 +71,28 @@ namespace G1 {
 		Animator(Sprite& sprite) : Component::Component() { this->sprite = &sprite; }
 
 		/// <summary>
-		/// adds new animation to new empty state
-		/// </summary>
-		void addAnimation(const std::string& name, const SpriteAnimation& animation);
-
-		/// <summary>
-		/// Adds new sate
-		/// </summary>
-		void addState(const std::string& name, const AnimationState& animation);
-
-		/// <summary>
 		/// First state that will be played on start. 
 		/// (By defalut first playing state will be one added first to Animator)
 		/// </summary>
 		void setState(const std::string& stateName);
 
-		void setVariable(std::string name, bool value) {
-			variableList.insert_or_assign(name, value);
-		};
+		/// <summary>
+		/// Sets value of boolean 
+		/// </summary>
+		void setBool(std::string name, bool value) { boolList.at(name) = value; };
+		bool getBool(std::string name) const { return boolList.at(name); }
 
-		bool getVariable(std::string name) {
-			return variableList.at(name);
-		};
+		/// <summary>
+		/// Sets value of float
+		/// </summary>
+		void setFloat(std::string name, float value) { floatList.at(name) = value; };
+		float getFloat(std::string name) const { return floatList.at(name); }
+
+		/// <summary>
+		/// Sets value of integer
+		/// </summary>
+		void setInt(std::string name, int value) { intList.at(name) = value; };
+		int getInt(std::string name) const { return intList.at(name); }
 	};
 
 }

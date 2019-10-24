@@ -71,15 +71,15 @@ void PlatformerPlayer::eventTick() {
 void PlatformerPlayer::movement() {
 	if (c.isKeyDown(sf::Keyboard::Key::Right)) {
 		targetMoveVelocity = Vector2::right();
-		animator->setVariable("running", true);
+		animator->setBool("running", true);
 	}
 	else if (c.isKeyDown(sf::Keyboard::Key::Left)) {
 		targetMoveVelocity = Vector2::left();
-		animator->setVariable("running", true);
+		animator->setBool("running", true);
 	}
 	else {
 		targetMoveVelocity.set(0, 0);
-		animator->setVariable("running", false);
+		animator->setBool("running", false);
 	}
 
 	targetMoveVelocity.x *= maxSpeed;

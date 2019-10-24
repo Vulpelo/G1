@@ -41,12 +41,12 @@ public:
 
 		/* Creating states*/
 		idleState = AnimationState(idleAnimation, [](Animator* animator)->void {
-			if (animator->getVariable("running")) {
+			if (animator->getBool("running")) {
 				animator->setState("run_1");
 			}
 		});
 		runState = AnimationState(runAnimation, [](Animator* animator)->void {
-			if (! animator->getVariable("running")) {
+			if (! animator->getBool("running")) {
 				animator->setState("idle_1");
 			}
 		});
@@ -56,6 +56,6 @@ public:
 		this->addState("idle_1", idleState);
 		this->addState("run_1", runState);
 
-		setVariable("running", false);
+		addBool("running", false);
 	}
 };
