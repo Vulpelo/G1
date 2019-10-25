@@ -19,7 +19,7 @@ struct Transform
 	Transform(const Vector2& position, const Vector2& scale = Vector2(1, 1), float rotationX = 0) 
 		: position(position), rotationX(rotationX), scale(scale) {}
 
-	Transform(const Vector2& position, float rotationX = 0) 
+	Transform(const Vector2& position, float rotationX) 
 		: position(position), rotationX(rotationX) {}
 };
 

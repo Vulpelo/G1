@@ -34,7 +34,7 @@ public:
 		idleAnimation.setProperties(0.2f, 3);
 
 		runAnimation = SpriteAnimation(runSprite);
-		runAnimation.setProperties(0.2f, 6);
+		runAnimation.setProperties(0.15f, 6);
 
 		fallingAnimation = SpriteAnimation(fallingSprite);
 		fallingAnimation.setProperties(0.5f, 2);

@@ -32,8 +32,6 @@ namespace G1 {
 
 	void Sprite::render(sf::RenderWindow * w)
 	{
-		sfSprite.setTexture(*this->texture);
-
 		Vector2 pos = getWorldPosition();
 		sfSprite.setPosition(pos.x, pos.y);
 		sfSprite.setRotation(getWorldRotation());
