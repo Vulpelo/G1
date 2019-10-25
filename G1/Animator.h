@@ -2,6 +2,7 @@
 
 #include "SpriteAnimation.h"
 #include "Component.h"
+#include "Assets.h"
 
 #include <map>
 
@@ -31,6 +32,10 @@ namespace G1 {
 			Sprite nextFrame(Animator* animator) {
 				fun(animator);
 				return spriteAnimation.actualSpriteFrame();
+			}
+
+			void restart() {
+				spriteAnimation.restart();
 			}
 		};
 

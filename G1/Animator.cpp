@@ -31,6 +31,7 @@ namespace G1 {
 
 	void Animator::setState(const std::string& stateName) {
 		this->actualState = stateName;
+		states.at(actualState).restart();
 	}
 
 }

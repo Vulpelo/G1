@@ -6,6 +6,8 @@
 #include "GameObject.h"
 
 #include "GameObjectsData.h"
+#include "Assets.h"
+
 #include <vector>
 
 #include <SFML\Graphics.hpp>

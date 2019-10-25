@@ -59,7 +59,7 @@ void PlatformerPlayer::eventTick() {
 		s_keyPressed = false;
 	}
 
-	if (Physics::circleOverlaps(getWorldPosition() + Vector2::down() * 15.f, 1.f, static_cast<int>(Layer::GROUND)).empty() ) {
+	if (Physics::circleOverlaps(getWorldPosition() + Vector2::down() * 15.f, 1.5f, static_cast<int>(Layer::GROUND)).empty() ) {
 		grounded = false;
 	}
 	else {
@@ -70,29 +70,20 @@ void PlatformerPlayer::eventTick() {
 	shapeShift();
 	shooting();
 
+	animating();
+
 	std::cout << rb->getVelocity().x << ":" << rb->getVelocity().y << std::endl;
 }
 
 void PlatformerPlayer::movement() {
 	if (c.isKeyDown(sf::Keyboard::Key::Right)) {
 		targetMoveVelocity = Vector2::right();
-		animator->setBool("running", true);
 	}
 	else if (c.isKeyDown(sf::Keyboard::Key::Left)) {
 		targetMoveVelocity = Vector2::left();
-		animator->setBool("running", true);
 	}
-	/*else if (c.isKeyDown(sf::Keyboard::Key::Up)) {
-		targetMoveVelocity = Vector2::up();
-		animator->setBool("running", true);
-	}
-	else if (c.isKeyDown(sf::Keyboard::Key::Down)) {
-		targetMoveVelocity = Vector2::down();
-		animator->setBool("running", true);
-	}*/
 	else {
 		targetMoveVelocity.set(0, 0);
-		animator->setBool("running", false);
 	}
 
 	targetMoveVelocity.x *= maxSpeed;
@@ -104,14 +95,6 @@ void PlatformerPlayer::movement() {
 	if (grounded && c.keyDown(sf::Keyboard::Key::Up)) {
 		rb->addForce(Vector2::up() * jumpForce);
 	}
-	//else if (c.keyUp(sf::Keyboard::Key::Up)) {
-	//	rb->addForce(Vector2::up() * jumpForce);
-	//}
-
-	//if (c.isKeyDown(sf::Keyboard::Key::Down)) {
-	//	Vector2 v(rb->getVelocity().x, 100.f);
-	//	rb->setVelocity(v);
-	//}
 
 	//if (c.keyDown(sf::Keyboard::Key::Down)) {
 	//	crouchCollider->setEnabled(false);
@@ -121,6 +104,30 @@ void PlatformerPlayer::movement() {
 	//}
 }
 
+void PlatformerPlayer::animating() {
+	if (targetMoveVelocity.x > 0) {
+		animator->setBool("running", true);
+		if (!lookingRight) {
+			flip();
+		}
+	}
+	else if (targetMoveVelocity.x < 0) {
+		animator->setBool("running", true);
+		if (lookingRight) {
+			flip();
+		}
+	}
+	else {
+		animator->setBool("running", false);
+	}
+	animator->setBool("grounded", grounded);
+}
+
+void PlatformerPlayer::flip()
+{
+	lookingRight = !lookingRight;
+	setScale(getTransform().scale.x * -1, getTransform().scale.y);
+}
 
 void PlatformerPlayer::shooting() {
 	if (a_shootingSpeed <= 0 && c.isKeyDown(sf::Keyboard::Key::Space)) {

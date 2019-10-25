@@ -12,6 +12,11 @@ namespace G1 {
 		actualTime = actualTime - jumps*timePerFrame;
 
 		actualFrame = (jumps + actualFrame) % amountOfFrames;
+		
+		if (!looping && (jumps + actualFrame) >= amountOfFrames-1) {
+			actualFrame = amountOfFrames - 1;
+		}
+		
 		pos.x = actualFrame * pixelJump;
 
 		sprite.setStartPosition( pos );

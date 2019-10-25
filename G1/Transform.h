@@ -13,13 +13,13 @@ struct Transform
 
 	Transform() {};
 
-	Transform(float x, float y, float rot) 
+	Transform(float x, float y, float rot = 0) 
 		: position(Vector2(x,y)), rotationX(rot), scale(Vector2(1, 1)) {}
 
 	Transform(const Vector2& position, const Vector2& scale = Vector2(1, 1), float rotationX = 0) 
 		: position(position), rotationX(rotationX), scale(scale) {}
 
-	Transform(const Vector2& position, float rotationX) 
+	Transform(const Vector2& position, float rotationX = 0) 
 		: position(position), rotationX(rotationX) {}
 };
 

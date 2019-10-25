@@ -32,6 +32,8 @@ class PlatformerPlayer :
 	bool toJump = false;
 	float jumpForce{ 10.f };
 
+	bool lookingRight = true;
+
 	Collider* crouchCollider = NULL;
 
 	float shootingSpeed = 1.f;
@@ -51,6 +53,9 @@ class PlatformerPlayer :
 	void movement();
 	void shooting();
 	void shapeShift();
+	void animating();
+	void flip();
+
 
 public:
 	void beginPlay();

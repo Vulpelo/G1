@@ -129,6 +129,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="Assets.cpp" />
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleCollidesCircle.cpp" />
@@ -182,6 +184,8 @@
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Assets.h" />
+    <ClInclude Include="Background.h" />
     <ClInclude Include="PlayerAnimator.h" />
     <ClInclude Include="SpriteAnimation.h" />
     <ClInclude Include="Animator.h" />
@@ -241,9 +245,6 @@
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Transformable.h" />
     <ClInclude Include="Vector2.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Resources\SpritesSkeleton.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

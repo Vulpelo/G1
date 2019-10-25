@@ -2,6 +2,7 @@
 #include "GameMap.h"
 #include "Ground01.h"
 #include "PlatformerPlayer.h"
+#include "Background.h"
 
 using namespace G1;
 

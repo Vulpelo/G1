@@ -19,8 +19,9 @@ namespace G1 {
 		float timePerFrame = 0.2f;
 		float actualTime = 0.f;
 
-		Sprite actualSpriteFrame();
+		bool looping = true;
 
+		Sprite actualSpriteFrame();
 
 	public:
 		SpriteAnimation() {}
@@ -31,6 +32,7 @@ namespace G1 {
 		/// <param name="sprite">Sprite that will be animated</param>
 		SpriteAnimation(const Sprite& sprite) { this->sprite = sprite; pixelJump = sprite.getImageSize().x; }
 
+		void restart() { actualFrame = 0.f; actualTime = 0.f; }
 		void play();
 		void pause();
 		void stop();
@@ -49,6 +51,8 @@ namespace G1 {
 		/// </summary>
 		/// <param name="pixelJump"></param>
 		void setPixelJump(int pixelJump) { this->pixelJump = pixelJump; }
+
+		void setLooping(bool looping) { this->looping = looping; }
 
 		void setProperties(float timePerFrame, unsigned int amountOfFrames, int pixelJump=0);
 	};
