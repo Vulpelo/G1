@@ -45,7 +45,7 @@ class PlatformerPlayer :
 
 	ControlInput c;
 
-	Renderer* rend = new RectangleRenderer(40, 80, color1);
+	Renderer* rend = new RectangleRenderer(16, 16, color1);
 	Rigidbody* rb = new Rigidbody();
 
 	void movement();

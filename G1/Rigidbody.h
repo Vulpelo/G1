@@ -13,6 +13,7 @@ namespace G1 {
 	{
 		Vector2 velocity;
 		float drag = 0.0f;
+		Vector2 gravity = Vector2(0.0, 100.0);
 
 	public:
 		Rigidbody();
@@ -33,6 +34,9 @@ namespace G1 {
 		/// Drag value should be between 0.f - 1.f
 		/// </summary>
 		void setDrag(float drag);
+
+		void setGravity(const Vector2& gravity) { this->gravity = gravity; }
+		const Vector2& getGravity() const { return gravity; }
 	};
 
 }

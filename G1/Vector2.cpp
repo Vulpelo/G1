@@ -29,6 +29,11 @@
 		return target;
 	}
 
+	Vector2 Vector2::lerp(const Vector2 & current, const Vector2 & target, float time)
+	{
+		return target + ((target - current) * time);
+	}
+
 	void Vector2::setVectorByAngleAndLength(float angle, float length)
 	{
 		float s = angle * float(M_PI) / 180;

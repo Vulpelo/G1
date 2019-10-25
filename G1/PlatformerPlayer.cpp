@@ -5,18 +5,23 @@
 void PlatformerPlayer::beginPlay() {
 	setLayer(Layer::PLAYER);
 
-	jumpForce = 100.f;
+	jumpForce = 200.f;
 
 	c = *ControlInput::getInstantiate();
 
+	/*rend = new RectangleRenderer(16, 16, color1);
+	rend->setPosition(0.f, 5.f);
+	addComponent(rend);
+*/
+
 	/* == COLLIDERS == */
 	/* Setting Collider (will be allways active) */
-	auto collidor = new RectangleCollider(40, 40, 0, 20);
+	auto collidor = new RectangleCollider(16, 16, 0, 8);
 	collidor->setOverlappable(false);
 	addComponent(collidor);
 
 	/* Setting crouch Collider (will not be enabled when player is crouching) */
-	crouchCollider = new RectangleCollider(40, 40, 0, -20);
+	crouchCollider = new RectangleCollider(16, 6, 0, -3);
 	crouchCollider->setOverlappable(false);
 	addComponent(crouchCollider);
 
@@ -28,7 +33,6 @@ void PlatformerPlayer::beginPlay() {
 
 	/* Creating Animator and adding renderSprite. 
 		Animator will use 'renderSprite' as an output of SpriteAnimaton */
-
 	animator = new PlayerAnimator(*renderSprite);
 	addComponent(animator);
 
@@ -43,6 +47,7 @@ void PlatformerPlayer::beginPlay() {
 	/* == OTHER COMPONENTS CREATED IN DECLARATION == */
 	/* Adding other components created in class declaration */
 	//addComponent(rend);
+	rb->setGravity(Vector2(0.f, 500.f));
 	addComponent(rb);
 }
 
@@ -54,7 +59,7 @@ void PlatformerPlayer::eventTick() {
 		s_keyPressed = false;
 	}
 
-	if (Physics::circleOverlaps(getWorldPosition() + Vector2::down() * 40.f, 1.f, static_cast<int>(Layer::GROUND)).empty() ) {
+	if (Physics::circleOverlaps(getWorldPosition() + Vector2::down() * 15.f, 1.f, static_cast<int>(Layer::GROUND)).empty() ) {
 		grounded = false;
 	}
 	else {
@@ -77,6 +82,14 @@ void PlatformerPlayer::movement() {
 		targetMoveVelocity = Vector2::left();
 		animator->setBool("running", true);
 	}
+	/*else if (c.isKeyDown(sf::Keyboard::Key::Up)) {
+		targetMoveVelocity = Vector2::up();
+		animator->setBool("running", true);
+	}
+	else if (c.isKeyDown(sf::Keyboard::Key::Down)) {
+		targetMoveVelocity = Vector2::down();
+		animator->setBool("running", true);
+	}*/
 	else {
 		targetMoveVelocity.set(0, 0);
 		animator->setBool("running", false);
@@ -91,21 +104,21 @@ void PlatformerPlayer::movement() {
 	if (grounded && c.keyDown(sf::Keyboard::Key::Up)) {
 		rb->addForce(Vector2::up() * jumpForce);
 	}
-	else if (c.keyUp(sf::Keyboard::Key::Up)) {
-		rb->addForce(Vector2::up() * jumpForce);
-	}
+	//else if (c.keyUp(sf::Keyboard::Key::Up)) {
+	//	rb->addForce(Vector2::up() * jumpForce);
+	//}
 
-	if (c.isKeyDown(sf::Keyboard::Key::Down)) {
-		Vector2 v(rb->getVelocity().x, 100.f);
-		rb->setVelocity(v);
-	}
+	//if (c.isKeyDown(sf::Keyboard::Key::Down)) {
+	//	Vector2 v(rb->getVelocity().x, 100.f);
+	//	rb->setVelocity(v);
+	//}
 
-	if (c.keyDown(sf::Keyboard::Key::Down)) {
-		crouchCollider->setEnabled(false);
-	}
-	else if (c.keyUp(sf::Keyboard::Key::Down)) {
-		crouchCollider->setEnabled(true);
-	}
+	//if (c.keyDown(sf::Keyboard::Key::Down)) {
+	//	crouchCollider->setEnabled(false);
+	//}
+	//else if (c.keyUp(sf::Keyboard::Key::Down)) {
+	//	crouchCollider->setEnabled(true);
+	//}
 }
 
 

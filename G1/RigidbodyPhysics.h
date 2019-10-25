@@ -12,7 +12,7 @@ namespace G1 {
 		friend class PhysicsManager;
 		friend class Collision;
 
-		float gravity = 0.4f;
+		float gravityMultiplier = 1.f;
 
 		RigidbodyPhysics() {};
 		void applyForcesBeforeCollision() const;

@@ -106,15 +106,6 @@
     <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision">
       <UniqueIdentifier>{35e3b574-6cc5-4f76-abe7-1486d556275c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle">
-      <UniqueIdentifier>{6a4cdf00-f5cf-4eb0-a236-732abff7b2fe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision\RectangleCollidesRectangle">
-      <UniqueIdentifier>{59226d4f-77d1-4591-9e60-7a9511de03a0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesRectangle">
-      <UniqueIdentifier>{426691b4-526d-411e-b1cd-036a25b389de}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision\RectangleCollidesRectangle">
       <UniqueIdentifier>{79dbb48f-73fa-49e8-aae4-36e66478dbe6}</UniqueIdentifier>
     </Filter>

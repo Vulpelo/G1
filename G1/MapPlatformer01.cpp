@@ -4,7 +4,7 @@ MapPlatformer01::MapPlatformer01()
 {
 	{
 		PlatformerPlayer* o = new PlatformerPlayer();
-		o->setTransform(Transform(200, 400, 0));
+		o->setTransform(Transform(200, 725, 0));
 
 		objects.push_back(o);
 	}

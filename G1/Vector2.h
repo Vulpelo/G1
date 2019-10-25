@@ -24,6 +24,11 @@
 		static Vector2 down() { return Vector2(0, 1); };
 
 		static Vector2 smoothDump(const Vector2& current, const Vector2& target, Vector2& currentVelocity, float smoothTime);
+		/// <summary>
+		/// Returns new position beetween two vectors.
+		/// Time=0.f returns current. Time=1.0f returns target. Time=0.5f returns vector in middle position between vectors.
+		/// </summary>
+		static Vector2 lerp(const Vector2& current, const Vector2& target, float time);
 
 		/// <summary>
 		/// Angle in degress

@@ -55,9 +55,9 @@ namespace G1 {
 	void RigidbodyPhysics::applyForces(Rigidbody & rigidbody) const
 	{
 		/* Gravity */
-		rigidbody.addForce(Vector2::down() * gravity);
+		rigidbody.addForce (rigidbody.getGravity() * gravityMultiplier * Time::getDeltaTime());
 
 		/* Drag */
-		rigidbody.setVelocity (rigidbody.getVelocity() - rigidbody.getVelocity() * rigidbody.getDrag());
+		rigidbody.setVelocity ( rigidbody.getVelocity() - (rigidbody.getVelocity() * rigidbody.getDrag() * Time::getDeltaTime()) );
 	}
 }
