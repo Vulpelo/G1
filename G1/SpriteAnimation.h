@@ -10,7 +10,7 @@ namespace G1 {
 		Sprite sprite;
 
 		// Number of pixels to move by on x axis
-		int pixelJump = 33;
+		int pixelJump = 100;
 		unsigned int amountOfFrames = 1;
 		unsigned int actualFrame = 0;
 

@@ -5,8 +5,12 @@ namespace G1 {
 	void Animator::mainEventTick()
 	{
 		auto parentTmp = sprite->getParent();
+		Transform transform = sprite->getTransform();
+		
 		*sprite = states.at(actualState).nextFrame(this);
+		
 		sprite->setParent(parentTmp);
+		sprite->setTransform(transform);
 	}
 
 	void Animator::addAnimation(const std::string& name, const SpriteAnimation& animation) {

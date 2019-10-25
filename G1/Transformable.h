@@ -17,28 +17,26 @@ namespace G1 {
 
 		Transformable& getTopParent();
 
-		Transformable* getParent() {
-			return parent;
-		};
+		Transformable* getParent() {return parent; };
+		void setParent(Transformable* parent) { this->parent = parent; };
 
-		void setParent(Transformable* parent) {
-			this->parent = parent;
-		};
-
-		void setPosition(float, float);
+		void setPosition(float x, float y);
 		void setPosition(const Vector2& position);
 
-		/// /// <summary> Returns copy of world position of this object in world space</summary>
-		Vector2 getWorldPosition();
+		/// <summary>Sets rotation of an object</summary>
+		void setRotation(float x) { transform.rotationX = x; };
+		void setScale(float x, float y) { transform.scale.x = x; transform.scale.y = y; }
+		void setScale(const Vector2& scale) { transform.scale = scale; }
 
 		/// <summary> Sets Transform of this object in relative to parent</summary>
-		void setTransform(Transform transform);
+		void setTransform(Transform transform) { this->transform = transform; };
 		/// <summary> gets Transform of this object in relative to parent</summary>
-		virtual Transform getTransform();
+		virtual Transform getTransform() { return this->transform; };
 
+		/// <summary> Returns copy of world position of this object in world space</summary>
+		Vector2 getWorldPosition();
 		virtual float getWorldRotation();
-		/// <summary>Sets rotation of an object</summary>
-		void setRotation(float x);
+		virtual Vector2 getWorldScale();
 	};
 
 }

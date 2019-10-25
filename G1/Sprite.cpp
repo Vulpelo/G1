@@ -2,8 +2,6 @@
 
 namespace G1 {
 
-
-
 	Sprite::Sprite(const sf::Texture& texture, const Vector2& imageSize)
 		: texture(&texture), imageSize(imageSize) 
 	{
@@ -36,8 +34,12 @@ namespace G1 {
 	{
 		sfSprite.setTexture(*this->texture);
 
-		sfSprite.setPosition(getWorldPosition().x, getWorldPosition().y);
+		Vector2 pos = getWorldPosition();
+		sfSprite.setPosition(pos.x, pos.y);
 		sfSprite.setRotation(getWorldRotation());
+		Vector2 scale = getWorldScale();
+		sfSprite.setScale(scale.x, scale.y);
+		
 		w->draw(sfSprite);
 	}
 

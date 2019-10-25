@@ -35,16 +35,6 @@ namespace G1 {
 		return worldPos;
 	}
 
-	void Transformable::setTransform(Transform transform)
-	{
-		this->transform = transform;
-	}
-
-	Transform Transformable::getTransform()
-	{
-		return this->transform;
-	}
-
 	float Transformable::getWorldRotation()
 	{
 		float worldRotation = 0;
@@ -57,10 +47,19 @@ namespace G1 {
 
 		return worldRotation;
 	}
-	
-	void Transformable::setRotation(float x)
+	Vector2 Transformable::getWorldScale()
 	{
-		transform.rotationX = x;
-	}
+		Vector2 worldScale = this->transform.scale;
 
+		Transformable *next = this->getParent();
+		Vector2 scaleTmp;
+		do {
+			scaleTmp = next->getTransform().scale;
+			worldScale.x *= scaleTmp.x;
+			worldScale.y *= scaleTmp.y;
+			next = next->getParent();
+		} while (next != NULL);
+
+		return worldScale;
+	}
 }

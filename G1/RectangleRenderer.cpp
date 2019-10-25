@@ -33,6 +33,8 @@ namespace G1 {
 	{
 		rRectangle.setPosition(getWorldPosition().x, getWorldPosition().y);
 		rRectangle.setRotation(getWorldRotation());
+		rRectangle.setScale(getWorldScale().x, getWorldScale().y);
+
 		w->draw(rRectangle);
 	}
 

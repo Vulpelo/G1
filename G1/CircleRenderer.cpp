@@ -31,8 +31,12 @@ namespace G1 {
 
 	void CircleRenderer::render(sf::RenderWindow * w)
 	{
-		circle.setPosition(getWorldPosition().x, getWorldPosition().y);
+		Vector2 pos = getWorldPosition();
+		circle.setPosition(pos.x, pos.y);
 		circle.setRotation(getWorldRotation());
+		Vector2 scale = getWorldScale();
+		circle.setScale(scale.x, scale.y);
+
 		w->draw(circle);
 	}
 

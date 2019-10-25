@@ -8,14 +8,19 @@
 struct Transform
 {
 	Vector2 position;
-	float rotationX;
-	float scaleX;
-	float scaleY;
+	float rotationX = 0.0f;
+	Vector2 scale = Vector2(1,1);
 
-	Transform() : rotationX(0), scaleX(1), scaleY(1) {};
-	Transform(float x, float y, float rot) : position(Vector2(x,y)), rotationX(rot), scaleX(1), scaleY(1) {}
-	Transform(Vector2& vec) : position(vec), rotationX(0), scaleX(1), scaleY(1) {}
-	Transform(Vector2 pos, float rotationX) : position(pos), rotationX(rotationX), scaleX(1), scaleY(1) {}
+	Transform() {};
+
+	Transform(float x, float y, float rot) 
+		: position(Vector2(x,y)), rotationX(rot), scale(Vector2(1, 1)) {}
+
+	Transform(const Vector2& position, const Vector2& scale = Vector2(1, 1), float rotationX = 0) 
+		: position(position), rotationX(rotationX), scale(scale) {}
+
+	Transform(const Vector2& position, float rotationX) 
+		: position(position), rotationX(rotationX) {}
 };
 
 #endif // !_TRANSFORM_H_
