@@ -30,9 +30,9 @@ namespace G1 {
 		/// 
 		/// </summary>
 		/// <param name="sprite">Sprite that will be animated</param>
-		SpriteAnimation(const Sprite& sprite) { this->sprite = sprite; pixelJump = sprite.getImageSize().x; }
+		SpriteAnimation(const Sprite& sprite) { this->sprite = sprite; pixelJump = lround( sprite.getImageSize().x ); }
 
-		void restart() { actualFrame = 0.f; actualTime = 0.f; }
+		void restart() { actualFrame = 0; actualTime = 0.f; }
 		void play();
 		void pause();
 		void stop();

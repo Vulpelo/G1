@@ -19,9 +19,9 @@ namespace G1 {
 		return controlInput;
 	}
 
-	void ControlInput::setRenderWindow(sf::RenderWindow * window)
+	void ControlInput::setRenderWindow(sf::RenderWindow& window)
 	{
-		this->window = window;
+		this->window = &window;
 	}
 
 	void ControlInput::mainEventTick()

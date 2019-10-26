@@ -8,7 +8,7 @@ namespace G1 {
 
 		Vector2 pos = sprite.getStartPosition();
 		
-		int jumps = actualTime / timePerFrame;
+		int jumps = static_cast<int>(actualTime / timePerFrame);
 		actualTime = actualTime - jumps*timePerFrame;
 
 		actualFrame = (jumps + actualFrame) % amountOfFrames;
@@ -17,7 +17,7 @@ namespace G1 {
 			actualFrame = amountOfFrames - 1;
 		}
 		
-		pos.x = actualFrame * pixelJump;
+		pos.x = static_cast<float>(actualFrame * pixelJump);
 
 		sprite.setStartPosition( pos );
 		return sprite;

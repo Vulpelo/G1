@@ -80,7 +80,7 @@ namespace G1 {
 
 		Vector2 crossPoint = Vector2(FLT_MAX, FLT_MAX);
 		Vector2 tmpCrossPoint;
-		short segmentIndex;
+		size_t segmentIndex;
 
 		bool onlyParaller = true;
 
@@ -88,7 +88,7 @@ namespace G1 {
 		std::cout << "<>";
 		std::cout << "Vel:" << velocityDynamic.x << ":" << velocityDynamic.y;
 
-		for (int i = quadrant + 2; i <= quadrant + 3; i++) {
+		for (size_t i = static_cast<size_t>(quadrant + 2); i <= static_cast<size_t>(quadrant + 3); i++) {
 			segmentIndex = i%segments.size();
 			std::cout << "seg: " << segmentIndex;
 

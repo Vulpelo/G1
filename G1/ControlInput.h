@@ -31,7 +31,7 @@ namespace G1 {
 
 		static ControlInput* getInstantiate();
 
-		void setRenderWindow(sf::RenderWindow *window);
+		void setRenderWindow(sf::RenderWindow& window);
 
 		/// <summary> Returns true if selected key is held down </summary>
 		bool isKeyDown(sf::Keyboard::Key key);

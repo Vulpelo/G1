@@ -20,7 +20,6 @@ namespace G1 {
 
 		void loadTexture(const std::string& path);
 		sf::Texture& getTexture(const std::string& path);
-		const sf::Texture& getTexture(const std::string & path) const;
 		/// <summary> Removes texture from memory </summary>
 		void unLoadTexture(const std::string& path);
 		/// <summary> Removes all textures from memory </summary>

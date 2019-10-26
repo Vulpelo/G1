@@ -25,7 +25,7 @@ namespace G1 {
 
 		sf::Event inputEvent;
 
-		RenderManager render;
+		RenderManager& render = RenderManager::getInstance();
 		PhysicsManager physics;
 
 		ControlInput * controlInput;

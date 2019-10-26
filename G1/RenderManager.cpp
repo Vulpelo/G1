@@ -2,8 +2,6 @@
 
 namespace G1 {
 
-	sf::RenderWindow* RenderManager::window = NULL;
-
 	RenderManager::RenderManager()
 	{
 		window = new sf::RenderWindow(sf::VideoMode(Properties::width, Properties::height, Properties::bitPerPixel), "G1");
@@ -15,9 +13,9 @@ namespace G1 {
 			delete window;
 	}
 
-	sf::RenderWindow * RenderManager::getWindow()
+	sf::RenderWindow& RenderManager::getWindow()
 	{
-		return window;
+		return *window;
 	}
 
 	void RenderManager::renderGameObjects(std::vector<GameObject*> gameObjects) {

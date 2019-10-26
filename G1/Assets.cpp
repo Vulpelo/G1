@@ -15,12 +15,9 @@ namespace G1 {
 		if ((textureIter = textures.find(path)) != textures.end()) {
 			return textureIter->second;
 		}
+		return textures.end()->second;
 	}
 
-	const sf::Texture & Assets::getTexture(const std::string & path) const
-	{
-		return getTexture(path);
-	}
 	void Assets::unLoadTexture(const std::string & path)
 	{
 		if ((textureIter = textures.find(path)) != textures.end()) {

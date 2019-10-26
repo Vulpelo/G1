@@ -21,7 +21,7 @@ namespace G1 {
 
 	void Engine::mainLoop()
 	{
-		while (render.getWindow()->isOpen())
+		while (render.getWindow().isOpen())
 		{
 			mainEventTick();
 

@@ -10,7 +10,7 @@ namespace G1 {
 		this->imageSize = imageSize;
 
 		sfSprite.setTexture(*this->texture);
-		sfSprite.setTextureRect(sf::IntRect(0, 0, this->imageSize.x, this->imageSize.y));
+		sfSprite.setTextureRect(sf::IntRect(0, 0, lround(this->imageSize.x), lround(this->imageSize.y)));
 		
 		sfSprite.setOrigin(this->imageSize.x/2.f, this->imageSize.y/2.f);
 	}
@@ -55,16 +55,16 @@ namespace G1 {
 		this->startPosition = startPosition;
 
 		sfSprite.setTextureRect(
-			sf::IntRect(this->startPosition.x, this->startPosition.y,
-				imageSize.x, imageSize.y));
+			sf::IntRect(lround(this->startPosition.x), lround(this->startPosition.y),
+				lround(imageSize.x), lround(imageSize.y)));
 	}
 
 	void Sprite::setImageSize(const Vector2& imageSize) {
 		this->imageSize = imageSize;
 
 		sfSprite.setTextureRect(
-			sf::IntRect(startPosition.x, startPosition.y,
-				this->imageSize.x, this->imageSize.y));
+			sf::IntRect(lround(startPosition.x), lround(startPosition.y),
+				lround(this->imageSize.x), lround(this->imageSize.y)));
 	}
 
 	void Sprite::setColor(sf::Color color)
