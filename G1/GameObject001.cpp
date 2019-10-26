@@ -2,8 +2,6 @@
 
 
 void GameObject001::beginPlay() {
-	c = *ControlInput::getInstantiate();
-
 	speed = 500.0f;
 	rotationSpeed = 50.0f;
 	shootingSpeed = 1.0f;

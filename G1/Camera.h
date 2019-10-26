@@ -17,19 +17,38 @@ namespace G1 {
 		// (View from camera will be on top)
 		static std::vector<Camera*> activeCameras;
 
-		sf::FloatRect viewRect;
-		Vector2 offset;
-
 		bool active = false;
+		
+		sf::View view;
+		sf::FloatRect viewRect;
+
+		Vector2 offset;
+		float zoom = 1.f;
+
+		bool matchRatioWithWindow = true;
 	
 		void removeFromActiveCameras();
-		sf::View getView();
+		sf::View& getView();
 
 	public:
 		Camera(const Vector2& size);
 
 		bool isActive() const { return active; }
 		void setActive(bool active);
+
+		void setZoom(float zoom);
+		void setSize(float x, float y);
+
+		/// <summary>
+		/// Is camera' view size matched with window
+		/// By default ratio is matched
+		/// </summary>
+		bool getMatchSize() { return matchRatioWithWindow; };
+		/// <summary>
+		/// Set if camera's view size should be matched with window;
+		/// By default ratio is matched
+		/// </summary>
+		void setMatchSize(bool matchRatio) { this->matchRatioWithWindow = matchRatio; };
 
 		static const std::vector<Camera*> getActiveCameras() { return activeCameras; }
 

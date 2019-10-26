@@ -4,7 +4,9 @@ namespace G1 {
 
 	RenderManager::RenderManager()
 	{
-		window = new sf::RenderWindow(sf::VideoMode(Properties::width, Properties::height, Properties::bitPerPixel), "G1");
+		window = new sf::RenderWindow(sf::VideoMode(Properties::width, Properties::height, Properties::bitPerPixel), 
+			"G1",
+			sf::Style::Titlebar | sf::Style::Close | sf::Style::Resize);
 	}
 
 	RenderManager::~RenderManager()
@@ -15,6 +17,7 @@ namespace G1 {
 
 	sf::RenderWindow& RenderManager::getWindow()
 	{
+		sf::RenderWindow rw(sf::VideoMode);
 		return *window;
 	}
 
@@ -29,18 +32,32 @@ namespace G1 {
 
 	void RenderManager::renderWindow()
 	{
-		for each (Camera* camera  in Camera::getActiveCameras())
-		{
+		for each (Camera* camera  in Camera::getActiveCameras()) {
 			window->setView(camera->getView());
 		}
-
 		window->clear();
 
 		auto gameObjects = MapManager::getInstance().get_aMap().getAllObjects();
-
 		renderGameObjects(gameObjects);
 
 		window->display();
+	}
+
+	void RenderManager::catchEvents()
+	{
+		while (window->pollEvent(events))
+		{
+			if (events.type == sf::Event::Resized)
+			{
+				for each (Camera* camera  in Camera::getActiveCameras()) {
+					if (camera->getMatchSize()) {
+						camera->setSize(window->getSize().x, window->getSize().y);
+					}
+				}
+			}
+
+			ControlInput::getInstantiate().catchEvents(events);
+		}
 	}
 
 }

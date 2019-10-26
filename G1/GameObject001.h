@@ -29,7 +29,7 @@ class GameObject001 :
 	sf::Color color2;
 	bool aColor;
 
-	ControlInput c;
+	ControlInput c = ControlInput::getInstantiate();
 public:
 	void beginPlay();
 	void eventTick();

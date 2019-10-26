@@ -14,14 +14,9 @@ namespace G1 {
 		}
 	}
 
-	sf::View Camera::getView() {
+	sf::View& Camera::getView() {
 		Vector2 pos = getWorldPosition();
-		//viewRect.left = pos.x;
-		//viewRect.top = pos.y;
-
-		sf::View view(viewRect);
 		view.setCenter(sf::Vector2f(pos.x, pos.y));
-
 		return view;
 	}
 
@@ -40,6 +35,18 @@ namespace G1 {
 			activeCameras.push_back(this);
 		}
 		this->active = active;
+	}
+
+	void Camera::setZoom(float zoom)
+	{
+		this->zoom = zoom;
+		view.zoom(this->zoom);
+	}
+
+	void Camera::setSize(float x, float y)
+	{
+		view.setSize(x, y);
+		view.zoom(zoom);
 	}
 
 	Camera & Camera::operator=(const Camera & camera) {

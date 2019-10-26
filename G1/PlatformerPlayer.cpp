@@ -7,8 +7,6 @@ void PlatformerPlayer::beginPlay() {
 
 	jumpForce = 200.f;
 
-	c = *ControlInput::getInstantiate();
-
 	/*rend = new RectangleRenderer(16, 16, color1);
 	rend->setPosition(0.f, 5.f);
 	addComponent(rend);
@@ -41,6 +39,7 @@ void PlatformerPlayer::beginPlay() {
 	/* Setting Camera Component*/
 	Camera* camera = new Camera(Vector2(500, 400));
 	camera->setActive(true);
+	camera->setZoom(0.5f);
 	addComponent(camera);
 
 

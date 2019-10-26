@@ -45,7 +45,7 @@ class PlatformerPlayer :
 	sf::Color color2 = sf::Color::Blue;
 	bool aColor = false;
 
-	ControlInput c;
+	ControlInput& c = ControlInput::getInstantiate();
 
 	Renderer* rend = new RectangleRenderer(16, 16, color1);
 	Rigidbody* rb = new Rigidbody();

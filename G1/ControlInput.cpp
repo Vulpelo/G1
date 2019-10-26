@@ -2,7 +2,6 @@
 
 namespace G1 {
 
-	ControlInput* ControlInput::controlInput = NULL;
 	bool ControlInput::keyDownTable[] = { false };
 	bool ControlInput::keyDownTablePrevious[] = { false };
 
@@ -11,11 +10,9 @@ namespace G1 {
 	{
 	}
 
-	ControlInput* ControlInput::getInstantiate()
+	ControlInput& ControlInput::getInstantiate()
 	{
-		if (controlInput == NULL) {
-			controlInput = new ControlInput();
-		}
+		static ControlInput controlInput;
 		return controlInput;
 	}
 
@@ -26,13 +23,13 @@ namespace G1 {
 
 	void ControlInput::mainEventTick()
 	{
-		while (window->pollEvent(input))
-		{
-			if (input.type == sf::Event::Closed)
-				window->close();
-		}
-
 		updateKeyDownTable();
+	}
+
+	void ControlInput::catchEvents(sf::Event & events)
+	{
+		if (events.type == sf::Event::Closed)
+			window->close();
 	}
 
 	void ControlInput::resetKeyDownTable()
@@ -50,18 +47,18 @@ namespace G1 {
 		}
 	}
 
-	bool ControlInput::isKeyDown(sf::Keyboard::Key key)
+	bool ControlInput::isKeyDown(sf::Keyboard::Key key) const
 	{
 		return sf::Keyboard::isKeyPressed(key);
 	}
 
-	bool ControlInput::keyDown(sf::Keyboard::Key key)
+	bool ControlInput::keyDown(sf::Keyboard::Key key) const
 	{
 		return keyDownTable[(unsigned int)key] &&
 			!keyDownTablePrevious[(unsigned int)key];
 	}
 
-	bool ControlInput::keyUp(sf::Keyboard::Key key)
+	bool ControlInput::keyUp(sf::Keyboard::Key key) const
 	{
 		return !keyDownTable[(unsigned int)key] &&
 			keyDownTablePrevious[(unsigned int)key];

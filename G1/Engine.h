@@ -23,12 +23,10 @@ namespace G1 {
 	private:
 		Time time;
 
-		sf::Event inputEvent;
-
 		RenderManager& render = RenderManager::getInstance();
 		PhysicsManager physics;
 
-		ControlInput * controlInput;
+		ControlInput& controlInput = ControlInput::getInstantiate();
 
 		void mainEventTick();
 		void mainLoop();

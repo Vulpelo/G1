@@ -4,14 +4,11 @@ namespace G1 {
 
 	Engine::Engine()
 	{
-		controlInput = ControlInput::getInstantiate();
-		controlInput->setRenderWindow(render.getWindow());
+		controlInput.setRenderWindow(render.getWindow());
 	}
 
 	Engine::~Engine()
 	{
-		if(controlInput) 
-			delete controlInput;
 	}
 
 	void Engine::start() {
@@ -34,9 +31,10 @@ namespace G1 {
 
 	void Engine::mainEventTick()
 	{
-		MapManager::getInstance().get_aMap().mainEventTick();
+		render.catchEvents();
 
-		controlInput->mainEventTick();
+		controlInput.mainEventTick();
+		MapManager::getInstance().get_aMap().mainEventTick();
 	}
 
 }
