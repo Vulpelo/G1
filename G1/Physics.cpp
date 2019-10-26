@@ -9,7 +9,7 @@ namespace G1 {
 		std::vector<Collider*> overlapedColliders;
 
 
-		std::vector<GameObject*> gameObjects = MapManager::get_aMap()->getAllObjects();
+		std::vector<GameObject*> gameObjects = MapManager::getInstance().get_aMap().getAllObjects();
 
 		CircleCollider circleCollider(radious, position.x, position.y);
 

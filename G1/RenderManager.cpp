@@ -36,7 +36,7 @@ namespace G1 {
 
 		window->clear();
 
-		auto gameObjects = MapManager::get_aMap()->getAllObjects();
+		auto gameObjects = MapManager::getInstance().get_aMap().getAllObjects();
 
 		renderGameObjects(gameObjects);
 

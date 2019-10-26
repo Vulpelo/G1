@@ -18,7 +18,7 @@ namespace G1 {
 
 	void CollisionDetection::checkCollisions()
 	{
-		auto gameObjects = MapManager::get_aMap()->getAllObjects();
+		auto gameObjects = MapManager::getInstance().get_aMap().getAllObjects();
 
 		for (unsigned int i = 0; i < gameObjects.size(); i++) {
 			for (unsigned int j = i+1; j < gameObjects.size(); j++) {

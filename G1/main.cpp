@@ -1,10 +1,12 @@
-#include "Engine.h"
+#include "ExamplePlatformerGame.h"
 
 using namespace G1;
 
 int main()
 {		
-	Engine lofty;
-	lofty.mainLoop();
+	ExamplePlatformerGame engine;
+
+	engine.start();
+
 	return 0;
 }

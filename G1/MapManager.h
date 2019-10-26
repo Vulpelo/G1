@@ -9,12 +9,13 @@ namespace G1 {
 
 	class MapManager
 	{
-		static GameMap* aMap;
+		GameMap aMap;
 
 	public:
-		static void loadMap(GameMap*);
-		static GameMap* get_aMap();
-		~MapManager();
+		static MapManager& getInstance() { static MapManager instance; return instance; }
+
+		void loadMap(GameMap&&);
+		GameMap& get_aMap();
 	};
 
 }

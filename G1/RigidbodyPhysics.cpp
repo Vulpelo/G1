@@ -3,7 +3,7 @@
 namespace G1 {
 	void RigidbodyPhysics::applyForcesBeforeCollision() const
 	{
-		auto gameObjects = MapManager::get_aMap()->getAllObjects();
+		auto gameObjects = MapManager::getInstance().get_aMap().getAllObjects();
 
 		for each (GameObject* gObj in gameObjects)
 		{

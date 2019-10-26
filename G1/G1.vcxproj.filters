@@ -297,6 +297,9 @@
     <ClCompile Include="SpriteAnimation.cpp">
       <Filter>Source Files\Engine\Rendering\Animation</Filter>
     </ClCompile>
+    <ClCompile Include="ExamplePlatformerGame.cpp">
+      <Filter>Source Files\G1Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -481,6 +484,9 @@
     </ClInclude>
     <ClInclude Include="Sprite.h">
       <Filter>Header Files\Engine\Rendering\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="ExamplePlatformerGame.h">
+      <Filter>Header Files\G1Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

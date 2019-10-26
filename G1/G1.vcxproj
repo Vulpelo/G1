@@ -141,6 +141,7 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionCalculation.cpp" />
+    <ClCompile Include="ExamplePlatformerGame.cpp" />
     <ClCompile Include="Ground01.cpp" />
     <ClCompile Include="MapPlatformer01.cpp" />
     <ClCompile Include="Overlapping.cpp" />
@@ -186,6 +187,7 @@
   <ItemGroup>
     <ClInclude Include="Assets.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="ExamplePlatformerGame.h" />
     <ClInclude Include="PlayerAnimator.h" />
     <ClInclude Include="SpriteAnimation.h" />
     <ClInclude Include="Animator.h" />

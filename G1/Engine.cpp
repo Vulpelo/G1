@@ -6,17 +6,17 @@ namespace G1 {
 	{
 		controlInput = ControlInput::getInstantiate();
 		controlInput->setRenderWindow(render.getWindow());
-
-		//DO GRY
-		//GameMap *map = new Map001();
-		GameMap *map = new MapPlatformer01();
-		MapManager::loadMap(map);
 	}
 
 	Engine::~Engine()
 	{
 		if(controlInput) 
 			delete controlInput;
+	}
+
+	void Engine::start() {
+		beginPlay();
+		mainLoop();
 	}
 
 	void Engine::mainLoop()
@@ -34,7 +34,7 @@ namespace G1 {
 
 	void Engine::mainEventTick()
 	{
-		MapManager::get_aMap()->mainEventTick();
+		MapManager::getInstance().get_aMap().mainEventTick();
 
 		controlInput->mainEventTick();
 	}

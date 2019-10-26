@@ -30,11 +30,16 @@ namespace G1 {
 
 		ControlInput * controlInput;
 
+		void mainEventTick();
+		void mainLoop();
+
+	protected:
+		virtual void beginPlay() = 0;
+
 	public:
 		Engine();
 		~Engine();
-		void mainEventTick();
-		void mainLoop();
+		void start();
 	};
 
 }

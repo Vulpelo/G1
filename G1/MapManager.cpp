@@ -2,21 +2,14 @@
 
 namespace G1 {
 
-	GameMap* MapManager::aMap = nullptr;
-
-	void MapManager::loadMap(GameMap* nMap)
+	void MapManager::loadMap(GameMap&& nMap)
 	{
 		MapManager::aMap = nMap;
-		MapManager::aMap->mainBeginPlay();
+		MapManager::aMap.mainBeginPlay();
 	}
 
-	GameMap * MapManager::get_aMap()
+	GameMap& MapManager::get_aMap()
 	{
 		return MapManager::aMap;
 	}
-
-	MapManager::~MapManager()
-	{
-	}
-
 }
