@@ -145,6 +145,18 @@
     <Filter Include="Source Files\Engine\Assets">
       <UniqueIdentifier>{e2749315-6fe0-4103-805e-6c5404797304}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Prefabs">
+      <UniqueIdentifier>{73cb860c-633e-43c1-a012-b1fbe458eb99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs">
+      <UniqueIdentifier>{05cd9a3a-5b2f-4a27-b551-9edffdd89234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\MapCreation">
+      <UniqueIdentifier>{48680c31-f8f4-4ba3-b2af-cce5728b7f02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\MapCreation">
+      <UniqueIdentifier>{a8eac605-a06a-4599-b90d-930c99d245a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -317,6 +329,9 @@
     </ClCompile>
     <ClCompile Include="RenderProperties.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTile.cpp">
+      <Filter>Source Files\Prefabs\MapCreation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -520,6 +535,9 @@
     </ClInclude>
     <ClInclude Include="RenderProperties.h">
       <Filter>Header Files\Engine\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTile.h">
+      <Filter>Header Files\Prefabs\MapCreation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

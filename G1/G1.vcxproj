@@ -145,6 +145,7 @@
     <ClCompile Include="ExamplePlatformerGame.cpp" />
     <ClCompile Include="Ground01.cpp" />
     <ClCompile Include="MapPlatformer01.cpp" />
+    <ClCompile Include="MapTile.cpp" />
     <ClCompile Include="Overlapping.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="Background.h" />
     <ClInclude Include="ExamplePlatformerGame.h" />
     <ClInclude Include="MainTick.h" />
+    <ClInclude Include="MapTile.h" />
     <ClInclude Include="PlayerAnimator.h" />
     <ClInclude Include="RenderProperties.h" />
     <ClInclude Include="Resources.h" />

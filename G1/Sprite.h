@@ -23,7 +23,12 @@ namespace G1 {
 		/// </summary>
 		Sprite() {}
 
-		Sprite(const sf::Texture& texture, const Vector2& imageSize);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="texture"></param>
+		/// <param name="imageSize"> Size of sprite. Doesn't change size of texture. If sprite is smaller than texture then texture is cropped.  </param>
+		Sprite(const sf::Texture& texture, const Vector2& imageSize = Vector2(50, 50));
 		Sprite(const sf::Texture& texture, const Vector2& imageSize, const Vector2& startPosition);
 
 		void setTexture(const sf::Texture& texture);
