@@ -38,9 +38,8 @@ namespace G1 {
 		void setStartPosition(const Vector2& startPosition);
 		
 		void setImageSize(const Vector2& imageSize);
-
 		Vector2 getImageSize() const { return imageSize; }
-		
+
 		void setColor(sf::Color color);
 	};
 
