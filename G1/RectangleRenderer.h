@@ -10,11 +10,11 @@ namespace G1 {
 
 	class RectangleRenderer : public Renderer
 	{
-		float length, height;
+		float length = 10.f, height = 10.f;
 		sf::RectangleShape rRectangle;
 		sf::Color color;
 
-		void render(sf::RenderWindow*);
+		void render(sf::RenderWindow&);
 	public:
 		RectangleRenderer();
 		RectangleRenderer(float leng, float heig, sf::Color c);

@@ -25,9 +25,9 @@ public:
 	PlayerAnimator(Sprite& sprite) : Animator(sprite) {
 		/* Creating Sprite and assigning the texture to it.
 		This Sprite will be animated */
-		idleSprite = Sprite(Assets::getInstance().getTexture("./assets/spritesheets/player-idle.png"), Vector2(33, 32));
-		runSprite = Sprite(Assets::getInstance().getTexture("./assets/spritesheets/player-run.png"), Vector2(33, 32));
-		fallingSprite = Sprite(Assets::getInstance().getTexture("./assets/spritesheets/player-jump.png"), Vector2(33, 32));
+		idleSprite = Sprite(Assets::getInstance().textures().get("./assets/spritesheets/player-idle.png"), Vector2(33, 32));
+		runSprite = Sprite(Assets::getInstance().textures().get("./assets/spritesheets/player-run.png"), Vector2(33, 32));
+		fallingSprite = Sprite(Assets::getInstance().textures().get("./assets/spritesheets/player-jump.png"), Vector2(33, 32));
 
 		/* Creating SpriteAnimation and asigning a copy of animationSprite*/
 		idleAnimation = SpriteAnimation(idleSprite);

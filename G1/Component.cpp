@@ -1,11 +1,7 @@
 #include "Component.h"
 
 namespace G1 {
-	void Component::mainEventTick()
-	{
-
-	}
-
+	
 	Component::Component()
 		: name("") {
 		this->enabled = true;

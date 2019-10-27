@@ -3,14 +3,18 @@
 MapPlatformer01::MapPlatformer01()
 {
 	Assets &assets = Assets::getInstance();
-	assets.loadTexture("./assets/spritesheets/player-idle.png");
-	assets.loadTexture("./assets/spritesheets/player-run.png");
-	assets.loadTexture("./assets/spritesheets/player-jump.png");
-	assets.loadTexture("./assets/environment/layers/back.png");
+	assets.textures().load("./assets/spritesheets/player-idle.png");
+	assets.textures().load("./assets/spritesheets/player-run.png");
+	assets.textures().load("./assets/spritesheets/player-jump.png");
+	assets.textures().load("./assets/environment/layers/back.png");
+
+	assets.soundBuffers().load("grass_footsteps", "./assets/sounds/footsteps_grass.wav");
+
+	Audio::play("grass_footsteps");
 	
 	{ // Background
 		Background* b = new Background(
-			assets.getTexture("./assets/environment/layers/back.png"),
+			assets.textures().get("./assets/environment/layers/back.png"),
 			Vector2(384, 240));
 
 		b->setTransform(Transform(Vector2(400, 800), Vector2(3, 3) ));

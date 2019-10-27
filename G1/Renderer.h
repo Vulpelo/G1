@@ -13,7 +13,7 @@ namespace G1 {
 	{
 		friend class RenderManager;
 
-		virtual void render(sf::RenderWindow * w) = 0;
+		virtual void render(sf::RenderWindow& w) = 0;
 	public:
 		virtual void setColor(sf::Color color) = 0;
 	};

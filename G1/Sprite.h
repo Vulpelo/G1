@@ -14,7 +14,7 @@ namespace G1 {
 		
 		sf::Sprite sfSprite;
 
-		void render(sf::RenderWindow * w);
+		void render(sf::RenderWindow& w);
 
 
 	public:

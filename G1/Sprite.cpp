@@ -30,7 +30,7 @@ namespace G1 {
 		sfSprite.setOrigin(this->imageSize.x / 2.f, this->imageSize.y / 2.f);
 	}
 
-	void Sprite::render(sf::RenderWindow * w)
+	void Sprite::render(sf::RenderWindow& w)
 	{
 		Vector2 pos = getWorldPosition();
 		sfSprite.setPosition(pos.x, pos.y);
@@ -38,7 +38,7 @@ namespace G1 {
 		Vector2 scale = getWorldScale();
 		sfSprite.setScale(scale.x, scale.y);
 		
-		w->draw(sfSprite);
+		w.draw(sfSprite);
 	}
 
 	void Sprite::setTexture(const sf::Texture& texture) { 

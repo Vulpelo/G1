@@ -6,6 +6,7 @@
 #include "Component.h"
 #include "Vector2.h"
 
+#include "RenderProperties.h"
 
 namespace G1 {
 
@@ -20,17 +21,23 @@ namespace G1 {
 		bool active = false;
 		
 		sf::View view;
-		sf::FloatRect viewRect;
+		float zoom = 1.f;
+		bool matchRatioWithWindow = true;
 
 		Vector2 offset;
-		float zoom = 1.f;
-
-		bool matchRatioWithWindow = true;
 	
 		void removeFromActiveCameras();
 		sf::View& getView();
 
 	public:
+		/// <summary>
+		/// Camera's view size is matched with window size
+		/// </summary>
+		Camera();
+		/// <summary>
+		/// If you want to use custom size of view.
+		/// </summary>
+		/// <param name="size">Initial size of camera's view</param>
 		Camera(const Vector2& size);
 
 		bool isActive() const { return active; }

@@ -29,13 +29,13 @@ namespace G1 {
 		rRectangle.setFillColor(color);
 	}
 
-	void RectangleRenderer::render(sf::RenderWindow * w)
+	void RectangleRenderer::render(sf::RenderWindow& w)
 	{
 		rRectangle.setPosition(getWorldPosition().x, getWorldPosition().y);
 		rRectangle.setRotation(getWorldRotation());
 		rRectangle.setScale(getWorldScale().x, getWorldScale().y);
 
-		w->draw(rRectangle);
+		w.draw(rRectangle);
 	}
 
 }

@@ -7,6 +7,7 @@
 
 #include "Renderer.h"
 #include "Properties.h"
+#include "RenderProperties.h"
 #include "MapManager.h"
 #include "Camera.h"
 
@@ -16,19 +17,16 @@ namespace G1 {
 	{
 		friend class Engine;
 
-		sf::RenderWindow* window;
-		void renderGameObjects(std::vector<GameObject*> gameObjects);
-
 		sf::Event events;
-		Vector2 windowSize;
+
 
 		RenderManager();
 
+		void renderGameObjects(std::vector<GameObject*> gameObjects);
 		void catchEvents();
 		void renderWindow();
 
 	public:
-		~RenderManager();
 		sf::RenderWindow& getWindow();
 		static RenderManager& getInstance() { static RenderManager instance; return instance; };
 	};

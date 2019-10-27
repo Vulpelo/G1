@@ -11,7 +11,10 @@
 #include "ISpawnable.h"
 
 #include "GameObjectsData.h"
+#include "Audio.h"
 
+
+#include "Tick.h"
 #include "Time.h"
 
 // containers
@@ -20,7 +23,7 @@
 
 namespace G1 {
 
-	class GameObject : public ISpawnable, public Transformable
+	class GameObject : public ISpawnable, public Transformable, public Tick
 	{
 		friend class GameMap;
 		friend class RenderManager;

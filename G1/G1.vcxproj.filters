@@ -133,6 +133,18 @@
     <Filter Include="Header Files\Engine\Physics\Colliders">
       <UniqueIdentifier>{5323203b-eed3-44ea-a294-80a3d7733e4b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Audio">
+      <UniqueIdentifier>{e0fd7c39-8b8b-402b-9e6e-a78d02cf0a61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Audio">
+      <UniqueIdentifier>{255347e8-72d7-4f15-a977-29178da65d03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Assets">
+      <UniqueIdentifier>{27da17c6-7e05-4de8-9a9e-c7eae02f1f52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Assets">
+      <UniqueIdentifier>{e2749315-6fe0-4103-805e-6c5404797304}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -264,9 +276,6 @@
     <ClCompile Include="PlatformerPlayer.cpp">
       <Filter>Source Files\G1Game\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Assets.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files\Engine\Rendering</Filter>
     </ClCompile>
@@ -299,6 +308,15 @@
     </ClCompile>
     <ClCompile Include="ExamplePlatformerGame.cpp">
       <Filter>Source Files\G1Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Source Files\Engine\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Assets.cpp">
+      <Filter>Source Files\Engine\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderProperties.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -434,9 +452,6 @@
     <ClInclude Include="PlayerAnimator.h">
       <Filter>Header Files\G1Game\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="Assets.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Background.h">
       <Filter>Header Files\G1Game\GameObjects</Filter>
     </ClInclude>
@@ -487,6 +502,24 @@
     </ClInclude>
     <ClInclude Include="ExamplePlatformerGame.h">
       <Filter>Header Files\G1Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Header Files\Engine\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Assets.h">
+      <Filter>Header Files\Engine\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources.h">
+      <Filter>Header Files\Engine\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="Tick.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="MainTick.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderProperties.h">
+      <Filter>Header Files\Engine\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

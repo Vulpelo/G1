@@ -12,7 +12,7 @@ namespace G1 {
 		sf::CircleShape circle;
 		sf::Color color;
 		float radius;
-		void render(sf::RenderWindow*);
+		void render(sf::RenderWindow&);
 	public:
 		CircleRenderer();
 		CircleRenderer(float radiusTemp, sf::Color);

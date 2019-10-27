@@ -29,7 +29,7 @@ namespace G1 {
 		circle.setFillColor(color);
 	}
 
-	void CircleRenderer::render(sf::RenderWindow * w)
+	void CircleRenderer::render(sf::RenderWindow& w)
 	{
 		Vector2 pos = getWorldPosition();
 		circle.setPosition(pos.x, pos.y);
@@ -37,7 +37,7 @@ namespace G1 {
 		Vector2 scale = getWorldScale();
 		circle.setScale(scale.x, scale.y);
 
-		w->draw(circle);
+		w.draw(circle);
 	}
 
 }

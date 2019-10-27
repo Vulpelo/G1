@@ -5,20 +5,24 @@
 
 #include <iostream>
 #include <vector>
+
 #include <SFML\Graphics.hpp>
+
+#include "MainTick.h"
 #include "Transform.h"
 #include "Transformable.h"
 
 namespace G1 {
 
-	class Component
+	class Component// : public MainTick
 	{
 		friend class GameObject;
 		std::vector <Component *> newOverlapingComponents;
 
 		bool enabled;
 
-		virtual void mainEventTick();
+		virtual void mainBeginPlay() {};
+		virtual void mainEventTick() {};
 
 	protected:
 		//overlaping

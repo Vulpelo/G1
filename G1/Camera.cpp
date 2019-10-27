@@ -20,11 +20,15 @@ namespace G1 {
 		return view;
 	}
 
-	Camera::Camera(const Vector2& size) {
-		viewRect.left = 0.f;
-		viewRect.top = 0.f;
-		viewRect.width = size.x;
-		viewRect.height = size.y;
+	Camera::Camera() 
+		: matchRatioWithWindow(true) {
+		setSize(static_cast<float>(RenderProperties::getWindow().getSize().x),
+				static_cast<float>(RenderProperties::getWindow().getSize().y));
+	}
+
+	Camera::Camera(const Vector2& size) 
+		: matchRatioWithWindow(false) {
+		setSize(size.x, size.y);
 	}
 
 	void Camera::setActive(bool active) {
@@ -52,7 +56,6 @@ namespace G1 {
 	Camera & Camera::operator=(const Camera & camera) {
 		this->active = false;
 
-		this->viewRect = camera.viewRect;
 		this->offset = camera.offset;
 
 		return *this;

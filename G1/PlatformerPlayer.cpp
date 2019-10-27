@@ -37,7 +37,7 @@ void PlatformerPlayer::beginPlay() {
 
 	/* == CAMERA == */
 	/* Setting Camera Component*/
-	Camera* camera = new Camera(Vector2(500, 400));
+	Camera* camera = new Camera();
 	camera->setActive(true);
 	camera->setZoom(0.5f);
 	addComponent(camera);
