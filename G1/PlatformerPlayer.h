@@ -31,6 +31,7 @@ class PlatformerPlayer :
 
 	bool toJump = false;
 	float jumpForce{ 10.f };
+	bool crouched = false;
 
 	bool lookingRight = true;
 

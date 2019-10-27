@@ -95,12 +95,14 @@ void PlatformerPlayer::movement() {
 		rb->addForce(Vector2::up() * jumpForce);
 	}
 
-	//if (c.keyDown(sf::Keyboard::Key::Down)) {
-	//	crouchCollider->setEnabled(false);
-	//}
-	//else if (c.keyUp(sf::Keyboard::Key::Down)) {
-	//	crouchCollider->setEnabled(true);
-	//}
+	if (c.keyDown(sf::Keyboard::Key::Down)) {
+		crouched = true;
+		crouchCollider->setEnabled(false);
+	}
+	else if (c.keyUp(sf::Keyboard::Key::Down)) {
+		crouched = false;
+		crouchCollider->setEnabled(true);
+	}
 }
 
 void PlatformerPlayer::animating() {
@@ -120,6 +122,7 @@ void PlatformerPlayer::animating() {
 		animator->setBool("running", false);
 	}
 	animator->setBool("grounded", grounded);
+	animator->setBool("crouched", crouched);
 }
 
 void PlatformerPlayer::flip()

@@ -7,7 +7,8 @@ MapPlatformer01::MapPlatformer01()
 	assets.textures().load("./assets/spritesheets/player-run.png");
 	assets.textures().load("./assets/spritesheets/player-jump.png");
 	assets.textures().load("./assets/environment/layers/back.png");
-
+	assets.textures().load("./assets/spritesheets/player-crouch.png");
+	
 	assets.soundBuffers().load("grass_footsteps", "./assets/sounds/footsteps_grass.wav");
 	assets.soundBuffers().load("music_1", "./assets/sounds/platformer_level03_loop.ogg");
 
