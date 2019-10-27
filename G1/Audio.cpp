@@ -2,12 +2,29 @@
 
 namespace G1 {
 
-	sf::Sound Audio::soundHolder;
+	std::list<sf::Sound> Audio::soundHolders;
 
-	void Audio::play(const std::string & name)
+	sf::Sound & Audio::getSoundHolder() 
 	{
-		soundHolder.setBuffer(Assets::getInstance().soundBuffers().get(name));
-		soundHolder.play();
+		size_t i = 0;
+		for (std::list<sf::Sound>::iterator it = soundHolders.begin(); 
+			it != soundHolders.end(); 
+			it++) 
+		{
+			if (it->getStatus() == sf::Sound::Stopped) {
+				return *it;
+			}
+		}
+		soundHolders.push_back(sf::Sound());
+		return soundHolders.back();
+	}
+
+	void Audio::play(const std::string & name, bool loop)
+	{
+		sf::Sound& sound = getSoundHolder();
+		sound.setBuffer( Assets::getInstance().soundBuffers().get(name) );
+		sound.setLoop(loop);
+		sound.play();
 	}
 
 }

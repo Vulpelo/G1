@@ -9,8 +9,9 @@ MapPlatformer01::MapPlatformer01()
 	assets.textures().load("./assets/environment/layers/back.png");
 
 	assets.soundBuffers().load("grass_footsteps", "./assets/sounds/footsteps_grass.wav");
+	assets.soundBuffers().load("music_1", "./assets/sounds/platformer_level03_loop.ogg");
 
-	Audio::play("grass_footsteps");
+	Audio::play("music_1", true);
 	
 	{ // Background
 		Background* b = new Background(
