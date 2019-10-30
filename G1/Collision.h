@@ -24,11 +24,26 @@ namespace G1 {
 
 		RigidbodyPhysics rigidbodyPhysics;
 
+		/// <summary>
+		/// Calculates everything on collision
+		/// </summary>
+		/// <returns></returns>
 		virtual CollisionCheck calculate(Collider* collider1, Collider* collider2) = 0;
+		
+		/// <summary>
+		/// Calculates new velocity direction when collided
+		/// </summary>
 		virtual Vector2 calculateVelocityDirection(GameObject* gameObject1, Rigidbody* rigidbody1, GameObject* gameObject2, Rigidbody* rigidbody2) = 0;
 
+		//void staticXDynamic(GameObject& g1, GameObject& g2, Collider * collider1, Collider * collider2);
+		//void dynamicXDynamic(GameObject& g1, GameObject& g2, Collider * collider1, Collider * collider2);
+
+		virtual Vector2 oneNewColliderPosition(Collider * rectangleColliderDynamic, const Vector2& velocityDynamic, Collider* rectangleColliderStatic) = 0;
+
 	protected:
-		void applyNewVelocity(Rigidbody & rb1, const Collider& collider1, const Collider& collider2, const Vector2& velocity);
+		void applyNewVelocity(Rigidbody & rb1, const Rigidbody & rb2, const Collider& collider1, const Collider& collider2, const Vector2& velocity);
+		void startCalculating(Collider * collider1, Collider * collider2);
+
 	};
 
 }

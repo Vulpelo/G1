@@ -30,7 +30,7 @@ namespace G1 {
 		/// <param name="collider1"></param>
 		/// <param name="collider2"></param>
 		/// <returns>New position for first collider</returns>
-		Vector2 oneNewColliderPosition(RectangleCollider * rectangleColliderDynamic, Vector2 velocityDynamic, RectangleCollider * rectangleColliderStatic);
+		Vector2 oneNewColliderPosition(Collider * rectangleColliderDynamic, const Vector2& velocityDynamic, Collider * rectangleColliderStatic);
 
 	public:
 		RectangleCollidesRectangle() {};

@@ -14,7 +14,7 @@ namespace G1 {
 	{
 		friend class CircleCollidesRectangle;
 
-		Vector2 oneNewColliderPosition(CircleCollider* circleColliderDynamic, const Vector2& velocityDynamic, CircleCollider* circleColliderStatic);
+		Vector2 oneNewColliderPosition(Collider* circleColliderDynamic, const Vector2& velocityDynamic, Collider* circleColliderStatic);
 
 	public:
 		CircleCollidesCircle();

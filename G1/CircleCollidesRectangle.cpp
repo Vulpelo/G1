@@ -8,50 +8,13 @@ namespace G1 {
 		if (dynamic_cast<RectangleCollider*>(collider1) && dynamic_cast<CircleCollider*>(collider2) ||
 			dynamic_cast<RectangleCollider*>(collider2) && dynamic_cast<CircleCollider*>(collider1)) 
 		{
-			auto g1 = ((GameObject*)(collider1->getParent()));
-			auto g2 = ((GameObject*)(collider2->getParent()));
-			// TODO: world Velocity
-			auto rb1 = g1->getComponent<Rigidbody>();
-			auto rb2 = g2->getComponent<Rigidbody>();
-
-			Transformable& topParentCollider1 = collider1->getTopParent();
-			Transformable& topParentCollider2 = collider2->getTopParent();
-
-			// Dynamic x Dynamic
-			if (rb1 && rb2) {
-				topParentCollider1.setPosition(
-					oneNewColliderPosition(collider1, rb1->getVelocity(), collider2)
-				);
-
-				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, g2, NULL));
-				applyNewVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, g1, NULL));
-
-				return CollisionCheck::CALCULATED;
-			}
-
-			// Dynamic x Static
-			if (rb1 && !rb2) {
-
-				topParentCollider1.setPosition(
-					oneNewColliderPosition(collider1, rb1->getVelocity(), collider2)
-				);
-
-				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, g2, NULL));
-				return CollisionCheck::CALCULATED;
-			}// Static x Dynamic
-			else if (!rb1 && rb2) {
-				topParentCollider2.setPosition(
-					oneNewColliderPosition(collider2, rb2->getVelocity(), collider1)
-				);
-
-				applyNewVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, g1, NULL));
-				return CollisionCheck::CALCULATED;
-			}
+			startCalculating(collider1, collider2);
+			return CollisionCheck::CALCULATED;
 		}
 		return CollisionCheck::ERROR_TYPE;
 	}
 
-	Vector2 CircleCollidesRectangle::oneNewColliderPosition(Collider* dynamicCollider, Vector2 velocityDynamic, Collider * staticCollider) 
+	Vector2 CircleCollidesRectangle::oneNewColliderPosition(Collider* dynamicCollider, const Vector2& velocityDynamic, Collider * staticCollider) 
 	{
 		velocityFor = VelocityFor::RECTANGLE;
 

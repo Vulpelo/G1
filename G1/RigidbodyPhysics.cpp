@@ -17,7 +17,7 @@ namespace G1 {
 	/// <summary>
 	/// Calculate forces and apply new forces after Collision
 	/// </summary>
-	void RigidbodyPhysics::calculateAndApplyForce(Rigidbody& rb1, const Collider& collider1, const Collider& collider2, const Vector2& newVelocityDirection) const
+	void RigidbodyPhysics::calculateAndApplyForce(Rigidbody& rb1, const Rigidbody& rb2, const Collider& collider1, const Collider& collider2, const Vector2& newVelocityDirection) const
 	{
 		const PhysicMaterial& pM1 = collider1.getPhysicMaterial();
 		const PhysicMaterial& pM2 = collider2.getPhysicMaterial();

@@ -1,7 +1,7 @@
 #include "CircleCollidesCircle.h"
 
 namespace G1 {
-	Vector2 CircleCollidesCircle::oneNewColliderPosition(CircleCollider * circleColliderDynamic, const Vector2 & velocityDynamic, CircleCollider * circleColliderStatic)
+	Vector2 CircleCollidesCircle::oneNewColliderPosition(Collider * circleColliderDynamic, const Vector2 & velocityDynamic, Collider * circleColliderStatic)
 	{
 		// there can be only one collider in gameobject tree hierarchy. Only First gameObect (with paret=null) can have collider
 		// collider cant have offset.
@@ -39,51 +39,11 @@ namespace G1 {
 
 	CollisionCheck CircleCollidesCircle::calculate(Collider * collider1, Collider * collider2)
 	{
-		CircleCollider* circle1 = dynamic_cast<CircleCollider*>(collider1);
-		CircleCollider* circle2 = dynamic_cast<CircleCollider*>(collider2);
-
-		if (circle1 && circle2) {
-			auto g1 = ((GameObject*)(circle1->getParent()));
-			auto g2 = ((GameObject*)(circle2->getParent()));
-			// TODO: world Velocity
-			auto rb1 = g1->getComponent<Rigidbody>();
-			auto rb2 = g2->getComponent<Rigidbody>();
-			
-			Transformable& topParentCircle1 = circle1->getTopParent();
-			Transformable& topParentCircle2 = circle2->getTopParent();
-
-			// TODO: Dynamic x Dynamic
-			if (rb1 && rb2) {
-
-				topParentCircle1.setPosition(
-					oneNewColliderPosition(circle1, rb1->getVelocity(), circle2)
-				);
-
-				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, g2, NULL));
-				applyNewVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, g1, NULL));
-
-				return CollisionCheck::CALCULATED;
-			}
-
-			// Dynamic x Static
-			if (rb1 && !rb2) { 
-
-				topParentCircle1.setPosition(
-					oneNewColliderPosition(circle1, rb1->getVelocity(), circle2)
-				);
-				applyNewVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, g2, NULL));
-				return CollisionCheck::CALCULATED;
-			}
-			// Static x Dynamic
-			else if (!rb1 && rb2) {
-
-				topParentCircle2.setPosition(
-					oneNewColliderPosition(circle2, rb2->getVelocity(), circle1)
-				);
-
-				applyNewVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, g1, NULL));
-				return CollisionCheck::CALCULATED;
-			}
+		if (dynamic_cast<CircleCollider*>(collider1) 
+			&& dynamic_cast<CircleCollider*>(collider2))
+		{
+			startCalculating(collider1, collider2);
+			return CollisionCheck::CALCULATED;
 		}
 		return CollisionCheck::ERROR_TYPE;
 	}

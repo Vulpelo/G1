@@ -16,7 +16,7 @@ namespace G1 {
 
 		RigidbodyPhysics() {};
 		void applyForcesBeforeCollision() const;
-		void calculateAndApplyForce(Rigidbody& rb1, const Collider& collider1, const Collider& collider2, const Vector2& newVelocityDirection) const;
+		void calculateAndApplyForce(Rigidbody& rb1, const Rigidbody& rb2, const Collider& collider1, const Collider& collider2, const Vector2& newVelocityDirection) const;
 		/// <summary>
 		/// 
 		/// </summary>
