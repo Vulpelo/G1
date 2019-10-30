@@ -169,4 +169,9 @@
 		}
 	}
 
+	bool Vector2::nonZero() const
+	{
+		return x != 0.f || y != 0.f;
+	}
+
 //}

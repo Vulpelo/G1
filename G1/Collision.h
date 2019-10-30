@@ -41,9 +41,7 @@ namespace G1 {
 		virtual Vector2 oneNewColliderPosition(Collider * rectangleColliderDynamic, const Vector2& velocityDynamic, Collider* rectangleColliderStatic) = 0;
 
 	protected:
-		void applyNewVelocity(Rigidbody & rb1, const Rigidbody & rb2, const Collider& collider1, const Collider& collider2, const Vector2& velocity);
 		void startCalculating(Collider * collider1, Collider * collider2);
-
 	};
 
 }

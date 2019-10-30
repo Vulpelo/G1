@@ -80,6 +80,8 @@
 		/// Returns quadrant number of coordinate system depending from x and y values
 		/// </summary>
 		short quadrant() const;
+
+		bool nonZero() const;
 	};
 
 //}

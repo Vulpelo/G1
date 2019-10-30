@@ -31,7 +31,7 @@ namespace G1 {
 		else this->drag = drag; 
 	}
 
-	Vector2 Rigidbody::getVelocity()
+	Vector2 Rigidbody::getVelocity() const
 	{
 		return velocity;
 	}
