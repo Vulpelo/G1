@@ -85,17 +85,11 @@
     <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision">
       <UniqueIdentifier>{b3fee5e4-a8c5-4195-ae6d-8b257cf494bb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision\CircleCollidesCircle">
-      <UniqueIdentifier>{181527c7-bdd1-4f50-985c-ed8c0f5f9bbf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Engine\Physics\CalculatingCollision">
       <UniqueIdentifier>{de85c16f-7cdf-4da6-bb4e-08b373688089}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision">
       <UniqueIdentifier>{35e3b574-6cc5-4f76-abe7-1486d556275c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision\RectangleCollidesRectangle">
-      <UniqueIdentifier>{79dbb48f-73fa-49e8-aae4-36e66478dbe6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\G1Game\Maps">
       <UniqueIdentifier>{e4166e47-12ea-4613-a4c8-aa9b80c6acaf}</UniqueIdentifier>
@@ -261,9 +255,6 @@
     <ClCompile Include="RigidbodyPhysics.cpp">
       <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="RectangleCollidesRectangle.cpp">
-      <Filter>Source Files\Engine\Physics</Filter>
-    </ClCompile>
     <ClCompile Include="Physics.cpp">
       <Filter>Source Files\Engine\Physics</Filter>
     </ClCompile>
@@ -332,6 +323,9 @@
     </ClCompile>
     <ClCompile Include="MapTile.cpp">
       <Filter>Source Files\Prefabs\MapCreation</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleCollidesRectangle.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

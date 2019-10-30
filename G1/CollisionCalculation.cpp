@@ -19,7 +19,6 @@ namespace G1 {
 		}
 	}
 
-
 	CollisionCalculation::~CollisionCalculation()
 	{
 	}
