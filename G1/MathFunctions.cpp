@@ -52,4 +52,16 @@ namespace GMath
 			value += 360;
 		return value;
 	}
+
+	Vector2 orthogonalProjectionPointOnLine(const Vector2& point, const Segment& ab) {
+
+		return ab.getPoint1() + 
+			(( ab.getPoint2()) - ab.getPoint1()) *
+			(
+				((point - ab.getPoint1()) * (ab.getPoint2() - ab.getPoint1())) 
+				/
+				(ab.getPoint1() - ab.getPoint2()).lengthNoSqrt()
+			) ;
+	}
+
 }

@@ -14,6 +14,7 @@ namespace G1 {
 	void Rigidbody::mainEventTick()
 	{
 		Transform tran = this->getParent()->getTransform();
+		// TODO: Should be getDeltaTime() ???
 		tran.position = tran.position + (velocity * Time::getDeltaTime());
 
 		this->getParent()->setTransform(tran);

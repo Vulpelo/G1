@@ -318,14 +318,14 @@
     <ClCompile Include="Assets.cpp">
       <Filter>Source Files\Engine\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="RenderProperties.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MapTile.cpp">
       <Filter>Source Files\Prefabs\MapCreation</Filter>
     </ClCompile>
     <ClCompile Include="RectangleCollidesRectangle.cpp">
       <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderProperties.cpp">
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

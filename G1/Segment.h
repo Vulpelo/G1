@@ -3,7 +3,7 @@
 #ifndef _SEGMENT_H_
 #define _SEGMENT_H_
 
-#include "MathFunctions.h"
+#include "Vector2.h"
 
 namespace G1 {
 
@@ -19,6 +19,9 @@ namespace G1 {
 
 		const Vector2& getPoint1() const { return point1; }
 		const Vector2& getPoint2() const { return point2; }
+
+		void setPoint1(const Vector2& point) { point1 = point; }
+		void setPoint2(const Vector2& point) { point2 = point; }
 
 		/// <summary>
 		/// Calculates cross point of two lines. First/Second line goes thru points of segment1/segment2.

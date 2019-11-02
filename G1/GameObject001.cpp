@@ -23,6 +23,7 @@ void GameObject001::beginPlay() {
 	addComponent(collidor);
 
 	rb = new Rigidbody();
+	rb->setGravity(Vector2());
 	addComponent(rb);
 
 	auto tmp = getComponents<Collider>();

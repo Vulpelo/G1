@@ -21,7 +21,7 @@ namespace G1 {
 		Vector2 posAddForTopParent = dynamicCollider->getTopParent().getWorldPosition() - dynamicCollider->getWorldPosition();
 
 		Vector2 newPositon;
-		{ // cirStat x recDyn
+		{ // TODO: cirStat x recDyn
 			RectangleCollider* recDynCol = dynamic_cast<RectangleCollider*>(dynamicCollider);
 			CircleCollider* cirStatCol = dynamic_cast<CircleCollider*>(staticCollider);
 
@@ -30,6 +30,7 @@ namespace G1 {
 				newPositon = rcr.oneNewColliderPosition(recDynCol, velocityDynamic, &cirAsRecCollider);
 				return newPositon + posAddForTopParent;
 			}
+
 		}
 
 		{ // cirDyn x recStat
@@ -49,42 +50,55 @@ namespace G1 {
 
 
 				bool outSide = false;
-				CircleCollider recApexAsCircle(cirDynCol->getRadious()/2, 0, 0);
+				Segment segment;
 
 				if (p1.y < newPositon.y) {
 					if (p1.x < newPositon.x) {
 						// 1 apex
 						outSide = true;
-						recApexAsCircle.setPosition(p1);
+						segment.setPoint1(p1);
 					}
 					if (p2.x > newPositon.x) { 
 						// 2 apex
 						outSide = true;
-						recApexAsCircle.setPosition(p2);
+						segment.setPoint1(p2);
 					}
 				} 
 				else if (p4.y > newPositon.y) {
 					if (p2.x > newPositon.x) {
 						// 3 apex
 						outSide = true;
-						recApexAsCircle.setPosition(p3);
+						segment.setPoint1(p3);
 					}
 					if (p1.x < newPositon.x) {
 						// 4 apex
 						outSide = true;
-						recApexAsCircle.setPosition(p4);
+						segment.setPoint1(p4);
 					}
 				}
 
 				// out of boundries for rectangle
 				if (outSide) {
- 					CircleCollider smallerCirDyn(*(const CircleCollider*) cirDynCol);
+					Vector2 velRealMoved = velocityDynamic*Time::getDeltaTime();
+					Vector2 worldPositionDyn = dynamicCollider->getWorldPosition();
+					segment.setPoint2(segment.getPoint1() - velocityDynamic);
+					// TODO: Circle position on rectangle apex
 					
-					smallerCirDyn.setRadious(smallerCirDyn.getRadious() / 2);
+					Vector2 c = GMath::orthogonalProjectionPointOnLine(worldPositionDyn, segment);
 
-					CircleCollidesCircle ccc;
+					float x = dynamicCollider->getFarthestPoint() * dynamicCollider->getFarthestPoint() -
+						(worldPositionDyn - c).lengthNoSqrt();
+
+					Vector2 moveJ = (segment.getPoint1() - c).normalize();
+
+					float distance = sqrtf(x) - (segment.getPoint1() - c).length();
+					Vector2 move = moveJ * distance;
+
+					newPositon = worldPositionDyn - move;
+
 					velocityFor = VelocityFor::CIRCLE;
-					return ccc.oneNewColliderPosition(&smallerCirDyn, velocityDynamic, &recApexAsCircle) + posAddForTopParent;
+					// TODO: why '+ posAddForTopParent' ?
+					return newPositon;
 				}
 			}
 		}

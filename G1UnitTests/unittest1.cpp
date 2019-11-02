@@ -3,6 +3,7 @@
 
 #include "../G1/Time.cpp"
 #include "../G1/Vector2.cpp"
+#include "../G1/MathFunctions.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -44,6 +45,16 @@ namespace G1UnitTests
 			else
 				Assert::IsTrue(true);
 		}
+
+		//TEST_METHOD(GMath_orthogonalProjectionPointOnLine)
+		//{
+		//	Vector2 c = GMath::orthogonalProjectionPointOnLine()
+
+		//	if (c.equal(v2, 0.01f))
+		//		Assert::IsTrue(false);
+		//	else
+		//		Assert::IsTrue(true);
+		//}
 		
 
 	};
