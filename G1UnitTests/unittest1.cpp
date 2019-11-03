@@ -3,7 +3,7 @@
 
 #include "../G1/Time.cpp"
 #include "../G1/Vector2.cpp"
-#include "../G1/MathFunctions.h"
+#include "../G1/Segment.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -12,7 +12,6 @@ namespace G1UnitTests
 	TEST_CLASS(Vector2UnitTest1)
 	{
 	public:
-		
 		TEST_METHOD(equal_1)
 		{
 			Vector2 v1(1.f, 1.f);
@@ -45,17 +44,43 @@ namespace G1UnitTests
 			else
 				Assert::IsTrue(true);
 		}
+	};
 
-		//TEST_METHOD(GMath_orthogonalProjectionPointOnLine)
-		//{
-		//	Vector2 c = GMath::orthogonalProjectionPointOnLine()
+	TEST_CLASS(SegmentUnitTest1)
+	{
+	public:
+		TEST_METHOD(point_relative_segment_1)
+		{
+			Vector2 p1(0.f, 0.f);
+			Vector2 p2(0.f, 10.f);
+			Vector2 p(5.f, 5.f);
 
-		//	if (c.equal(v2, 0.01f))
-		//		Assert::IsTrue(false);
-		//	else
-		//		Assert::IsTrue(true);
-		//}
-		
+			G1::Segment seg(p1, p2);
+
+			Assert::IsTrue( seg.pointRelativeLine(p) > 0.f );
+		}
+
+		TEST_METHOD(point_relative_segment_2)
+		{
+			Vector2 p1(0.f, 0.f);
+			Vector2 p2(0.f, 10.f);
+			Vector2 p(-5.f, 5.f);
+
+			G1::Segment seg(p1, p2);
+
+			Assert::IsTrue(seg.pointRelativeLine(p) < 0.f);
+		}
+
+		TEST_METHOD(point_relative_segment_3)
+		{
+			Vector2 p1(0.f, 0.f);
+			Vector2 p2(0.f, 10.f);
+			Vector2 p(0.f, 5.f);
+
+			G1::Segment seg(p1, p2);
+
+			Assert::IsTrue(seg.pointRelativeLine(p) == 0.f);
+		}
 
 	};
 }

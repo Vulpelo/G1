@@ -35,7 +35,7 @@
 		/// </summary>
 		/// <param name="angle"></param>
 		/// <param name="length"></param>
-		void setVectorByAngleAndLength(float angle, float length);
+		static Vector2 byAngleAndLength(float angle, float length);
 
 		void set(float x, float y) { this->x = x; this->y = y; };
 		/// <summary>

@@ -77,8 +77,7 @@ namespace G1 {
 
 			for (int i = 0; i < 2; i++) {
 				// New perspective vector
-				Vector2 P;
-				P.setVectorByAngleAndLength(rect->getTransform().rotationX + additionalAngle*i, 1);
+				Vector2 P = Vector2::byAngleAndLength(rect->getTransform().rotationX + additionalAngle*i, 1);
 
 				Vector2 distance;
 				distance = cirl->getWorldPosition().invertY() - this->getWorldPosition().invertY();
@@ -101,8 +100,7 @@ namespace G1 {
 		for (int i = 0; i < 2; i++) {
 
 			// New perspective vector
-			Vector2 P;
-			P.setVectorByAngleAndLength(rect->getTransform().rotationX + additionalAngle*i, 1);
+			Vector2 P = Vector2::byAngleAndLength(rect->getTransform().rotationX + additionalAngle*i, 1);
 
 			// distance between two rectangles
 			Vector2 dTmp;
@@ -116,13 +114,13 @@ namespace G1 {
 			float hDiag;
 			Vector2 oR;
 			// geting otherCollider farthest point and rotating it
-			oR.setVectorByAngleAndLength
+			oR = oR.byAngleAndLength
 			(otherRect->getTransform().rotationX + otherRect->getFarthestPointVector().angle(),
 				otherRect->getFarthestPoint());
 			hDiag = fabs(oR * P);
 
 			//Second diagonal check if is longer on new perspective
-			oR.setVectorByAngleAndLength
+			oR = oR.byAngleAndLength
 			(otherRect->getTransform().rotationX + (otherRect->getFarthestPointVector().invertY()).angle(),
 				otherRect->getFarthestPoint());
 			float tmp = fabs(oR * P);
@@ -150,8 +148,7 @@ namespace G1 {
 		for (int i = 0; i < 2; i++) {
 
 			// New perspective vector
-			Vector2 P;
-			P.setVectorByAngleAndLength(this->getTransform().rotationX + additionalAngle*i, 1);
+			Vector2 P = Vector2::byAngleAndLength(this->getTransform().rotationX + additionalAngle*i, 1);
 
 			Vector2 dTmp;
 			dTmp = Vector2(point) - this->getWorldPosition().invertY(); // INVERT ??

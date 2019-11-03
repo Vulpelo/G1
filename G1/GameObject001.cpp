@@ -2,7 +2,7 @@
 
 
 void GameObject001::beginPlay() {
-	speed = 500.0f;
+	speed = 100.0f;
 	rotationSpeed = 50.0f;
 	shootingSpeed = 1.0f;
 	a_shootingSpeed = 0.2f;
@@ -81,8 +81,7 @@ void GameObject001::shooting() {
 		
 		auto bullet_rb = bullet->getComponent<Rigidbody>();
 
-		Vector2 vec; 
-		vec.setVectorByAngleAndLength(-getTransform().rotationX, 50);
+		Vector2 vec = Vector2::byAngleAndLength(-getTransform().rotationX, 50);
 		bullet_rb->addForce(vec); 
 	}
 	else if (a_shootingSpeed > 0) {

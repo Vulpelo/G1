@@ -25,6 +25,9 @@ namespace GMath
 	/// New vector's direction is equal to segment direction
 	/// </summary>
 	Vector2 orthogonalProjectionPointOnLine(const Vector2& point, const Segment& ab);
+
+	float shortestDistancePointToSegment(const Vector2& point, const Segment& ab);
+
 };
 
 #endif // !_MATH_FUNCTIONS_H_

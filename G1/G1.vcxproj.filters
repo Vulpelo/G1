@@ -70,9 +70,6 @@
     <Filter Include="Source Files\Engine\Map">
       <UniqueIdentifier>{b396d0cf-4179-469e-a09f-2c3380340e7a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\GMath\Transform\Vector2">
-      <UniqueIdentifier>{f401293b-cf85-4114-8cd1-05216ce3d55b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Engine\Physics\Overlap">
       <UniqueIdentifier>{929e1179-e228-4251-a34d-8fde2e335347}</UniqueIdentifier>
     </Filter>
@@ -395,9 +392,6 @@
     <ClInclude Include="RectangleCollider.h">
       <Filter>Header Files\Engine\Physics\Colliders</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2.h">
-      <Filter>Header Files\Engine\GMath\Transform\Vector2</Filter>
-    </ClInclude>
     <ClInclude Include="MathVariables.h">
       <Filter>Header Files\Engine\GMath</Filter>
     </ClInclude>
@@ -532,6 +526,9 @@
     </ClInclude>
     <ClInclude Include="MapTile.h">
       <Filter>Header Files\Prefabs\MapCreation</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Header Files\Engine\GMath\Transform</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

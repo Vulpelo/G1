@@ -10,8 +10,7 @@ namespace G1 {
 		for (int i = 0; i < 2; i++) {
 
 			// New perspective vector
-			Vector2 P;
-			P.setVectorByAngleAndLength(rect1->getWorldRotation() + additionalAngle*i, 1);
+			Vector2 P = Vector2::byAngleAndLength(rect1->getWorldRotation() + additionalAngle*i, 1);
 
 			// distance between two rectangles
 			Vector2 dTmp;
@@ -22,14 +21,14 @@ namespace G1 {
 			float hDiag;
 			Vector2 oR;
 			// geting otherCollider farthest point and rotating it
-			oR.setVectorByAngleAndLength(
+			oR = oR.byAngleAndLength(
 				rect2->getWorldRotation() + rect2->getFarthestPointVector().angle(),
 				rect2->getFarthestPoint()
 			);
 			hDiag = fabs(oR * P);
 
 			//Second diagonal check if is longer on new perspective
-			oR.setVectorByAngleAndLength(
+			oR = oR.byAngleAndLength(
 				rect2->getWorldRotation() + rect2->getFarthestPointVector().invertY().angle(),
 				rect2->getFarthestPoint()
 			);

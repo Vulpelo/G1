@@ -34,11 +34,10 @@
 		return target + ((target - current) * time);
 	}
 
-	void Vector2::setVectorByAngleAndLength(float angle, float length)
+	Vector2 Vector2::byAngleAndLength(float angle, float length)
 	{
 		float s = angle * float(M_PI) / 180;
-		this->x = length * sinf(s);
-		this->y = length * cosf(s);
+		return Vector2(length * sinf(s), length * cosf(s));
 	}
 
 	Vector2 Vector2::operator-(const Vector2 & other) const

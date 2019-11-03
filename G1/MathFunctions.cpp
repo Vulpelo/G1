@@ -64,4 +64,9 @@ namespace GMath
 			) ;
 	}
 
+	float shortestDistancePointToSegment(const Vector2& point, const Segment& ab) {
+		// TODO: optimise
+		return (orthogonalProjectionPointOnLine(point, ab) - point).length();
+	}
+
 }
