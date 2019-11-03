@@ -37,12 +37,12 @@ Map001::Map001()
 		objects.push_back(w);
 	}
 
-	//{
-	//	GameObject004_CircleWall* w = new GameObject004_CircleWall();
-	//	w->setTransform(Transform(700, 100, 0));
+	{
+		GameObject004_CircleWall* w = new GameObject004_CircleWall();
+		w->setTransform(Transform(700, 100, 0));
 
-	//	objects.push_back(w);
-	//}
+		objects.push_back(w);
+	}
 
 }
 

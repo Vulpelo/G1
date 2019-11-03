@@ -45,13 +45,8 @@ namespace G1 {
 
 		bool onlyParaller = true;
 
-
-		std::cout << "<>";
-		std::cout << "Vel:" << velocityDynamic.x << ":" << velocityDynamic.y;
-
 		for (size_t i = static_cast<size_t>(quadrant + 2); i <= static_cast<size_t>(quadrant + 3); i++) {
 			segmentIndex = i%segments.size();
-			std::cout << "seg: " << segmentIndex;
 
 			if (Segment::areParallel(dynamicColliderSegment, segments.at(segmentIndex))) {
 				// TODO: temporary fix
@@ -66,7 +61,6 @@ namespace G1 {
 					rotatedDynamicColliderSegment = Segment(rectangleColliderDynamicWorldPosition,
 						rectangleColliderDynamicWorldPosition - Vector2::right());
 				}
-				std::cout << "parallel : ";
 				tmpCrossPoint = Segment::crossPointOfLines(rotatedDynamicColliderSegment, segments.at(segmentIndex));
 				if (!segments.at(segmentIndex).pointOnSegment(tmpCrossPoint)) {
 					continue;
@@ -77,8 +71,6 @@ namespace G1 {
 				tmpCrossPoint = Segment::crossPointOfLines(dynamicColliderSegment, segments.at(segmentIndex));
 			}
 
-			std::cout << "Tmp:" <<  tmpCrossPoint.x << ":" << tmpCrossPoint.y;
-
 			if ((tmpCrossPoint - dynamicColliderSegment.getPoint1()).lengthNoSqrt()
 				<
 				(crossPoint - dynamicColliderSegment.getPoint1()).lengthNoSqrt())
@@ -87,16 +79,12 @@ namespace G1 {
 				crossPoint = tmpCrossPoint;
 			}
 
-			std::cout << " > CP:" << crossPoint.x << ":" << crossPoint.y;
-
 			onlyParaller = false;
 		}
 
 		if (onlyParaller) {
 			crossPoint = rectangleColliderDynamicWorldPosition;
 		}
-
-		std::cout << "\n";
 			 
 		return (crossPoint - rectangleColliderDynamicWorldPosition) + topParentColliderDynPosition;
 	}

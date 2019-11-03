@@ -79,6 +79,7 @@ namespace G1 {
 
 				// out of boundries for rectangle
 				if (outSide) {
+
 					Vector2 velRealMoved = velocityDynamic*Time::getDeltaTime();
 					Vector2 worldPositionDyn = dynamicCollider->getWorldPosition();
 					segment.setPoint2(segment.getPoint1() - velocityDynamic);
@@ -97,6 +98,8 @@ namespace G1 {
 					newPositon = worldPositionDyn - move;
 
 					velocityFor = VelocityFor::CIRCLE;
+					touchedApex = segment.getPoint1();
+					circlePosition = cirDynCol->getWorldPosition();
 					// TODO: why '+ posAddForTopParent' ?
 					return newPositon;
 				}
@@ -118,7 +121,11 @@ namespace G1 {
 		{
 		case G1::CircleCollidesRectangle::VelocityFor::CIRCLE:
 		{
-			return cCc.calculateVelocityDirection(gameObject1, rigidbody1, gameObject2, NULL);
+			Vector2 Vsoj = (touchedApex - circlePosition).normalize();
+			Vector2 Vso = Vsoj * (rigidbody1->getVelocity() * Vsoj);
+			Vector2 newM = rigidbody1->getVelocity() - (Vso * 2);
+			return rigidbody1->getVelocity() - (Vso * 2);
+			//return cCc.calculateVelocityDirection(gameObject1, rigidbody1, gameObject2, NULL);
 		} break;
 		case G1::CircleCollidesRectangle::VelocityFor::RECTANGLE:
 		{

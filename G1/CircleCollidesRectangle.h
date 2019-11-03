@@ -13,11 +13,15 @@ namespace G1 {
 			CIRCLE,
 			RECTANGLE
 		} velocityFor;
+		Vector2 touchedApex;
+		Vector2 circlePosition;
 
+		
 		RectangleCollidesRectangle rcr;
 		CircleCollidesCircle cCc;
 
 		Vector2 oneNewColliderPosition(Collider* dynamicCollider, const Vector2& velocityDynamic, Collider * staticCollider);
+
 		Vector2 calculateVelocityDirection(GameObject * gameObject1, Rigidbody * rigidbody1, GameObject * gameObject2, Rigidbody * rigidbody2);
 		RectangleCollider CircleCollidesRectangle::rectangleFromCircle(CircleCollider& circle);
 
