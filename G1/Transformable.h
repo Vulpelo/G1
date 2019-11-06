@@ -23,6 +23,13 @@ namespace G1 {
 		void setPosition(float x, float y);
 		void setPosition(const Vector2& position);
 
+		/// <summary>
+		/// Adds x and y to actual position.
+		/// Moves object by additional given offset
+		/// </summary>
+		void move(float x, float y);
+		void move(const Vector2& moveBy);
+
 		/// <summary>Sets rotation of an object</summary>
 		void setRotation(float x) { transform.rotationX = x; };
 		void setScale(float x, float y) { transform.scale.x = x; transform.scale.y = y; }

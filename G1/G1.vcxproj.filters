@@ -148,6 +148,9 @@
     <Filter Include="Source Files\Prefabs\MapCreation">
       <UniqueIdentifier>{a8eac605-a06a-4599-b90d-930c99d245a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Prefabs\MapCreation\Tiles">
+      <UniqueIdentifier>{3cf893f1-768d-4e95-acd0-a3445d7b7c59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -315,14 +318,20 @@
     <ClCompile Include="Assets.cpp">
       <Filter>Source Files\Engine\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="MapTile.cpp">
-      <Filter>Source Files\Prefabs\MapCreation</Filter>
-    </ClCompile>
     <ClCompile Include="RectangleCollidesRectangle.cpp">
       <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClCompile>
     <ClCompile Include="RenderProperties.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTileProperties.cpp">
+      <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTile1.cpp">
+      <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTile9.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -524,11 +533,20 @@
     <ClInclude Include="RenderProperties.h">
       <Filter>Header Files\Engine\Rendering</Filter>
     </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Header Files\Engine\GMath\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTileProperties.h">
+      <Filter>Header Files\Prefabs\MapCreation</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTile1.h">
+      <Filter>Header Files\Prefabs\MapCreation</Filter>
+    </ClInclude>
     <ClInclude Include="MapTile.h">
       <Filter>Header Files\Prefabs\MapCreation</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2.h">
-      <Filter>Header Files\Engine\GMath\Transform</Filter>
+    <ClInclude Include="MapTile9.h">
+      <Filter>Header Files\Prefabs\MapCreation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

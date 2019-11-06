@@ -3,7 +3,8 @@
 #include "Ground01.h"
 #include "PlatformerPlayer.h"
 #include "Background.h"
-#include "MapTile.h"
+#include "MapTile1.h"
+#include "MapTile9.h"
 
 using namespace G1;
 

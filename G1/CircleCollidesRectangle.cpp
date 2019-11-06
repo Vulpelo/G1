@@ -21,91 +21,99 @@ namespace G1 {
 		Vector2 posAddForTopParent = dynamicCollider->getTopParent().getWorldPosition() - dynamicCollider->getWorldPosition();
 
 		Vector2 newPositon;
-		{ // TODO: cirStat x recDyn
+		{ // cirStat x recDyn
 			RectangleCollider* recDynCol = dynamic_cast<RectangleCollider*>(dynamicCollider);
 			CircleCollider* cirStatCol = dynamic_cast<CircleCollider*>(staticCollider);
 
+			// TODO: Rectangle dynamic x circle static. Rectangle moves quickly to side of rectangle instead staying on apex. But sometimes stays on apex. Propably wrong new velocityDirection is calculated
 			if (recDynCol && cirStatCol) {
-				RectangleCollider cirAsRecCollider = rectangleFromCircle(*cirStatCol);
-				newPositon = rcr.oneNewColliderPosition(recDynCol, velocityDynamic, &cirAsRecCollider);
-				return newPositon + posAddForTopParent;
+				return oneNewColliderPositionCalc(recDynCol, cirStatCol, velocityDynamic, true);
 			}
-
 		}
 
 		{ // cirDyn x recStat
 			CircleCollider* cirDynCol = dynamic_cast<CircleCollider*>(dynamicCollider);
 			RectangleCollider* recStatCol = dynamic_cast<RectangleCollider*>(staticCollider);
 
+			// TODO: when low speed of circle on apex, then new position jumps to side of rectangle, rather than staing colliding on apex
 			if (recStatCol && cirDynCol) {
-				RectangleCollider cirAsRecCollider = rectangleFromCircle(*cirDynCol);
-				newPositon = rcr.oneNewColliderPosition(&cirAsRecCollider, velocityDynamic, recStatCol);
-
-				// Static collider boundry points
-				Vector2 wPos = recStatCol->getWorldPosition();
-				Vector2 p1 = wPos + recStatCol->getFarthestPointVector();
-				Vector2 p2 = wPos + recStatCol->getFarthestPointVector().invertX();
-				Vector2 p3 = wPos - recStatCol->getFarthestPointVector();
-				Vector2 p4 = wPos + recStatCol->getFarthestPointVector().invertY();
-
-
-				bool outSide = false;
-				Segment segment;
-
-				if (p1.y < newPositon.y) {
-					if (p1.x < newPositon.x) {
-						// 1 apex
-						outSide = true;
-						segment.setPoint1(p1);
-					}
-					if (p2.x > newPositon.x) { 
-						// 2 apex
-						outSide = true;
-						segment.setPoint1(p2);
-					}
-				} 
-				else if (p4.y > newPositon.y) {
-					if (p2.x > newPositon.x) {
-						// 3 apex
-						outSide = true;
-						segment.setPoint1(p3);
-					}
-					if (p1.x < newPositon.x) {
-						// 4 apex
-						outSide = true;
-						segment.setPoint1(p4);
-					}
-				}
-
-				// out of boundries for rectangle
-				if (outSide) {
-
-					Vector2 velRealMoved = velocityDynamic*Time::getDeltaTime();
-					Vector2 worldPositionDyn = dynamicCollider->getWorldPosition();
-					segment.setPoint2(segment.getPoint1() - velocityDynamic);
-					// TODO: Circle position on rectangle apex
-					
-					Vector2 c = GMath::orthogonalProjectionPointOnLine(worldPositionDyn, segment);
-
-					float x = dynamicCollider->getFarthestPoint() * dynamicCollider->getFarthestPoint() -
-						(worldPositionDyn - c).lengthNoSqrt();
-
-					Vector2 moveJ = (segment.getPoint1() - c).normalize();
-
-					float distance = sqrtf(x) - (segment.getPoint1() - c).length();
-					Vector2 move = moveJ * distance;
-
-					newPositon = worldPositionDyn - move;
-
-					velocityFor = VelocityFor::CIRCLE;
-					touchedApex = segment.getPoint1();
-					circlePosition = cirDynCol->getWorldPosition();
-					// TODO: why '+ posAddForTopParent' ?
-					return newPositon;
-				}
+				return oneNewColliderPositionCalc(recStatCol, cirDynCol, velocityDynamic, false);
 			}
 		}
 		return newPositon + posAddForTopParent;
+	}
+
+	Vector2 CircleCollidesRectangle::oneNewColliderPositionCalc(RectangleCollider* rect, CircleCollider* cirl, const Vector2& velocityDynamic, bool firstColiderDynamic) {
+		Vector2 newPositon;
+		Vector2 worldPositionDyn = cirl->getWorldPosition();
+		Vector2 cirlPosition = cirl->getWorldPosition();
+
+		// Static collider boundry points
+		Vector2 wPos = rect->getWorldPosition();
+		Vector2 p1 = wPos + rect->getFarthestPointVector();
+		Vector2 p2 = wPos + rect->getFarthestPointVector().invertX();
+		Vector2 p3 = wPos - rect->getFarthestPointVector();
+		Vector2 p4 = wPos + rect->getFarthestPointVector().invertY();
+
+		RectangleCollider cirAsRecCollider = rectangleFromCircle(*cirl);
+		if (firstColiderDynamic) {
+			newPositon = rcr.oneNewColliderPosition(rect, velocityDynamic, &cirAsRecCollider);
+			worldPositionDyn = rect->getWorldPosition();
+		}
+		else {
+			newPositon = rcr.oneNewColliderPosition(&cirAsRecCollider, velocityDynamic, rect);
+			cirlPosition = newPositon;
+		}
+
+		bool outSide = false;
+		Segment segment;
+
+		if (p1.y < cirlPosition.y) {
+			if (p1.x < cirlPosition.x) {
+				// 1 apex
+				outSide = true;
+				segment.setPoint1(p1);
+			}
+			if (p2.x > cirlPosition.x) {
+				// 2 apex
+				outSide = true;
+				segment.setPoint1(p2);
+			}
+		}
+		else if (p4.y > cirlPosition.y) {
+			if (p2.x > cirlPosition.x) {
+				// 3 apex
+				outSide = true;
+				segment.setPoint1(p3);
+			}
+			if (p1.x < cirlPosition.x) {
+				// 4 apex
+				outSide = true;
+				segment.setPoint1(p4);
+			}
+		}
+
+		// out of boundries for rectangle. Need more calculations
+		if (outSide) {
+			segment.setPoint2(segment.getPoint1() - velocityDynamic);
+			Vector2 c = GMath::orthogonalProjectionPointOnLine(cirl->getWorldPosition(), segment);
+
+			float x = cirl->getFarthestPoint() * cirl->getFarthestPoint() -
+				(cirl->getWorldPosition() - c).lengthNoSqrt();
+
+			Vector2 moveJ = (segment.getPoint1() - c).normalize();
+
+			float distance = sqrtf(x) - (segment.getPoint1() - c).length();
+			Vector2 move = moveJ * distance;
+
+			newPositon = worldPositionDyn - move;
+
+			velocityFor = VelocityFor::CIRCLE;
+			touchedApex = segment.getPoint1();
+			circlePosition = cirl->getWorldPosition();
+		}
+		// TODO: why '+ posAddForTopParent' ?
+		return newPositon;
 	}
 
 	RectangleCollider CircleCollidesRectangle::rectangleFromCircle(CircleCollider& circle) {

@@ -2,7 +2,6 @@
 
 void ExamplePlatformerGame::beginPlay()
 {
-	//MapManager::getInstance().loadMap( MapPlatformer01() );
-	MapManager::getInstance().loadMap(Map001());
-
+	MapManager::getInstance().loadMap( MapPlatformer01() );
+	//MapManager::getInstance().loadMap(Map001());
 }

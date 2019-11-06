@@ -22,6 +22,17 @@ namespace G1 {
 		this->transform.position.y = position.y;
 	}
 
+	void Transformable::move(float x, float y)
+	{
+		this->transform.position.x += x;
+		this->transform.position.y += y;
+	}
+
+	void Transformable::move(const Vector2 & moveBy)
+	{
+		this->transform.position += moveBy;
+	}
+
 	Vector2 Transformable::getWorldPosition()
 	{
 		Vector2 worldPos;

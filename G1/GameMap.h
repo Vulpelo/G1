@@ -28,6 +28,26 @@ namespace G1 {
 		void mainBeginPlay();
 		void mainEventTick();
 		virtual void eventTick(); //rdzen ustalany od postaci
+
+		//void addGameObject(GameObject* gameObject);
+		//void addGameObject(GameObject&& gameObject);
+
+		/// <summary>
+		/// Adds original gameObject to map
+		/// </summary>
+		/// <param name="gameObject"></param>
+		void addGameObject(GameObject* gameObject) { objects.push_back(gameObject); }
+
+		/// <summary>
+		/// Adds copy of the GameObject to map
+		/// </summary>
+		template <class T>
+		void addGameObject(T gameObject)
+		{
+			T* ngO = new T();
+			*ngO = gameObject;
+			objects.push_back(ngO);
+		}
 	};
 
 }
