@@ -23,7 +23,7 @@ MapTile9::MapTile9(G1::Sprite tiles[9], int x, int y, bool collision, const Laye
 	set(x, y, xSpan, ySpan);
 }
 
-void MapTile9::set(int x, int y, unsigned int xSpan, unsigned int ySpan)
+void MapTile9::set(int x, int y, unsigned int xSpan, unsigned int ySpan, int ignore)
 {
 	this->x = x;
 	this->y = y;
@@ -36,59 +36,61 @@ void MapTile9::set(int x, int y, unsigned int xSpan, unsigned int ySpan)
 	float nYPos = y * MapTileProperties::getTileSize().y + MapTileProperties::getTileSize().y / 2;
 
 	if (xSpan > 0 && ySpan > 0) {
-		this->spriteTiles[(int)SpriteTilePos::UL].sprite.setImageSize(
-			Vector2(this->spriteTiles[(int)SpriteTilePos::UL].initialImageSize.x,
-					this->spriteTiles[(int)SpriteTilePos::UL].initialImageSize.y));
+		if (! (ignore & (int)SpriteTilePos::UL) ) {
+			this->spriteTiles[0].sprite.setImageSize(
+				Vector2(this->spriteTiles[0].initialImageSize.x,
+						this->spriteTiles[0].initialImageSize.y));
+		}
+		if (!(ignore & (int)SpriteTilePos::UM)) {
+			this->spriteTiles[1].sprite.setPosition(tileSize.x, 0);
+			this->spriteTiles[1].sprite.setImageSize(
+				Vector2(this->spriteTiles[1].initialImageSize.x * (xSpan - 2),
+					this->spriteTiles[1].initialImageSize.y));
+		}
+		if (!(ignore & (int)SpriteTilePos::UR)) {
+			this->spriteTiles[2].sprite.setPosition(tileSize.x * (xSpan - 1), 0);
+			this->spriteTiles[2].sprite.setImageSize(
+				Vector2(this->spriteTiles[2].initialImageSize.x,
+						this->spriteTiles[2].initialImageSize.y));
+		}
 
-		this->spriteTiles[(int)SpriteTilePos::UM].sprite.move(tileSize.x, 0);
-		this->spriteTiles[(int)SpriteTilePos::UM].sprite.setImageSize(
-			Vector2(this->spriteTiles[(int)SpriteTilePos::UM].initialImageSize.x * (xSpan - 2),
-					this->spriteTiles[(int)SpriteTilePos::UM].initialImageSize.y));
+		if (!(ignore & (int)SpriteTilePos::ML)) {
+			this->spriteTiles[3].sprite.setPosition(0, tileSize.y);
+			this->spriteTiles[3].sprite.setImageSize(
+				Vector2(this->spriteTiles[3].initialImageSize.x,
+					this->spriteTiles[3].initialImageSize.y * (ySpan - 2)));
+		}
+		if (!(ignore & (int)SpriteTilePos::MM)) {
+			this->spriteTiles[4].sprite.setPosition(0, 0);
+			this->spriteTiles[4].sprite.setImageSize(
+				Vector2(this->spriteTiles[4].initialImageSize.x * (xSpan),
+					this->spriteTiles[4].initialImageSize.y * (ySpan)));
+		}
+		if (!(ignore & (int)SpriteTilePos::MR)) {
+			this->spriteTiles[5].sprite.setPosition( tileSize.x * (xSpan - 1), tileSize.y);
+			this->spriteTiles[5].sprite.setImageSize(
+				Vector2(this->spriteTiles[5].initialImageSize.x,
+					this->spriteTiles[5].initialImageSize.y * (ySpan - 2)));
+		}
 
-		this->spriteTiles[(int)SpriteTilePos::UR].sprite.move(tileSize.x * (xSpan - 1), 0);
-		this->spriteTiles[(int)SpriteTilePos::UR].sprite.setImageSize(
-			Vector2(this->spriteTiles[(int)SpriteTilePos::UR].initialImageSize.x,
-					this->spriteTiles[(int)SpriteTilePos::UR].initialImageSize.y));
-
-
-		this->spriteTiles[(int)SpriteTilePos::ML].sprite.move(0, tileSize.y);
-		this->spriteTiles[(int)SpriteTilePos::ML].sprite.setImageSize(
-			Vector2(this->spriteTiles[(int)SpriteTilePos::ML].initialImageSize.x,
-					this->spriteTiles[(int)SpriteTilePos::ML].initialImageSize.y * (ySpan - 2)));
-
-		this->spriteTiles[(int)SpriteTilePos::MM].sprite.move(
-			tileSize.x,
-			tileSize.y);
-		this->spriteTiles[(int)SpriteTilePos::MM].sprite.setImageSize(
-			Vector2(this->spriteTiles[(int)SpriteTilePos::MM].initialImageSize.x * (xSpan - 2),
-					this->spriteTiles[(int)SpriteTilePos::MM].initialImageSize.y * (ySpan - 2)));
-
-		this->spriteTiles[(int)SpriteTilePos::MR].sprite.move(
-			tileSize.x * (xSpan - 1),
-			tileSize.y);
-		this->spriteTiles[(int)SpriteTilePos::MR].sprite.setImageSize(
-			Vector2(this->spriteTiles[(int)SpriteTilePos::MR].initialImageSize.x,
-					this->spriteTiles[(int)SpriteTilePos::MR].initialImageSize.y * (ySpan - 2)));
-
-
-		this->spriteTiles[(int)SpriteTilePos::DL].sprite.move(0, tileSize.y * (ySpan - 1));
-		this->spriteTiles[(int)SpriteTilePos::DL].sprite.setImageSize(
-			Vector2(this->spriteTiles[(int)SpriteTilePos::DL].initialImageSize.x,
-				this->spriteTiles[(int)SpriteTilePos::DL].initialImageSize.y));
-
-		this->spriteTiles[(int)SpriteTilePos::DM].sprite.move(
-			tileSize.x,
-			tileSize.y * (ySpan - 1));
-		this->spriteTiles[(int)SpriteTilePos::DM].sprite.setImageSize(
-			Vector2(this->spriteTiles[(int)SpriteTilePos::DM].initialImageSize.x * (xSpan - 2),
-				this->spriteTiles[(int)SpriteTilePos::DM].initialImageSize.y));
-
-		this->spriteTiles[(int)SpriteTilePos::DR].sprite.move(
-			tileSize.x * (xSpan - 1),
-			tileSize.y * (ySpan - 1));
-		this->spriteTiles[(int)SpriteTilePos::DR].sprite.setImageSize(
-			Vector2(this->spriteTiles[(int)SpriteTilePos::DR].initialImageSize.x,
-				this->spriteTiles[(int)SpriteTilePos::DR].initialImageSize.y));
+		if (!(ignore & (int)SpriteTilePos::DL)) {
+			this->spriteTiles[6].sprite.setPosition(0, tileSize.y * (ySpan - 1));
+			this->spriteTiles[6].sprite.setImageSize(
+				Vector2(this->spriteTiles[6].initialImageSize.x,
+					this->spriteTiles[6].initialImageSize.y));
+		}
+		if (!(ignore & (int)SpriteTilePos::DM)) {
+			this->spriteTiles[7].sprite.setPosition(tileSize.x, tileSize.y * (ySpan - 1));
+			this->spriteTiles[7].sprite.setImageSize(
+				Vector2(this->spriteTiles[7].initialImageSize.x * (xSpan - 2),
+					this->spriteTiles[7].initialImageSize.y));
+		}
+		if (!(ignore & (int)SpriteTilePos::DR)) {
+			this->spriteTiles[8].sprite.setPosition( tileSize.x * (xSpan - 1), tileSize.y * (ySpan - 1));
+			this->spriteTiles[8].sprite.setImageSize(
+				Vector2(this->spriteTiles[8].initialImageSize.x,
+					this->spriteTiles[8].initialImageSize.y));
+		}
 	}
 
 	setPosition(Vector2(nXPos, nYPos));
@@ -107,7 +109,9 @@ void MapTile9::beginPlay()
 		addComponent(rc);
 	}
 
+	addComponent(&this->spriteTiles[4].sprite);
 	for (size_t i = 0; i < 9; i++) {
+		if (i == 4) continue;
 		addComponent(&this->spriteTiles[i].sprite);
 	}
 }

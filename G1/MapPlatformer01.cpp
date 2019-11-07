@@ -45,20 +45,6 @@ MapPlatformer01::MapPlatformer01()
 		objects.push_back(b);
 	}
 	{ // Map tiles
-		// Ground
-		MapTileProperties::setTileSize(Vector2(30, 30));
-
-		MapTile1 tile(Sprite(assets.textures().get("grass_um"), Vector2(16, 16)), 0, 0, true, Layer::GROUND, 6, 1);
-		addGameObject(tile);
-		tile.set(0,0,6,1); addGameObject(tile);
-		tile.set(6, -1, 2, 1); addGameObject(tile);
-		tile.set(8, 0, 6, 1); addGameObject(tile);
-		tile.set(9, -3, 4, 1); addGameObject(tile);
-		tile.set(14, -1, 3, 1); addGameObject(tile);
-		tile.set(17, -2, 2, 1); addGameObject(tile);
-		tile.set(19, -1, 3, 1); addGameObject(tile);
-		tile.set(24, -1, 4, 1); addGameObject(tile);
-
 		Sprite spriteTiles[9] = {
 			Sprite(assets.textures().get("grass_ul"), Vector2(16, 16)), 
 			Sprite(assets.textures().get("grass_um"), Vector2(16, 16)),
@@ -69,8 +55,17 @@ MapPlatformer01::MapPlatformer01()
 			Sprite(assets.textures().get("grass_dl"), Vector2(16, 16)), 
 			Sprite(assets.textures().get("grass_dm"), Vector2(16, 16)), 
 			Sprite(assets.textures().get("grass_dr"), Vector2(16, 16)) };
-		MapTile9 tile9(spriteTiles, -4, 2, true, Layer::GROUND, 5, 5);
+		MapTileProperties::setTileSize(Vector2(30, 30));
+
+		// Overall ground
+		MapTile9 tile9(spriteTiles, 0, 0, true, Layer::GROUND, 22, 10);
 		addGameObject(tile9);
+
+		// Ground / bomps
+		tile9.set(5, -1, 3, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
+		tile9.set(14, -1, 8, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
+		tile9.set(16, -2, 3, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
+		tile9.set(24, -1, 4, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
 	}
 
 	{// player
