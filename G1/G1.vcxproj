@@ -193,6 +193,8 @@
     <ClInclude Include="Assets.h" />
     <ClInclude Include="Audio.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="DefaultGameMap.h" />
+    <ClInclude Include="EventHandler.h" />
     <ClInclude Include="ExamplePlatformerGame.h" />
     <ClInclude Include="MainTick.h" />
     <ClInclude Include="MapTile.h" />

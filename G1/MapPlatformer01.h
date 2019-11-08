@@ -13,5 +13,7 @@ class MapPlatformer01 :
 {
 public:
 	MapPlatformer01();
+	void beginPlay() {};
+	void eventTick() {};
 };
 

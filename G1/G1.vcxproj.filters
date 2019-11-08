@@ -331,7 +331,7 @@
       <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
     </ClCompile>
     <ClCompile Include="MapTile9.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -547,6 +547,12 @@
     </ClInclude>
     <ClInclude Include="MapTile9.h">
       <Filter>Header Files\Prefabs\MapCreation</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultGameMap.h">
+      <Filter>Header Files\Engine\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

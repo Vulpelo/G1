@@ -16,9 +16,9 @@ namespace G1 {
 
 	Vector2 RigidbodyPhysics::calculateVelocity(Rigidbody& rb1, const Collider& collider1, const Collider& collider2, const Vector2& newVelocityDirection) const
 	{
-		std::cout << "Old Vel:" << rb1.getVelocity().x << ":" << rb1.getVelocity().y;
-		std::cout << "New direction:" << newVelocityDirection.x << ":" << newVelocityDirection.y;
-		std::cout << "\n";
+		//std::cout << "Old Vel:" << rb1.getVelocity().x << ":" << rb1.getVelocity().y;
+		//std::cout << "New direction:" << newVelocityDirection.x << ":" << newVelocityDirection.y;
+		//std::cout << "\n";
 
 		const PhysicMaterial& pM1 = collider1.getPhysicMaterial();
 		const PhysicMaterial& pM2 = collider2.getPhysicMaterial();

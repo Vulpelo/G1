@@ -9,18 +9,12 @@
 #include "PhysicsManager.h"
 #include "ControlInput.h"
 #include "Time.h"
-
-
-// for game
-#include "MapPlatformer01.h"
-#include "Map001.h"
-//
+#include "EventHandler.h"
 
 namespace G1 {
 
 	class Engine
 	{
-	private:
 		Time time;
 
 		RenderManager& render = RenderManager::getInstance();

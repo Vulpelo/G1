@@ -14,10 +14,16 @@
 
 namespace G1 {
 
-	class GameMap
+	class GameMap : public Tick
 	{
-		//friend class PhysicsHandle;
+		friend class MapManager;
+		friend class Engine;
+
 		void insertGameObjectBySortingLayer(GameObject* gameObject);
+
+		void mainBeginPlay();
+		void mainEventTick();
+
 	protected:
 		std::vector <GameObject *> objects;
 	public:
@@ -25,9 +31,6 @@ namespace G1 {
 		/// <summary> Return's a colection of Objects that where
 		/// created in this GameMap </summary>
 		std::vector <GameObject*> getAllObjects();
-		void mainBeginPlay();
-		void mainEventTick();
-		virtual void eventTick(); //rdzen ustalany od postaci
 
 		//void addGameObject(GameObject* gameObject);
 		//void addGameObject(GameObject&& gameObject);

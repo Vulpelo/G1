@@ -71,7 +71,11 @@ void PlatformerPlayer::eventTick() {
 
 	animating();
 
-	std::cout << rb->getVelocity().x << ":" << rb->getVelocity().y << std::endl;
+	if (c.keyDown(sf::Keyboard::Key::R)) {
+		MapManager::getInstance().reloadActual();
+	}
+
+	//std::cout << rb->getVelocity().x << ":" << rb->getVelocity().y << std::endl;
 }
 
 void PlatformerPlayer::movement() {

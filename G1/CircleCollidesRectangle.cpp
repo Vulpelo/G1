@@ -113,6 +113,11 @@ namespace G1 {
 			circlePosition = cirl->getWorldPosition();
 		}
 		// TODO: why '+ posAddForTopParent' ?
+
+		// TODO : new position equals NaN
+		std::cout << "New Position:" << newPositon.x << ":" << newPositon.y;
+		std::cout << "\n";
+
 		return newPositon;
 	}
 

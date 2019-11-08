@@ -2,14 +2,40 @@
 
 namespace G1 {
 
-	void MapManager::loadMap(GameMap&& nMap)
+	void MapManager::reloadActual()
 	{
-		MapManager::aMap = nMap;
-		MapManager::aMap.mainBeginPlay();
+		newMapName = actualMapName;
+		EventHandler::fireEvent([]() {
+			MapManager::getInstance().reloadActualE();
+		});
 	}
+
+	void MapManager::reloadActualE()
+	{
+		delete aMap;
+
+		loadMapE();
+	}
+
+	void MapManager::loadMap(std::string name)
+	{
+		newMapName = name;
+		EventHandler::fireEvent([]() {
+			MapManager::getInstance().loadMapE();
+		});
+	}
+
+	void MapManager::loadMapE()
+	{
+		aMap = manage(newMapName);
+		actualMapName = newMapName;
+		aMap->mainBeginPlay();
+	}
+
 
 	GameMap& MapManager::get_aMap()
 	{
-		return MapManager::aMap;
+		return *MapManager::aMap;
 	}
+
 }
