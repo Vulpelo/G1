@@ -2,7 +2,7 @@
 
 namespace G1 {
 
-	class MainTick {
+	class IMainTick {
 
 	protected:
 		virtual void mainBeginPlay() = 0;

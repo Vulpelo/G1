@@ -14,7 +14,7 @@
 
 namespace G1 {
 
-	class GameMap : public Tick
+	class GameMap : public ITick
 	{
 		friend class MapManager;
 		friend class Engine;

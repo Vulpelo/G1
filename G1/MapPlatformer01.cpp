@@ -60,12 +60,31 @@ MapPlatformer01::MapPlatformer01()
 		// Overall ground
 		MapTile9 tile9(spriteTiles, 0, 0, true, Layer::GROUND, 22, 10);
 		addGameObject(tile9);
+		tile9.set(24, 0, 16, 11, (int)MapTile9::SpriteTilePos::MR); addGameObject(tile9);
+		tile9.set(24, -1, 7, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
+		tile9.set(38,-1, 2, 2, (int)MapTile9::SpriteTilePos::DM | (int)MapTile9::SpriteTilePos::MR); addGameObject(tile9);
+
+		// left / right wall
+		tile9.set(-30, -21, 30, 30); addGameObject(tile9);
+		tile9.set(40, -20, 30, 30); addGameObject(tile9);
 
 		// Ground / bomps
 		tile9.set(5, -1, 3, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
 		tile9.set(14, -1, 8, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
 		tile9.set(16, -2, 3, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
-		tile9.set(24, -1, 4, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
+
+		// upper ground
+		tile9.set(28, -19, 10, 1, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
+		tile9.set(27, -20, 5, 2, (int)MapTile9::SpriteTilePos::MR); addGameObject(tile9);
+		tile9.set(-1, -21, 4, 2, (int)MapTile9::SpriteTilePos::ML); addGameObject(tile9);
+
+
+		// cave begining upper ground
+		tile9.set(30, -6, 5, 2, (int)MapTile9::SpriteTilePos::ML); addGameObject(tile9);
+		tile9.set(28, -12, 3, 8, (int)MapTile9::SpriteTilePos::ML); addGameObject(tile9);
+
+		tile9.set(23, -16, 4, 2, (int)MapTile9::SpriteTilePos::MR | (int)MapTile9::SpriteTilePos::UR); addGameObject(tile9);
+		tile9.set(26, -16, 3, 12, (int)MapTile9::SpriteTilePos::ML); addGameObject(tile9);
 	}
 
 	{// player

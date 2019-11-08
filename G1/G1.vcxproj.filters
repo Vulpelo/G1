@@ -524,12 +524,6 @@
     <ClInclude Include="Resources.h">
       <Filter>Header Files\Engine\Assets</Filter>
     </ClInclude>
-    <ClInclude Include="Tick.h">
-      <Filter>Header Files\Engine\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="MainTick.h">
-      <Filter>Header Files\Engine\Object</Filter>
-    </ClInclude>
     <ClInclude Include="RenderProperties.h">
       <Filter>Header Files\Engine\Rendering</Filter>
     </ClInclude>
@@ -553,6 +547,12 @@
     </ClInclude>
     <ClInclude Include="EventHandler.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ITick.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="IMainTick.h">
+      <Filter>Header Files\Engine\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

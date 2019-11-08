@@ -196,7 +196,7 @@
     <ClInclude Include="DefaultGameMap.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="ExamplePlatformerGame.h" />
-    <ClInclude Include="MainTick.h" />
+    <ClInclude Include="IMainTick.h" />
     <ClInclude Include="MapTile.h" />
     <ClInclude Include="MapTile1.h" />
     <ClInclude Include="MapTile9.h" />
@@ -258,7 +258,7 @@
     <ClInclude Include="SimpleShape.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="Tick.h" />
+    <ClInclude Include="ITick.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Transformable.h" />

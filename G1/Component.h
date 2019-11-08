@@ -8,7 +8,7 @@
 
 #include <SFML\Graphics.hpp>
 
-#include "MainTick.h"
+#include "IMainTick.h"
 #include "Transform.h"
 #include "Transformable.h"
 

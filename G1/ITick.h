@@ -1,10 +1,10 @@
 #pragma once
 
-#include "MainTick.h"
+#include "IMainTick.h"
 
 namespace G1 {
 
-	class Tick : protected MainTick {
+	class ITick : protected IMainTick {
 
 	protected:
 		virtual void mainBeginPlay() = 0;
