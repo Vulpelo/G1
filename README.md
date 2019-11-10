@@ -4,27 +4,39 @@
 #### IDE:
 * [Visual Studio 2015](https://visualstudio.microsoft.com/products/)  
 
-#### Table of Contents
+#### Classes
 
-[Other](#other)  
-* [Layer](#layer)  
-
-[Spawnable classes](#spawnableclasses)  
+[Map](#map)  
+* [MapManager](#MapManager)  
+* [GameMap](#GameMap)  
 * [GameObject](#GameObject)  
 
 [Rendering](#Rendering)  
-* [SortingLayer](#SortingLayer)  
+* [RenderManager](#RenderManager)
+* [Camera](#Camera)  
 * [CircleRenderer](#CircleRenderer)  
 * [RectangleRenderer](#RectangleRenderer)  
+* [Sprite](#Sprite)  
+* [Animator](#Animator)  
+* [SpriteAnimation](#SpriteAnimation)
 
 [Physics](#Physics)  
 * [CircleCollider](#CircleCollider)  
 * [RectangleCollider](#RectangleCollider)  
-* [Rigidbody](#Rigidbody)  
+* [Rigidbody](#Rigidbody) 
+
+[Other](#other)    
+* [Assets](#Assets)  
+* [Audio](#Audio)  
+* [ControlInput](#ControlInput)
+* [Time](#Time)  
+
+#### Other engine functions
+* [Layer](#layer)
+* [SortingLayer](#SortingLayer)
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Other
 ### Layer - for grouping GameObjects
    Each Object has enum Layer variable called layer. Engine can have up to 32 different layers. Each layer is a seperate integer's bit (that is why up to 32 layers).
 Layers are allowing to group many different GameObjects. That makes easier to, for example to check if some objects can colliding with others.
@@ -45,7 +57,7 @@ Usage:
 ---------------------------------------------------------------------------------------------------------------------
 <a name="spawnableclasses"/>
 
-## Spawnable classes
+## Map
 
 ### **GameObject** : inherits public Transformable, public ISpawnable
 
@@ -85,14 +97,10 @@ Usage:
 	int newSortingLayer = 5;
 	gameObject->setSortingLayer(newSortingLayer);
 	
-### CircleRenderer
-
-### RectangleRenderer
-
 ---------------------------------------------------------------------------------------------------------------------
 
 ## Physics
 
-### CircleCollider
-### CircleCollider
 ### Rigidbody
+An component, that gives control of na object's position. 
+Used in physics calculations like new velocity direction on colision, fraction, bounce, gravity. When GameObject has Rigidbody then is considered as a dynamic object, otherwise as static.
