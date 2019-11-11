@@ -78,34 +78,60 @@ void PlatformerPlayer::eventTick() {
 	//std::cout << rb->getVelocity().x << ":" << rb->getVelocity().y << std::endl;
 }
 
+void PlatformerPlayer::startOverlaping(GameObject * gameObject)
+{
+	if (gameObject->isLayer(Layer::CLIMBABLE)) {
+		canClimb = true;
+	}
+}
+
+void PlatformerPlayer::endOverlaping(GameObject * gameObject)
+{
+	if (gameObject->isLayer(Layer::CLIMBABLE)) {
+		canClimb = false;
+		climbing = false;
+	}
+}
+
 void PlatformerPlayer::movement() {
-	if (c.isKeyDown(sf::Keyboard::Key::Right)) {
-		targetMoveVelocity = Vector2::right();
-	}
-	else if (c.isKeyDown(sf::Keyboard::Key::Left)) {
-		targetMoveVelocity = Vector2::left();
-	}
-	else {
-		targetMoveVelocity.set(0, 0);
+	if (canClimb) {
+		if (c.isKeyDown(sf::Keyboard::Key::Up)) {
+			climbing = true;
+			// TODO: add climb movement
+		}
 	}
 
-	targetMoveVelocity.x *= maxSpeed;
-	targetMoveVelocity.y = rb->getVelocity().y;
-	rb->setVelocity(targetMoveVelocity
-//		Vector2::smoothDump(rb->getVelocity(), targetMoveVelocity, actualMoveVelocity, smoothMove)
-	);
 
-	if (grounded && c.keyDown(sf::Keyboard::Key::Up)) {
-		rb->addForce(Vector2::up() * jumpForce);
-	}
+	if (!climbing) {
+		if (c.isKeyDown(sf::Keyboard::Key::Right)) {
+			targetMoveVelocity = Vector2::right();
+		}
+		else if (c.isKeyDown(sf::Keyboard::Key::Left)) {
+			targetMoveVelocity = Vector2::left();
+		}
+		else {
+			targetMoveVelocity.set(0, 0);
+		}
 
-	if (c.keyDown(sf::Keyboard::Key::Down)) {
-		crouched = true;
-		crouchCollider->setEnabled(false);
-	}
-	else if (c.keyUp(sf::Keyboard::Key::Down)) {
-		crouched = false;
-		crouchCollider->setEnabled(true);
+		targetMoveVelocity.x *= maxSpeed;
+		targetMoveVelocity.y = rb->getVelocity().y;
+		rb->setVelocity(targetMoveVelocity
+	//		Vector2::smoothDump(rb->getVelocity(), targetMoveVelocity, actualMoveVelocity, smoothMove)
+		);
+
+		if (grounded && c.keyDown(sf::Keyboard::Key::Up)) {
+			climbing = false;
+			rb->addForce(Vector2::up() * jumpForce);
+		}
+
+		if (c.keyDown(sf::Keyboard::Key::Down)) {
+			crouched = true;
+			crouchCollider->setEnabled(false);
+		}
+		else if (c.keyUp(sf::Keyboard::Key::Down)) {
+			crouched = false;
+			crouchCollider->setEnabled(true);
+		}
 	}
 }
 

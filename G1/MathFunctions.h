@@ -22,7 +22,8 @@ namespace GMath
 	float vectorAngle(float x, float y);
 
 	/// <summary>
-	/// New vector's direction is equal to segment direction
+	/// New vector's direction is equal to segment direction. 
+	/// If segment's both points are equal then returns point
 	/// </summary>
 	Vector2 orthogonalProjectionPointOnLine(const Vector2& point, const Segment& ab);
 

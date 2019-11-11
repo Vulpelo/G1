@@ -115,8 +115,8 @@ namespace G1 {
 		// TODO: why '+ posAddForTopParent' ?
 
 		// TODO : new position equals NaN
-		std::cout << "New Position:" << newPositon.x << ":" << newPositon.y;
-		std::cout << "\n";
+		//std::cout << "New Position:" << newPositon.x << ":" << newPositon.y;
+		//std::cout << "\n";
 
 		return newPositon;
 	}

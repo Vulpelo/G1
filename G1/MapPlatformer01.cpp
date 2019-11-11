@@ -118,5 +118,12 @@ MapPlatformer01::MapPlatformer01()
 
 		objects.push_back(o);
 	}
+
+	{
+		GameObject004_CircleWall* w = new GameObject004_CircleWall();
+		w->setTransform(Transform(310, -50, 0));
+
+		objects.push_back(w);
+	}
 }
 

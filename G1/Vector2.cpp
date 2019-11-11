@@ -84,6 +84,11 @@
 		return Vector2(this->x / f, this->y / f);
 	}
 
+	bool Vector2::operator==(const Vector2 & vec) const
+	{
+		return vec.x == x && vec.y == y;
+	}
+
 	bool Vector2::equal(const Vector2& vector, float precision) const
 	{
 		return (vector.x - precision <= this->x && this->x <= vector.x + precision &&

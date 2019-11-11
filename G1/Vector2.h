@@ -43,19 +43,29 @@
 		/// </summary>
 		/// <returns>New substracted Vector2</returns>
 		Vector2 operator -(const Vector2&) const;
+
 		Vector2 operator +(const Vector2&) const;
 		Vector2& operator +=(const Vector2&);
-		Vector2 operator*(const float& f) const;
-		friend Vector2 operator*(const float&, const Vector2&);
-		Vector2& operator*=(const float& f);
 
-		
+		friend Vector2 operator*(const float&, const Vector2&);
+		Vector2 operator*(const float& f) const;
 		/// /// /// <summary> Dot product of two vectors </summary>
 		float operator *(const Vector2&) const;
+		Vector2& operator*=(const float& f);
 
 		Vector2 operator/(const float& f);
 
+		/// <summary>
+		/// Check if are exacly equal
+		/// </summary>
+		/// <param name=""></param>
+		/// <returns></returns>
+		bool operator==(const Vector2&) const;
+		/// <summary>
+		/// Check if vectors are almost equal to each other with given precision
+		/// </summary>
 		bool equal(const Vector2& vector, float precision = 0.001f) const;
+		bool nonZero() const;
 
 		/// <summary>
 		/// Direction of vector in witch is facing. Angle is 0 when vector is pointing straight up.
@@ -69,7 +79,7 @@
 		/// /// <summary>Distance to the power 2 between begining and end of the vector</summary>
 		float lengthNoSqrt() const;
 
-		/// <summary>Returns vector with length equal 1</summary>
+		/// <summary>Returns vector with length equal 1, without changing it's direction</summary>
 		Vector2 normalize() const;
 
 		Vector2 invertX() const;
@@ -81,7 +91,6 @@
 		/// </summary>
 		short quadrant() const;
 
-		bool nonZero() const;
 	};
 
 //}

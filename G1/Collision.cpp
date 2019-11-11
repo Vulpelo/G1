@@ -15,11 +15,12 @@ namespace G1 {
 
 		// TODO: Dynamic x Dynamic
 		if (rb1 && rb2) {
-
-			topParent1.setPosition(
-				oneNewColliderPosition(collider1, rb1->getVelocity(), collider2)
-			);
-
+			if (rb1->getVelocity().lengthNoSqrt() > rb2->getVelocity().lengthNoSqrt()) {
+				topParent1.setPosition( oneNewColliderPosition(collider1, rb1->getVelocity(), collider2) );
+			}
+			else {
+				topParent2.setPosition( oneNewColliderPosition(collider2, rb2->getVelocity(), collider1) );
+			}
 
 			Vector2 rb1NewVel = rigidbodyPhysics.calculateVelocity(*rb1, *rb2, *collider1, *collider2, calculateVelocityDirection(g1, rb1, g2, NULL));
 			Vector2 rb2NewVel = rigidbodyPhysics.calculateVelocity(*rb2, *rb1, *collider2, *collider1, calculateVelocityDirection(g2, rb2, g1, NULL));
@@ -32,10 +33,7 @@ namespace G1 {
 
 		// Dynamic x Static
 		if (rb1 && !rb2) {
-
-			topParent1.setPosition(
-				oneNewColliderPosition(collider1, rb1->getVelocity(), collider2)
-			);
+			topParent1.setPosition( oneNewColliderPosition(collider1, rb1->getVelocity(), collider2) );
 
 			rb1->setVelocity(rigidbodyPhysics.calculateVelocity(*rb1, *collider1, *collider2, calculateVelocityDirection(g1, rb1, g2, NULL)));
 			return;
@@ -43,11 +41,8 @@ namespace G1 {
 
 		// Static x Dynamic
 		if (!rb1 && rb2) {
-
-			topParent2.setPosition(
-				oneNewColliderPosition(collider2, rb2->getVelocity(), collider1)
-			);
-
+			topParent2.setPosition( oneNewColliderPosition(collider2, rb2->getVelocity(), collider1) );
+			
 			rb2->setVelocity(rigidbodyPhysics.calculateVelocity(*rb2, *collider2, *collider1, calculateVelocityDirection(g2, rb2, g1, NULL)));
 			return;
 		}

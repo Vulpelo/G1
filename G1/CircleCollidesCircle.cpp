@@ -29,6 +29,8 @@ namespace G1 {
 
 		float rest = (circleColliderDynamic->getWorldPosition() - velocityDynamic - S1).length();
 
+		Vector2 po = (S1 - circleColliderDynamic->getWorldPosition()) + topParentPosition;
+//std::cout << po.x << ":" << po.y << std::endl;
 		return (S1 - circleColliderDynamic->getWorldPosition()) + topParentPosition;
 	}
 

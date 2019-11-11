@@ -333,6 +333,9 @@
     <ClCompile Include="MapTile9.cpp">
       <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
     </ClCompile>
+    <ClCompile Include="Ladder.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -553,6 +556,9 @@
     </ClInclude>
     <ClInclude Include="IMainTick.h">
       <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Ladder.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

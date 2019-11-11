@@ -144,6 +144,7 @@
     <ClCompile Include="CollisionCalculation.cpp" />
     <ClCompile Include="ExamplePlatformerGame.cpp" />
     <ClCompile Include="Ground01.cpp" />
+    <ClCompile Include="Ladder.cpp" />
     <ClCompile Include="MapPlatformer01.cpp" />
     <ClCompile Include="MapTile1.cpp" />
     <ClCompile Include="MapTile9.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="ExamplePlatformerGame.h" />
     <ClInclude Include="IMainTick.h" />
+    <ClInclude Include="Ladder.h" />
     <ClInclude Include="MapTile.h" />
     <ClInclude Include="MapTile1.h" />
     <ClInclude Include="MapTile9.h" />

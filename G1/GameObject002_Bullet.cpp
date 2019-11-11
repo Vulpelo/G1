@@ -17,10 +17,10 @@ GameObject002_Bullet::GameObject002_Bullet()
 
 void GameObject002_Bullet::beginPlay() {
 
-	destroy(10.0f);
+	//destroy(10.0f);
 }
 
 void GameObject002_Bullet::isColliding(GameObject *)
 {
-	std::cout << this << ":Bullet is Colliding\n";
+	//std::cout << this << ":Bullet is Colliding\n";
 }

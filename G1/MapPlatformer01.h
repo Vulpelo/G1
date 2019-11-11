@@ -6,6 +6,8 @@
 #include "MapTile1.h"
 #include "MapTile9.h"
 
+#include "GameObject004_CircleWall.h"
+
 using namespace G1;
 
 class MapPlatformer01 :

@@ -54,6 +54,9 @@ namespace GMath
 	}
 
 	Vector2 orthogonalProjectionPointOnLine(const Vector2& point, const Segment& ab) {
+		if (ab.getPoint1() == ab.getPoint2()) {
+			return point;
+		}
 
 		return ab.getPoint1() + 
 			(( ab.getPoint2()) - ab.getPoint1()) *

@@ -9,7 +9,7 @@ enum class Layer {
 	ENEMY = 4,
 	GROUND = 8,
 	WALL = 16,
-	LAYER6 = 32,
+	CLIMBABLE = 32,
 	LAYER7 = 64,
 	LAYER8 = 128,
 	LAYER9 = 256,

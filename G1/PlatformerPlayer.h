@@ -28,7 +28,9 @@ class PlatformerPlayer :
 	float speed = 500.0f;
 
 	bool grounded = false;
+	bool climbing = false;
 
+	bool canClimb = false;
 	bool toJump = false;
 	float jumpForce{ 10.f };
 	bool crouched = false;
@@ -61,5 +63,8 @@ class PlatformerPlayer :
 public:
 	void beginPlay();
 	void eventTick();
+
+	void startOverlaping(GameObject* gameObject);
+	void endOverlaping(GameObject* gameObject);
 };
 
