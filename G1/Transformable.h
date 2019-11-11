@@ -9,34 +9,41 @@ namespace G1 {
 
 	class Transformable {
 	protected:
-		Transformable* parent;
+		Transformable* parent = NULL;
 		Transform transform;
 
 	public:
-		Transformable() {
-			parent = NULL;
-		}
+		Transformable() {}
 
-		Transformable* getParent() {
-			return parent;
-		};
+		Transformable& getTopParent();
 
-		void setParent(Transformable* parent) {
-			this->parent = parent;
-		};
+		Transformable* getParent() {return parent; };
+		void setParent(Transformable* parent) { this->parent = parent; };
 
-		void setPosition(float, float);
-		/// <summary> Returns copy of world position of this object in world space</summary>
-		Vector2 getWorldPosition();
+		void setPosition(float x, float y);
+		void setPosition(const Vector2& position);
+
+		/// <summary>
+		/// Adds x and y to actual position.
+		/// Moves object by additional given offset
+		/// </summary>
+		void move(float x, float y);
+		void move(const Vector2& moveBy);
+
+		/// <summary>Sets rotation of an object</summary>
+		void setRotation(float x) { transform.rotationX = x; };
+		void setScale(float x, float y) { transform.scale.x = x; transform.scale.y = y; }
+		void setScale(const Vector2& scale) { transform.scale = scale; }
 
 		/// <summary> Sets Transform of this object in relative to parent</summary>
-		void setTransform(Transform transform);
+		void setTransform(Transform transform) { this->transform = transform; };
 		/// <summary> gets Transform of this object in relative to parent</summary>
-		Transform getTransform();
+		virtual Transform getTransform() { return this->transform; };
 
-		float getWorldRotation();
-		/// <summary>Sets rotation of an object</summary>
-		void setRotation(float x);
+		/// <summary> Returns copy of world position of this object in world space</summary>
+		Vector2 getWorldPosition();
+		virtual float getWorldRotation();
+		virtual Vector2 getWorldScale();
 	};
 
 }

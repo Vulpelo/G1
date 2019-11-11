@@ -5,20 +5,30 @@
 
 #include <SFML\Graphics.hpp>
 
+#include "Renderer.h"
 #include "Properties.h"
+#include "RenderProperties.h"
 #include "MapManager.h"
+#include "Camera.h"
 
 namespace G1 {
 
 	class RenderManager
 	{
-		static sf::RenderWindow * window;
-		void renderGameObjects(std::vector<GameObject*> gameObjects);
-	public:
+		friend class Engine;
+
+		sf::Event events;
+
+
 		RenderManager();
-		~RenderManager();
-		static sf::RenderWindow*getWindow();
+
+		void renderGameObjects(std::vector<GameObject*> gameObjects);
+		void catchEvents();
 		void renderWindow();
+
+	public:
+		sf::RenderWindow& getWindow();
+		static RenderManager& getInstance() { static RenderManager instance; return instance; };
 	};
 
 }

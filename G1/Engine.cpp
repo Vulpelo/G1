@@ -4,23 +4,21 @@ namespace G1 {
 
 	Engine::Engine()
 	{
-		controlInput = ControlInput::getInstantiate();
-		controlInput->setRenderWindow(render.getWindow());
-
-		//DO GRY
-		GameMap *map = new Map001();
-		MapManager::loadMap(map);
+		controlInput.setRenderWindow(render.getWindow());
 	}
 
 	Engine::~Engine()
 	{
-		if(controlInput) 
-			delete controlInput;
+	}
+
+	void Engine::start() {
+		beginPlay();
+		mainLoop();
 	}
 
 	void Engine::mainLoop()
 	{
-		while (render.getWindow()->isOpen())
+		while (render.getWindow().isOpen())
 		{
 			mainEventTick();
 
@@ -33,9 +31,12 @@ namespace G1 {
 
 	void Engine::mainEventTick()
 	{
-		MapManager::get_aMap()->mainEventTick();
+		render.catchEvents();
 
-		controlInput->mainEventTick();
+		controlInput.mainEventTick();
+		MapManager::getInstance().get_aMap().mainEventTick();
+
+		EventHandler::getInstance().handle();
 	}
 
 }

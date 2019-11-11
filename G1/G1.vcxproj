@@ -76,6 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>D:\Dokumenty\Projects\Biblioteki\SFML-2.3.2 32bit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>D:\Dokumenty\Projects\Biblioteki\SFML-2.3.2 32bit\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -127,14 +128,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="Assets.cpp" />
+    <ClCompile Include="Audio.cpp" />
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CircleCollidesCircle.cpp" />
     <ClCompile Include="CircleCollidesRectangle.cpp" />
+    <ClCompile Include="CircleOverlapsCircle.cpp" />
+    <ClCompile Include="CircleOverlapsRectangle.cpp" />
     <ClCompile Include="CircleRenderer.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="CollisionCalculation.cpp" />
+    <ClCompile Include="ExamplePlatformerGame.cpp" />
+    <ClCompile Include="Ground01.cpp" />
+    <ClCompile Include="Ladder.cpp" />
+    <ClCompile Include="MapPlatformer01.cpp" />
+    <ClCompile Include="MapTile1.cpp" />
+    <ClCompile Include="MapTile9.cpp" />
+    <ClCompile Include="MapTileProperties.cpp" />
+    <ClCompile Include="Overlapping.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
+    <ClCompile Include="Physics.cpp" />
+    <ClCompile Include="PlatformerPlayer.cpp" />
     <ClCompile Include="RectangleCollider.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ControlInput.cpp" />
@@ -150,6 +169,7 @@
     <ClCompile Include="OverlapingGameObjectsStates.cpp" />
     <ClCompile Include="PhysicsManager.cpp" />
     <ClCompile Include="RectangleCollidesRectangle.cpp" />
+    <ClCompile Include="RectangleOverlapsRectangle.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapManager.cpp" />
@@ -159,22 +179,54 @@
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="RectangleRenderer.cpp" />
     <ClCompile Include="RenderManager.cpp" />
+    <ClCompile Include="RenderProperties.cpp" />
     <ClCompile Include="Rigidbody.cpp" />
+    <ClCompile Include="RigidbodyPhysics.cpp" />
+    <ClCompile Include="Segment.cpp" />
     <ClCompile Include="SimpleShape.cpp" />
+    <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SpriteAnimation.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Transformable.cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Assets.h" />
+    <ClInclude Include="Audio.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="DefaultGameMap.h" />
+    <ClInclude Include="EventHandler.h" />
+    <ClInclude Include="ExamplePlatformerGame.h" />
+    <ClInclude Include="IMainTick.h" />
+    <ClInclude Include="Ladder.h" />
+    <ClInclude Include="MapTile.h" />
+    <ClInclude Include="MapTile1.h" />
+    <ClInclude Include="MapTile9.h" />
+    <ClInclude Include="MapTileProperties.h" />
+    <ClInclude Include="PlayerAnimator.h" />
+    <ClInclude Include="RenderProperties.h" />
+    <ClInclude Include="Resources.h" />
+    <ClInclude Include="SpriteAnimation.h" />
+    <ClInclude Include="Animator.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CircleCollidesRectangle.h" />
+    <ClInclude Include="CollisionCheck.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleCollidesCircle.h" />
-    <ClInclude Include="CircleCollidesRectangle.h" />
+    <ClInclude Include="CircleOverlapsCircle.h" />
+    <ClInclude Include="CircleOverlapsRectangle.h" />
     <ClInclude Include="CircleRenderer.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Collision.h" />
-    <ClInclude Include="CollisionCheck.h" />
+    <ClInclude Include="CollisionCalculation.h" />
+    <ClInclude Include="Ground01.h" />
+    <ClInclude Include="MapPlatformer01.h" />
+    <ClInclude Include="Overlapping.h" />
+    <ClInclude Include="OverlappingCheck.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="CollisionDetection.h" />
+    <ClInclude Include="Physics.h" />
+    <ClInclude Include="PlatformerPlayer.h" />
     <ClInclude Include="RectangleCollider.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Debug.h" />
@@ -191,6 +243,7 @@
     <ClInclude Include="OverlapingGameObjectsStates.h" />
     <ClInclude Include="PhysicsManager.h" />
     <ClInclude Include="RectangleCollidesRectangle.h" />
+    <ClInclude Include="RectangleOverlapsRectangle.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="MathVariables.h" />
     <ClInclude Include="MapManager.h" />
@@ -200,9 +253,14 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RectangleRenderer.h" />
     <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Rigidbody.h" />
+    <ClInclude Include="RigidbodyPhysics.h" />
+    <ClInclude Include="Segment.h" />
     <ClInclude Include="SimpleShape.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="ITick.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Transformable.h" />

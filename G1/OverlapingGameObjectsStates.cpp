@@ -4,7 +4,7 @@ namespace G1 {
 
 	void OverlapingGameObjectsStates::manageStatesAndFireFunctions()
 	{
-		auto gameObjects = MapManager::get_aMap()->getAllObjects();
+		auto gameObjects = MapManager::getInstance().get_aMap().getAllObjects();
 
 		for each (GameObject* gameObject in gameObjects)
 		{

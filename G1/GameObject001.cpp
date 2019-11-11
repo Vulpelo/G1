@@ -2,8 +2,6 @@
 
 
 void GameObject001::beginPlay() {
-	c = *ControlInput::getInstantiate();
-
 	speed = 100.0f;
 	rotationSpeed = 50.0f;
 	shootingSpeed = 1.0f;
@@ -16,17 +14,24 @@ void GameObject001::beginPlay() {
 	color2 = sf::Color::Blue;
 
 	rend = new RectangleRenderer(60, 60, color1);
+	//rend = new CircleRenderer(60, color1);
 	addComponent(rend);
 
 	auto collidor = new RectangleCollider(60, 60, 0, 0);
+	//auto collidor = new CircleCollider(60, 0, 0);
+	collidor->setOverlappable(false);
 	addComponent(collidor);
 
+	rb = new Rigidbody();
+	rb->setGravity(Vector2());
+	addComponent(rb);
+
 	auto tmp = getComponents<Collider>();
-	tmp->pop_back();
+	tmp.pop_back();
 }
 
 void GameObject001::eventTick() {
-	if (c.isKeyDown(Key::S)) {
+	if (c.isKeyDown(sf::Keyboard::Key::S)) {
 		s_keyPressed = true;
 	}
 	else {
@@ -40,54 +45,34 @@ void GameObject001::eventTick() {
 }
 
 void GameObject001::movement() {
-	if (c.isKeyDown(Key::RIGHT_ARROW)) {
-		Transform tran = getTransform();
-		Vector2 pos = tran.position;
-		pos.X += Time::getDeltaTime() * speed;
-		tran.position = pos;
-
-		setTransform(tran);
+	if (c.isKeyDown(sf::Keyboard::Key::Right)) {
+		rb->addForce(Vector2::right() * (Time::getDeltaTime() * speed));
 	}
-	else if (c.isKeyDown(Key::LEFT_ARROW)) {
-		Transform tran = getTransform();
-		Vector2 pos = tran.position;
-		pos.X -= Time::getDeltaTime() * speed;
-		tran.position = pos;
-
-		setTransform(tran);
+	else if (c.isKeyDown(sf::Keyboard::Key::Left)) {
+		rb->addForce(Vector2::left() * (Time::getDeltaTime() * speed));
 	}
 
-	if (c.isKeyDown(Key::UP_ARROW)) {
-		Transform tran = getTransform();
-		Vector2 pos = tran.position;
-		pos.Y -= Time::getDeltaTime() * speed;
-		tran.position = pos;
-
-		setTransform(tran);
+	if (c.isKeyDown(sf::Keyboard::Key::Up)) {
+		rb->addForce(Vector2::up() * (Time::getDeltaTime() * speed));
 	}
-	else if (c.isKeyDown(Key::DOWN_ARROW)) {
-		Transform tran = getTransform();
-		Vector2 pos = tran.position;
-		pos.Y += Time::getDeltaTime() * speed;
-		tran.position = pos;
-
-		setTransform(tran);
+	else if (c.isKeyDown(sf::Keyboard::Key::Down)) {
+		rb->addForce(Vector2::down() * (Time::getDeltaTime() * speed));
 	}
 }
 
 void GameObject001::rotation()
 {
 	auto tmp = this->getTransform();
-	if (c.isKeyDown(Key::Q)) {
+	if (c.isKeyDown(sf::Keyboard::Key::Q)) {
 		this->setTransform(Transform(tmp.position, tmp.rotationX - Time::getDeltaTime() * rotationSpeed));
 	}
-	else if (c.isKeyDown(Key::E)) {
+	else if (c.isKeyDown(sf::Keyboard::Key::E)) {
 		this->setTransform(Transform(tmp.position, tmp.rotationX + Time::getDeltaTime() * rotationSpeed));
 	}
 }
 
 void GameObject001::shooting() {
-	if (a_shootingSpeed <= 0 && c.isKeyDown(Key::SPACE)) {
+	if (a_shootingSpeed <= 0 && c.isKeyDown(sf::Keyboard::Key::Space)) {
 		a_shootingSpeed = shootingSpeed;
 
 		auto bullet = instantiate<GameObject002_Bullet>();
@@ -96,8 +81,7 @@ void GameObject001::shooting() {
 		
 		auto bullet_rb = bullet->getComponent<Rigidbody>();
 
-		Vector2 vec; 
-		vec.setVectorByAngleAndLength(-getTransform().rotationX, 50);
+		Vector2 vec = Vector2::byAngleAndLength(-getTransform().rotationX, 50);
 		bullet_rb->addForce(vec); 
 	}
 	else if (a_shootingSpeed > 0) {

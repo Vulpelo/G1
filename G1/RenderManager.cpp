@@ -2,39 +2,61 @@
 
 namespace G1 {
 
-	sf::RenderWindow* RenderManager::window = NULL;
-
 	RenderManager::RenderManager()
 	{
-		window = new sf::RenderWindow(sf::VideoMode(Properties::width, Properties::height, Properties::bitPerPixel), "G1");
+		RenderProperties::setWindow(
+			new sf::RenderWindow(sf::VideoMode(Properties::width, Properties::height, Properties::bitPerPixel),
+				"G1",
+				sf::Style::Titlebar | sf::Style::Close | sf::Style::Resize)
+		);
 	}
 
-	RenderManager::~RenderManager()
+	sf::RenderWindow& RenderManager::getWindow()
 	{
-		if (window)
-			delete window;
-	}
-
-	sf::RenderWindow * RenderManager::getWindow()
-	{
-		return window;
+		return RenderProperties::getWindow();
 	}
 
 	void RenderManager::renderGameObjects(std::vector<GameObject*> gameObjects) {
-		for (unsigned int i = 0; i < gameObjects.size(); i++)
-			gameObjects.at(i)->render(window);
+		for (unsigned int i = 0; i < gameObjects.size(); i++) {
+			for each (Renderer* renderer in gameObjects.at(i)->getComponents<Renderer>())
+			{
+				if (renderer->isEnabled()) {
+					renderer->render(getWindow());
+				}
+			}
+		}
 	}
 
 	void RenderManager::renderWindow()
 	{
-		window->clear();
+		for each (Camera* camera  in Camera::getActiveCameras()) {
+			getWindow().setView(camera->getView());
+		}
+		getWindow().clear();
 
-		auto gameObjects = MapManager::get_aMap()->getAllObjects();
-
+		auto gameObjects = MapManager::getInstance().get_aMap().getAllObjects();
 		renderGameObjects(gameObjects);
-		//MapManager::get_aMap()->render(window);
 
-		window->display();
+		getWindow().display();
+	}
+
+	void RenderManager::catchEvents()
+	{
+		while (getWindow().pollEvent(events))
+		{
+			if (events.type == sf::Event::Resized)
+			{
+				for each (Camera* camera  in Camera::getActiveCameras()) {
+					if (camera->getMatchSize()) {
+						camera->setSize(
+							static_cast<float>(getWindow().getSize().x), 
+							static_cast<float>(getWindow().getSize().y));
+					}
+				}
+			}
+
+			ControlInput::getInstantiate().catchEvents(events);
+		}
 	}
 
 }

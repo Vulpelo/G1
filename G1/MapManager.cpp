@@ -2,21 +2,40 @@
 
 namespace G1 {
 
-	GameMap* MapManager::aMap = nullptr;
-
-	void MapManager::loadMap(GameMap* nMap)
+	void MapManager::reloadActual()
 	{
-		MapManager::aMap = nMap;
-		MapManager::aMap->mainBeginPlay();
+		newMapName = actualMapName;
+		EventHandler::fireEvent([]() {
+			MapManager::getInstance().reloadActualE();
+		});
 	}
 
-	GameMap * MapManager::get_aMap()
+	void MapManager::reloadActualE()
 	{
-		return MapManager::aMap;
+		delete aMap;
+
+		loadMapE();
 	}
 
-	MapManager::~MapManager()
+	void MapManager::loadMap(std::string name)
 	{
+		newMapName = name;
+		EventHandler::fireEvent([]() {
+			MapManager::getInstance().loadMapE();
+		});
+	}
+
+	void MapManager::loadMapE()
+	{
+		aMap = manage(newMapName);
+		actualMapName = newMapName;
+		aMap->mainBeginPlay();
+	}
+
+
+	GameMap& MapManager::get_aMap()
+	{
+		return *MapManager::aMap;
 	}
 
 }

@@ -5,12 +5,15 @@
 
 #include "Component.h"
 #include <SFML\Graphics.hpp>
+#include <SFML\Graphics\Sprite.hpp>
 
 namespace G1 {
 
 	class Renderer : public Component, public Transformable
 	{
-		virtual void render(sf::RenderWindow * w) = 0;
+		friend class RenderManager;
+
+		virtual void render(sf::RenderWindow& w) = 0;
 	public:
 		virtual void setColor(sf::Color color) = 0;
 	};

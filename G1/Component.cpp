@@ -1,11 +1,7 @@
 #include "Component.h"
 
 namespace G1 {
-	void Component::mainEventTick()
-	{
-
-	}
-
+	
 	Component::Component()
 		: name("") {
 		this->enabled = true;
@@ -65,9 +61,9 @@ namespace G1 {
 	//			+(localPositionY)*(localPositionY));
 	//		double lPX = c * sin((transform.rotationX + beginRotFromObject)*M_PI / 180);
 	//
-	//		return transform.position.X + lPX;
+	//		return transform.position.x + lPX;
 	//	}
-	//	return transform.position.X + localPositionX;
+	//	return transform.position.x + localPositionX;
 	//};
 	//
 	//double Component::getYWorldPosition()
@@ -99,9 +95,9 @@ namespace G1 {
 	//		if (minuendOfRot == 270)
 	//			lPY = -lPY;
 	//
-	//		return -transform.position.Y + lPY;
+	//		return -transform.position.y + lPY;
 	//	}
-	//	return -transform.position.Y - localPositionY;
+	//	return -transform.position.y - localPositionY;
 	//};
 
 

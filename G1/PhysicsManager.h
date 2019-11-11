@@ -5,6 +5,7 @@
 
 #include "CollisionDetection.h"
 #include "OverlapingGameObjectsStates.h"
+#include "RigidbodyPhysics.h"
 
 namespace G1 {
 
@@ -12,6 +13,7 @@ namespace G1 {
 	{
 		CollisionDetection collisionDetection;
 		OverlapingGameObjectsStates overlapingGameObjectsStates;
+		RigidbodyPhysics rigidbodyPhysics;
 
 	public:
 		PhysicsManager();

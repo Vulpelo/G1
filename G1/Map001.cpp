@@ -4,21 +4,35 @@ Map001::Map001()
 {
 	{
 		GameObject001* o = new GameObject001();
-		o->setTransform(Transform(500, 300, 0));
+		o->setTransform(Transform(489, 222.051, 0));
 
 		objects.push_back(o);
 	}
 
-	{
-		GameObject003_wall* w = new GameObject003_wall();
-		w->setTransform(Transform(700, 500, 45));
+	//{
+	//	GameObject003_wall* w = new GameObject003_wall();
+	//	w->setTransform(Transform(700, 500, 45));
 
-		objects.push_back(w);
-	}
+	//	objects.push_back(w);
+	//}
+
+	//{
+	//	GameObject003_wall* w = new GameObject003_wall(60, 100);
+	//	w->setTransform(Transform(400, 500, 45));
+
+	//	objects.push_back(w);
+	//}
+
+	//{
+	//	GameObject003_wall* w = new GameObject003_wall(60, 60);
+	//	w->setTransform(Transform(700, 300, 0));
+
+	//	objects.push_back(w);
+	//}
 
 	{
-		GameObject003_wall* w = new GameObject003_wall();
-		w->setTransform(Transform(700, 300, 0));
+		GameObject003_wall* w = new GameObject003_wall(60, 100);
+		w->setTransform(Transform(400, 300, 0));
 
 		objects.push_back(w);
 	}

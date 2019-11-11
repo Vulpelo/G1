@@ -6,16 +6,24 @@
 #include "GameObject.h"
 
 #include "GameObjectsData.h"
+#include "Assets.h"
+
 #include <vector>
 
 #include <SFML\Graphics.hpp>
 
 namespace G1 {
 
-	class GameMap
+	class GameMap : public ITick
 	{
-		//friend class PhysicsHandle;
+		friend class MapManager;
+		friend class Engine;
+
 		void insertGameObjectBySortingLayer(GameObject* gameObject);
+
+		void mainBeginPlay();
+		void mainEventTick();
+
 	protected:
 		std::vector <GameObject *> objects;
 	public:
@@ -23,9 +31,26 @@ namespace G1 {
 		/// <summary> Return's a colection of Objects that where
 		/// created in this GameMap </summary>
 		std::vector <GameObject*> getAllObjects();
-		void mainBeginPlay();
-		void mainEventTick();
-		virtual void eventTick(); //rdzen ustalany od postaci
+
+		//void addGameObject(GameObject* gameObject);
+		//void addGameObject(GameObject&& gameObject);
+
+		/// <summary>
+		/// Adds original gameObject to map
+		/// </summary>
+		/// <param name="gameObject"></param>
+		void addGameObject(GameObject* gameObject) { objects.push_back(gameObject); }
+
+		/// <summary>
+		/// Adds copy of the GameObject to map
+		/// </summary>
+		template <class T>
+		void addGameObject(T gameObject)
+		{
+			T* ngO = new T();
+			*ngO = gameObject;
+			objects.push_back(ngO);
+		}
 	};
 
 }

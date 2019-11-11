@@ -6,11 +6,9 @@
 namespace G1 {
 
 	enum CollisionCheck {
-		NOT_COLLIDES,
-		COLLIDES,
-		WRONG_TYPE
+		CALCULATED,
+		ERROR_TYPE
 	};
-
 }
 
 #endif // !_COLLISION_CHECK_H_

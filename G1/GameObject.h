@@ -11,7 +11,10 @@
 #include "ISpawnable.h"
 
 #include "GameObjectsData.h"
+#include "Audio.h"
 
+
+#include "ITick.h"
 #include "Time.h"
 
 // containers
@@ -20,7 +23,7 @@
 
 namespace G1 {
 
-	class GameObject : public ISpawnable, public Transformable
+	class GameObject : public ISpawnable, public Transformable, public ITick
 	{
 		friend class GameMap;
 		friend class RenderManager;
@@ -91,7 +94,7 @@ namespace G1 {
 
 		/// <summary>Return's list of components that inherite from given class</summary>
 		template <class T>
-		std::vector <T*> *getComponents();
+		std::vector <T*> getComponents();
 
 		/// <summary>Return's first component in list of components that inherite from given class or NULL if no component found</summary>
 		template <class T>
@@ -101,7 +104,9 @@ namespace G1 {
 		void addComponent(Component* component);
 #pragma endregion
 
-#pragma region Overlaping interactions
+#pragma region Overlaping/Colliding interactions
+		virtual void isColliding(GameObject* gameObject) {};
+
 		/// <summary>Function is called every time when new object just touched this object</summary>
 		virtual void startOverlaping(GameObject *overlaped) {};
 
@@ -117,6 +122,7 @@ namespace G1 {
 		virtual void endOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
 #pragma endregion
 
+
 #pragma region Destroy 
 		/// <summary>Destroys object before next tick</summary>
 		void destroy(float nlifeTime = 0.0f);
@@ -128,18 +134,19 @@ namespace G1 {
 	};
 
 	template<class T>
-	std::vector<T*>* GameObject::getComponents()
+	std::vector<T*> GameObject::getComponents()
 	{
-		std::vector <T*> *chosen = new std::vector<T*>();
+		std::vector <T*> chosenComponents;
 
-		for each (T* component in this->components)
+		T* chosenComponent;
+		for each (Component* component in this->components)
 		{
-			if (dynamic_cast<T*>(component)) {
-				chosen->push_back(component);
+			if (chosenComponent = dynamic_cast<T*>(component)) {
+				chosenComponents.push_back(chosenComponent);
 			}
 		}
 
-		return chosen;
+		return chosenComponents;
 	}
 
 	template<class T>

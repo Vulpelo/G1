@@ -4,8 +4,8 @@ namespace G1 {
 
 	GameObject::GameObject()
 	{
-		this->transform.position.X = 0;
-		this->transform.position.Y = 0;
+		this->transform.position.x = 0;
+		this->transform.position.y = 0;
 		this->transform.rotationX = 0;
 
 		sortingLayer = 0;
@@ -48,7 +48,7 @@ namespace G1 {
 
 	bool GameObject::inLayer(int layer)
 	{
-		return (layer & this->layer) != 0;
+		return (layer & static_cast<int>(this->layer)) != 0;
 	}
 
 	bool GameObject::isLayer(Layer layer)
@@ -79,13 +79,13 @@ namespace G1 {
 		}
 		currentLifeTime += Time::getDeltaTime();
 
+		this->eventTick();
 
 		for each (Component* component in components) {
 			if (component->isEnabled()) {
 				component->mainEventTick();
 			}
 		}
-		this->eventTick();
 	}
 	
 	void GameObject::render(sf::RenderWindow * w)
@@ -128,6 +128,11 @@ namespace G1 {
 		return components;
 	}
 
+	/// <summary>
+	/// Adds another component to this GameObject.
+	/// Order of adding components is important for Renderers
+	/// </summary>
+	/// <param name="component"></param>
 	void GameObject::addComponent(Component * component)
 	{
 		components.push_back(component);

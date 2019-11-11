@@ -14,6 +14,7 @@ namespace G1 {
 	void Rigidbody::mainEventTick()
 	{
 		Transform tran = this->getParent()->getTransform();
+		// TODO: Should be getDeltaTime() ???
 		tran.position = tran.position + (velocity * Time::getDeltaTime());
 
 		this->getParent()->setTransform(tran);
@@ -24,4 +25,20 @@ namespace G1 {
 		velocity = velocity + force;
 	}
 
+	void Rigidbody::setDrag(float drag)
+	{ 
+		if (drag < 0) this->drag = 0.0f; 
+		else if (drag > 1.0f) this->drag = 1.f; 
+		else this->drag = drag; 
+	}
+
+	Vector2 Rigidbody::getVelocity() const
+	{
+		return velocity;
+	}
+
+	void Rigidbody::setVelocity(Vector2 velocity)
+	{
+		this->velocity = velocity;
+	}
 }

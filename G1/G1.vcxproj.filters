@@ -18,12 +18,6 @@
     <Filter Include="Source Files\G1Game">
       <UniqueIdentifier>{268b4cf0-adf0-4b28-bad2-007799a63edc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Components">
-      <UniqueIdentifier>{e57a7de7-9b98-4be4-94dd-cd673527f7e9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Engine\Components">
-      <UniqueIdentifier>{8b2de7d8-10a6-4e6f-80a1-18bc134411a2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Engine\Physics">
       <UniqueIdentifier>{b8222c37-7a50-4e37-8417-cdc906e8385c}</UniqueIdentifier>
     </Filter>
@@ -55,12 +49,6 @@
     <Filter Include="Header Files\G1Game">
       <UniqueIdentifier>{cf59c373-3e0d-4ef3-afb7-ee6ee1108322}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Components\Collider">
-      <UniqueIdentifier>{313b2093-0367-41ae-a72e-467d22300c4e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Engine\Components\Collider">
-      <UniqueIdentifier>{5323203b-eed3-44ea-a294-80a3d7733e4b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Engine\GMath">
       <UniqueIdentifier>{8d0e8208-626f-4cfa-ba74-3302a0b12bc0}</UniqueIdentifier>
     </Filter>
@@ -82,14 +70,98 @@
     <Filter Include="Source Files\Engine\Map">
       <UniqueIdentifier>{b396d0cf-4179-469e-a09f-2c3380340e7a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Physics\Collision">
+    <Filter Include="Source Files\Engine\Physics\Overlap">
       <UniqueIdentifier>{929e1179-e228-4251-a34d-8fde2e335347}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\Physics\Collision">
+    <Filter Include="Header Files\Engine\Physics\Overlap">
       <UniqueIdentifier>{ead24288-5845-41c6-ac1b-822a1e11e7fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\GMath\Transform\Vector2">
-      <UniqueIdentifier>{f401293b-cf85-4114-8cd1-05216ce3d55b}</UniqueIdentifier>
+    <Filter Include="Source Files\Engine\Physics\CalculatingCollision">
+      <UniqueIdentifier>{a325bf8c-cac1-4036-9367-19a5da4c4b80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision">
+      <UniqueIdentifier>{b3fee5e4-a8c5-4195-ae6d-8b257cf494bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\CalculatingCollision">
+      <UniqueIdentifier>{de85c16f-7cdf-4da6-bb4e-08b373688089}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision">
+      <UniqueIdentifier>{35e3b574-6cc5-4f76-abe7-1486d556275c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\G1Game\Maps">
+      <UniqueIdentifier>{e4166e47-12ea-4613-a4c8-aa9b80c6acaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\Maps">
+      <UniqueIdentifier>{ce10a441-fd06-439b-a205-f490206dc644}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Rendering\Animation">
+      <UniqueIdentifier>{2899a624-a07a-4f26-b241-e4361d7649f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\G1Game\Animation">
+      <UniqueIdentifier>{33586fbf-b75a-47e5-9e7c-58ece39e15e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\Animation">
+      <UniqueIdentifier>{5c5f412a-3f1f-4535-aa17-24c30ddb0045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\G1Game\GameObjects">
+      <UniqueIdentifier>{a83c2b53-2cb5-4dfc-989f-285204af5d37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\GameObjects">
+      <UniqueIdentifier>{f15ca24f-5b02-40ef-9bb4-e4a9fbcf0a39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Rendering\Renderers">
+      <UniqueIdentifier>{d526fd2b-5e87-4c57-a6aa-b8790f676b73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Rendering\Animation">
+      <UniqueIdentifier>{378b5b5e-d134-4bed-90f7-ca584525bd94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Rendering\Renderers">
+      <UniqueIdentifier>{130696f7-8985-40bc-b3ce-056d58e04d44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics\Colliders">
+      <UniqueIdentifier>{313b2093-0367-41ae-a72e-467d22300c4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\Colliders">
+      <UniqueIdentifier>{5323203b-eed3-44ea-a294-80a3d7733e4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Audio">
+      <UniqueIdentifier>{e0fd7c39-8b8b-402b-9e6e-a78d02cf0a61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Audio">
+      <UniqueIdentifier>{255347e8-72d7-4f15-a977-29178da65d03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Assets">
+      <UniqueIdentifier>{27da17c6-7e05-4de8-9a9e-c7eae02f1f52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Assets">
+      <UniqueIdentifier>{e2749315-6fe0-4103-805e-6c5404797304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs">
+      <UniqueIdentifier>{73cb860c-633e-43c1-a012-b1fbe458eb99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs">
+      <UniqueIdentifier>{05cd9a3a-5b2f-4a27-b551-9edffdd89234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\MapCreation">
+      <UniqueIdentifier>{48680c31-f8f4-4ba3-b2af-cce5728b7f02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\MapCreation">
+      <UniqueIdentifier>{a8eac605-a06a-4599-b90d-930c99d245a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Prefabs\MapCreation\Tiles">
+      <UniqueIdentifier>{3cf893f1-768d-4e95-acd0-a3445d7b7c59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect">
+      <UniqueIdentifier>{3fed2dc0-c2a0-472f-b57a-fe738017f353}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision\Resolution">
+      <UniqueIdentifier>{b3b64642-0b9c-426d-9b4a-4aa24634d27e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect">
+      <UniqueIdentifier>{69bc73c5-9a8e-4f9c-982d-a083d3afb13c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision\Resolution">
+      <UniqueIdentifier>{f3b313a6-7ce3-4ca5-b12f-dd0a568d67a6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -101,9 +173,6 @@
     </ClCompile>
     <ClCompile Include="MathFunctions.cpp">
       <Filter>Source Files\Engine\GMath</Filter>
-    </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>Source Files\Engine\Components</Filter>
     </ClCompile>
     <ClCompile Include="Debug.cpp">
       <Filter>Source Files\Engine\Debug</Filter>
@@ -129,23 +198,8 @@
     <ClCompile Include="SimpleShape.cpp">
       <Filter>Source Files\Engine\GMath</Filter>
     </ClCompile>
-    <ClCompile Include="CircleRenderer.cpp">
-      <Filter>Source Files\Engine\Rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="RectangleRenderer.cpp">
-      <Filter>Source Files\Engine\Rendering</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>Source Files\Engine\Rendering</Filter>
-    </ClCompile>
     <ClCompile Include="Vector2.cpp">
       <Filter>Source Files\Engine\GMath</Filter>
-    </ClCompile>
-    <ClCompile Include="Map001.cpp">
-      <Filter>Source Files\G1Game</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject001.cpp">
-      <Filter>Source Files\G1Game</Filter>
     </ClCompile>
     <ClCompile Include="MapManager.cpp">
       <Filter>Source Files\Engine\Map</Filter>
@@ -156,17 +210,8 @@
     <ClCompile Include="Time.cpp">
       <Filter>Source Files\Engine\GMath</Filter>
     </ClCompile>
-    <ClCompile Include="Transformable.cpp">
-      <Filter>Source Files\Engine\Components</Filter>
-    </ClCompile>
     <ClCompile Include="GameObjectsData.cpp">
       <Filter>Source Files\Engine\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject002_Bullet.cpp">
-      <Filter>Source Files\G1Game</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject003_wall.cpp">
-      <Filter>Source Files\G1Game</Filter>
     </ClCompile>
     <ClCompile Include="PhysicsManager.cpp">
       <Filter>Source Files\Engine\Physics</Filter>
@@ -175,34 +220,133 @@
       <Filter>Source Files\Engine\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Collider.cpp">
-      <Filter>Source Files\Engine\Components\Collider</Filter>
-    </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>Source Files\Engine\Physics\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="RectangleCollidesRectangle.cpp">
-      <Filter>Source Files\Engine\Physics\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="CircleCollidesCircle.cpp">
-      <Filter>Source Files\Engine\Physics\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="CircleCollidesRectangle.cpp">
-      <Filter>Source Files\Engine\Physics\Collision</Filter>
+      <Filter>Source Files\Engine\Physics\Colliders</Filter>
     </ClCompile>
     <ClCompile Include="OverlapingGameObjectsStates.cpp">
       <Filter>Source Files\Engine\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject004_CircleWall.cpp">
-      <Filter>Source Files\G1Game</Filter>
-    </ClCompile>
     <ClCompile Include="CircleCollider.cpp">
-      <Filter>Source Files\Engine\Components\Collider</Filter>
+      <Filter>Source Files\Engine\Physics\Colliders</Filter>
     </ClCompile>
     <ClCompile Include="RectangleCollider.cpp">
-      <Filter>Source Files\Engine\Components\Collider</Filter>
+      <Filter>Source Files\Engine\Physics\Colliders</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleOverlapsRectangle.cpp">
+      <Filter>Source Files\Engine\Physics\Overlap</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleOverlapsRectangle.cpp">
+      <Filter>Source Files\Engine\Physics\Overlap</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleOverlapsCircle.cpp">
+      <Filter>Source Files\Engine\Physics\Overlap</Filter>
+    </ClCompile>
+    <ClCompile Include="Overlapping.cpp">
+      <Filter>Source Files\Engine\Physics\Overlap</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionCalculation.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Segment.cpp">
+      <Filter>Source Files\Engine\GMath</Filter>
+    </ClCompile>
+    <ClCompile Include="Map001.cpp">
+      <Filter>Source Files\G1Game\Maps</Filter>
+    </ClCompile>
+    <ClCompile Include="MapPlatformer01.cpp">
+      <Filter>Source Files\G1Game\Maps</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source Files\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject001.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject002_Bullet.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject003_wall.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject004_CircleWall.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground01.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformerPlayer.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Engine\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleRenderer.cpp">
+      <Filter>Source Files\Engine\Rendering\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Source Files\Engine\Rendering\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleRenderer.cpp">
+      <Filter>Source Files\Engine\Rendering\Renderers</Filter>
     </ClCompile>
     <ClCompile Include="Rigidbody.cpp">
-      <Filter>Source Files\Engine\Components</Filter>
+      <Filter>Source Files\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Transformable.cpp">
+      <Filter>Source Files\Engine\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Source Files\Engine\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files\Engine\Rendering\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Source Files\Engine\Rendering\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteAnimation.cpp">
+      <Filter>Source Files\Engine\Rendering\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="ExamplePlatformerGame.cpp">
+      <Filter>Source Files\G1Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Source Files\Engine\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Assets.cpp">
+      <Filter>Source Files\Engine\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderProperties.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTileProperties.cpp">
+      <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTile1.cpp">
+      <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTile9.cpp">
+      <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Ladder.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidbodyPhysics.cpp">
+      <Filter>Source Files\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollidesCircle.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleCollidesRectangle.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollidesRectangle.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -211,9 +355,6 @@
     </ClInclude>
     <ClInclude Include="MathFunctions.h">
       <Filter>Header Files\Engine\GMath</Filter>
-    </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>Header Files\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Header Files\Engine\GMath\Transform</Filter>
@@ -251,38 +392,14 @@
     <ClInclude Include="SimpleShape.h">
       <Filter>Header Files\Engine\GMath</Filter>
     </ClInclude>
-    <ClInclude Include="RectangleRenderer.h">
-      <Filter>Header Files\Engine\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleRenderer.h">
-      <Filter>Header Files\Engine\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Header Files\Engine\Rendering</Filter>
-    </ClInclude>
-    <ClInclude Include="Map001.h">
-      <Filter>Header Files\G1Game</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject001.h">
-      <Filter>Header Files\G1Game</Filter>
-    </ClInclude>
     <ClInclude Include="Time.h">
       <Filter>Header Files\Engine\GMath</Filter>
-    </ClInclude>
-    <ClInclude Include="Transformable.h">
-      <Filter>Header Files\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="GameObjectsData.h">
       <Filter>Header Files\Engine\Object</Filter>
     </ClInclude>
     <ClInclude Include="ISpawnable.h">
       <Filter>Header Files\Engine\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject002_Bullet.h">
-      <Filter>Header Files\G1Game</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject003_wall.h">
-      <Filter>Header Files\G1Game</Filter>
     </ClInclude>
     <ClInclude Include="PhysicsManager.h">
       <Filter>Header Files\Engine\Physics</Filter>
@@ -291,43 +408,169 @@
       <Filter>Header Files\Engine\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Collider.h">
-      <Filter>Header Files\Engine\Components\Collider</Filter>
-    </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="RectangleCollidesRectangle.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleCollidesCircle.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleCollidesRectangle.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionCheck.h">
-      <Filter>Header Files\Engine\Physics\Collision</Filter>
+      <Filter>Header Files\Engine\Physics\Colliders</Filter>
     </ClInclude>
     <ClInclude Include="OverlapingGameObjectsStates.h">
       <Filter>Header Files\Engine\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject004_CircleWall.h">
-      <Filter>Header Files\G1Game</Filter>
-    </ClInclude>
     <ClInclude Include="RectangleCollider.h">
-      <Filter>Header Files\Engine\Components\Collider</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleCollider.h">
-      <Filter>Header Files\Engine\Components\Collider</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2.h">
-      <Filter>Header Files\Engine\GMath\Transform\Vector2</Filter>
+      <Filter>Header Files\Engine\Physics\Colliders</Filter>
     </ClInclude>
     <ClInclude Include="MathVariables.h">
       <Filter>Header Files\Engine\GMath</Filter>
     </ClInclude>
+    <ClInclude Include="CircleOverlapsCircle.h">
+      <Filter>Header Files\Engine\Physics\Overlap</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleOverlapsRectangle.h">
+      <Filter>Header Files\Engine\Physics\Overlap</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleOverlapsRectangle.h">
+      <Filter>Header Files\Engine\Physics\Overlap</Filter>
+    </ClInclude>
+    <ClInclude Include="Overlapping.h">
+      <Filter>Header Files\Engine\Physics\Overlap</Filter>
+    </ClInclude>
+    <ClInclude Include="OverlappingCheck.h">
+      <Filter>Header Files\Engine\Physics\Overlap</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionCalculation.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionCheck.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Segment.h">
+      <Filter>Header Files\Engine\GMath</Filter>
+    </ClInclude>
+    <ClInclude Include="Map001.h">
+      <Filter>Header Files\G1Game\Maps</Filter>
+    </ClInclude>
+    <ClInclude Include="MapPlatformer01.h">
+      <Filter>Header Files\G1Game\Maps</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidbodyPhysics.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files\Engine\Physics\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Header Files\Engine\Rendering\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteAnimation.h">
+      <Filter>Header Files\Engine\Rendering\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAnimator.h">
+      <Filter>Header Files\G1Game\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject001.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject002_Bullet.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject003_wall.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject004_CircleWall.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground01.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformerPlayer.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollider.h">
+      <Filter>Header Files\Engine\Physics\Colliders</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Engine\Rendering</Filter>
+    </ClInclude>
     <ClInclude Include="Rigidbody.h">
-      <Filter>Header Files\Engine\Components</Filter>
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Transformable.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Header Files\Engine\Rendering\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleRenderer.h">
+      <Filter>Header Files\Engine\Rendering\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleRenderer.h">
+      <Filter>Header Files\Engine\Rendering\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files\Engine\Rendering\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="ExamplePlatformerGame.h">
+      <Filter>Header Files\G1Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Header Files\Engine\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Assets.h">
+      <Filter>Header Files\Engine\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources.h">
+      <Filter>Header Files\Engine\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderProperties.h">
+      <Filter>Header Files\Engine\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Header Files\Engine\GMath\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTileProperties.h">
+      <Filter>Header Files\Prefabs\MapCreation</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTile1.h">
+      <Filter>Header Files\Prefabs\MapCreation</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTile.h">
+      <Filter>Header Files\Prefabs\MapCreation</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTile9.h">
+      <Filter>Header Files\Prefabs\MapCreation</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultGameMap.h">
+      <Filter>Header Files\Engine\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ITick.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="IMainTick.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Ladder.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollidesCircle.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollidesRectangle.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleCollidesRectangle.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

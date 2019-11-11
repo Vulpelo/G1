@@ -74,8 +74,4 @@ namespace G1 {
 		this->eventTick();
 	}
 
-	void GameMap::eventTick()
-	{
-	}
-
 }

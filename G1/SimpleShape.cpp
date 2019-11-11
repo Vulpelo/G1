@@ -19,8 +19,8 @@ namespace G1 {
 
 	void SimpleShape::setPosition(float x, float y)
 	{
-		this->transform.position.X = x;
-		this->transform.position.Y = y;
+		this->transform.position.x = x;
+		this->transform.position.y = y;
 	}
 
 	void SimpleShape::setTransform(Transform transform)
@@ -51,7 +51,7 @@ namespace G1 {
 	//{
 	//	circle.setOrigin(sf::Vector2f(radius, radius));
 	//	circle.setRadius(radius);
-	//	circle.setPosition(transform.position.X, transform.position.Y);
+	//	circle.setPosition(transform.position.x, transform.position.y);
 	//	circle.setRotation(transform.rotationX);
 	//	circle.setFillColor(color);
 	//}
@@ -70,7 +70,7 @@ namespace G1 {
 	//	rectangle.setOrigin(sf::Vector2f(length / 2.0, height / 2.0));
 	//	rectangle.setSize(sf::Vector2f(length, height));
 	//	rectangle.setFillColor(color);
-	//	rectangle.setPosition(transform.position.X + transform.position.X, transform.position.Y + transform.position.Y);
+	//	rectangle.setPosition(transform.position.x + transform.position.x, transform.position.y + transform.position.y);
 	//	rectangle.setRotation(transform.rotationX + transform.rotationX);
 	//}
 

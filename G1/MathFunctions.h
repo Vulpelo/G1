@@ -4,7 +4,9 @@
 #define _MATH_FUNCTIONS_H_
 
 #include "MathVariables.h"
-#include "Vector2.h"
+#include "Segment.h"
+
+using namespace G1;
 
 namespace GMath
 {
@@ -17,7 +19,16 @@ namespace GMath
 	/// Angle is measuring at first point </summary>
 	float twoPointsAngle(Vector2, Vector2);
 
-	float vectorAngle(float X, float Y);
+	float vectorAngle(float x, float y);
+
+	/// <summary>
+	/// New vector's direction is equal to segment direction. 
+	/// If segment's both points are equal then returns point
+	/// </summary>
+	Vector2 orthogonalProjectionPointOnLine(const Vector2& point, const Segment& ab);
+
+	float shortestDistancePointToSegment(const Vector2& point, const Segment& ab);
+
 };
 
 #endif // !_MATH_FUNCTIONS_H_

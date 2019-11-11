@@ -13,6 +13,7 @@ void GameObject004_CircleWall::beginPlay()
 	addComponent(rRend);
 
 	auto collidor = new CircleCollider(30, 0, 0);
+	collidor->setOverlappable(false);
 	addComponent(collidor);
 }
 

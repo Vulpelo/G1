@@ -5,7 +5,7 @@ namespace G1 {
 	Collider::Collider()
 		: Component()
 	{
-
+		this->overlappable = true;
 	}
 
 	void Collider::draw(sf::RenderWindow * w)
@@ -16,12 +16,22 @@ namespace G1 {
 		return collisionType;
 	}
 
+	bool Collider::isOverlappable()
+	{
+		return this->overlappable;
+	}
+
+	void Collider::setOverlappable(bool overlappable)
+	{
+		this->overlappable = overlappable;
+	}
+
 	Vector2 Collider::getFarthestPointVector()
 	{
 		return Vector2();
 	}
 
-	float Collider::getFarthestPoint()
+	float Collider::getFarthestPoint() const
 	{
 		return this->farthestPoint;
 	}
@@ -31,11 +41,27 @@ namespace G1 {
 		return this->nearestPoint;
 	}
 
+	Transform Collider::getTransform()
+	{
+		if (overlappable) {
+			return Transformable::getTransform();
+		}
+		return Transform(Transformable::getTransform().position, 0);
+	}
+
+	float Collider::getWorldRotation()
+	{
+		if (overlappable) {
+			return Transformable::getWorldRotation();
+		}
+		return 0.0f;
+	}
+
 	bool Collider::rectangleOverlapsCircle(Collider * rect, Collider * cirl)
 	{
 		float distance =
-			GMath::twoPointsDistance(rect->getWorldPosition().X, rect->getWorldPosition().Y,
-				cirl->getWorldPosition().X, cirl->getWorldPosition().Y);
+			GMath::twoPointsDistance(rect->getWorldPosition().x, rect->getWorldPosition().y,
+				cirl->getWorldPosition().x, cirl->getWorldPosition().y);
 
 		// Does not overlap for sure
 		if (cirl->getFarthestPoint() + rect->getFarthestPoint() < distance)
@@ -47,12 +73,11 @@ namespace G1 {
 		else {
 			// TODO : instead Position struct use Vector2 for location
 			float additionalAngle = 90;
-			float T[] = { rect->getFarthestPointVector().Y, rect->getFarthestPointVector().X };
+			float T[] = { rect->getFarthestPointVector().y, rect->getFarthestPointVector().x };
 
 			for (int i = 0; i < 2; i++) {
 				// New perspective vector
-				Vector2 P;
-				P.setVectorByAngleAndLength(rect->getTransform().rotationX + additionalAngle*i, 1);
+				Vector2 P = Vector2::byAngleAndLength(rect->getTransform().rotationX + additionalAngle*i, 1);
 
 				Vector2 distance;
 				distance = cirl->getWorldPosition().invertY() - this->getWorldPosition().invertY();
@@ -69,14 +94,13 @@ namespace G1 {
 	bool Collider::rectangleOverlapsRectangle(Collider * rect, Collider * otherRect)
 	{
 		float additionalAngle = 90;
-		float T[] = { rect->getFarthestPointVector().Y, rect->getFarthestPointVector().X };
+		float T[] = { rect->getFarthestPointVector().y, rect->getFarthestPointVector().x };
 
 		// THIS COLLIDER
 		for (int i = 0; i < 2; i++) {
 
 			// New perspective vector
-			Vector2 P;
-			P.setVectorByAngleAndLength(rect->getTransform().rotationX + additionalAngle*i, 1);
+			Vector2 P = Vector2::byAngleAndLength(rect->getTransform().rotationX + additionalAngle*i, 1);
 
 			// distance between two rectangles
 			Vector2 dTmp;
@@ -90,13 +114,13 @@ namespace G1 {
 			float hDiag;
 			Vector2 oR;
 			// geting otherCollider farthest point and rotating it
-			oR.setVectorByAngleAndLength
+			oR = oR.byAngleAndLength
 			(otherRect->getTransform().rotationX + otherRect->getFarthestPointVector().angle(),
 				otherRect->getFarthestPoint());
 			hDiag = fabs(oR * P);
 
 			//Second diagonal check if is longer on new perspective
-			oR.setVectorByAngleAndLength
+			oR = oR.byAngleAndLength
 			(otherRect->getTransform().rotationX + (otherRect->getFarthestPointVector().invertY()).angle(),
 				otherRect->getFarthestPoint());
 			float tmp = fabs(oR * P);
@@ -119,13 +143,12 @@ namespace G1 {
 	bool Collider::rectangleOverlapsPoint(Vector2 point)
 	{
 		float additionalAngle = 90;
-		float T[] = { this->getFarthestPointVector().Y, this->getFarthestPointVector().X };
+		float T[] = { this->getFarthestPointVector().y, this->getFarthestPointVector().x };
 
 		for (int i = 0; i < 2; i++) {
 
 			// New perspective vector
-			Vector2 P;
-			P.setVectorByAngleAndLength(this->getTransform().rotationX + additionalAngle*i, 1);
+			Vector2 P = Vector2::byAngleAndLength(this->getTransform().rotationX + additionalAngle*i, 1);
 
 			Vector2 dTmp;
 			dTmp = Vector2(point) - this->getWorldPosition().invertY(); // INVERT ??

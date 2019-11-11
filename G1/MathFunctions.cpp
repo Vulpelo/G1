@@ -4,22 +4,22 @@ namespace GMath
 {
 	float twoPointsDistance(float X1, float Y1, float X2, float Y2)
 	{
-		float X = X1 - X2;
-		float Y = Y1 - Y2;
-		X *= X;
-		Y *= Y;
+		float x = X1 - X2;
+		float y = Y1 - Y2;
+		x *= x;
+		y *= y;
 
-		return sqrtf(X + Y);
+		return sqrtf(x + y);
 	}
 
 	float twoPointsDistance(Vector2 cor1, Vector2 cor2)
 	{
-		float X = cor1.X - cor2.X;
-		float Y = cor1.Y - cor2.Y;
-		X *= X;
-		Y *= Y;
+		float x = cor1.x - cor2.x;
+		float y = cor1.y - cor2.y;
+		x *= x;
+		y *= y;
 
-		return sqrtf(X + Y);
+		return sqrtf(x + y);
 	}
 
 	float twoPointsAngle(float X1, float Y1, float X2, float Y2)
@@ -34,22 +34,42 @@ namespace GMath
 	float twoPointsAngle(Vector2 cor1, Vector2 cor2)
 	{
 		float value;
-		value = (180 * atanf((cor1.X - cor2.X) / (cor1.Y - cor2.Y))) / float(M_PI);
-		if (cor1.Y < cor2.Y)
+		value = (180 * atanf((cor1.x - cor2.x) / (cor1.y - cor2.y))) / float(M_PI);
+		if (cor1.y < cor2.y)
 			value += 180;
-		if (cor1.X < cor2.X && cor1.Y >= cor2.Y)
+		if (cor1.x < cor2.x && cor1.y >= cor2.y)
 			value += 360;
 		return value;
 	}
 
-	float vectorAngle(float X, float Y)
+	float vectorAngle(float x, float y)
 	{
 		float value;
-		value = (180 * atanf(X / Y)) / float(M_PI);
-		if (Y < 0)
+		value = (180 * atanf(x / y)) / float(M_PI);
+		if (y < 0)
 			value += 180;
-		if (X < 0 && Y >= 0)
+		if (x < 0 && y >= 0)
 			value += 360;
 		return value;
 	}
+
+	Vector2 orthogonalProjectionPointOnLine(const Vector2& point, const Segment& ab) {
+		if (ab.getPoint1() == ab.getPoint2()) {
+			return point;
+		}
+
+		return ab.getPoint1() + 
+			(( ab.getPoint2()) - ab.getPoint1()) *
+			(
+				((point - ab.getPoint1()) * (ab.getPoint2() - ab.getPoint1())) 
+				/
+				(ab.getPoint1() - ab.getPoint2()).lengthNoSqrt()
+			) ;
+	}
+
+	float shortestDistancePointToSegment(const Vector2& point, const Segment& ab) {
+		// TODO: optimise
+		return (orthogonalProjectionPointOnLine(point, ab) - point).length();
+	}
+
 }

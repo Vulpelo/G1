@@ -9,30 +9,29 @@
 #include "PhysicsManager.h"
 #include "ControlInput.h"
 #include "Time.h"
-
-
-// for game
-#include "Map001.h"
+#include "EventHandler.h"
 
 namespace G1 {
 
 	class Engine
 	{
-	private:
 		Time time;
 
-		sf::Event inputEvent;
-
-		RenderManager render;
+		RenderManager& render = RenderManager::getInstance();
 		PhysicsManager physics;
 
-		ControlInput * controlInput;
+		ControlInput& controlInput = ControlInput::getInstantiate();
+
+		void mainEventTick();
+		void mainLoop();
+
+	protected:
+		virtual void beginPlay() = 0;
 
 	public:
 		Engine();
 		~Engine();
-		void mainEventTick();
-		void mainLoop();
+		void start();
 	};
 
 }
