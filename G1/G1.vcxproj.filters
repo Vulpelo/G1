@@ -151,6 +151,18 @@
     <Filter Include="Source Files\Prefabs\MapCreation\Tiles">
       <UniqueIdentifier>{3cf893f1-768d-4e95-acd0-a3445d7b7c59}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect">
+      <UniqueIdentifier>{3fed2dc0-c2a0-472f-b57a-fe738017f353}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\CalculatingCollision\Collision\Resolution">
+      <UniqueIdentifier>{b3b64642-0b9c-426d-9b4a-4aa24634d27e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect">
+      <UniqueIdentifier>{69bc73c5-9a8e-4f9c-982d-a083d3afb13c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision\Resolution">
+      <UniqueIdentifier>{f3b313a6-7ce3-4ca5-b12f-dd0a568d67a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -240,20 +252,11 @@
     <ClCompile Include="Segment.cpp">
       <Filter>Source Files\Engine\GMath</Filter>
     </ClCompile>
-    <ClCompile Include="CircleCollidesRectangle.cpp">
-      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="CircleCollidesCircle.cpp">
-      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
-    </ClCompile>
     <ClCompile Include="Map001.cpp">
       <Filter>Source Files\G1Game\Maps</Filter>
     </ClCompile>
     <ClCompile Include="MapPlatformer01.cpp">
       <Filter>Source Files\G1Game\Maps</Filter>
-    </ClCompile>
-    <ClCompile Include="RigidbodyPhysics.cpp">
-      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Physics.cpp">
       <Filter>Source Files\Engine\Physics</Filter>
@@ -318,9 +321,6 @@
     <ClCompile Include="Assets.cpp">
       <Filter>Source Files\Engine\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="RectangleCollidesRectangle.cpp">
-      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision</Filter>
-    </ClCompile>
     <ClCompile Include="RenderProperties.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -335,6 +335,18 @@
     </ClCompile>
     <ClCompile Include="Ladder.cpp">
       <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidbodyPhysics.cpp">
+      <Filter>Source Files\Engine\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollidesCircle.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleCollidesRectangle.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollidesRectangle.cpp">
+      <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -425,23 +437,11 @@
     <ClInclude Include="CollisionCalculation.h">
       <Filter>Header Files\Engine\Physics\CalculatingCollision</Filter>
     </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="CollisionCheck.h">
       <Filter>Header Files\Engine\Physics\CalculatingCollision</Filter>
     </ClInclude>
     <ClInclude Include="Segment.h">
       <Filter>Header Files\Engine\GMath</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleCollidesCircle.h">
-      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleCollidesRectangle.h">
-      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="RectangleCollidesRectangle.h">
-      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Map001.h">
       <Filter>Header Files\G1Game\Maps</Filter>
@@ -559,6 +559,18 @@
     </ClInclude>
     <ClInclude Include="Ladder.h">
       <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollidesCircle.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollidesRectangle.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleCollidesRectangle.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

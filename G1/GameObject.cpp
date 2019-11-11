@@ -79,13 +79,13 @@ namespace G1 {
 		}
 		currentLifeTime += Time::getDeltaTime();
 
+		this->eventTick();
 
 		for each (Component* component in components) {
 			if (component->isEnabled()) {
 				component->mainEventTick();
 			}
 		}
-		this->eventTick();
 	}
 	
 	void GameObject::render(sf::RenderWindow * w)
