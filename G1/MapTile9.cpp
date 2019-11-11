@@ -41,17 +41,26 @@ void MapTile9::set(int x, int y, unsigned int xSpan, unsigned int ySpan, int ign
 				Vector2(this->spriteTiles[0].initialImageSize.x,
 						this->spriteTiles[0].initialImageSize.y));
 		}
+		else {
+			this->spriteTiles[0].sprite.setEnabled(false);
+		}
 		if (!(ignore & (int)SpriteTilePos::UM)) {
 			this->spriteTiles[1].sprite.setPosition(tileSize.x, 0);
 			this->spriteTiles[1].sprite.setImageSize(
 				Vector2(this->spriteTiles[1].initialImageSize.x * (xSpan - 2),
 					this->spriteTiles[1].initialImageSize.y));
 		}
+		else {
+			this->spriteTiles[1].sprite.setEnabled(false);
+		}
 		if (!(ignore & (int)SpriteTilePos::UR)) {
 			this->spriteTiles[2].sprite.setPosition(tileSize.x * (xSpan - 1), 0);
 			this->spriteTiles[2].sprite.setImageSize(
 				Vector2(this->spriteTiles[2].initialImageSize.x,
 						this->spriteTiles[2].initialImageSize.y));
+		}
+		else {
+			this->spriteTiles[2].sprite.setEnabled(false);
 		}
 
 		if (!(ignore & (int)SpriteTilePos::ML)) {
@@ -60,17 +69,26 @@ void MapTile9::set(int x, int y, unsigned int xSpan, unsigned int ySpan, int ign
 				Vector2(this->spriteTiles[3].initialImageSize.x,
 					this->spriteTiles[3].initialImageSize.y * (ySpan - 2)));
 		}
+		else {
+			this->spriteTiles[3].sprite.setEnabled(false);
+		}
 		if (!(ignore & (int)SpriteTilePos::MM)) {
 			this->spriteTiles[4].sprite.setPosition(0, 0);
 			this->spriteTiles[4].sprite.setImageSize(
 				Vector2(this->spriteTiles[4].initialImageSize.x * (xSpan),
 					this->spriteTiles[4].initialImageSize.y * (ySpan)));
 		}
+		else {
+			this->spriteTiles[4].sprite.setEnabled(false);
+		}
 		if (!(ignore & (int)SpriteTilePos::MR)) {
 			this->spriteTiles[5].sprite.setPosition( tileSize.x * (xSpan - 1), tileSize.y);
 			this->spriteTiles[5].sprite.setImageSize(
 				Vector2(this->spriteTiles[5].initialImageSize.x,
 					this->spriteTiles[5].initialImageSize.y * (ySpan - 2)));
+		}
+		else {
+			this->spriteTiles[5].sprite.setEnabled(false);
 		}
 
 		if (!(ignore & (int)SpriteTilePos::DL)) {
@@ -79,17 +97,26 @@ void MapTile9::set(int x, int y, unsigned int xSpan, unsigned int ySpan, int ign
 				Vector2(this->spriteTiles[6].initialImageSize.x,
 					this->spriteTiles[6].initialImageSize.y));
 		}
+		else {
+			this->spriteTiles[6].sprite.setEnabled(false);
+		}
 		if (!(ignore & (int)SpriteTilePos::DM)) {
 			this->spriteTiles[7].sprite.setPosition(tileSize.x, tileSize.y * (ySpan - 1));
 			this->spriteTiles[7].sprite.setImageSize(
 				Vector2(this->spriteTiles[7].initialImageSize.x * (xSpan - 2),
 					this->spriteTiles[7].initialImageSize.y));
 		}
+		else {
+			this->spriteTiles[7].sprite.setEnabled(false);
+		}
 		if (!(ignore & (int)SpriteTilePos::DR)) {
 			this->spriteTiles[8].sprite.setPosition( tileSize.x * (xSpan - 1), tileSize.y * (ySpan - 1));
 			this->spriteTiles[8].sprite.setImageSize(
 				Vector2(this->spriteTiles[8].initialImageSize.x,
 					this->spriteTiles[8].initialImageSize.y));
+		}
+		else {
+			this->spriteTiles[8].sprite.setEnabled(false);
 		}
 	}
 

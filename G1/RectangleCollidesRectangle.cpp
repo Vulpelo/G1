@@ -150,6 +150,7 @@ namespace G1 {
 
 		Vector2 RectangleCollidesRectangle::oneNewColliderPosition(Collider * rectangleColliderDynamic, const Vector2& velocityDynamic, Collider * rectangleColliderStatic)
 		{
+			Vector2 topParentColliderDynPosition = rectangleColliderDynamic->getTopParent().getWorldPosition();
 			Vector2 dynPosition = rectangleColliderDynamic->getWorldPosition();
 			Vector2 dynSize = rectangleColliderDynamic->getFarthestPointVector();
 			Vector2 statSize = rectangleColliderStatic->getFarthestPointVector();
@@ -159,9 +160,6 @@ namespace G1 {
 			float xPenetration = dynSize.x + statSize.x - fabs(dynStatDist.x);
 			float yPenetration = dynSize.y + statSize.y - fabs(dynStatDist.y);
 
-			
-
-			Vector2 topParentColliderDynPosition = rectangleColliderDynamic->getTopParent().getWorldPosition();
 
 			Vector2 newPos;
 			float fix = 1.0f;

@@ -20,7 +20,9 @@ namespace G1 {
 		for (unsigned int i = 0; i < gameObjects.size(); i++) {
 			for each (Renderer* renderer in gameObjects.at(i)->getComponents<Renderer>())
 			{
-				renderer->render(getWindow());
+				if (renderer->isEnabled()) {
+					renderer->render(getWindow());
+				}
 			}
 		}
 	}

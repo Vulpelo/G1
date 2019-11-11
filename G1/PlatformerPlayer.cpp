@@ -46,7 +46,7 @@ void PlatformerPlayer::beginPlay() {
 	/* == OTHER COMPONENTS CREATED IN DECLARATION == */
 	/* Adding other components created in class declaration */
 	//addComponent(rend);
-	rb->setGravity(Vector2(0.f, 500.f));
+	rb->setGravity(Vector2(0.f, 0.f));
 	addComponent(rb);
 }
 

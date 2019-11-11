@@ -217,17 +217,20 @@ namespace G1 {
 
 			bool outSide = false;
 			Segment segment;
+			Vector2 outApex;
 
 			if (p1.y < cirlPosition.y) {
 				if (p1.x < cirlPosition.x) {
 					// 1 apex
 					outSide = true;
 					segment.setPoint1(p1);
+					outApex = p1;
 				}
 				if (p2.x > cirlPosition.x) {
 					// 2 apex
 					outSide = true;
 					segment.setPoint1(p2);
+					outApex = p2;
 				}
 			}
 			else if (p4.y > cirlPosition.y) {
@@ -235,11 +238,13 @@ namespace G1 {
 					// 3 apex
 					outSide = true;
 					segment.setPoint1(p3);
+					outApex = p3;
 				}
 				if (p1.x < cirlPosition.x) {
 					// 4 apex
 					outSide = true;
 					segment.setPoint1(p4);
+					outApex = p4;
 				}
 			}
 
@@ -256,7 +261,7 @@ namespace G1 {
 				float distance = sqrtf(x) - (segment.getPoint1() - c).length();
 				Vector2 move = moveJ * distance;
 
-				newPositon = worldPositionDyn - move;
+				//newPositon = worldPositionDyn - move;
 
 				velocityFor = VelocityFor::CIRCLE;
 				touchedApex = segment.getPoint1();
