@@ -44,5 +44,7 @@ void MapTile1::beginPlay() {
 		addComponent(rc);
 	}
 	addComponent(&this->sprite);
+
+	beginPlayCon();
 }
 

@@ -23,6 +23,10 @@ void PlatformerPlayer::beginPlay() {
 	crouchCollider->setOverlappable(false);
 	addComponent(crouchCollider);
 
+	/* Overlappable collider for checking if entering other overlappable colliders*/
+	collidor = new RectangleCollider(16, 24, 0, 0);
+	collidor->setOverlappable(true);
+	addComponent(collidor);
 	
 	/* == SPRITES AND ANIMATION == */
 	/* Sprite that will be modifyied when animation is playing. Adding it as component */
@@ -46,7 +50,7 @@ void PlatformerPlayer::beginPlay() {
 	/* == OTHER COMPONENTS CREATED IN DECLARATION == */
 	/* Adding other components created in class declaration */
 	//addComponent(rend);
-	rb->setGravity(Vector2(0.f, 0.f));
+	rb->setGravity(gravity);
 	addComponent(rb);
 }
 
@@ -74,13 +78,12 @@ void PlatformerPlayer::eventTick() {
 	if (c.keyDown(sf::Keyboard::Key::R)) {
 		MapManager::getInstance().reloadActual();
 	}
-
-	//std::cout << rb->getVelocity().x << ":" << rb->getVelocity().y << std::endl;
 }
 
 void PlatformerPlayer::startOverlaping(GameObject * gameObject)
 {
 	if (gameObject->isLayer(Layer::CLIMBABLE)) {
+		std::cout << "i\n";
 		canClimb = true;
 	}
 }
@@ -90,17 +93,36 @@ void PlatformerPlayer::endOverlaping(GameObject * gameObject)
 	if (gameObject->isLayer(Layer::CLIMBABLE)) {
 		canClimb = false;
 		climbing = false;
+		rb->setGravity(gravity);
 	}
 }
 
 void PlatformerPlayer::movement() {
-	if (canClimb) {
+	if (climbing) {
 		if (c.isKeyDown(sf::Keyboard::Key::Up)) {
+			targetMoveVelocity = Vector2::up();
+		}
+		else if (c.isKeyDown(sf::Keyboard::Key::Down)) {
+			targetMoveVelocity = Vector2::down();
+		}
+		else if (c.isKeyDown(sf::Keyboard::Key::Left)) {
+			targetMoveVelocity = Vector2::left();
+		}
+		else if (c.isKeyDown(sf::Keyboard::Key::Right)) {
+			targetMoveVelocity = Vector2::right();
+		}
+		else {
+			targetMoveVelocity.set(0, 0);
+		}
+		targetMoveVelocity *= maxSpeed;
+		rb->setVelocity(targetMoveVelocity);
+	}
+	else if (canClimb) {
+		if (c.keyDown(sf::Keyboard::Key::Up)) {
 			climbing = true;
-			// TODO: add climb movement
+			rb->setGravity(Vector2(0, 0));
 		}
 	}
-
 
 	if (!climbing) {
 		if (c.isKeyDown(sf::Keyboard::Key::Right)) {
@@ -153,6 +175,8 @@ void PlatformerPlayer::animating() {
 	}
 	animator->setBool("grounded", grounded);
 	animator->setBool("crouched", crouched);
+	animator->setBool("climbing", climbing);
+	animator->setBool("moving", targetMoveVelocity.nonZero());
 }
 
 void PlatformerPlayer::flip()

@@ -5,6 +5,7 @@
 #include "Background.h"
 #include "MapTile1.h"
 #include "MapTile9.h"
+#include "MapTileLadder.h"
 
 #include "GameObject004_CircleWall.h"
 

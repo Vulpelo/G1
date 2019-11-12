@@ -348,6 +348,9 @@
     <ClCompile Include="CircleCollidesRectangle.cpp">
       <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
     </ClCompile>
+    <ClCompile Include="MapTileLadder.cpp">
+      <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -571,6 +574,9 @@
     </ClInclude>
     <ClInclude Include="Collision.h">
       <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTileLadder.h">
+      <Filter>Header Files\Prefabs\MapCreation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

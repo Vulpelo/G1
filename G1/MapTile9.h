@@ -21,7 +21,7 @@ public:
 	};
 
 	MapTile9() {};
-	MapTile9(G1::Sprite tiles[9], int x, int y, bool collision = false, const Layer& layer = Layer::DEFAULT, unsigned int xSpan = 1, unsigned int ySpan = 1);
+	MapTile9(G1::Sprite tiles[9], int x, int y, bool collision = false, const Layer& layer = Layer::DEFAULT, unsigned int xSpan = 1, unsigned int ySpan = 1, int ignore = 0);
 
 	/// <summary>
 	/// Sets properties for tile. 

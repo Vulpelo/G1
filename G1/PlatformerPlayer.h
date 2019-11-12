@@ -27,6 +27,8 @@ class PlatformerPlayer :
 	float smoothMove = 0.05f;
 	float speed = 500.0f;
 
+	Vector2 gravity = Vector2(0.f, 500.f);
+
 	bool grounded = false;
 	bool climbing = false;
 

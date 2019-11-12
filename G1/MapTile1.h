@@ -17,5 +17,6 @@ public:
 	
 	void set(int x, int y, unsigned int xSpan = 1, unsigned int ySpan = 1);
 	void beginPlay();
+	virtual void beginPlayCon() {};
 };
 

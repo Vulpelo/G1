@@ -12,7 +12,7 @@ void MapTile9::updateScale()
 	}
 }
 
-MapTile9::MapTile9(G1::Sprite tiles[9], int x, int y, bool collision, const Layer & layer, unsigned int xSpan, unsigned int ySpan)
+MapTile9::MapTile9(G1::Sprite tiles[9], int x, int y, bool collision, const Layer & layer, unsigned int xSpan, unsigned int ySpan, int ignore)
 	: MapTile(x, y, collision, layer, xSpan, ySpan)
 {
 	for (size_t i = 0; i < 9; i++) {
@@ -20,7 +20,7 @@ MapTile9::MapTile9(G1::Sprite tiles[9], int x, int y, bool collision, const Laye
 		this->spriteTiles[i].initialImageSize = this->spriteTiles[i].sprite.getImageSize();
 	}
 	updateScale();
-	set(x, y, xSpan, ySpan);
+	set(x, y, xSpan, ySpan, ignore);
 }
 
 void MapTile9::set(int x, int y, unsigned int xSpan, unsigned int ySpan, int ignore)
@@ -137,7 +137,7 @@ void MapTile9::beginPlay()
 	}
 
 	addComponent(&this->spriteTiles[4].sprite);
-	for (size_t i = 0; i < 9; i++) {
+	for (int i = 8; i >= 0; i--) {
 		if (i == 4) continue;
 		addComponent(&this->spriteTiles[i].sprite);
 	}

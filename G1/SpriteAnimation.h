@@ -20,6 +20,7 @@ namespace G1 {
 		float actualTime = 0.f;
 
 		bool looping = true;
+		bool paused = false;
 
 		Sprite actualSpriteFrame();
 
@@ -33,9 +34,9 @@ namespace G1 {
 		SpriteAnimation(const Sprite& sprite) { this->sprite = sprite; pixelJump = lround( sprite.getImageSize().x ); }
 
 		void restart() { actualFrame = 0; actualTime = 0.f; }
-		void play();
-		void pause();
-		void stop();
+		void play() { paused = false; };
+		void pause() { paused = true; }
+		void stop() { paused = true; restart(); };
 
 		/// <summary>
 		/// Time after which next frame is going to show up
