@@ -10,11 +10,10 @@
 
 #include "IMainTick.h"
 #include "Transform.h"
-#include "Transformable.h"
 
 namespace G1 {
 
-	class Component// : public MainTick
+	class Component : public IMainTick
 	{
 		friend class GameObject;
 		std::vector <Component *> newOverlapingComponents;

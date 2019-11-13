@@ -163,6 +163,9 @@
     <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision\Resolution">
       <UniqueIdentifier>{f3b313a6-7ce3-4ca5-b12f-dd0a568d67a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Rendering\Layout">
+      <UniqueIdentifier>{4970f42b-9549-4973-babf-dfabb6c6ed88}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -350,6 +353,12 @@
     </ClCompile>
     <ClCompile Include="MapTileLadder.cpp">
       <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Container.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Parentable.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -577,6 +586,12 @@
     </ClInclude>
     <ClInclude Include="MapTileLadder.h">
       <Filter>Header Files\Prefabs\MapCreation</Filter>
+    </ClInclude>
+    <ClInclude Include="Container.h">
+      <Filter>Header Files\Engine\Rendering\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="Parentable.h">
+      <Filter>Header Files\Engine\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

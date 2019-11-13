@@ -146,6 +146,7 @@
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="CollisionCalculation.cpp" />
+    <ClCompile Include="Container.cpp" />
     <ClCompile Include="ExamplePlatformerGame.cpp" />
     <ClCompile Include="Ground01.cpp" />
     <ClCompile Include="Ladder.cpp" />
@@ -157,6 +158,7 @@
     <ClCompile Include="Overlapping.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
+    <ClCompile Include="Parentable.cpp" />
     <ClCompile Include="Physics.cpp" />
     <ClCompile Include="PlatformerPlayer.cpp" />
     <ClCompile Include="RectangleCollider.cpp" />
@@ -199,6 +201,7 @@
     <ClInclude Include="Assets.h" />
     <ClInclude Include="Audio.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="Container.h" />
     <ClInclude Include="DefaultGameMap.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="ExamplePlatformerGame.h" />
@@ -209,6 +212,7 @@
     <ClInclude Include="MapTile9.h" />
     <ClInclude Include="MapTileLadder.h" />
     <ClInclude Include="MapTileProperties.h" />
+    <ClInclude Include="Parentable.h" />
     <ClInclude Include="PlayerAnimator.h" />
     <ClInclude Include="RenderProperties.h" />
     <ClInclude Include="Resources.h" />

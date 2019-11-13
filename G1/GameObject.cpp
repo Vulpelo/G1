@@ -137,9 +137,9 @@ namespace G1 {
 	{
 		components.push_back(component);
 
-		auto transformableComponent = dynamic_cast<Transformable*>(component);
-		if (transformableComponent) {
-			transformableComponent->setParent(this);
+		auto parentableComponent = dynamic_cast<Parentable*>(component);
+		if (parentableComponent) {
+			parentableComponent->setParent(this);
 		}
 	}
 
