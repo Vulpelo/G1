@@ -1,14 +1,14 @@
 #pragma once
 
+#ifndef _MAP_ASSETS_XML_PARSER_H_
+#define _MAP_ASSETS_XML_PARSER_H_
 
-#include "boost/property_tree/ptree.hpp"
-#include "boost/property_tree/xml_parser.hpp"
-#include "boost/foreach.hpp"
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/xml_parser.hpp>
+#include <boost/foreach.hpp>
+
 #include <string>
-#include <set>
 #include <vector>
-#include <exception>
-#include <iostream>
 
 #include "MapTile9.h"
 #include "IXmlParser.h"
@@ -37,7 +37,7 @@ namespace G1 {
 			read_xml(filename, tree);
 
 			// PARSING RESOURCES / ASSETS
-			BOOST_FOREACH(ptree::value_type &node, tree.get_child("TileMap.resources")) {
+			BOOST_FOREACH(ptree::value_type &node, tree.get_child("GameMap.resources")) {
 				ptree subtree = node.second;
 				if (node.first == "texture" || node.first == "soundBuffer") {
 					resource res;
@@ -68,3 +68,5 @@ namespace G1 {
 		}
 	};
 }
+
+#endif //!_MAP_ASSETS_XML_PARSER_H_

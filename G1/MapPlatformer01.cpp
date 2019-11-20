@@ -8,7 +8,7 @@ MapPlatformer01::MapPlatformer01() {
 	Audio::play("music_1", true);
 
 	MapTileProperties::setTileSize(Vector2(50, 50));
-
+	
 	{ // Background
 		Background* b = new Background(
 			assets.textures().get("./assets/environment/layers/back.png"),
@@ -40,7 +40,6 @@ MapPlatformer01::MapPlatformer01() {
 
 		// bridge
 		MapTile1 tile1Bridge(Sprite(assets.textures().get("bridge"), Vector2(16, 16)), 27, -6, true, Layer::GROUND, 5, 1); addGameObject(tile1Bridge);
-
 
 		// ground sprites
 		Sprite spriteTiles[9] = {
@@ -80,14 +79,14 @@ MapPlatformer01::MapPlatformer01() {
 		//ladders
 		MapTileLadder tileLadder(24, -6, Layer::CLIMBABLE, 1, 6); addGameObject(tileLadder);
 	}
-
+	
 	{// player
 		PlatformerPlayer* o = new PlatformerPlayer();
 		o->setTransform(Transform(20, -40, 0));
 
 		objects.push_back(o);
 	}
-
+	
 	{ // ground
 		Ground01* o = new Ground01(1000, 50);
 		o->setTransform(Transform(500, 800, 0));
@@ -119,7 +118,7 @@ MapPlatformer01::MapPlatformer01() {
 
 		objects.push_back(w);
 	}
-
+	
 	{
 		MyUI* ui = new MyUI();
 		objects.push_back(ui);
@@ -128,5 +127,6 @@ MapPlatformer01::MapPlatformer01() {
 		uiImage->setParent(ui);
 		objects.push_back(uiImage);
 	}
+	
 }
 

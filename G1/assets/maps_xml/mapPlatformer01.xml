@@ -1,4 +1,4 @@
-<TileMap>
+<GameMap>
 	<resources>
 		<texture>
 			<path>./assets/spritesheets/player-idle.png</path>
@@ -105,4 +105,4 @@
 		</soundBuffer>
 	</resources>
 	
-</TileMap>
+</GameMap>

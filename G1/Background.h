@@ -7,8 +7,9 @@ using namespace G1;
 
 class Background : public GameObject {
 
-	Sprite sprite;
+	Sprite* sprite = NULL;
 
 public:
 	Background(const sf::Texture& texture, const Vector2& size);
+	void eventTick();
 };

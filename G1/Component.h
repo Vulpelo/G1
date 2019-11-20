@@ -49,7 +49,7 @@ namespace G1 {
 		virtual void render(sf::RenderWindow *) {};
 
 		//void overlapingEndMain();
-		~Component();
+		virtual ~Component();
 	};
 
 }

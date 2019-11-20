@@ -67,16 +67,14 @@ namespace G1 {
 		// TODO: child setting position later
 
 		/*---Sorting gameObjects by sorting layer---*/
-		auto forSorting = GameObjectsData::toSortingLayer;
+		auto forSorting = GameObjectsData::getAndClearToSortingLayer();
 		if (!forSorting.empty()) {
 			for (unsigned int i = 0; i < forSorting.size(); i++) {
-				
 				for (unsigned int j = 0; j < objects.size(); j++) {
 					if (forSorting[i] == objects[j]) {
 						objects.erase(objects.begin() + j, objects.begin() + j + 1);
 					}
 				}
-
 				insertGameObjectBySortingLayer(forSorting[i]);
 			}
 		}

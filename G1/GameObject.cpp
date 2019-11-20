@@ -159,5 +159,4 @@ namespace G1 {
 			parentableComponent->setParent(this);
 		}
 	}
-
 }

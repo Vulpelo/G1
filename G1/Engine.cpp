@@ -35,7 +35,7 @@ namespace G1 {
 
 		controlInput.mainEventTick();
 		MapManager::getInstance().get_aMap().mainEventTick();
-
+		
 		EventHandler::getInstance().handle();
 	}
 

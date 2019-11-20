@@ -10,7 +10,7 @@ void MapTile1::updateScale()
 	this->sprite.setScale(scale);
 }
 
-MapTile1::MapTile1(const G1::Sprite & sprite, int x, int y, bool collision, const Layer& layer, unsigned int xSpan, unsigned int ySpan) :
+MapTile1::MapTile1(const G1::Sprite& sprite, int x, int y, bool collision, const Layer& layer, unsigned int xSpan, unsigned int ySpan) :
 	MapTile(x, y, collision, layer, xSpan, ySpan)
 {
 	this->sprite = sprite;
@@ -43,7 +43,7 @@ void MapTile1::beginPlay() {
 		rc->setOverlappable(false);
 		addComponent(rc);
 	}
-	addComponent(&this->sprite);
+	addComponentCopy(this->sprite);
 
 	beginPlayCon();
 }

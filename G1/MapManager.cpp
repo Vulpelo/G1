@@ -13,6 +13,7 @@ namespace G1 {
 	void MapManager::reloadActualE()
 	{
 		delete aMap;
+		aMap = NULL;
 
 		loadMapE();
 	}
@@ -36,7 +37,7 @@ namespace G1 {
 
 	GameMap& MapManager::get_aMap()
 	{
-		return *MapManager::aMap;
+		return *aMap;
 	}
 
 }

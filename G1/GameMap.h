@@ -29,7 +29,7 @@ namespace G1 {
 		std::vector <GameObject *> objects;
 	public:
 		GameMap();
-		~GameMap();
+		virtual ~GameMap();
 		/// <summary> Return's a colection of Objects that where
 		/// created in this GameMap </summary>
 		std::vector <GameObject*> getAllObjects();

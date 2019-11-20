@@ -61,7 +61,7 @@ namespace G1 {
 
 	public:
 		GameObject();
-		~GameObject();
+		virtual ~GameObject();
 
 		/// <summary> Executed at the begining of gameObject life </summary>
 		virtual void startPlay() {};
@@ -113,6 +113,12 @@ namespace G1 {
 
 		/// <summary>Adds new component to GameObject</summary>
 		void addComponent(Component* component);
+
+		/// <summary>
+		/// Adds copy of the GameObject to map
+		/// </summary>
+		template <class T>
+		void addComponentCopy(T component);
 #pragma endregion
 
 #pragma region Overlaping/Colliding interactions
@@ -150,10 +156,12 @@ namespace G1 {
 		std::vector <T*> chosenComponents;
 
 		T* chosenComponent;
-		for each (Component* component in this->components)
-		{
-			if (chosenComponent = dynamic_cast<T*>(component)) {
-				chosenComponents.push_back(chosenComponent);
+		if (!components.empty()) {
+			for each (Component* component in this->components)
+			{
+				if (chosenComponent = dynamic_cast<T*>(component)) {
+					chosenComponents.push_back(chosenComponent);
+				}
 			}
 		}
 
@@ -164,13 +172,23 @@ namespace G1 {
 	T* GameObject::getComponent()
 	{
 		T* getComp;
-		for each (Component* component in components)
-		{
-			if (getComp = dynamic_cast<T*>(component)) {
-				return getComp;
+		if (!components.empty()) {
+			for each (Component* component in components)
+			{
+				if (getComp = dynamic_cast<T*>(component)) {
+					return getComp;
+				}
 			}
 		}
 		return NULL;
+	}
+
+	template <class T>
+	void GameObject::addComponentCopy(T component)
+	{
+		T* ngO = new T();
+		*ngO = component;
+		addComponent(ngO);
 	}
 }
 

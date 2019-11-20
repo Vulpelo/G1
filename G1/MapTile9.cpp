@@ -16,7 +16,7 @@ MapTile9::MapTile9(G1::Sprite tiles[9], int x, int y, bool collision, const Laye
 	: MapTile(x, y, collision, layer, xSpan, ySpan)
 {
 	for (size_t i = 0; i < 9; i++) {
-		this->spriteTiles[i].sprite = std::move(tiles[i]);
+		this->spriteTiles[i].sprite = tiles[i];
 		this->spriteTiles[i].initialImageSize = this->spriteTiles[i].sprite.getImageSize();
 	}
 	updateScale();
@@ -136,9 +136,9 @@ void MapTile9::beginPlay()
 		addComponent(rc);
 	}
 
-	addComponent(&this->spriteTiles[4].sprite);
+	addComponentCopy(this->spriteTiles[4].sprite);
 	for (int i = 8; i >= 0; i--) {
 		if (i == 4) continue;
-		addComponent(&this->spriteTiles[i].sprite);
+		addComponentCopy(this->spriteTiles[i].sprite);
 	}
 }
