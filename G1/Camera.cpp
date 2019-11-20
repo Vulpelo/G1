@@ -17,6 +17,7 @@ namespace G1 {
 	sf::View& Camera::getView() {
 		Vector2 pos = getWorldPosition();
 		view.setCenter(sf::Vector2f(pos.x, pos.y));
+
 		return view;
 	}
 

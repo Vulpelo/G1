@@ -2,14 +2,20 @@
 
 void ExamplePlatformerGame::beginPlay()
 {
-	[](std::string name) {
-		if (name == "map1") {
-			return new MapPlatformer01();
-		}
-	};
+	//[](std::string name) {
+	//	if (name == "map1") {
+	//		return (GameMap*)new MapPlatformer01();
+	//	}
+	//	if (name == "tilemap01") {
+	//		return (GameMap*)new TileMap01();
+	//	}
+	//};
 	MapManager::getInstance().setMapManageFunction([](std::string mapName) {
 		if (mapName == "map1") {
 			return dynamic_cast<GameMap*>( new MapPlatformer01() );
+		}
+		if (mapName == "tilemap01") {
+			return dynamic_cast<GameMap*>(new TileMap01());
 		}
 		return dynamic_cast<GameMap*>(new DefaultGameMap());
 	});

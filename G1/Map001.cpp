@@ -4,7 +4,7 @@ Map001::Map001()
 {
 	{
 		GameObject001* o = new GameObject001();
-		o->setTransform(Transform(489, 222.051, 0));
+		o->setTransform(Transform(489, 222.051f, 0));
 
 		objects.push_back(o);
 	}

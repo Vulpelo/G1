@@ -1,8 +1,11 @@
 #include "MapPlatformer01.h"
 
-MapPlatformer01::MapPlatformer01()
-{
+MapPlatformer01::MapPlatformer01() {
+	MapLoader loader;
+	loader.load(this, "./assets/maps_xml/mapPlatformer01.xml");
+	
 	Assets &assets = Assets::getInstance();
+	/* Loading assets in code
 	assets.textures().load("./assets/spritesheets/player-idle.png");
 	assets.textures().load("./assets/spritesheets/player-run.png");
 	assets.textures().load("./assets/spritesheets/player-jump.png");
@@ -46,7 +49,7 @@ MapPlatformer01::MapPlatformer01()
 
 	assets.soundBuffers().load("grass_footsteps", "./assets/sounds/footsteps_grass.wav");
 	assets.soundBuffers().load("music_1", "./assets/sounds/platformer_level03_loop.ogg");
-
+	*/
 	Audio::play("music_1", true);
 	
 
@@ -97,7 +100,8 @@ MapPlatformer01::MapPlatformer01()
 			Sprite(assets.textures().get("grass_dm"), Vector2(16, 16)),
 			Sprite(assets.textures().get("grass_dr"), Vector2(16, 16)) };
 		// Overall ground
-		MapTile9 tile9(spriteTiles, -10, 0, true, Layer::GROUND, 37, 20); addGameObject(tile9);
+
+		MapTile9 tile9(spriteTiles, -10, 0, true, Layer::GROUND, 37, 20); addGameObject<MapTile9>(tile9);
 			tile9.set(5, -1, 13, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
 			tile9.set(6, -2, 1, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
 					tile9.set(13, -2, 5, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
@@ -115,7 +119,6 @@ MapPlatformer01::MapPlatformer01()
 			tile9.set(49, -6, 20, 2, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
 
 		tile9.set(53, -18, 20, 10); addGameObject(tile9);
-
 
 		// left wall
 		tile9.set(-10, -20, 10, 21, (int)MapTile9::SpriteTilePos::DM); addGameObject(tile9);
@@ -161,6 +164,15 @@ MapPlatformer01::MapPlatformer01()
 		w->setTransform(Transform(310, -50, 0));
 
 		objects.push_back(w);
+	}
+
+	{
+		MyUI* ui = new MyUI();
+		objects.push_back(ui);
+
+		UiImage* uiImage = new UiImage();
+		uiImage->setParent(ui);
+		objects.push_back(uiImage);
 	}
 }
 

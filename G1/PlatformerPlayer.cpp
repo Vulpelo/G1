@@ -1,17 +1,6 @@
 #include "PlatformerPlayer.h"
 
-
-
-void PlatformerPlayer::beginPlay() {
-	setLayer(Layer::PLAYER);
-
-	jumpForce = 200.f;
-
-	/*rend = new RectangleRenderer(16, 16, color1);
-	rend->setPosition(0.f, 5.f);
-	addComponent(rend);
-*/
-
+void PlatformerPlayer::startPlay() {
 	/* == COLLIDERS == */
 	/* Setting Collider (will be allways active) */
 	auto collidor = new RectangleCollider(16, 16, 0, 8);
@@ -27,17 +16,22 @@ void PlatformerPlayer::beginPlay() {
 	collidor = new RectangleCollider(16, 24, 0, 0);
 	collidor->setOverlappable(true);
 	addComponent(collidor);
-	
+
 	/* == SPRITES AND ANIMATION == */
 	/* Sprite that will be modifyied when animation is playing. Adding it as component */
 	Sprite* renderSprite = new Sprite(texture, Vector2(33, 32));
 	addComponent(renderSprite);
 
-	/* Creating Animator and adding renderSprite. 
-		Animator will use 'renderSprite' as an output of SpriteAnimaton */
+	/* Creating Animator and adding renderSprite.
+	Animator will use 'renderSprite' as an output of SpriteAnimaton */
 	animator = new PlayerAnimator(*renderSprite);
 	addComponent(animator);
 
+	/* == OTHER COMPONENTS CREATED IN DECLARATION == */
+	/* Adding other components created in class declaration */
+	//addComponent(rend);
+	rb->setGravity(gravity);
+	addComponent(rb);
 
 	/* == CAMERA == */
 	/* Setting Camera Component*/
@@ -45,13 +39,17 @@ void PlatformerPlayer::beginPlay() {
 	camera->setActive(true);
 	camera->setZoom(0.5f);
 	addComponent(camera);
+}
 
+void PlatformerPlayer::beginPlay() {
+	setLayer(Layer::PLAYER);
 
-	/* == OTHER COMPONENTS CREATED IN DECLARATION == */
-	/* Adding other components created in class declaration */
-	//addComponent(rend);
-	rb->setGravity(gravity);
-	addComponent(rb);
+	jumpForce = 200.f;
+
+	/*rend = new RectangleRenderer(16, 16, color1);
+	rend->setPosition(0.f, 5.f);
+	addComponent(rend);
+*/
 }
 
 void PlatformerPlayer::eventTick() {

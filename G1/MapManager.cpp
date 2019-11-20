@@ -29,6 +29,7 @@ namespace G1 {
 	{
 		aMap = manage(newMapName);
 		actualMapName = newMapName;
+		aMap->mainStartPlay();
 		aMap->mainBeginPlay();
 	}
 

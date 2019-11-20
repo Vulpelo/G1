@@ -35,7 +35,7 @@ namespace G1 {
 		/// Returns number. If >0 then on one side of line, <0 other side, =0 on line (exacly on line)
 		/// eg. p1(0.f, 0.f), p2(0.f, 10.f), point(5.f, 5.f) - then returns >0
 		/// </summary>
-		int pointRelativeLine(const Vector2& point) const;
+		float pointRelativeLine(const Vector2& point) const;
 	};
 
 }

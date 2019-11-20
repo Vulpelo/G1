@@ -27,7 +27,6 @@ namespace G1 {
 		Vector2 offset;
 	
 		void removeFromActiveCameras();
-		sf::View& getView();
 
 	public:
 		/// <summary>
@@ -39,6 +38,8 @@ namespace G1 {
 		/// </summary>
 		/// <param name="size">Initial size of camera's view</param>
 		Camera(const Vector2& size);
+
+		sf::View& getView();
 
 		bool isActive() const { return active; }
 		void setActive(bool active);
@@ -65,3 +66,5 @@ namespace G1 {
 	};
 
 }
+
+// TODO: reset cameras or sth after map reload/ load new map

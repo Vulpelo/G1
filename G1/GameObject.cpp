@@ -18,22 +18,14 @@ namespace G1 {
 
 	GameObject::~GameObject()
 	{
-		for each (Component* c in components)
+		for (size_t i = 0 ; i < components.size(); i++)
 		{
-			delete c;
+			delete components[i];
 		}
 		components.clear();
 
 		overlapingObjects.clear();
 		newOverlapingObjects.clear();
-	}
-
-	void GameObject::beginPlay()
-	{
-	}
-
-	void GameObject::eventTick()
-	{
 	}
 
 	Layer GameObject::getLayer()
@@ -67,9 +59,26 @@ namespace G1 {
 		return this->sortingLayer;
 	}
 
+	void GameObject::mainStartPlay()
+	{
+		this->startPlay();
+
+		for each (Component* component in components) {
+			if (component->isEnabled()) {
+				component->mainStartPlay();
+			}
+		}
+	}
+
 	void GameObject::mainBeginPlay()
 	{
-		beginPlay();
+		this->beginPlay();
+
+		for each (Component* component in components) {
+			if (component->isEnabled()) {
+				component->mainBeginPlay();
+			}
+		}
 	}
 
 	void GameObject::mainEventTick()
@@ -80,14 +89,22 @@ namespace G1 {
 		currentLifeTime += Time::getDeltaTime();
 
 		this->eventTick();
+	}
 
+	void GameObject::mainFixedEventTick()
+	{
+		this->fixedEventTick();
+	}
+
+	void GameObject::mainEventTickComponents()
+	{
 		for each (Component* component in components) {
 			if (component->isEnabled()) {
 				component->mainEventTick();
 			}
 		}
 	}
-	
+
 	void GameObject::render(sf::RenderWindow * w)
 	{
 		for each (Component* component in components)

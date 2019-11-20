@@ -63,6 +63,7 @@ class PlatformerPlayer :
 
 
 public:
+	void startPlay();
 	void beginPlay();
 	void eventTick();
 

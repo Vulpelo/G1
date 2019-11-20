@@ -166,6 +166,15 @@
     <Filter Include="Header Files\Engine\Rendering\Layout">
       <UniqueIdentifier>{4970f42b-9549-4973-babf-dfabb6c6ed88}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\G1Game\UI">
+      <UniqueIdentifier>{5d971fa5-e956-4acf-9a0c-3f3fcd785c45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\UI">
+      <UniqueIdentifier>{c0959571-041b-4106-8f82-b97ce8c5df8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Prefabs\MapCreation\TileXmlLoad">
+      <UniqueIdentifier>{d3de7c72-b21f-4768-bcb7-346ca7725c09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -324,9 +333,6 @@
     <ClCompile Include="Assets.cpp">
       <Filter>Source Files\Engine\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="RenderProperties.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="MapTileProperties.cpp">
       <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
     </ClCompile>
@@ -354,11 +360,23 @@
     <ClCompile Include="MapTileLadder.cpp">
       <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
     </ClCompile>
-    <ClCompile Include="Container.cpp">
+    <ClCompile Include="MyUI.cpp">
+      <Filter>Source Files\G1Game</Filter>
+    </ClCompile>
+    <ClCompile Include="ContainerElement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Parentable.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderProperties.cpp">
+      <Filter>Source Files\Engine\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="UiImage.cpp">
+      <Filter>Source Files\Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Container.cpp">
+      <Filter>Source Files\Engine\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -592,6 +610,30 @@
     </ClInclude>
     <ClInclude Include="Parentable.h">
       <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="MyUI.h">
+      <Filter>Header Files\G1Game\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ContainerElement.h">
+      <Filter>Header Files\Engine\Rendering\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="UiImage.h">
+      <Filter>Header Files\G1Game\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="IFixedTick.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameObjectTick.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap01.h">
+      <Filter>Header Files\G1Game\Maps</Filter>
+    </ClInclude>
+    <ClInclude Include="MapXmlParser.h">
+      <Filter>Header Files\Prefabs\MapCreation\TileXmlLoad</Filter>
+    </ClInclude>
+    <ClInclude Include="MapLoader.h">
+      <Filter>Header Files\Prefabs\MapCreation\TileXmlLoad</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

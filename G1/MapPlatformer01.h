@@ -1,4 +1,5 @@
 #pragma once
+
 #include "GameMap.h"
 #include "Ground01.h"
 #include "PlatformerPlayer.h"
@@ -6,8 +7,12 @@
 #include "MapTile1.h"
 #include "MapTile9.h"
 #include "MapTileLadder.h"
+#include "MyUI.h"
+
+#include "MapLoader.h"
 
 #include "GameObject004_CircleWall.h"
+//#include "MapXmlParser.h"
 
 using namespace G1;
 

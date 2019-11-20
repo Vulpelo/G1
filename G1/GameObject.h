@@ -13,8 +13,8 @@
 #include "GameObjectsData.h"
 #include "Audio.h"
 
+#include "IGameObjectTick.h"
 
-#include "ITick.h"
 #include "Time.h"
 
 // containers
@@ -23,7 +23,7 @@
 
 namespace G1 {
 
-	class GameObject : public ISpawnable, public Transformable, public ITick
+	class GameObject : public ISpawnable, public Transformable, public IGameObjectTick
 	{
 		friend class GameMap;
 		friend class RenderManager;
@@ -53,18 +53,29 @@ namespace G1 {
 		// Displays object's components on screen
 		void render(sf::RenderWindow * w);
 
-		virtual void mainBeginPlay();
-		virtual void mainEventTick();
+		void mainStartPlay();
+		void mainFixedEventTick();
+		void mainEventTickComponents();
+		void mainBeginPlay();
+		void mainEventTick();
 
 	public:
 		GameObject();
 		~GameObject();
 
-		/// <summary>Function played at the begining when object is created</summary>
-		virtual void beginPlay();
+		/// <summary> Executed at the begining of gameObject life </summary>
+		virtual void startPlay() {};
 
-		/// <summary>Function if played every frame of object life span</summary>
-		virtual void eventTick();
+		/// <summary> Function played right after startPlay() was executed for all new/existing GameObjects</summary>
+		virtual void beginPlay() {};
+
+		/// <summary> Function if played every frame before eventTick and updation of all components of this and other GameObjects 
+		/// Use this for manipulating position of the GameObject </summary>
+		virtual void fixedEventTick() {};
+
+		/// <summary> Function if played every frame of object life span</summary>
+		virtual void eventTick() {};
+
 
 #pragma region Layer
 		/// <summary>Returns layer</summary>

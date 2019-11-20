@@ -2,7 +2,7 @@
 
 #include "Engine.h"
 #include "MapPlatformer01.h"
-
+#include "TileMap01.h"
 
 class ExamplePlatformerGame : public Engine {
 

@@ -10,6 +10,8 @@
 
 #include "IMainTick.h"
 #include "Transform.h"
+#include "Transformable.h"
+
 
 namespace G1 {
 
@@ -20,7 +22,9 @@ namespace G1 {
 
 		bool enabled;
 
+		virtual void mainStartPlay() {};
 		virtual void mainBeginPlay() {};
+
 		virtual void mainEventTick() {};
 
 	protected:
