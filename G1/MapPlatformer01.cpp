@@ -5,53 +5,7 @@ MapPlatformer01::MapPlatformer01() {
 	loader.load(this, "./assets/maps_xml/mapPlatformer01.xml");
 	
 	Assets &assets = Assets::getInstance();
-	/* Loading assets in code
-	assets.textures().load("./assets/spritesheets/player-idle.png");
-	assets.textures().load("./assets/spritesheets/player-run.png");
-	assets.textures().load("./assets/spritesheets/player-jump.png");
-	assets.textures().load("./assets/spritesheets/player-crouch.png");
-	assets.textures().load("./assets/spritesheets/player-climb.png");
-
-	assets.textures().load("./assets/environment/layers/back.png");
-	assets.textures().load("grass_ul", "./assets/environment/tiles/grass_ul.png");
-	assets.textures().get("grass_ul").setRepeated(true);
-	assets.textures().load("grass_um", "./assets/environment/tiles/grass_um.png");
-	assets.textures().get("grass_um").setRepeated(true);
-	assets.textures().load("grass_ur", "./assets/environment/tiles/grass_ur.png");
-	assets.textures().get("grass_ur").setRepeated(true);
-	assets.textures().load("grass_ml", "./assets/environment/tiles/grass_ml.png");
-	assets.textures().get("grass_ml").setRepeated(true);
-	assets.textures().load("grass_mm", "./assets/environment/tiles/grass_mm.png");
-	assets.textures().get("grass_mm").setRepeated(true);
-	assets.textures().load("grass_mr", "./assets/environment/tiles/grass_mr.png");
-	assets.textures().get("grass_mr").setRepeated(true);
-	assets.textures().load("grass_dl", "./assets/environment/tiles/grass_dl.png");
-	assets.textures().get("grass_dl").setRepeated(true);
-	assets.textures().load("grass_dm", "./assets/environment/tiles/grass_dm.png");
-	assets.textures().get("grass_dm").setRepeated(true);
-	assets.textures().load("grass_dr", "./assets/environment/tiles/grass_dr.png");
-	assets.textures().get("grass_dr").setRepeated(true);
-	
-	assets.textures().load("grass_float_b", "./assets/environment/tiles/grass_float_b.png");
-	assets.textures().get("grass_float_b").setRepeated(true);
-	assets.textures().load("grass_float_m", "./assets/environment/tiles/grass_float_m.png");
-	assets.textures().get("grass_float_m").setRepeated(true);
-	assets.textures().load("grass_float_e", "./assets/environment/tiles/grass_float_e.png");
-	assets.textures().get("grass_float_e").setRepeated(true);
-
-	assets.textures().load("ladder", "./assets/environment/tiles/ladder.png");
-	assets.textures().get("ladder").setRepeated(true);
-
-	assets.textures().load("bridge", "./assets/environment/tiles/bridge.png");
-	assets.textures().get("bridge").setRepeated(true);
-	assets.textures().load("bridgeEnd", "./assets/environment/tiles/bridgeEnd.png");
-	assets.textures().get("bridgeEnd").setRepeated(true);
-
-	assets.soundBuffers().load("grass_footsteps", "./assets/sounds/footsteps_grass.wav");
-	assets.soundBuffers().load("music_1", "./assets/sounds/platformer_level03_loop.ogg");
-	*/
 	Audio::play("music_1", true);
-	
 
 	MapTileProperties::setTileSize(Vector2(50, 50));
 

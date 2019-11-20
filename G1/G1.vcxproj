@@ -212,6 +212,7 @@
     <ClInclude Include="IFixedTick.h" />
     <ClInclude Include="IGameObjectTick.h" />
     <ClInclude Include="IMainTick.h" />
+    <ClInclude Include="IXmlParser.h" />
     <ClInclude Include="Ladder.h" />
     <ClInclude Include="MapTile.h" />
     <ClInclude Include="MapTile1.h" />
@@ -280,7 +281,7 @@
     <ClInclude Include="ITick.h" />
     <ClInclude Include="TileMap01.h" />
     <ClInclude Include="MapLoader.h" />
-    <ClInclude Include="MapXmlParser.h" />
+    <ClInclude Include="MapAssetsXmlParser.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Transformable.h" />

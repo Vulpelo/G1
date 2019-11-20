@@ -12,7 +12,7 @@
 #include "MapLoader.h"
 
 #include "GameObject004_CircleWall.h"
-//#include "MapXmlParser.h"
+//#include "MapAssetsXmlParser.h"
 
 using namespace G1;
 
