@@ -207,6 +207,7 @@
     <ClInclude Include="Container.h" />
     <ClInclude Include="ContainerElement.h" />
     <ClInclude Include="DefaultGameMap.h" />
+    <ClInclude Include="DefaultGameObject.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="ExamplePlatformerGame.h" />
     <ClInclude Include="IFixedTick.h" />
@@ -214,6 +215,7 @@
     <ClInclude Include="IMainTick.h" />
     <ClInclude Include="IXmlParser.h" />
     <ClInclude Include="Ladder.h" />
+    <ClInclude Include="MapGameObjectsXmlParser.h" />
     <ClInclude Include="MapTile.h" />
     <ClInclude Include="MapTile1.h" />
     <ClInclude Include="MapTile9.h" />
@@ -222,6 +224,7 @@
     <ClInclude Include="MyUI.h" />
     <ClInclude Include="Parentable.h" />
     <ClInclude Include="PlayerAnimator.h" />
+    <ClInclude Include="PrefabGameObjects.h" />
     <ClInclude Include="RenderProperties.h" />
     <ClInclude Include="Resources.h" />
     <ClInclude Include="SpriteAnimation.h" />

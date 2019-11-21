@@ -73,9 +73,9 @@ namespace G1 {
 				for (unsigned int j = 0; j < objects.size(); j++) {
 					if (forSorting[i] == objects[j]) {
 						objects.erase(objects.begin() + j, objects.begin() + j + 1);
+						insertGameObjectBySortingLayer(forSorting[i]);
 					}
 				}
-				insertGameObjectBySortingLayer(forSorting[i]);
 			}
 		}
 

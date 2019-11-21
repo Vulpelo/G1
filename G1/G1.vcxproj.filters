@@ -638,5 +638,14 @@
     <ClInclude Include="MapAssetsXmlParser.h">
       <Filter>Header Files\Engine\Map\XmlLoader</Filter>
     </ClInclude>
+    <ClInclude Include="MapGameObjectsXmlParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultGameObject.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="PrefabGameObjects.h">
+      <Filter>Header Files\Engine\Map\XmlLoader</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

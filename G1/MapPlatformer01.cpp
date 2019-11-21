@@ -9,14 +9,6 @@ MapPlatformer01::MapPlatformer01() {
 
 	MapTileProperties::setTileSize(Vector2(50, 50));
 	
-	{ // Background
-		Background* b = new Background(
-			assets.textures().get("./assets/environment/layers/back.png"),
-			Vector2(384, 240));
-
-		b->setTransform(Transform(Vector2(300, 0), Vector2(3, 3)));
-		objects.push_back(b);
-	}
 	{ // Map tiles
 		MapTileProperties::setTileSize(Vector2(30, 30));
 
@@ -78,13 +70,6 @@ MapPlatformer01::MapPlatformer01() {
 
 		//ladders
 		MapTileLadder tileLadder(24, -6, Layer::CLIMBABLE, 1, 6); addGameObject(tileLadder);
-	}
-	
-	{// player
-		PlatformerPlayer* o = new PlatformerPlayer();
-		o->setTransform(Transform(20, -40, 0));
-
-		objects.push_back(o);
 	}
 	
 	{ // ground

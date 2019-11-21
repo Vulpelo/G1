@@ -139,7 +139,6 @@ namespace G1 {
 		virtual void endOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
 #pragma endregion
 
-
 #pragma region Destroy 
 		/// <summary>Destroys object before next tick</summary>
 		void destroy(float nlifeTime = 0.0f);

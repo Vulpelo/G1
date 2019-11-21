@@ -4,6 +4,7 @@
 #define _MAP_LOADER_H_
 
 #include "MapAssetsXmlParser.h"
+#include "MapGameObjectsXmlParser.h"
 
 #include "GameMap.h"
 #include "MapTileProperties.h"
@@ -46,7 +47,12 @@ class MapLoader {
 	}
 
 	void loadGameObjects(GameMap* gameMap, const std::string& pathToXml) {
+		MapGameObjectsXmlParser gameObjectsParser;
+		gameObjectsParser.load(pathToXml);
 
+		for (size_t i = 0; i < gameObjectsParser.gameObjects.size(); i++) {
+			gameMap->addGameObject(gameObjectsParser.gameObjects[i]);
+		}
 	}
 
 public:

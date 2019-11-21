@@ -1,4 +1,5 @@
 <GameMap>
+
 	<resources>
 		<texture>
 			<path>./assets/spritesheets/player-idle.png</path>
@@ -104,5 +105,46 @@
 			<name>grass_footsteps</>
 		</soundBuffer>
 	</resources>
+
+	<gameObjects>
+		<!-- You can create gameObject from 0, adding components with settings -->
+		<gameObject>
+			<transform>
+				<position>
+					<x>1</x>
+					<y>1</y>
+				</position>
+				<rotationX>3</rotationX>
+				<scale>
+					<x>2</x>
+					<y>2</y>
+				</scale>
+			</transform>
+			
+			<components>
+				
+			</components>
+		</gameObject>
+		
+		<!-- Create existing prefab and/or modify it by adding additional components -->
+		<gameObject prefab="Background">
+			<transform>
+				<position>
+					<x>300</x>
+					<y>0</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>3</x>
+					<y>3</y>
+				</scale>
+			</transform>
+		</gameObject>
+
+		<gameObject prefab="PlatformerPlayer">
+		</gameObject>
+		
+	</gameObjects>
+	
 	
 </GameMap>
