@@ -1,8 +1,13 @@
 #include "MapTileLadder.h"
 
 
-MapTileLadder::MapTileLadder(int x, int y, const Layer& layer, unsigned int xSpan, unsigned int ySpan) :
-	MapTile1(Sprite(Assets::getInstance().textures().get("ladder"), Vector2(16, 16)), x, y, false, layer, xSpan, ySpan)
+MapTileLadder::MapTileLadder(const prefabArgs & args)
+	: MapTile1(args)
+{
+}
+
+MapTileLadder::MapTileLadder(int x, int y, unsigned int xSpan, unsigned int ySpan) :
+	MapTile1(Sprite(Assets::getInstance().textures().get("ladder"), Vector2(16, 16)), x, y, false, Layer::CLIMBABLE, xSpan, ySpan)
 {
 }
 

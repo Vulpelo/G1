@@ -11,9 +11,12 @@
 
 #include <string>
 #include <vector>
+#include <variant>
+#include <map>
 
 #include "IXmlParser.h"
 #include "PrefabGameObjects.h"
+#include "IPrefab.h"
 
 namespace G1 {
 
@@ -39,6 +42,38 @@ namespace G1 {
 			return transform;
 		}
 
+		prefabArgs loadArgs(boost::property_tree::ptree::value_type& val) {
+			using namespace boost::property_tree;
+
+			prefabArgs args;
+			BOOST_FOREACH(ptree::value_type &obj, val.second.get_child("")) {
+				if (obj.first == "args") {
+					prefabArgs args;
+					BOOST_FOREACH(ptree::value_type &v, obj.second.get_child("")) {
+						std::string label = v.first;
+						std::string type = v.second.get("<xmlattr>.type", "");
+
+						prefabArg arg;
+						if (type == "int") {
+							arg = obj.second.get<int>(label);
+						}
+						else if (type == "float") {
+							arg = obj.second.get<float>(label);
+						}
+						else if (type == "bool") {
+							arg = obj.second.get<bool>(label);
+						}
+						else if (type == "string") {
+							arg = obj.second.get<std::string>(label);
+						}
+						args[label] = arg;
+					}
+					return args;
+				}
+			}
+			return args;
+		}
+
 	public:
 		std::vector<GameObject*> gameObjects;
 
@@ -56,13 +91,15 @@ namespace G1 {
 
 					std::string prefabName = node.second.get("<xmlattr>.prefab", "");
 					if (prefabName.empty()) {
-						// NO PREFAB/ from scratch
 						newGameObject = new GameObject();
-					}
-					else {
-						// CREATE GAME OBJECT FROM PREFAB
+					} else {
+						prefabArgs args = loadArgs(node);
+
 						PrefabGameObjects prefabs;
-						newGameObject = prefabs.getInstanceOf(prefabName);
+						newGameObject = prefabs.getInstanceOf(prefabName, args);
+						if (newGameObject == NULL) {
+							continue;
+						}
 					}
 					
 					BOOST_FOREACH(ptree::value_type &v, subtree.get_child("")) {

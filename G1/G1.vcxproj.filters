@@ -357,9 +357,6 @@
     <ClCompile Include="CircleCollidesRectangle.cpp">
       <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
     </ClCompile>
-    <ClCompile Include="MapTileLadder.cpp">
-      <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
-    </ClCompile>
     <ClCompile Include="MyUI.cpp">
       <Filter>Source Files\G1Game</Filter>
     </ClCompile>
@@ -377,6 +374,9 @@
     </ClCompile>
     <ClCompile Include="Container.cpp">
       <Filter>Source Files\Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTile.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -602,9 +602,6 @@
     <ClInclude Include="Collision.h">
       <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="MapTileLadder.h">
-      <Filter>Header Files\Prefabs\MapCreation</Filter>
-    </ClInclude>
     <ClInclude Include="Container.h">
       <Filter>Header Files\Engine\Rendering\Layout</Filter>
     </ClInclude>
@@ -646,6 +643,9 @@
     </ClInclude>
     <ClInclude Include="PrefabGameObjects.h">
       <Filter>Header Files\Engine\Map\XmlLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="IPrefab.h">
+      <Filter>Header Files\Engine\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

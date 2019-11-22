@@ -12,6 +12,30 @@ void MapTile9::updateScale()
 	}
 }
 
+MapTile9::MapTile9(const prefabArgs & args)
+	: MapTile(args)
+{
+	std::string texturesNames[9] {"grass_ul", "grass_um", "grass_ur", "grass_ml", "grass_mm", "grass_mr", "grass_dl", "grass_dm", "grass_dr" };
+	if ( args.find("floating") != args.end() ) {
+		if (std::get<bool>(args.at("floating"))) {
+			texturesNames[0] = texturesNames[3] = texturesNames[6] = "grass_float_b";
+			texturesNames[1] = texturesNames[4] = texturesNames[7] = "grass_float_m";
+			texturesNames[2] = texturesNames[5] = texturesNames[8] = "grass_float_e";
+		}
+	}
+
+	Assets& assets = Assets::getInstance();
+	for (size_t i = 0; i < 9; i++) {
+		this->spriteTiles[i].sprite = Sprite(assets.textures().get(texturesNames[i]), Vector2(16, 16));
+		this->spriteTiles[i].initialImageSize = this->spriteTiles[i].sprite.getImageSize();
+	}
+
+	int ignore = std::get<int>( args.at("ignore") );
+
+	updateScale();
+	set(x, y, xSpan, ySpan, ignore);
+}
+
 MapTile9::MapTile9(G1::Sprite tiles[9], int x, int y, bool collision, const Layer & layer, unsigned int xSpan, unsigned int ySpan, int ignore)
 	: MapTile(x, y, collision, layer, xSpan, ySpan)
 {
@@ -123,7 +147,7 @@ void MapTile9::set(int x, int y, unsigned int xSpan, unsigned int ySpan, int ign
 	setPosition(Vector2(nXPos, nYPos));
 }
 
-void MapTile9::beginPlay()
+void MapTile9::startPlay()
 {
 	if (collision) {
 		const Vector2& tileSize = MapTileProperties::getTileSize();

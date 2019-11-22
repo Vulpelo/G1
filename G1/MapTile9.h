@@ -3,6 +3,7 @@
 #include "MapTile.h"
 #include "Sprite.h"
 #include "RectangleCollider.h"
+#include "IPrefab.h"
 
 class MapTile9 : public MapTile {
 	struct SpriteTile {
@@ -21,6 +22,7 @@ public:
 	};
 
 	MapTile9() {};
+	MapTile9(const prefabArgs& args);
 	MapTile9(G1::Sprite tiles[9], int x, int y, bool collision = false, const Layer& layer = Layer::DEFAULT, unsigned int xSpan = 1, unsigned int ySpan = 1, int ignore = 0);
 
 	/// <summary>
@@ -30,5 +32,5 @@ public:
 	/// If you want to ignore some textures that you dont want to draw. eq. SpriteTilePos::UM | SpriteTilePos::DM
 	/// </summary>
 	void set(int x, int y, unsigned int xSpan = 1, unsigned int ySpan = 1, int ignore = 0);
-	void beginPlay();
+	void startPlay();
 };

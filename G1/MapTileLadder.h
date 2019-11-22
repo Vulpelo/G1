@@ -5,7 +5,8 @@
 class MapTileLadder : public MapTile1 {
 public:
 	MapTileLadder() {}
-	MapTileLadder(int x, int y, const Layer& layer, unsigned int xSpan, unsigned int ySpan);
+	MapTileLadder(const prefabArgs& args);
+	MapTileLadder(int x, int y, unsigned int xSpan, unsigned int ySpan);
 
 	void beginPlayCon();
 };

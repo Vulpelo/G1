@@ -126,7 +126,7 @@
 			</components>
 		</gameObject>
 		
-		<!-- Create existing prefab and/or modify it by adding additional components -->
+	<!-- Create existing prefab and/or modify it by adding additional components -->
 		<gameObject prefab="Background">
 			<transform>
 				<position>
@@ -140,9 +140,265 @@
 				</scale>
 			</transform>
 		</gameObject>
-
-		<gameObject prefab="PlatformerPlayer">
+	
+	<!-- TILES GROUND -->
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">-10</x>
+				<y type="int">0</y>
+				<xSpan type="int">37</xSpan>
+				<ySpan type="int">20</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">0</ignore>
+			</args>
 		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">5</x>
+				<y type="int">-1</y>
+				<xSpan type="int">13</xSpan>
+				<ySpan type="int">2</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">128</ignore>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">6</x>
+				<y type="int">-2</y>
+				<xSpan type="int">1</xSpan>
+				<ySpan type="int">2</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">128</ignore>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">6</x>
+				<y type="int">-2</y>
+				<xSpan type="int">1</xSpan>
+				<ySpan type="int">2</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">128</ignore>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">13</x>
+				<y type="int">-2</y>
+				<xSpan type="int">5</xSpan>
+				<ySpan type="int">2</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">128</ignore>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">14</x>
+				<y type="int">-3</y>
+				<xSpan type="int">4</xSpan>
+				<ySpan type="int">2</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">128</ignore>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">25</x>
+				<y type="int">-6</y>
+				<xSpan type="int">2</xSpan>
+				<ySpan type="int">7</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">128</ignore>
+			</args>
+		</gameObject>
+		<!-- secondpart after bradge -->
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">32</x>
+				<y type="int">-5</y>
+				<xSpan type="int">26</xSpan>
+				<ySpan type="int">26</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">0</ignore>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">32</x>
+				<y type="int">-6</y>
+				<xSpan type="int">12</xSpan>
+				<ySpan type="int">2</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">128</ignore>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">35</x>
+				<y type="int">-7</y>
+				<xSpan type="int">9</xSpan>
+				<ySpan type="int">2</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">128</ignore>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">37</x>
+				<y type="int">-8</y>
+				<xSpan type="int">3</xSpan>
+				<ySpan type="int">2</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">128</ignore>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">41</x>
+				<y type="int">-8</y>
+				<xSpan type="int">3</xSpan>
+				<ySpan type="int">2</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">128</ignore>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">49</x>
+				<y type="int">-6</y>
+				<xSpan type="int">20</xSpan>
+				<ySpan type="int">2</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">128</ignore>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">53</x>
+				<y type="int">-18</y>
+				<xSpan type="int">20</xSpan>
+				<ySpan type="int">10</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">0</ignore>
+			</args>
+		</gameObject>
+		<!-- Left wall -->
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">-10</x>
+				<y type="int">-20</y>
+				<xSpan type="int">10</xSpan>
+				<ySpan type="int">21</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">128</ignore>
+			</args>
+		</gameObject>
+	
+	<!-- TILES FLOATING GROUND -->
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">22</x>
+				<y type="int">-6</y>
+				<xSpan type="int">2</xSpan>
+				<ySpan type="int">1</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">504</ignore>
+				<floating type="bool">true</floating>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">20</x>
+				<y type="int">-7</y>
+				<xSpan type="int">2</xSpan>
+				<ySpan type="int">1</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">504</ignore>
+				<floating type="bool">true</floating>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">14</x>
+				<y type="int">-8</y>
+				<xSpan type="int">6</xSpan>
+				<ySpan type="int">1</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">504</ignore>
+				<floating type="bool">true</floating>
+			</args>
+		</gameObject>
+		<gameObject prefab="MapTile9">
+			<args>
+				<x type="int">11</x>
+				<y type="int">-9</y>
+				<xSpan type="int">3</xSpan>
+				<ySpan type="int">1</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<ignore type="int">504</ignore>
+				<floating type="bool">true</floating>
+			</args>
+		</gameObject>
+		<!-- bridge -->
+		<gameObject prefab="MapTile1">
+			<args>
+				<x type="int">27</x>
+				<y type="int">-6</y>
+				<xSpan type="int">5</xSpan>
+				<ySpan type="int">1</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">3</layer>
+				<texture type="string">bridge</texture>
+			</args>
+		</gameObject>
+		<!-- Ladder -->
+		<gameObject prefab="MapTile1">
+			<args>
+				<x type="int">24</x>
+				<y type="int">-6</y>
+				<xSpan type="int">1</xSpan>
+				<ySpan type="int">6</ySpan>
+				<collision type="bool">true</collision>
+				<layer type="int">5</layer>
+				<texture type="string">ladder</texture>
+			</args>
+		</gameObject>
+	
+	<!-- PLAYER -->
+		<gameObject prefab="PlatformerPlayer">
+			<transform>
+				<position>
+					<x>15</x>
+					<y>-15</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+	
 		
 	</gameObjects>
 	
