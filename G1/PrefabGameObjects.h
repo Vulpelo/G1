@@ -3,9 +3,9 @@
 #ifndef _PREFAB_GAME_OBJECTS_H_
 #define _PREFAB_GAME_OBJECTS_H_
 
-
 #include "PlatformerPlayer.h"
 #include "MapTile9.h"
+#include "MapTile1.h"
 #include "Background.h"
 #include "IPrefab.h"
 

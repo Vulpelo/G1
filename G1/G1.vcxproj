@@ -151,6 +151,7 @@
     <ClCompile Include="ExamplePlatformerGame.cpp" />
     <ClCompile Include="Ground01.cpp" />
     <ClCompile Include="Ladder.cpp" />
+    <ClCompile Include="MapGameObjectsXmlParser.cpp" />
     <ClCompile Include="MapPlatformer01.cpp" />
     <ClCompile Include="MapTile.cpp" />
     <ClCompile Include="MapTile1.cpp" />
