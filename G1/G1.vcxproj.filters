@@ -175,6 +175,9 @@
     <Filter Include="Header Files\Engine\Map\XmlLoader">
       <UniqueIdentifier>{8cc7fc1e-f522-4185-86d5-d6ac8baf18b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Map\XmlLoader\XmlComponentParser">
+      <UniqueIdentifier>{adc43a6a-95cd-4b6c-a60c-750460335f5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -649,6 +652,24 @@
     </ClInclude>
     <ClInclude Include="IPrefab.h">
       <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlSpriteParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="IXmlComponentParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlRectangleColliderParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlComponentParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlTransfromParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlPhysicMaterialParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

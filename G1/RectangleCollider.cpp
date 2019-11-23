@@ -4,10 +4,18 @@ namespace G1 {
 
 	RectangleCollider::RectangleCollider(float length, float height, float posX, float posY, float rot)
 	{
+		RectangleCollider();
 		this->length = length;
 		this->height = height;
 		this->setTransform(Transform(posX, posY, rot));
-		this->collisionType = 'r';
+		this->farthestPoint = sqrtf((length*length) / 4.0f + (height*height) / 4.0f);
+		this->nearestPoint = (length < height ? length / 2.0f : height / 2.0f);
+	}
+
+	void RectangleCollider::setSize(float height, float length)
+	{
+		this->height = height;
+		this->length = length;
 		this->farthestPoint = sqrtf((length*length) / 4.0f + (height*height) / 4.0f);
 		this->nearestPoint = (length < height ? length / 2.0f : height / 2.0f);
 	}

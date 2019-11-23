@@ -107,24 +107,6 @@
 	</resources>
 
 	<gameObjects>
-		<!-- You can create gameObject from 0, adding components with settings -->
-		<gameObject>
-			<transform>
-				<position>
-					<x>1</x>
-					<y>1</y>
-				</position>
-				<rotationX>3</rotationX>
-				<scale>
-					<x>2</x>
-					<y>2</y>
-				</scale>
-			</transform>
-			
-			<components>
-				
-			</components>
-		</gameObject>
 		
 	<!-- Create existing prefab and/or modify it by adding additional components -->
 		<gameObject prefab="Background">
@@ -399,6 +381,57 @@
 			</transform>
 		</gameObject>
 	
+		
+		
+				<!-- You can create gameObject from 0, adding components with settings -->
+		<gameObject>
+			<transform>
+				<position>
+					<x>50</x>
+					<y>-50</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+			
+			<components>
+				<component type="sprite">
+					<transform>
+						<positon>
+							<x>0</x>
+							<y>0</y>
+						</position>
+						<rotationX>0</rotationX>
+					</transform>
+					<texture>bridgeEnd</texture>
+					<imageSize>
+						<x>30</x>
+						<y>30</y>
+					</imageSize>
+					<startPosition>
+						<x>0</x>
+						<y>0</y>
+					</startPosition>
+				</component>
+				<component type="rectangleCollider">
+					<size>
+						<x>50</x>
+						<y>50</y>
+					</size>
+					<overlappable>false</overlappable>
+					<physicMaterial>
+						<friction>0</friction>
+						<bounciness>1</bounciness>
+						<!-- MINIMUM, AVERAGE, MULTIPLY, MAXIMUM -->
+						<frictionCombine>AVERAGE</frictionCombine>
+						<bouncyCombine>MAXIMUM</bouncyCombine>
+					</physicMaterial>
+				</component>			
+			</components>
+		</gameObject>
 		
 	</gameObjects>
 	

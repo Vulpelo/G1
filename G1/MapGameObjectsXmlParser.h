@@ -17,13 +17,65 @@
 #include "IXmlParser.h"
 #include "PrefabGameObjects.h"
 #include "IPrefab.h"
+#include "XmlComponentParser.h"
+
+#include "XmlTransfromParser.h"
 
 namespace G1 {
 
 	class MapGameObjectsXmlParser : public IXmlParser {
-		Transform loadTransform(boost::property_tree::ptree::value_type& val);
-		prefabArgs loadArgs(boost::property_tree::ptree::value_type& val);
-		std::vector<Component*> loadComponents(boost::property_tree::ptree::value_type& val);
+		prefabArgs loadArgs(boost::property_tree::ptree::value_type& val) {
+			using namespace boost::property_tree;
+
+			prefabArgs args;
+			BOOST_FOREACH(ptree::value_type &obj, val.second.get_child("")) {
+				if (obj.first == "args") {
+					prefabArgs args;
+					BOOST_FOREACH(ptree::value_type &v, obj.second.get_child("")) {
+						std::string label = v.first;
+						std::string type = v.second.get("<xmlattr>.type", "");
+
+						prefabArg arg;
+						if (type == "int") {
+							arg = obj.second.get<int>(label);
+						}
+						else if (type == "float") {
+							arg = obj.second.get<float>(label);
+						}
+						else if (type == "bool") {
+							arg = obj.second.get<bool>(label);
+						}
+						else if (type == "string") {
+							arg = obj.second.get<std::string>(label);
+						}
+						args[label] = arg;
+					}
+					return args;
+				}
+			}
+			return args;
+		}
+
+		std::vector<Component*> loadComponents(boost::property_tree::ptree::value_type& val) {
+			using namespace boost::property_tree;
+
+			std::vector<Component*> components;
+			XmlComponentParser componentParser;
+
+			BOOST_FOREACH(ptree::value_type &v, val.second.get_child("")) {
+				std::string label = v.first;
+				if (label != "<xmlattr>") {
+					if (label == "component") {
+						Component* tmpComponent = componentParser.load(v);
+						if (tmpComponent) {
+							components.push_back(tmpComponent);
+						}
+					}
+				}
+			}
+
+			return components;
+		}
 
 	public:
 		std::vector<GameObject*> gameObjects;
@@ -57,8 +109,9 @@ namespace G1 {
 						std::string label = v.first;
 						if (label != "<xmlattr>") {
 							if (label == "transform") {
+								XmlTransformParser tranParser;
 								newGameObject->setTransform(
-									loadTransform(v)
+									tranParser.loadTransform(v)
 								);
 							}
 							else if (label == "layer") {

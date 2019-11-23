@@ -215,6 +215,7 @@
     <ClInclude Include="IGameObjectTick.h" />
     <ClInclude Include="IMainTick.h" />
     <ClInclude Include="IPrefab.h" />
+    <ClInclude Include="IXmlComponentParser.h" />
     <ClInclude Include="IXmlParser.h" />
     <ClInclude Include="Ladder.h" />
     <ClInclude Include="MapGameObjectsXmlParser.h" />
@@ -291,6 +292,11 @@
     <ClInclude Include="Transformable.h" />
     <ClInclude Include="UiImage.h" />
     <ClInclude Include="Vector2.h" />
+    <ClInclude Include="XmlComponentParser.h" />
+    <ClInclude Include="XmlPhysicMaterialParser.h" />
+    <ClInclude Include="XmlRectangleColliderParser.h" />
+    <ClInclude Include="XmlSpriteParser.h" />
+    <ClInclude Include="XmlTransfromParser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
