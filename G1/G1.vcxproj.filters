@@ -387,14 +387,17 @@
     <ClCompile Include="ContainerElement.cpp">
       <Filter>Source Files\Engine\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Eagle.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Oposum.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="Gem.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\G1Game\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Oposum.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Eagle.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Source Files\Engine\Rendering\Renderers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -706,6 +709,9 @@
     </ClInclude>
     <ClInclude Include="OposumAnimator.h">
       <Filter>Header Files\G1Game\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Header Files\Engine\Rendering\Renderers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

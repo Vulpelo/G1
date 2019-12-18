@@ -198,6 +198,7 @@
     <ClCompile Include="SimpleShape.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteAnimation.cpp" />
+    <ClCompile Include="Text.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Transformable.cpp" />
     <ClCompile Include="UiImage.cpp" />
@@ -292,6 +293,7 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="ITick.h" />
+    <ClInclude Include="Text.h" />
     <ClInclude Include="TileMap01.h" />
     <ClInclude Include="MapLoader.h" />
     <ClInclude Include="MapAssetsXmlParser.h" />

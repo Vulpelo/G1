@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef _SPRITE_H_
+#define _SPRITE_H_
+
 #include "Renderer.h"
 
 namespace G1 {
@@ -44,3 +47,5 @@ namespace G1 {
 	};
 
 }
+
+#endif // !_SPRITE_H_

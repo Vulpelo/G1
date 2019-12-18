@@ -52,14 +52,14 @@ MapPlatformer01::MapPlatformer01() {
 	//	objects.push_back(w);
 	//}
 	//
-	//{
-	//	MyUI* ui = new MyUI();
-	//	objects.push_back(ui);
+	{
+		MyUI* ui = new MyUI();
+		objects.push_back(ui);
 
-	//	UiImage* uiImage = new UiImage();
-	//	uiImage->setParent(ui);
-	//	objects.push_back(uiImage);
-	//}
+		UiImage* uiImage = new UiImage();
+		uiImage->setParent(ui);
+		objects.push_back(uiImage);
+	}
 	
 }
 

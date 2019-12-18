@@ -11,6 +11,8 @@ void Eagle::startPlay()
 	rb = new Rigidbody();
 	rb->setGravity(Vector2(0, 0));
 	addComponent(rb);
+
+	startPosition = getWorldPosition();
 }
 
 void Eagle::eventTick()
@@ -26,8 +28,15 @@ void Eagle::eventTick()
 
 void Eagle::fixedEventTick()
 {
+	Vector2 direction;
 	if (target) {
-		Vector2 direction = target->getWorldPosition() - getWorldPosition();
+		direction = target->getWorldPosition() - getWorldPosition();
+	}
+	else {
+		direction = startPosition - getWorldPosition();
+	}
+	
+	if (direction.lengthNoSqrt() > distancePrecision * distancePrecision) {
 		float angle = direction.angle();
 		rb->setVelocity(Vector2::byAngleAndLength(angle, speed));
 		if (direction.x > 0) {
@@ -36,7 +45,8 @@ void Eagle::fixedEventTick()
 		else {
 			setScale(1, 1);
 		}
-	} else {
+	} 
+	else {
 		rb->setVelocity(Vector2(0, 0));
 	}
 }

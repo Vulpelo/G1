@@ -21,10 +21,12 @@ class Eagle :
 	float speed = 60.0f;
 	float seeRadious = 150.0f;
 
+	Vector2 startPosition;
+	float distancePrecision = 5.f;
+
 public:
 	Eagle(Transformable* target) : target(target) {};
 	void startPlay();
 	void eventTick();
 	void fixedEventTick();
-
 };
