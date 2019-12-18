@@ -399,6 +399,9 @@
     <ClCompile Include="Text.cpp">
       <Filter>Source Files\Engine\Rendering\Renderers</Filter>
     </ClCompile>
+    <ClCompile Include="GameMaster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -712,6 +715,9 @@
     </ClInclude>
     <ClInclude Include="Text.h">
       <Filter>Header Files\Engine\Rendering\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMaster.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

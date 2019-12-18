@@ -60,6 +60,9 @@ MapPlatformer01::MapPlatformer01() {
 		uiImage->setParent(ui);
 		objects.push_back(uiImage);
 	}
+
+	GameMaster* gameMaster = new GameMaster();
+	addGameObject(gameMaster);
 	
 }
 

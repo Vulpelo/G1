@@ -12,4 +12,6 @@ void UiImage::beginPlay()
 	Text* text = new Text(font, 15, "0");
 	text->setColor(sf::Color::Black);
 	addComponent(text);
+
+	GameMaster::setTextPoints(this);
 }

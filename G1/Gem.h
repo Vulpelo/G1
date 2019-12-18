@@ -6,6 +6,7 @@
 #include "Camera.h"
 #include "Sprite.h"
 #include "Physics.h"
+#include "GameMaster.h"
 
 #include "GemAnimator.h"
 
@@ -18,4 +19,5 @@ class Gem :
 {
 public:
 	void startPlay();
+	void startOverlaping(GameObject* other);
 };

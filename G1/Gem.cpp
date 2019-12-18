@@ -7,4 +7,16 @@ void Gem::startPlay()
 
 	GemAnimator* animator = new GemAnimator(*sprite);
 	addComponent(animator);
+
+	CircleCollider* collider = new CircleCollider(10.f, 0, 0);
+	collider->setOverlappable(true);
+	addComponent(collider);
+}
+
+void Gem::startOverlaping(GameObject * other)
+{
+	if (other->isLayer(Layer::PLAYER)) {
+		destroy();
+		GameMaster::addPoints(1);
+	}
 }

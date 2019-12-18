@@ -4,6 +4,7 @@
 #include "ContainerElement.h"
 #include "GameObject.h"
 #include "Text.h"
+#include "GameMaster.h"
 
 using namespace G1;
 using namespace G1::Layout;

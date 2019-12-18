@@ -10,6 +10,7 @@
 #include "MapTile9.h"
 #include "MapTileLadder.h"
 #include "MyUI.h"
+#include "GameMaster.h"
 
 #include "MapLoader.h"
 

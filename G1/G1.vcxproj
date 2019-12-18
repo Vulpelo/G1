@@ -150,6 +150,7 @@
     <ClCompile Include="ContainerElement.cpp" />
     <ClCompile Include="Eagle.cpp" />
     <ClCompile Include="ExamplePlatformerGame.cpp" />
+    <ClCompile Include="GameMaster.cpp" />
     <ClCompile Include="Gem.cpp" />
     <ClCompile Include="Ground01.cpp" />
     <ClCompile Include="Ladder.cpp" />
@@ -216,6 +217,7 @@
     <ClInclude Include="EagleAnimator.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="ExamplePlatformerGame.h" />
+    <ClInclude Include="GameMaster.h" />
     <ClInclude Include="Gem.h" />
     <ClInclude Include="GemAnimator.h" />
     <ClInclude Include="IFixedTick.h" />
