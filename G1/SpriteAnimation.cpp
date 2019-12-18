@@ -5,22 +5,26 @@ namespace G1 {
 	Sprite G1::SpriteAnimation::actualSpriteFrame()
 	{
 		if (!paused) {
-			actualTime += Time::getDeltaTime();
-
-			Vector2 pos = sprite.getStartPosition();
-		
-			int jumps = static_cast<int>(actualTime / timePerFrame);
-			actualTime = actualTime - jumps*timePerFrame;
-
-			actualFrame = (jumps + actualFrame) % amountOfFrames;
-		
-			if (!looping && (jumps + actualFrame) >= amountOfFrames-1) {
-				actualFrame = amountOfFrames - 1;
+			if (!looping && actualFrame == amountOfFrames - 1) {
 			}
-		
-			pos.x = static_cast<float>(actualFrame * pixelJump);
+			else {
+				actualTime += Time::getDeltaTime();
 
-			sprite.setStartPosition( pos );
+				Vector2 pos = sprite.getStartPosition();
+		
+				int jumps = static_cast<int>(actualTime / timePerFrame);
+				actualTime = actualTime - jumps*timePerFrame;
+
+				actualFrame = (jumps + actualFrame) % amountOfFrames;
+		
+				if (!looping && (jumps + actualFrame) >= amountOfFrames-1) {
+					actualFrame = amountOfFrames - 1;
+				}
+		
+				pos.x = static_cast<float>(actualFrame * pixelJump);
+
+				sprite.setStartPosition( pos );
+			}
 		}
 		return sprite;
 	}

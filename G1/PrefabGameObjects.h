@@ -7,6 +7,8 @@
 #include "MapTile9.h"
 #include "MapTile1.h"
 #include "Background.h"
+#include "Gem.h"
+#include "Oposum.h"
 #include "IPrefab.h"
 
 namespace G1 {
@@ -18,13 +20,19 @@ namespace G1 {
 				return new PlatformerPlayer(); // TODO args
 			}
 			if (prefabName == "Background") {
-				return new Background(); // TODO args
+				return new Background(args);
 			}
 			if (prefabName == "MapTile9") {
-				return new MapTile9(args); // TODO args
+				return new MapTile9(args);
 			}
 			if (prefabName == "MapTile1") {
 				return new MapTile1(args);
+			}
+			if (prefabName == "Gem") {
+				return new Gem(); // TODO args
+			}
+			if (prefabName == "Oposum") {
+				return new Oposum(); // TODO args
 			}
 			return NULL;
 		}

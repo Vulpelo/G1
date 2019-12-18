@@ -33,6 +33,8 @@ namespace G1 {
 		// transform related to parent
 		Transform transform;
 
+		std::string tag = "";
+
 		Layer layer;
 		int sortingLayer;
 		
@@ -76,6 +78,8 @@ namespace G1 {
 		/// <summary> Function if played every frame of object life span</summary>
 		virtual void eventTick() {};
 
+		void setTag(const std::string& tag) { this->tag = tag; }
+		bool isTag(const std::string& tag) { return this->tag == tag; }
 
 #pragma region Layer
 		/// <summary>Returns layer</summary>

@@ -63,6 +63,7 @@ class PlatformerPlayer :
 
 
 public:
+	PlatformerPlayer() { setTag("Player"); setLayer(Layer::PLAYER); }
 	void startPlay();
 	void beginPlay();
 	void eventTick();

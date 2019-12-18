@@ -68,7 +68,7 @@ namespace G1 {
 	{
 		return sf::Mouse::getPosition(*window);
 	}
-	bool ControlInput::mouseButtonDown(int button)
+	bool ControlInput::isMouseButtonDown(int button)
 	{
 		switch (button)
 		{

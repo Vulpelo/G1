@@ -48,16 +48,17 @@ namespace G1 {
 		/// <param name="gameObject"></param>
 		void addGameObject(GameObject* gameObject) { objects.push_back(gameObject); }
 
-		/// <summary>
-		/// Adds copy of the GameObject to map
-		/// </summary>
-		template <class T>
-		void addGameObject(T gameObject)
-		{
-			T* ngO = new T();
-			*ngO = gameObject;
-			objects.push_back(ngO);
-		}
+		GameObject* findGameObjectByTag(const std::string& tag);
+		///// <summary>
+		///// Adds copy of the GameObject to map
+		///// </summary>
+		//template <class T>
+		//void addGameObject(T gameObject)
+		//{
+		//	T* ngO = new T();
+		//	*ngO = gameObject;
+		//	objects.push_back(ngO);
+		//}
 	};
 
 }

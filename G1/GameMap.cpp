@@ -29,6 +29,15 @@ namespace G1 {
 		return objects;
 	}
 
+	GameObject * GameMap::findGameObjectByTag(const std::string & tag)
+	{
+		for each (GameObject* go in objects) {
+			if (go->isTag(tag))
+				return go;
+		}
+		return NULL;
+	}
+
 	void GameMap::mainStartPlay()
 	{
 		startPlay();

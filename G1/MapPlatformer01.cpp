@@ -9,6 +9,17 @@ MapPlatformer01::MapPlatformer01() {
 	Assets &assets = Assets::getInstance();
 	Audio::play("music_1", true);
 
+	//{
+	//	Gem* gem = new Gem();
+	//	gem->setTransform(Transform(50, -30, 0));
+	//	addGameObject(gem);
+	//}
+
+	Eagle* eagle = new Eagle(findGameObjectByTag("Player"));
+	eagle->setTransform(Transform(1000, -350, 0));
+	addGameObject(eagle);
+
+
 	//{ // ground
 	//	Ground01* o = new Ground01(1000, 50);
 	//	o->setTransform(Transform(500, 800, 0));

@@ -49,7 +49,7 @@ namespace G1 {
 
 		/// <summary>0-left mouse button; 1-middle mouse button; 2-right mouse button</summary>
 		/// <returns>True if given mouse button is being pressed</returns>
-		bool mouseButtonDown(int button = 0);
+		bool isMouseButtonDown(int button = 0);
 	};
 
 }

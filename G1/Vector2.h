@@ -37,6 +37,12 @@
 		/// <param name="length"></param>
 		static Vector2 byAngleAndLength(float angle, float length);
 
+		/// <summary>
+		/// Calculates cross product of two vectors. Third dimenson is set on 0.
+		/// Returns result of third dimension z ( Vector3(x, y, z) ).
+		/// </summary>
+		static float crossZ(const Vector2& vec1, const Vector2& vec2);
+
 		void set(float x, float y) { this->x = x; this->y = y; };
 		/// <summary>
 		/// Sumbstract one vector from another

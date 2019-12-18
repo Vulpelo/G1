@@ -17,7 +17,28 @@
 			<path>./assets/spritesheets/player-climb.png</path>
 		</texture>
 		<texture>
+			<path>./assets/spritesheets/eagle-attack.png</path>
+			<name>eagle</name>
+		</texture>
+		<texture>
+			<path>./assets/spritesheets/oposum.png</path>
+			<name>oposum</name>
+		</texture>
+		<texture>
+			<path>./assets/spritesheets/gem.png</path>
+			<name>gem</name>
+		</texture>
+		<texture>
+			<path>./assets/spritesheets/enemy-death.png</path>
+			<name>enemy-death</name>
+		</texture>
+		<texture>
 			<path>./assets/environment/layers/back.png</path>
+			<repeted>true</repeted>
+		</texture>
+		<texture>
+			<path>./assets/environment/layers/middle.png</path>
+			<repeted>true</repeted>
 		</texture>
 		<texture>
 			<path>./assets/environment/tiles/grass_ul.png</path>
@@ -110,6 +131,16 @@
 		
 	<!-- Create existing prefab and/or modify it by adding additional components -->
 		<gameObject prefab="Background">
+			<args>
+				<imagePath type="string">./assets/environment/layers/back.png</imagePath>
+				<imgWidth type="int">176</imgWidth>
+				<imgHeight type="int">368</imgHeight>
+				<width type="int">1000</width>
+				<height type="int">368</height>
+				<offX type="int">0</offX>
+				<offY type="int">-50</offY>
+				<lerp type="float">0.05</lerp>
+			</args>
 			<transform>
 				<position>
 					<x>300</x>
@@ -119,6 +150,31 @@
 				<scale>
 					<x>3</x>
 					<y>3</y>
+				</scale>
+			</transform>
+		</gameObject>
+		
+		<!-- Create existing prefab and/or modify it by adding additional components -->
+		<gameObject prefab="Background">
+			<args>
+				<imagePath type="string">./assets/environment/layers/middle.png</imagePath>
+				<imgWidth type="int">176</imgWidth>
+				<imgHeight type="int">368</imgHeight>
+				<width type="int">5000</width>
+				<height type="int">368</height>
+				<offX type="int">0</offX>
+				<offY type="int">-100</offY>
+				<lerp type="float">0.15</lerp>
+			</args>
+			<transform>
+				<position>
+					<x>300</x>
+					<y>0</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
 				</scale>
 			</transform>
 		</gameObject>
@@ -366,12 +422,278 @@
 			</args>
 		</gameObject>
 	
+	<!-- GEMS -->
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>50</x>
+					<y>-10</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>165</x>
+					<y>-40</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>195</x>
+					<y>-70</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>405</x>
+					<y>-70</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>435</x>
+					<y>-100</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>525</x>
+					<y>-100</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>645</x>
+					<y>-220</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>405</x>
+					<y>-280</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>375</x>
+					<y>-280</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>345</x>
+					<y>-280</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>795</x>
+					<y>-190</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>885</x>
+					<y>-190</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>975</x>
+					<y>-190</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>1215</x>
+					<y>-220</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>1305</x>
+					<y>-250</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Gem">
+			<transform>
+				<position>
+					<x>1485</x>
+					<y>-190</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+	
+	<!-- ENEMIES -->
+		<gameObject prefab="Oposum">
+			<transform>
+				<position>
+					<x>300</x>
+					<y>-45</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Oposum">
+			<transform>
+				<position>
+					<x>625</x>
+					<y>-15</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Oposum">
+			<transform>
+				<position>
+					<x>1390</x>
+					<y>-165</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		<gameObject prefab="Oposum">
+			<transform>
+				<position>
+					<x>500</x>
+					<y>-255</y>
+				</position>
+				<rotationX>0</rotationX>
+				<scale>
+					<x>1</x>
+					<y>1</y>
+				</scale>
+			</transform>
+		</gameObject>
+		
+		
+		
 	<!-- PLAYER -->
 		<gameObject prefab="PlatformerPlayer">
 			<transform>
 				<position>
 					<x>15</x>
-					<y>-15</y>
+					<y>-10</y>
 				</position>
 				<rotationX>0</rotationX>
 				<scale>
@@ -383,12 +705,12 @@
 	
 		
 		
-				<!-- You can create gameObject from 0, adding components with settings -->
+		<!-- You can create gameObject from 0, adding components with settings -->
 		<gameObject>
 			<transform>
 				<position>
-					<x>50</x>
-					<y>-50</y>
+					<x>-200</x>
+					<y>0</y>
 				</position>
 				<rotationX>0</rotationX>
 				<scale>
@@ -424,7 +746,7 @@
 					<overlappable>false</overlappable>
 					<physicMaterial>
 						<friction>0</friction>
-						<bounciness>1</bounciness>
+						<bounciness>0</bounciness>
 						<!-- MINIMUM, AVERAGE, MULTIPLY, MAXIMUM -->
 						<frictionCombine>AVERAGE</frictionCombine>
 						<bouncyCombine>MAXIMUM</bouncyCombine>

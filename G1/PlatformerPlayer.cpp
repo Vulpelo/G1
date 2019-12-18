@@ -1,6 +1,8 @@
 #include "PlatformerPlayer.h"
 
 void PlatformerPlayer::startPlay() {
+	setLayer(Layer::PLAYER);
+
 	/* == COLLIDERS == */
 	/* Setting Collider (will be allways active) */
 	auto collidor = new RectangleCollider(16, 16, 0, 8);
@@ -42,7 +44,6 @@ void PlatformerPlayer::startPlay() {
 }
 
 void PlatformerPlayer::beginPlay() {
-	setLayer(Layer::PLAYER);
 
 	jumpForce = 200.f;
 
@@ -76,6 +77,7 @@ void PlatformerPlayer::eventTick() {
 	if (c.keyDown(sf::Keyboard::Key::R)) {
 		MapManager::getInstance().reloadActual();
 	}
+	std::cout << getWorldPosition().x << ":" << getWorldPosition().y << std::endl;
 }
 
 void PlatformerPlayer::startOverlaping(GameObject * gameObject)
