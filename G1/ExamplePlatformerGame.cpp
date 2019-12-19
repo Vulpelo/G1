@@ -17,6 +17,12 @@ void ExamplePlatformerGame::beginPlay()
 		if (mapName == "tilemap01") {
 			return dynamic_cast<GameMap*>(new TileMap01());
 		}
+		if (mapName == "testMap1") {
+			return dynamic_cast<GameMap*>(new Map001());
+		}
+		if (mapName == "testMap2") {
+			return dynamic_cast<GameMap*>(new Map002());
+		}
 		return dynamic_cast<GameMap*>(new DefaultGameMap());
 	});
 

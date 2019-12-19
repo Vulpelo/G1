@@ -150,10 +150,12 @@
     <ClCompile Include="ContainerElement.cpp" />
     <ClCompile Include="Eagle.cpp" />
     <ClCompile Include="ExamplePlatformerGame.cpp" />
+    <ClCompile Include="ExampleUI.cpp" />
     <ClCompile Include="GameMaster.cpp" />
     <ClCompile Include="Gem.cpp" />
     <ClCompile Include="Ground01.cpp" />
     <ClCompile Include="Ladder.cpp" />
+    <ClCompile Include="Map002.cpp" />
     <ClCompile Include="MapPlatformer01.cpp" />
     <ClCompile Include="MapTile.cpp" />
     <ClCompile Include="MapTile1.cpp" />
@@ -199,6 +201,7 @@
     <ClCompile Include="SimpleShape.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteAnimation.cpp" />
+    <ClCompile Include="SquareUI.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Transformable.cpp" />
@@ -217,6 +220,7 @@
     <ClInclude Include="EagleAnimator.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="ExamplePlatformerGame.h" />
+    <ClInclude Include="ExampleUI.h" />
     <ClInclude Include="GameMaster.h" />
     <ClInclude Include="Gem.h" />
     <ClInclude Include="GemAnimator.h" />
@@ -227,6 +231,7 @@
     <ClInclude Include="IXmlComponentParser.h" />
     <ClInclude Include="IXmlParser.h" />
     <ClInclude Include="Ladder.h" />
+    <ClInclude Include="Map002.h" />
     <ClInclude Include="MapGameObjectsXmlParser.h" />
     <ClInclude Include="MapTile.h" />
     <ClInclude Include="MapTile1.h" />
@@ -295,6 +300,7 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="ITick.h" />
+    <ClInclude Include="SquareUI.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="TileMap01.h" />
     <ClInclude Include="MapLoader.h" />

@@ -9,6 +9,7 @@ void Oposum::startPlay()
 	addComponent(animator);
 
 	rb = new Rigidbody();
+	rb->setGravity(Vector2());
 	addComponent(rb);
 
 	RectangleCollider* collider = new RectangleCollider(3, 3, 0, -10);
@@ -37,6 +38,7 @@ void Oposum::startOverlaping(GameObject * otherGameObject)
 	if (otherGameObject->isLayer(Layer::PLAYER)) {
 		dead = true;
 		animator->setBool("dead", dead);
+		rb->setVelocity(Vector2());
 		destroy(1.f);
 	}
 }

@@ -184,6 +184,12 @@
     <Filter Include="Header Files\G1Game\GameObjects\Props">
       <UniqueIdentifier>{f2b31906-8ee4-44be-9c6c-9052465bac5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\G1Game\GameObjects\testObjects">
+      <UniqueIdentifier>{2de8b0e7-0d86-46d5-8b08-08ddff5fa127}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\UI\example">
+      <UniqueIdentifier>{73193297-9239-4116-8b5a-683cd85cdd13}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -283,18 +289,6 @@
       <Filter>Source Files\Engine\Physics</Filter>
     </ClCompile>
     <ClCompile Include="Background.cpp">
-      <Filter>Source Files\G1Game\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject001.cpp">
-      <Filter>Source Files\G1Game\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject002_Bullet.cpp">
-      <Filter>Source Files\G1Game\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject003_wall.cpp">
-      <Filter>Source Files\G1Game\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject004_CircleWall.cpp">
       <Filter>Source Files\G1Game\GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="Ground01.cpp">
@@ -401,6 +395,27 @@
     </ClCompile>
     <ClCompile Include="GameMaster.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject003_wall.cpp">
+      <Filter>Source Files\G1Game\GameObjects\testObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject004_CircleWall.cpp">
+      <Filter>Source Files\G1Game\GameObjects\testObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject001.cpp">
+      <Filter>Source Files\G1Game\GameObjects\testObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject002_Bullet.cpp">
+      <Filter>Source Files\G1Game\GameObjects\testObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="ExampleUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SquareUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Map002.cpp">
+      <Filter>Source Files\G1Game\Maps</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -718,6 +733,15 @@
     </ClInclude>
     <ClInclude Include="GameMaster.h">
       <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Map002.h">
+      <Filter>Header Files\G1Game\Maps</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleUI.h">
+      <Filter>Header Files\G1Game\UI\example</Filter>
+    </ClInclude>
+    <ClInclude Include="SquareUI.h">
+      <Filter>Header Files\G1Game\UI\example</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

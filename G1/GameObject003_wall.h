@@ -16,12 +16,14 @@ class GameObject003_wall :
 	float rectangleLength = 60.0;
 
 	bool overlaps = false;
+	bool overlappable = false;
 
 public:
 	GameObject003_wall() : GameObject() {};
-	GameObject003_wall(float length, float height) : GameObject() {
+	GameObject003_wall(float length, float height, bool overlappable) : GameObject() {
 		rectangleLength = length;
 		rectangleHeight = height;
+		this->overlappable = overlappable;
 	};
 
 	void beginPlay();

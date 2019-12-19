@@ -13,12 +13,12 @@ void GameObject001::beginPlay() {
 	color1 = sf::Color::Yellow;
 	color2 = sf::Color::Blue;
 
-	rend = new RectangleRenderer(60, 60, color1);
-	//rend = new CircleRenderer(60, color1);
+	//rend = new RectangleRenderer(60, 60, color1);
+	rend = new CircleRenderer(40, color1);
 	addComponent(rend);
 
-	auto collidor = new RectangleCollider(60, 60, 0, 0);
-	//auto collidor = new CircleCollider(60, 0, 0);
+	//auto collidor = new RectangleCollider(60, 60, 0, 0);
+	auto collidor = new CircleCollider(40, 0, 0);
 	collidor->setOverlappable(false);
 	addComponent(collidor);
 
