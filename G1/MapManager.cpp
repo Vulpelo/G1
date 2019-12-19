@@ -23,6 +23,7 @@ namespace G1 {
 		newMapName = name;
 		EventHandler::fireEvent([]() {
 			MapManager::getInstance().loadMapE();
+			Time::restart();
 		});
 	}
 

@@ -393,9 +393,6 @@
     <ClCompile Include="Text.cpp">
       <Filter>Source Files\Engine\Rendering\Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="GameMaster.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject003_wall.cpp">
       <Filter>Source Files\G1Game\GameObjects\testObjects</Filter>
     </ClCompile>
@@ -411,11 +408,14 @@
     <ClCompile Include="ExampleUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SquareUI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Map002.cpp">
       <Filter>Source Files\G1Game\Maps</Filter>
+    </ClCompile>
+    <ClCompile Include="SquareUI.cpp">
+      <Filter>Source Files\G1Game\GameObjects\testObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMaster.cpp">
+      <Filter>Source Files\G1Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

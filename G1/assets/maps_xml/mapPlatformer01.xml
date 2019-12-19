@@ -133,12 +133,12 @@
 		<gameObject prefab="Background">
 			<args>
 				<imagePath type="string">./assets/environment/layers/back.png</imagePath>
-				<imgWidth type="int">176</imgWidth>
-				<imgHeight type="int">368</imgHeight>
-				<width type="int">1000</width>
-				<height type="int">368</height>
-				<offX type="int">0</offX>
-				<offY type="int">-50</offY>
+				<imgWidth type="float">176</imgWidth>
+				<imgHeight type="float">368</imgHeight>
+				<width type="float">1000</width>
+				<height type="float">368</height>
+				<offX type="float">0</offX>
+				<offY type="float">-50</offY>
 				<lerp type="float">0.05</lerp>
 			</args>
 			<transform>
@@ -158,12 +158,12 @@
 		<gameObject prefab="Background">
 			<args>
 				<imagePath type="string">./assets/environment/layers/middle.png</imagePath>
-				<imgWidth type="int">176</imgWidth>
-				<imgHeight type="int">368</imgHeight>
-				<width type="int">5000</width>
-				<height type="int">368</height>
-				<offX type="int">0</offX>
-				<offY type="int">-100</offY>
+				<imgWidth type="float">176</imgWidth>
+				<imgHeight type="float">368</imgHeight>
+				<width type="float">5000</width>
+				<height type="float">368</height>
+				<offX type="float">0</offX>
+				<offY type="float">-100</offY>
 				<lerp type="float">0.15</lerp>
 			</args>
 			<transform>

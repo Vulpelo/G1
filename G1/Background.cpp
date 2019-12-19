@@ -10,18 +10,18 @@ Background::Background() {
 Background::Background(const G1::prefabArgs & args)
 {
 	std::string imagePath = std::get<std::string>(args.at("imagePath"));
-	int w = std::get<int>(args.at("imgWidth"));
-	int h = std::get<int>(args.at("imgHeight"));
+	float w = std::get<float>(args.at("imgWidth"));
+	float h = std::get<float>(args.at("imgHeight"));
 
 	sprite = new Sprite(Assets::getInstance().textures().get(imagePath),
 		Vector2(w, h));
 
-	w = std::get<int>(args.at("width"));
-	h = std::get<int>(args.at("height"));
+	w = std::get<float>(args.at("width"));
+	h = std::get<float>(args.at("height"));
 	sprite->setImageSize(Vector2(w, h));
 	
-	int x = std::get<int>(args.at("offX"));
-	int y = std::get<int>(args.at("offY"));
+	float x = std::get<float>(args.at("offX"));
+	float y = std::get<float>(args.at("offY"));
 	offset = Vector2(x, y);
 
 	lerpTime = std::get<float>(args.at("lerp"));
