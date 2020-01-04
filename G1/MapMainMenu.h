@@ -11,6 +11,7 @@
 #include "UIStartButton.h"
 
 #include "GameObject001.h"
+#include "Background.h"
 
 using namespace G1;
 
@@ -18,11 +19,18 @@ class MapMainMenu :
 	public GameMap
 {
 public:
-	MapMainMenu() {};
+	MapMainMenu() {
+		Assets::getInstance().textures().load("./assets/environment/layers/back.png");
+	};
 	void startPlay() {
 		Camera* cam = new Camera();
 		cam->setMatchSize(true);
 		cam->setActive(true);
+
+		Background* bg = new Background(Assets::getInstance().textures().get("./assets/environment/layers/back.png"), Vector2(384, 500));
+		bg->setScale(3, 2);
+		bg->setPosition(0, 500);
+		addGameObject(bg);
 
 		UIMainMenu* uiB = new UIMainMenu();
 		addGameObject(uiB);

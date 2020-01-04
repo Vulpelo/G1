@@ -18,7 +18,7 @@ class Background : public GameObject {
 public:
 	Background();
 	Background(const G1::prefabArgs & args);
-	Background(const sf::Texture& texture, const Vector2& size);
+	Background(const sf::Texture& texture, const Vector2& size, Vector2 offset = Vector2(0,0));
 	void startPlay();
 	void beginPlay();
 	void eventTick();

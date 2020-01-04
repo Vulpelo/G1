@@ -22,19 +22,19 @@ public:
 		con->setAnchor(Layout::Anchor::MIDDLE);
 		addComponent(con);
 
-		rr = new RectangleRenderer(200, 70, sf::Color::White);
+		rr = new RectangleRenderer(100, 60, sf::Color::White);
 		addComponent(rr);
 
 		//CircleCollider* cc = new CircleCollider(50, 0, 0);
 		//addComponent(cc);
 
-		RectangleCollider* rc = new RectangleCollider(200, 70);
+		RectangleCollider* rc = new RectangleCollider(100, 60);
 		addComponent(rc);
 
 		font.loadFromFile("./assets/fonts/Abalone.otf");
 		Text* text = new Text(font, 15, "Start");
 		text->setColor(sf::Color::Black);
-		text->setPosition(-100, -35);
+		text->setPosition(-50, -30);
 		addComponent(text);
 	};
 	void eventTick() {

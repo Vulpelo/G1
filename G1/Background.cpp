@@ -27,8 +27,9 @@ Background::Background(const G1::prefabArgs & args)
 	lerpTime = std::get<float>(args.at("lerp"));
 }
 
-Background::Background(const sf::Texture& texture, const Vector2& size)
+Background::Background(const sf::Texture& texture, const Vector2& size, Vector2 offset)
 {
+	this->offset = offset;
 	sprite = new Sprite(texture, size);
 }
 
