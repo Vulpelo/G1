@@ -141,6 +141,13 @@ namespace G1 {
 		virtual void startOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
 		virtual void isOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
 		virtual void endOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
+
+		/* Mouse interactions */
+		virtual void mouseStartOverlapping(const Vector2& mousePosition) {};
+		virtual void mouseOverlapping(const Vector2& mousePosition) {};
+		virtual void mouseEndOverlapping() {};
+		virtual void onClick(const Vector2& mousePosition, short buttonClicked) {};
+		virtual void onClickRelease(const Vector2& mousePosition, short buttonClicked) {};
 #pragma endregion
 
 #pragma region Destroy 

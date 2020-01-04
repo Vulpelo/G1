@@ -19,7 +19,7 @@ void GameObject004_CircleWall::beginPlay()
 
 	rb = new Rigidbody();
 	rb->setMass(1);
-	rb->setGravity(Vector2(0, 0.00001));
+	rb->setGravity(Vector2(0, 0.00001f));
 	addComponent(rb);
 }
 

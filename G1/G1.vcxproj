@@ -233,6 +233,7 @@
     <ClInclude Include="Ladder.h" />
     <ClInclude Include="Map002.h" />
     <ClInclude Include="MapGameObjectsXmlParser.h" />
+    <ClInclude Include="MapMainMenu.h" />
     <ClInclude Include="MapTile.h" />
     <ClInclude Include="MapTile1.h" />
     <ClInclude Include="MapTile9.h" />
@@ -240,8 +241,11 @@
     <ClInclude Include="MyUI.h" />
     <ClInclude Include="Oposum.h" />
     <ClInclude Include="OposumAnimator.h" />
+    <ClInclude Include="OverlapsPoint.h" />
     <ClInclude Include="Parentable.h" />
     <ClInclude Include="PlayerAnimator.h" />
+    <ClInclude Include="PointOverlapsCircle.h" />
+    <ClInclude Include="PointOverlapsRectangle.h" />
     <ClInclude Include="PrefabGameObjects.h" />
     <ClInclude Include="RenderProperties.h" />
     <ClInclude Include="Resources.h" />
@@ -309,6 +313,8 @@
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Transformable.h" />
     <ClInclude Include="UiImage.h" />
+    <ClInclude Include="UIMainMenu.h" />
+    <ClInclude Include="UIStartButton.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="XmlCircleColliderParser.h" />
     <ClInclude Include="XmlComponentParser.h" />

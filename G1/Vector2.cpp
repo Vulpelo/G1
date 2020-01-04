@@ -14,6 +14,12 @@
 		this->y = vec.y;
 	}
 
+	Vector2::Vector2(const sf::Vector2i &vec)
+	{
+		this->x = static_cast<float>(vec.x);
+		this->y = static_cast<float>(vec.y);
+	}
+
 	Vector2 Vector2::smoothDump(const Vector2 & current, const Vector2 & target, Vector2& currentVelocity, float smoothTime)
 	{
 		if (target.equal(current, 0.f) ) {

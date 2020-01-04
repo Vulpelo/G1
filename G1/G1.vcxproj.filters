@@ -190,6 +190,15 @@
     <Filter Include="Header Files\G1Game\UI\example">
       <UniqueIdentifier>{73193297-9239-4116-8b5a-683cd85cdd13}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Physics\Overlap\Point">
+      <UniqueIdentifier>{7a07e44f-5ce1-488a-b01b-ef36f8ebb4e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\Maps\Platformer">
+      <UniqueIdentifier>{aed06462-1600-40d2-825f-1f3e692e2ebe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\GameObjects\MainMenuMap">
+      <UniqueIdentifier>{6ad8060c-d816-4c76-9e13-8f8c35d47b3a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -515,9 +524,6 @@
     <ClInclude Include="Map001.h">
       <Filter>Header Files\G1Game\Maps</Filter>
     </ClInclude>
-    <ClInclude Include="MapPlatformer01.h">
-      <Filter>Header Files\G1Game\Maps</Filter>
-    </ClInclude>
     <ClInclude Include="RigidbodyPhysics.h">
       <Filter>Header Files\Engine\Physics</Filter>
     </ClInclude>
@@ -742,6 +748,27 @@
     </ClInclude>
     <ClInclude Include="SquareUI.h">
       <Filter>Header Files\G1Game\UI\example</Filter>
+    </ClInclude>
+    <ClInclude Include="PointOverlapsRectangle.h">
+      <Filter>Header Files\Engine\Physics\Overlap\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="PointOverlapsCircle.h">
+      <Filter>Header Files\Engine\Physics\Overlap\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="OverlapsPoint.h">
+      <Filter>Header Files\Engine\Physics\Overlap\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="MapMainMenu.h">
+      <Filter>Header Files\G1Game\Maps\Platformer</Filter>
+    </ClInclude>
+    <ClInclude Include="MapPlatformer01.h">
+      <Filter>Header Files\G1Game\Maps\Platformer</Filter>
+    </ClInclude>
+    <ClInclude Include="UIMainMenu.h">
+      <Filter>Header Files\G1Game\GameObjects\MainMenuMap</Filter>
+    </ClInclude>
+    <ClInclude Include="UIStartButton.h">
+      <Filter>Header Files\G1Game\GameObjects\MainMenuMap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

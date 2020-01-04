@@ -4,7 +4,9 @@ namespace G1 {
 
 	bool ControlInput::keyDownTable[] = { false };
 	bool ControlInput::keyDownTablePrevious[] = { false };
-
+	
+	bool ControlInput::mouseDownTable[] = { false };
+	bool ControlInput::mouseDownTablePrevious[] = { false };
 
 	ControlInput::ControlInput()
 	{
@@ -34,6 +36,10 @@ namespace G1 {
 
 	void ControlInput::resetKeyDownTable()
 	{
+		for (unsigned int i = 0; i < (unsigned int)sf::Mouse::ButtonCount; i++) {
+			mouseDownTable[i] = false;
+		}
+
 		for (unsigned int i = 0; i < (unsigned int)sf::Keyboard::Key::KeyCount; i++) {
 			keyDownTable[i] = false;
 		}
@@ -41,6 +47,11 @@ namespace G1 {
 
 	void ControlInput::updateKeyDownTable()
 	{
+		for (unsigned int i = 0; i < (unsigned int)sf::Mouse::ButtonCount; i++) {
+			mouseDownTablePrevious[i] = mouseDownTable[i];
+			mouseDownTable[i] = sf::Mouse::isButtonPressed((sf::Mouse::Button)i);
+		}
+		
 		for (unsigned int i = 0; i < (unsigned int)sf::Keyboard::Key::KeyCount; i++) {
 			keyDownTablePrevious[i] = keyDownTable[i];
 			keyDownTable[i] = sf::Keyboard::isKeyPressed((sf::Keyboard::Key)i);
@@ -66,7 +77,10 @@ namespace G1 {
 
 	sf::Vector2i ControlInput::mousePosition()
 	{
-		return sf::Mouse::getPosition(*window);
+		//Camera::getActiveCameras()[0]
+		sf::Vector2u vW = RenderProperties::getWindow().getSize();
+		sf::Vector2i v = sf::Mouse::getPosition(*window);
+		return sf::Vector2i(v.x - vW.x/2, v.y - vW.y/2);
 	}
 	bool ControlInput::isMouseButtonDown(int button)
 	{
@@ -80,6 +94,18 @@ namespace G1 {
 			return sf::Mouse::isButtonPressed(sf::Mouse::Right);
 		}
 		return false;
+	}
+
+	bool ControlInput::mouseButtonDown(sf::Mouse::Button button)
+	{
+		return mouseDownTable[(unsigned int)button] &&
+			!mouseDownTablePrevious[(unsigned int)button];
+	}
+
+	bool ControlInput::mouseButtonUp(sf::Mouse::Button button)
+	{
+		return !mouseDownTable[(unsigned int)button] &&
+			mouseDownTablePrevious[(unsigned int)button];
 	}
 
 }

@@ -59,6 +59,14 @@ namespace G1 {
 		//	*ngO = gameObject;
 		//	objects.push_back(ngO);
 		//}
+		bool hasGameObjectPtr(const void* gameObjectPtr) {
+			for (size_t i = 0; i < objects.size(); i++) {
+				if (objects.at(i) == gameObjectPtr) {
+					return true;
+				}
+			}
+			return false;
+		}
 	};
 
 }

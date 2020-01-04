@@ -77,13 +77,13 @@ void PlatformerPlayer::eventTick() {
 	if (c.keyDown(sf::Keyboard::Key::R)) {
 		MapManager::getInstance().reloadActual();
 	}
-	std::cout << getWorldPosition().x << ":" << getWorldPosition().y << std::endl;
+	//std::cout << getWorldPosition().x << ":" << getWorldPosition().y << std::endl;
 }
 
 void PlatformerPlayer::startOverlaping(GameObject * gameObject)
 {
 	if (gameObject->isLayer(Layer::CLIMBABLE)) {
-		std::cout << "i\n";
+		//std::cout << "i\n";
 		canClimb = true;
 	}
 }

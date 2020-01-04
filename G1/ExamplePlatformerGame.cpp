@@ -11,9 +11,13 @@ void ExamplePlatformerGame::beginPlay()
 	//	}
 	//};
 	MapManager::getInstance().setMapManageFunction([](std::string mapName) {
+		if (mapName == "MainMenu") {
+			return dynamic_cast<GameMap*>(new MapMainMenu());
+		}
 		if (mapName == "map1") {
 			return dynamic_cast<GameMap*>( new MapPlatformer01() );
 		}
+
 		if (mapName == "tilemap01") {
 			return dynamic_cast<GameMap*>(new TileMap01());
 		}
@@ -26,7 +30,8 @@ void ExamplePlatformerGame::beginPlay()
 		return dynamic_cast<GameMap*>(new DefaultGameMap());
 	});
 
-	MapManager::getInstance().loadMap("map1");
+	MapManager::getInstance().loadMap("MainMenu");
+//	MapManager::getInstance().loadMap("map1");
 	//MapManager::getInstance().loadMap(new MapPlatformer01());
 
 
