@@ -33,7 +33,7 @@ void Oposum::fixedEventTick()
 		rb->setVelocity(Vector2(dir * speed, 0.0f));
 	}
 }
-void Oposum::startOverlaping(GameObject * otherGameObject)
+void Oposum::startOverlapping(GameObject * otherGameObject)
 {
 	if (otherGameObject->isLayer(Layer::PLAYER)) {
 		dead = true;

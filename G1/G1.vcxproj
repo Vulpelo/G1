@@ -211,6 +211,8 @@
   <ItemGroup>
     <ClInclude Include="Assets.h" />
     <ClInclude Include="Audio.h" />
+    <ClInclude Include="AudioGroups.h" />
+    <ClInclude Include="AudioMixer.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Container.h" />
     <ClInclude Include="ContainerElement.h" />

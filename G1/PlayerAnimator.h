@@ -19,16 +19,13 @@ class PlayerAnimator : public Animator {
 	AnimationState climbState;
 
 public:
-
 	PlayerAnimator(Sprite& sprite) : Animator(sprite) {
 		/* Animator variables */
-		{
-			addBool("running", false);
-			addBool("grounded", true);
-			addBool("crouched", false);
-			addBool("climbing", false);
-			addBool("moving", false);
-		}
+		addBool("running", false);
+		addBool("grounded", true);
+		addBool("crouched", false);
+		addBool("climbing", false);
+		addBool("moving", false);
 
 		/* Creating SpriteAnimations 
 			(instead creating from animationfrom scratch here, you can create class extended by SpriteAnimation that have setted properties) */
@@ -116,12 +113,10 @@ public:
 
 		/* Adding states to animator. 
 			First added state is a default one on start.*/
-		{
-			this->addState("idle_1", idleState);
-			this->addState("run_1", runState);
-			this->addState("fall_1", fallingState);
-			this->addState("crouch", crouchState);
-			this->addState("climb", climbState);
-		}
+		this->addState("idle_1", idleState);
+		this->addState("run_1", runState);
+		this->addState("fall_1", fallingState);
+		this->addState("crouch", crouchState);
+		this->addState("climb", climbState);
 	}
 };

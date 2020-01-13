@@ -68,7 +68,7 @@ public:
 	void beginPlay();
 	void eventTick();
 
-	void startOverlaping(GameObject* gameObject);
-	void endOverlaping(GameObject* gameObject);
+	void startOverlapping(GameObject* gameObject);
+	void endOverlapping(GameObject* gameObject);
 };
 

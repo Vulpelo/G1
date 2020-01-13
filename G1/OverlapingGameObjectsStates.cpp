@@ -27,7 +27,7 @@ namespace G1 {
 
 				if (overlaping == false)
 				{
-					gameObject->endOverlaping(ovObj.at(i));
+					gameObject->endOverlapping(ovObj.at(i));
 					ovObj.erase(ovObj.begin() + i--);
 				}
 				else
@@ -39,7 +39,7 @@ namespace G1 {
 			}
 			for (unsigned int i = 0; i < nOvObj.size(); i++)
 			{
-				gameObject->startOverlaping(nOvObj.at(i));
+				gameObject->startOverlapping(nOvObj.at(i));
 				ovObj.push_back(nOvObj.at(i));
 			}
 			nOvObj.clear();

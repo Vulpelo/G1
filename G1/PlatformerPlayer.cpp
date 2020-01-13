@@ -31,7 +31,6 @@ void PlatformerPlayer::startPlay() {
 
 	/* == OTHER COMPONENTS CREATED IN DECLARATION == */
 	/* Adding other components created in class declaration */
-	//addComponent(rend);
 	rb->setGravity(gravity);
 	addComponent(rb);
 
@@ -54,13 +53,6 @@ void PlatformerPlayer::beginPlay() {
 }
 
 void PlatformerPlayer::eventTick() {
-	if (c.isKeyDown(sf::Keyboard::Key::S)) {
-		s_keyPressed = true;
-	}
-	else {
-		s_keyPressed = false;
-	}
-
 	if (Physics::circleOverlaps(getWorldPosition() + Vector2::down() * 15.f, 1.5f, static_cast<int>(Layer::GROUND)).empty() ) {
 		grounded = false;
 	}
@@ -69,26 +61,21 @@ void PlatformerPlayer::eventTick() {
 	}
 
 	movement();
-	shapeShift();
-	shooting();
-
 	animating();
 
 	if (c.keyDown(sf::Keyboard::Key::R)) {
 		MapManager::getInstance().reloadActual();
 	}
-	//std::cout << getWorldPosition().x << ":" << getWorldPosition().y << std::endl;
 }
 
-void PlatformerPlayer::startOverlaping(GameObject * gameObject)
+void PlatformerPlayer::startOverlapping(GameObject * gameObject)
 {
 	if (gameObject->isLayer(Layer::CLIMBABLE)) {
-		//std::cout << "i\n";
 		canClimb = true;
 	}
 }
 
-void PlatformerPlayer::endOverlaping(GameObject * gameObject)
+void PlatformerPlayer::endOverlapping(GameObject * gameObject)
 {
 	if (gameObject->isLayer(Layer::CLIMBABLE)) {
 		canClimb = false;
@@ -137,9 +124,7 @@ void PlatformerPlayer::movement() {
 
 		targetMoveVelocity.x *= maxSpeed;
 		targetMoveVelocity.y = rb->getVelocity().y;
-		rb->setVelocity(targetMoveVelocity
-	//		Vector2::smoothDump(rb->getVelocity(), targetMoveVelocity, actualMoveVelocity, smoothMove)
-		);
+		rb->setVelocity(targetMoveVelocity);
 
 		if (grounded && c.keyDown(sf::Keyboard::Key::Up)) {
 			climbing = false;

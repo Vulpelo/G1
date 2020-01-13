@@ -19,5 +19,5 @@ class Gem :
 {
 public:
 	void startPlay();
-	void startOverlaping(GameObject* other);
+	void startOverlapping(GameObject* other);
 };

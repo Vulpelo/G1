@@ -14,6 +14,16 @@ void ExamplePlatformerGame::beginPlay()
 		if (mapName == "MainMenu") {
 			return dynamic_cast<GameMap*>(new MapMainMenu());
 		}
+		if (mapName == "Mapa01") {
+			return dynamic_cast<GameMap*>(new MapPlatformer01());
+		}
+		return dynamic_cast<GameMap*>(new DefaultGameMap());
+	});
+
+	MapManager::getInstance().setMapManageFunction([](std::string mapName) {
+		if (mapName == "MainMenu") {
+			return dynamic_cast<GameMap*>(new MapMainMenu());
+		}
 		if (mapName == "map1") {
 			return dynamic_cast<GameMap*>( new MapPlatformer01() );
 		}

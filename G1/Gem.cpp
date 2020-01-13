@@ -13,7 +13,7 @@ void Gem::startPlay()
 	addComponent(collider);
 }
 
-void Gem::startOverlaping(GameObject * other)
+void Gem::startOverlapping(GameObject * other)
 {
 	if (other->isLayer(Layer::PLAYER)) {
 		destroy();

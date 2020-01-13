@@ -52,5 +52,8 @@ public:
 		MapManager::getInstance().loadMap("map1");
 		rr->setColor(sf::Color::Color(50, 50, 50));
 	}
+	void onClickRelease(const Vector2& mousePosition, short buttonClicked) {
+		rr->setColor(sf::Color::Color(255, 255, 255));
+	}
 
 };

@@ -30,7 +30,7 @@ void GameObject003_wall::eventTick()
 
 
 
-void GameObject003_wall::startOverlaping(GameObject *overlaped)
+void GameObject003_wall::startOverlapping(GameObject *overlaped)
 {
 	//rRend->setColor(color2);
 }
@@ -40,7 +40,7 @@ void GameObject003_wall::isOverlaping(GameObject *overlaped) {
 }
 
 
-void GameObject003_wall::endOverlaping(GameObject *overlaped) 
+void GameObject003_wall::endOverlapping(GameObject *overlaped) 
 {
 	//rRend->setColor(color1);
 }

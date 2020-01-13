@@ -770,5 +770,11 @@
     <ClInclude Include="UIStartButton.h">
       <Filter>Header Files\G1Game\GameObjects\MainMenuMap</Filter>
     </ClInclude>
+    <ClInclude Include="AudioMixer.h">
+      <Filter>Header Files\Engine\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioGroups.h">
+      <Filter>Header Files\Engine\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -129,13 +129,13 @@ namespace G1 {
 		virtual void isColliding(GameObject* gameObject) {};
 
 		/// <summary>Function is called every time when new object just touched this object</summary>
-		virtual void startOverlaping(GameObject *overlaped) {};
+		virtual void startOverlapping(GameObject *overlaped) {};
 
 		/// <summary>Function is called every time when some object is still coliding with this object</summary>
 		virtual void isOverlaping(GameObject *overlaped) {};
 
 		/// <summary>Function is called every time when some object is no longer coliding with this object</summary>
-		virtual void endOverlaping(GameObject *overlaped) {};
+		virtual void endOverlapping(GameObject *overlaped) {};
 
 		//chosen parts of this object are touching other parts of other object
 		virtual void startOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
