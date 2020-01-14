@@ -18,12 +18,14 @@ using namespace G1;
 class MapMainMenu :
 	public GameMap
 {
+	Camera* cam = NULL;
+
 public:
 	MapMainMenu() {
 		Assets::getInstance().textures().load("./assets/environment/layers/back.png");
 	};
 	void startPlay() {
-		Camera* cam = new Camera();
+		cam = new Camera();
 		cam->setMatchSize(true);
 		cam->setActive(true);
 
@@ -43,5 +45,8 @@ public:
 		//gg->setPosition(0, 0);
 		//addGameObject(gg);
 	};
+	~MapMainMenu() {
+		delete cam;
+	}
 };
 

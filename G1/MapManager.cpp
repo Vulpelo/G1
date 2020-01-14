@@ -29,6 +29,11 @@ namespace G1 {
 
 	void MapManager::loadMapE()
 	{
+		if (aMap) {
+			delete aMap;
+			aMap = NULL;
+		}
+
 		aMap = manage(newMapName);
 		actualMapName = newMapName;
 		aMap->mainStartPlay();
