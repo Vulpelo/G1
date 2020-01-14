@@ -426,6 +426,9 @@
     <ClCompile Include="GameMaster.cpp">
       <Filter>Source Files\G1Game</Filter>
     </ClCompile>
+    <ClCompile Include="EndLevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -777,6 +780,9 @@
       <Filter>Header Files\Engine\Audio</Filter>
     </ClInclude>
     <ClInclude Include="IPlayerEnemyInteraction.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="EndLevel.h">
       <Filter>Header Files\G1Game\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>

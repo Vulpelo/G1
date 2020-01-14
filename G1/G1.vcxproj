@@ -149,6 +149,7 @@
     <ClCompile Include="Container.cpp" />
     <ClCompile Include="ContainerElement.cpp" />
     <ClCompile Include="Eagle.cpp" />
+    <ClCompile Include="EndLevel.cpp" />
     <ClCompile Include="ExamplePlatformerGame.cpp" />
     <ClCompile Include="ExampleUI.cpp" />
     <ClCompile Include="GameMaster.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="DefaultGameObject.h" />
     <ClInclude Include="Eagle.h" />
     <ClInclude Include="EagleAnimator.h" />
+    <ClInclude Include="EndLevel.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="ExamplePlatformerGame.h" />
     <ClInclude Include="ExampleUI.h" />

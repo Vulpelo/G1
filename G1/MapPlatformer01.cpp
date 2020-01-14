@@ -19,7 +19,9 @@ MapPlatformer01::MapPlatformer01() {
 	eagle->setTransform(Transform(1000, -350, 0));
 	addGameObject(eagle);
 
-
+	EndLevel* endLevel = new EndLevel("MainMenu", 30, 500);
+	endLevel->setPosition(55 * 30, -6 * 30);
+	addGameObject(endLevel);
 	//{ // ground
 	//	Ground01* o = new Ground01(1000, 50);
 	//	o->setTransform(Transform(500, 800, 0));

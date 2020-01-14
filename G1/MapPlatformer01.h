@@ -11,6 +11,7 @@
 #include "MapTileLadder.h"
 #include "MyUI.h"
 #include "GameMaster.h"
+#include "EndLevel.h"
 
 #include "MapLoader.h"
 
