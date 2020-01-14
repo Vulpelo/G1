@@ -7,6 +7,7 @@
 #include "Sprite.h"
 #include "Physics.h"
 
+#include "IPlayerEnemyInteraction.h"
 #include "OposumAnimator.h"
 
 #include "resource.h"
@@ -22,6 +23,8 @@ class Oposum :
 	float checkDistance = 15.f;
 	float speed = 60.0f;
 	int dir = 1;
+
+	int damage = 1;
 
 	bool dead = false;
 

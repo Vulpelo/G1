@@ -12,7 +12,7 @@ void Oposum::startPlay()
 	rb->setGravity(Vector2());
 	addComponent(rb);
 
-	RectangleCollider* collider = new RectangleCollider(3, 3, 0, -10);
+	RectangleCollider* collider = new RectangleCollider(15, 15, 0, 0);
 	collider->setOverlappable(true);
 	addComponent(collider);
 }
@@ -35,10 +35,22 @@ void Oposum::fixedEventTick()
 }
 void Oposum::startOverlapping(GameObject * otherGameObject)
 {
-	if (otherGameObject->isLayer(Layer::PLAYER)) {
-		dead = true;
-		animator->setBool("dead", dead);
-		rb->setVelocity(Vector2());
-		destroy(1.f);
+	if (!dead) {
+		if (otherGameObject->isLayer(Layer::PLAYER)) {
+			Vector2 direction = this->getWorldPosition() - otherGameObject->getWorldPosition();
+			float angle = direction.angle();
+
+			if (angle < 45 || angle > 315) {
+				dead = true;
+				animator->setBool("dead", dead);
+				rb->setVelocity(Vector2());
+				destroy(1.f);
+				(dynamic_cast<IPlayerEnemyInteraction*>(otherGameObject))->bounce();
+
+			}
+			else {
+				(dynamic_cast<IPlayerEnemyInteraction*>(otherGameObject))->takeDamage(damage);
+			}
+		}
 	}
 }

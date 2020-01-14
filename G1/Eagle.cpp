@@ -8,6 +8,10 @@ void Eagle::startPlay()
 	EagleAnimator* animator = new EagleAnimator(*sprite);
 	addComponent(animator);
 
+	CircleCollider* collider = new CircleCollider(12, 0, 0);
+	collider->setOverlappable(true);
+	addComponent(collider);
+
 	rb = new Rigidbody();
 	rb->setGravity(Vector2(0, 0));
 	addComponent(rb);
@@ -48,5 +52,12 @@ void Eagle::fixedEventTick()
 	} 
 	else {
 		rb->setVelocity(Vector2(0, 0));
+	}
+}
+
+void Eagle::startOverlapping(GameObject * oGameObject)
+{
+	if (oGameObject->isLayer(Layer::PLAYER)) {
+		(dynamic_cast<IPlayerEnemyInteraction*>(oGameObject))->takeDamage(damage);
 	}
 }

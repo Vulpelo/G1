@@ -776,5 +776,8 @@
     <ClInclude Include="AudioGroups.h">
       <Filter>Header Files\Engine\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="IPlayerEnemyInteraction.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

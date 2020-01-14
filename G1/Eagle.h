@@ -8,6 +8,7 @@
 #include "Physics.h"
 
 #include "EagleAnimator.h"
+#include "IPlayerEnemyInteraction.h"
 
 #include "resource.h"
 
@@ -20,6 +21,7 @@ class Eagle :
 	Rigidbody* rb;
 	float speed = 60.0f;
 	float seeRadious = 150.0f;
+	float damage = 99;
 
 	Vector2 startPosition;
 	float distancePrecision = 5.f;
@@ -29,4 +31,6 @@ public:
 	void startPlay();
 	void eventTick();
 	void fixedEventTick();
+
+	void startOverlapping(GameObject* oGameObject);
 };

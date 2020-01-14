@@ -84,6 +84,22 @@ void PlatformerPlayer::endOverlapping(GameObject * gameObject)
 	}
 }
 
+void PlatformerPlayer::takeDamage(int damage)
+{
+	health -= damage;
+	if (health <= 0) {
+		GameMaster::restart();
+	}
+}
+
+void PlatformerPlayer::bounce()
+{
+	Vector2 v = rb->getVelocity();
+	v.y = 0;
+	rb->setVelocity(v);
+	rb->addForce(Vector2::up() * enemyBonceVal);
+}
+
 void PlatformerPlayer::movement() {
 	if (climbing) {
 		if (c.isKeyDown(sf::Keyboard::Key::Up)) {

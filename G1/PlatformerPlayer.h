@@ -7,16 +7,23 @@
 #include "Sprite.h"
 #include "Physics.h"
 
+#include "GameMaster.h"
+
 #include "GameObject002_Bullet.h"
 #include "PlayerAnimator.h"
+#include "IPlayerEnemyInteraction.h"
+
 
 #include "resource.h"
 
 using namespace G1;
 
 class PlatformerPlayer :
-	public GameObject
+	public GameObject, public IPlayerEnemyInteraction
 {
+	int health = 1;
+	float enemyBonceVal = 80.0f;
+
 	sf::Texture texture;
 
 	Animator* animator;
@@ -70,5 +77,8 @@ public:
 
 	void startOverlapping(GameObject* gameObject);
 	void endOverlapping(GameObject* gameObject);
+
+	void takeDamage(int damage);
+	void bounce();
 };
 

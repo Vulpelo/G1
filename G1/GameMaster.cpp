@@ -19,6 +19,12 @@ void GameMaster::updatePointsText()
 	text->setString(std::to_string(actualPoints));
 }
 
+void GameMaster::restart()
+{
+	actualPoints = 0;
+	MapManager::getInstance().reloadActual();
+}
+
 void GameMaster::beginPlay()
 {
 }

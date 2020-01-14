@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include "MapManager.h"
 #include "Text.h"
 
 using namespace G1;
@@ -13,6 +14,7 @@ public:
 	static void setTextPoints(GameObject* textPoints);
 	static void addPoints(int points);
 	static void updatePointsText();
+	static void restart();
 
 	void beginPlay();
 };

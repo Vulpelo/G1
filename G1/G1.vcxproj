@@ -229,6 +229,7 @@
     <ClInclude Include="IFixedTick.h" />
     <ClInclude Include="IGameObjectTick.h" />
     <ClInclude Include="IMainTick.h" />
+    <ClInclude Include="IPlayerEnemyInteraction.h" />
     <ClInclude Include="IPrefab.h" />
     <ClInclude Include="IXmlComponentParser.h" />
     <ClInclude Include="IXmlParser.h" />
