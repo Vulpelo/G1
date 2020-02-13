@@ -8,6 +8,10 @@ namespace G1 {
 		new RectangleOverlapsRectangle()
 	};
 
+	std::vector<OverlapsPoint*> CollisionDetection::pointCollisionTypes = {
+		new PointOverlapsCircle(),
+		new PointOverlapsRectangle()
+	};
 
 	CollisionDetection::CollisionDetection()
 	{
@@ -19,6 +23,23 @@ namespace G1 {
 	void CollisionDetection::checkCollisions()
 	{
 		auto gameObjects = MapManager::getInstance().get_aMap().getAllObjects();
+		
+		Vector2 mousePosition = ControlInput::getInstantiate().mousePosition();
+		bool flag = true;
+		ControlInput& input = ControlInput::getInstantiate();
+		for (size_t i = gameObjects.size() - 1; i != SIZE_MAX; i--) {
+			if (checkPointCollison(gameObjects.at(i), mousePosition)) {
+				flag = false;
+				break;
+			}
+		}
+		if (flag && input.getMouseIsOverlapping()
+			&& MapManager::getInstance().get_aMap().hasGameObjectPtr(input.getMouseIsOverlapping()))
+		{
+			static_cast<GameObject*>((void*)input.getMouseIsOverlapping())->mouseEndOverlapping();
+			input.setMouseIsOverlapping(NULL);
+		}
+
 
 		for (unsigned int i = 0; i < gameObjects.size(); i++) {
 			for (unsigned int j = i+1; j < gameObjects.size(); j++) {
@@ -68,6 +89,59 @@ namespace G1 {
 				}
 			}
 		}
+	}
+
+	OverlappingCheck CollisionDetection::pointCollides(Collider * collider, const Vector2 & point)
+	{
+		OverlappingCheck check = OverlappingCheck::WRONG_TYPE;
+		for (unsigned int i = 0;
+			i < pointCollisionTypes.size() && check == OverlappingCheck::WRONG_TYPE;
+			i++)
+		{
+			check = pointCollisionTypes.at(i)->overlaps(point, collider);
+		}
+
+		return check;
+	}
+
+	bool CollisionDetection::checkPointCollison(GameObject * gameObject, const Vector2 & point)
+	{
+		auto components = gameObject->getComponents<Collider>();
+
+		bool collisionNotCalculated = true;
+
+		ControlInput& input = ControlInput::getInstantiate();
+
+		for each (Collider* collider in components)
+		{
+			if (collider->isEnabled()) {
+				if (pointCollides(collider, point) == OverlappingCheck::OVERLAPPING) {
+					if (input.getMouseIsOverlapping() != gameObject) {
+						if (input.getMouseIsOverlapping() 
+							&& MapManager::getInstance().get_aMap().hasGameObjectPtr(input.getMouseIsOverlapping())) 
+						{
+							static_cast<GameObject*>((void*)input.getMouseIsOverlapping())->mouseEndOverlapping();
+						}
+						gameObject->mouseStartOverlapping(point);
+						input.setMouseIsOverlapping((const void*)gameObject);
+					}
+
+					gameObject->mouseOverlapping(point);
+					for (size_t b = 0; b < sf::Mouse::ButtonCount; b++) {
+						if (input.mouseButtonDown((sf::Mouse::Button)b)) {
+							gameObject->onClick(point, b);
+						}
+						if (input.mouseButtonUp((sf::Mouse::Button)b)) {
+							gameObject->onClickRelease(point, b);
+						}
+					}
+
+
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	OverlappingCheck CollisionDetection::areColliding(Collider * collider1, Collider * collider2)

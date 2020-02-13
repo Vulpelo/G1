@@ -29,6 +29,16 @@ namespace G1 {
 		states.insert({ name, animation});
 	}
 
+	void Animator::pause()
+	{
+		states.at(actualState).pause();
+	}
+
+	void Animator::play()
+	{
+		states.at(actualState).play();
+	}
+
 	void Animator::setState(const std::string& stateName) {
 		this->actualState = stateName;
 		states.at(actualState).restart();

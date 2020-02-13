@@ -16,6 +16,7 @@ namespace G1 {
 
 		static std::vector<ISpawnable*> toSpawn;
 		static std::vector<GameObject*> toSortingLayer;
+		static std::vector<GameObject*> getAndClearToSortingLayer();
 
 		static void addInstantiate(ISpawnable* spawnable);
 		static std::vector<ISpawnable*>* getInstantiates();

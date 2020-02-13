@@ -7,16 +7,23 @@
 #include "Sprite.h"
 #include "Physics.h"
 
+#include "GameMaster.h"
+
 #include "GameObject002_Bullet.h"
 #include "PlayerAnimator.h"
+#include "IPlayerEnemyInteraction.h"
+
 
 #include "resource.h"
 
 using namespace G1;
 
 class PlatformerPlayer :
-	public GameObject
+	public GameObject, public IPlayerEnemyInteraction
 {
+	int health = 1;
+	float enemyBonceVal = 80.0f;
+
 	sf::Texture texture;
 
 	Animator* animator;
@@ -26,6 +33,8 @@ class PlatformerPlayer :
 	float maxSpeed = 100.f;
 	float smoothMove = 0.05f;
 	float speed = 500.0f;
+
+	Vector2 gravity = Vector2(0.f, 500.f);
 
 	bool grounded = false;
 	bool climbing = false;
@@ -61,10 +70,15 @@ class PlatformerPlayer :
 
 
 public:
+	PlatformerPlayer() { setTag("Player"); setLayer(Layer::PLAYER); }
+	void startPlay();
 	void beginPlay();
 	void eventTick();
 
-	void startOverlaping(GameObject* gameObject);
-	void endOverlaping(GameObject* gameObject);
+	void startOverlapping(GameObject* gameObject);
+	void endOverlapping(GameObject* gameObject);
+
+	void takeDamage(int damage);
+	void bounce();
 };
 

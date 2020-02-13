@@ -12,16 +12,19 @@
 #include "Transform.h"
 #include "Transformable.h"
 
+
 namespace G1 {
 
-	class Component// : public MainTick
+	class Component : public IMainTick
 	{
 		friend class GameObject;
 		std::vector <Component *> newOverlapingComponents;
 
 		bool enabled;
 
+		virtual void mainStartPlay() {};
 		virtual void mainBeginPlay() {};
+
 		virtual void mainEventTick() {};
 
 	protected:
@@ -46,7 +49,7 @@ namespace G1 {
 		virtual void render(sf::RenderWindow *) {};
 
 		//void overlapingEndMain();
-		~Component();
+		virtual ~Component();
 	};
 
 }

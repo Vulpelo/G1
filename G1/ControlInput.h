@@ -6,6 +6,8 @@
 #include <SFML\Graphics.hpp>
 #include <SFML\Window\Keyboard.hpp>
 #include <SFML\Window\Mouse.hpp>
+#include "RenderProperties.h"
+#include "Camera.h"
 
 namespace G1 {
 
@@ -13,9 +15,15 @@ namespace G1 {
 	{
 		friend class Engine;
 		friend class RenderManager;
+		friend class CollisionDetection;
 
 		static bool keyDownTable[(unsigned int)sf::Keyboard::Key::KeyCount];
 		static bool keyDownTablePrevious[(unsigned int)sf::Keyboard::Key::KeyCount];
+
+		static bool mouseDownTable[(unsigned int)sf::Mouse::ButtonCount];
+		static bool mouseDownTablePrevious[(unsigned int)sf::Mouse::ButtonCount];
+
+		const void* mouseIsOverlapping = NULL;
 
 		sf::RenderWindow * window;
 
@@ -25,8 +33,12 @@ namespace G1 {
 		void resetKeyDownTable();
 		void updateKeyDownTable();
 
+		void setMouseIsOverlapping(const void* ptr) { mouseIsOverlapping = ptr; }
+
 	public:
 		ControlInput();
+
+		const void* getMouseIsOverlapping() { return mouseIsOverlapping; }
 
 		static ControlInput& getInstantiate();
 
@@ -49,7 +61,9 @@ namespace G1 {
 
 		/// <summary>0-left mouse button; 1-middle mouse button; 2-right mouse button</summary>
 		/// <returns>True if given mouse button is being pressed</returns>
-		bool mouseButtonDown(int button = 0);
+		bool isMouseButtonDown(int button = 0);
+		bool mouseButtonDown(sf::Mouse::Button button);
+		bool mouseButtonUp(sf::Mouse::Button button);
 	};
 
 }

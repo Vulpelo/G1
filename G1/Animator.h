@@ -37,6 +37,14 @@ namespace G1 {
 			void restart() {
 				spriteAnimation.restart();
 			}
+
+			void pause() {
+				spriteAnimation.pause();
+			}
+
+			void play() {
+				spriteAnimation.play();
+			}
 		};
 
 		/// <summary> Creates or assings new value to boolean under given name</summary>
@@ -74,6 +82,16 @@ namespace G1 {
 		/// Sprite will be modified to play animations
 		/// </summary>
 		Animator(Sprite& sprite) : Component::Component() { this->sprite = &sprite; }
+
+		/// <summary>
+		/// Pauses actual playing animation
+		/// </summary>
+		void pause();
+
+		/// <summary>
+		/// Reasumes playing animation from actual setted frame
+		/// </summary>
+		void play();
 
 		/// <summary>
 		/// First state that will be played on start. 

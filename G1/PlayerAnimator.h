@@ -10,21 +10,22 @@ class PlayerAnimator : public Animator {
 	SpriteAnimation runAnimation;
 	SpriteAnimation fallingAnimation;
 	SpriteAnimation crouchAnimation;
+	SpriteAnimation climbAnimation;
 
 	AnimationState idleState;
 	AnimationState runState;
 	AnimationState fallingState;
 	AnimationState crouchState;
+	AnimationState climbState;
 
 public:
-
 	PlayerAnimator(Sprite& sprite) : Animator(sprite) {
 		/* Animator variables */
-		{
-			addBool("running", false);
-			addBool("grounded", true);
-			addBool("crouched", false);
-		}
+		addBool("running", false);
+		addBool("grounded", true);
+		addBool("crouched", false);
+		addBool("climbing", false);
+		addBool("moving", false);
 
 		/* Creating SpriteAnimations 
 			(instead creating from animationfrom scratch here, you can create class extended by SpriteAnimation that have setted properties) */
@@ -40,7 +41,10 @@ public:
 
 		crouchAnimation = SpriteAnimation(Sprite(Assets::getInstance().textures().get("./assets/spritesheets/player-crouch.png"), Vector2(33, 32)));
 		crouchAnimation.setProperties(0.2f, 2);
-		
+
+		climbAnimation = SpriteAnimation(Sprite(Assets::getInstance().textures().get("./assets/spritesheets/player-climb.png"), Vector2(32, 32)));
+		climbAnimation.setProperties(0.15f, 3);
+
 		/* Creating states*/
 		idleState = AnimationState(idleAnimation, [](Animator* animator)->void {
 			if (animator->getBool("running") && animator->getBool("grounded")) {
@@ -51,6 +55,9 @@ public:
 			}
 			else if (animator->getBool("crouched")) {
 				animator->setState("crouch");
+			}
+			else if (animator->getBool("climbing")) {
+				animator->setState("climb");
 			}
 		});
 		runState = AnimationState(runAnimation, [](Animator* animator)->void {
@@ -68,6 +75,9 @@ public:
 			if (animator->getBool("grounded")) {
 				animator->setState("idle_1");
 			}
+			else if (animator->getBool("climbing")) {
+				animator->setState("climb");
+			}
 		});
 		crouchState = AnimationState(crouchAnimation, [](Animator* animator)->void {
 			if (!animator->getBool("crouched")) {
@@ -82,15 +92,31 @@ public:
 				animator->setState("fall_1");
 			}
 		});
-
+		climbState = AnimationState(climbAnimation, [](Animator* animator) {
+			if (!animator->getBool("climbing")) {
+				if (animator->getBool("grounded")) {
+					animator->setState("idle_1");
+				}
+				else {
+					animator->setState("fall_1");
+				}
+			}
+			else {
+				if (animator->getBool("moving")) {
+					animator->play();
+				}
+				else {
+					animator->pause();
+				}
+			}
+		});
 
 		/* Adding states to animator. 
 			First added state is a default one on start.*/
-		{
-			this->addState("idle_1", idleState);
-			this->addState("run_1", runState);
-			this->addState("fall_1", fallingState);
-			this->addState("crouch", crouchState);
-		}
+		this->addState("idle_1", idleState);
+		this->addState("run_1", runState);
+		this->addState("fall_1", fallingState);
+		this->addState("crouch", crouchState);
+		this->addState("climb", climbState);
 	}
 };

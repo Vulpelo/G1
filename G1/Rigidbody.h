@@ -42,7 +42,7 @@ namespace G1 {
 		/// </summary>
 		/// <returns></returns>
 		float getMass() const { return mass; };
-		float setMass(float mass) { this->mass = mass; };
+		void setMass(float mass) { this->mass = mass; };
 
 		void setGravity(const Vector2& gravity) { this->gravity = gravity; }
 		const Vector2& getGravity() const { return gravity; }

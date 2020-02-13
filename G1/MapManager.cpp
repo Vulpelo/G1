@@ -13,6 +13,7 @@ namespace G1 {
 	void MapManager::reloadActualE()
 	{
 		delete aMap;
+		aMap = NULL;
 
 		loadMapE();
 	}
@@ -22,20 +23,27 @@ namespace G1 {
 		newMapName = name;
 		EventHandler::fireEvent([]() {
 			MapManager::getInstance().loadMapE();
+			Time::restart();
 		});
 	}
 
 	void MapManager::loadMapE()
 	{
+		if (aMap) {
+			delete aMap;
+			aMap = NULL;
+		}
+
 		aMap = manage(newMapName);
 		actualMapName = newMapName;
+		aMap->mainStartPlay();
 		aMap->mainBeginPlay();
 	}
 
 
 	GameMap& MapManager::get_aMap()
 	{
-		return *MapManager::aMap;
+		return *aMap;
 	}
 
 }

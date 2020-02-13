@@ -5,6 +5,7 @@
 
 #include "MathVariables.h"
 #include "Time.h"
+#include "SFML/System/Vector2.hpp"
 
 //namespace G1 {
 
@@ -17,6 +18,7 @@
 		Vector2();
 		Vector2(float x, float y);
 		Vector2(const Vector2&);
+		Vector2(const sf::Vector2i&);
 
 		static Vector2 right() { return Vector2(1, 0); };
 		static Vector2 up() { return Vector2(0, -1); };
@@ -36,6 +38,12 @@
 		/// <param name="angle"></param>
 		/// <param name="length"></param>
 		static Vector2 byAngleAndLength(float angle, float length);
+
+		/// <summary>
+		/// Calculates cross product of two vectors. Third dimenson is set on 0.
+		/// Returns result of third dimension z ( Vector3(x, y, z) ).
+		/// </summary>
+		static float crossZ(const Vector2& vec1, const Vector2& vec2);
 
 		void set(float x, float y) { this->x = x; this->y = y; };
 		/// <summary>

@@ -8,13 +8,13 @@
 namespace G1 {
 
 	class Time {
-		sf::Clock dClock;
-		sf::Time dTime;
+		static sf::Clock dClock;
+		static sf::Time dTime;
 
 		static float deltaTime;
 	public:
 		Time();
-		void restart();
+		static void restart();
 		static float getDeltaTime();
 	};
 

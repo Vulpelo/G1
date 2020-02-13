@@ -8,6 +8,6 @@ void Ladder::beginPlay()
 	RectangleCollider* rC = new RectangleCollider(tileSize.x, tileSize.y * yLength);
 	addComponent(rC);
 
-	Sprite* sprite = new Sprite(Assets::getInstance().textures().get("ladder"), Vector2(16, 16 * yLength));
+	Sprite* sprite = new Sprite(Assets::getInstance().textures().get("ladder"), Vector2(16.0f, 16.0f * yLength));
 	addComponent(sprite);
 }

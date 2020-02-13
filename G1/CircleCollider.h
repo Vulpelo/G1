@@ -13,6 +13,9 @@ namespace G1 {
 		float radius;
 
 	public:
+		CircleCollider() {
+			this->collisionType = 'c';
+		}
 		CircleCollider(float radius, float worldCoordinateX, float worldCoordinateY);
 		
 		void setRadious(float radius) { this->radius = radius; this->farthestPoint = radius; this->nearestPoint = radius; };

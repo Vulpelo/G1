@@ -14,6 +14,12 @@
 		this->y = vec.y;
 	}
 
+	Vector2::Vector2(const sf::Vector2i &vec)
+	{
+		this->x = static_cast<float>(vec.x);
+		this->y = static_cast<float>(vec.y);
+	}
+
 	Vector2 Vector2::smoothDump(const Vector2 & current, const Vector2 & target, Vector2& currentVelocity, float smoothTime)
 	{
 		if (target.equal(current, 0.f) ) {
@@ -38,6 +44,11 @@
 	{
 		float s = angle * float(M_PI) / 180;
 		return Vector2(length * sinf(s), length * cosf(s));
+	}
+
+	float Vector2::crossZ(const Vector2 & vec1, const Vector2 & vec2)
+	{
+		return vec1.x * vec2.y - vec1.y * vec2.x;
 	}
 
 	Vector2 Vector2::operator-(const Vector2 & other) const

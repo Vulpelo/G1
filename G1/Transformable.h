@@ -4,21 +4,19 @@
 #define _TRANSFORMABLE_H_
 
 #include "Transform.h"
+#include "Parentable.h"
 
 namespace G1 {
 
-	class Transformable {
+	class Transformable : public Parentable {
 	protected:
-		Transformable* parent = NULL;
 		Transform transform;
 
 	public:
 		Transformable() {}
 
 		Transformable& getTopParent();
-
-		Transformable* getParent() {return parent; };
-		void setParent(Transformable* parent) { this->parent = parent; };
+		Transformable* getParent() { return (Transformable*)parent; }
 
 		void setPosition(float x, float y);
 		void setPosition(const Vector2& position);

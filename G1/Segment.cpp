@@ -40,7 +40,7 @@ namespace G1 {
 		return false;
 	}
 
-	int Segment::pointRelativeLine(const Vector2 & point) const
+	float Segment::pointRelativeLine(const Vector2 & point) const
 	{
 		return (point.x - point1.x)*(point2.y - point1.y) - (point.y - point1.y)*(point2.x - point1.x);
 	}

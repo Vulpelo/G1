@@ -3,6 +3,8 @@
 namespace G1 {
 
 	float Time::deltaTime = 0;
+	sf::Clock Time::dClock;
+	sf::Time Time::dTime;
 
 	Time::Time()
 	{
@@ -10,7 +12,7 @@ namespace G1 {
 	}
 	void Time::restart()
 	{
-		this->deltaTime = dClock.restart().asSeconds();
+		deltaTime = dClock.restart().asSeconds();
 	}
 
 	float Time::getDeltaTime()

@@ -82,5 +82,13 @@ namespace G1UnitTests
 			Assert::IsTrue(seg.pointRelativeLine(p) == 0.f);
 		}
 
+		TEST_METHOD(test_malloc)
+		{
+			int* nr = (int*)malloc(2);
+
+			*nr = 4;
+
+		}
+
 	};
 }

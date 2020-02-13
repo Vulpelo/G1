@@ -13,8 +13,8 @@
 #include "GameObjectsData.h"
 #include "Audio.h"
 
+#include "IGameObjectTick.h"
 
-#include "ITick.h"
 #include "Time.h"
 
 // containers
@@ -23,7 +23,7 @@
 
 namespace G1 {
 
-	class GameObject : public ISpawnable, public Transformable, public ITick
+	class GameObject : public ISpawnable, public Transformable, public IGameObjectTick
 	{
 		friend class GameMap;
 		friend class RenderManager;
@@ -32,6 +32,8 @@ namespace G1 {
 
 		// transform related to parent
 		Transform transform;
+
+		std::string tag = "";
 
 		Layer layer;
 		int sortingLayer;
@@ -53,18 +55,31 @@ namespace G1 {
 		// Displays object's components on screen
 		void render(sf::RenderWindow * w);
 
-		virtual void mainBeginPlay();
-		virtual void mainEventTick();
+		void mainStartPlay();
+		void mainFixedEventTick();
+		void mainEventTickComponents();
+		void mainBeginPlay();
+		void mainEventTick();
 
 	public:
 		GameObject();
-		~GameObject();
+		virtual ~GameObject();
 
-		/// <summary>Function played at the begining when object is created</summary>
-		virtual void beginPlay();
+		/// <summary> Executed at the begining of gameObject life </summary>
+		virtual void startPlay() {};
 
-		/// <summary>Function if played every frame of object life span</summary>
-		virtual void eventTick();
+		/// <summary> Function played right after startPlay() was executed for all new/existing GameObjects</summary>
+		virtual void beginPlay() {};
+
+		/// <summary> Function if played every frame before eventTick and updation of all components of this and other GameObjects 
+		/// Use this for manipulating position of the GameObject </summary>
+		virtual void fixedEventTick() {};
+
+		/// <summary> Function if played every frame of object life span</summary>
+		virtual void eventTick() {};
+
+		void setTag(const std::string& tag) { this->tag = tag; }
+		bool isTag(const std::string& tag) { return this->tag == tag; }
 
 #pragma region Layer
 		/// <summary>Returns layer</summary>
@@ -102,26 +117,38 @@ namespace G1 {
 
 		/// <summary>Adds new component to GameObject</summary>
 		void addComponent(Component* component);
+
+		/// <summary>
+		/// Adds copy of the GameObject to map
+		/// </summary>
+		template <class T>
+		void addComponentCopy(T component);
 #pragma endregion
 
 #pragma region Overlaping/Colliding interactions
 		virtual void isColliding(GameObject* gameObject) {};
 
 		/// <summary>Function is called every time when new object just touched this object</summary>
-		virtual void startOverlaping(GameObject *overlaped) {};
+		virtual void startOverlapping(GameObject *overlaped) {};
 
 		/// <summary>Function is called every time when some object is still coliding with this object</summary>
 		virtual void isOverlaping(GameObject *overlaped) {};
 
 		/// <summary>Function is called every time when some object is no longer coliding with this object</summary>
-		virtual void endOverlaping(GameObject *overlaped) {};
+		virtual void endOverlapping(GameObject *overlaped) {};
 
 		//chosen parts of this object are touching other parts of other object
 		virtual void startOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
 		virtual void isOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
 		virtual void endOverlapingComponent(std::string nameComponent, Component *overlapedComponent) {};
-#pragma endregion
 
+		/* Mouse interactions */
+		virtual void mouseStartOverlapping(const Vector2& mousePosition) {};
+		virtual void mouseOverlapping(const Vector2& mousePosition) {};
+		virtual void mouseEndOverlapping() {};
+		virtual void onClick(const Vector2& mousePosition, short buttonClicked) {};
+		virtual void onClickRelease(const Vector2& mousePosition, short buttonClicked) {};
+#pragma endregion
 
 #pragma region Destroy 
 		/// <summary>Destroys object before next tick</summary>
@@ -139,10 +166,12 @@ namespace G1 {
 		std::vector <T*> chosenComponents;
 
 		T* chosenComponent;
-		for each (Component* component in this->components)
-		{
-			if (chosenComponent = dynamic_cast<T*>(component)) {
-				chosenComponents.push_back(chosenComponent);
+		if (!components.empty()) {
+			for each (Component* component in this->components)
+			{
+				if (chosenComponent = dynamic_cast<T*>(component)) {
+					chosenComponents.push_back(chosenComponent);
+				}
 			}
 		}
 
@@ -153,13 +182,23 @@ namespace G1 {
 	T* GameObject::getComponent()
 	{
 		T* getComp;
-		for each (Component* component in components)
-		{
-			if (getComp = dynamic_cast<T*>(component)) {
-				return getComp;
+		if (!components.empty()) {
+			for each (Component* component in components)
+			{
+				if (getComp = dynamic_cast<T*>(component)) {
+					return getComp;
+				}
 			}
 		}
 		return NULL;
+	}
+
+	template <class T>
+	void GameObject::addComponentCopy(T component)
+	{
+		T* ngO = new T();
+		*ngO = component;
+		addComponent(ngO);
 	}
 }
 

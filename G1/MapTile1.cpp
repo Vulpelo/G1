@@ -10,7 +10,20 @@ void MapTile1::updateScale()
 	this->sprite.setScale(scale);
 }
 
-MapTile1::MapTile1(const G1::Sprite & sprite, int x, int y, bool collision, const Layer& layer, unsigned int xSpan, unsigned int ySpan) :
+MapTile1::MapTile1(const prefabArgs & args)
+	: MapTile(args)
+{
+	std::string textureName = std::get<std::string>(args.at("texture"));
+
+	Assets& assets = Assets::getInstance();
+	this->sprite = G1::Sprite(assets.textures().get(textureName), Vector2(16, 16));
+	initialImageSize = sprite.getImageSize();
+
+	updateScale();
+	set(x, y, xSpan, ySpan);
+}
+
+MapTile1::MapTile1(const G1::Sprite& sprite, int x, int y, bool collision, const Layer& layer, unsigned int xSpan, unsigned int ySpan) :
 	MapTile(x, y, collision, layer, xSpan, ySpan)
 {
 	this->sprite = sprite;
@@ -32,17 +45,31 @@ void MapTile1::set(int x, int y, unsigned int xSpan, unsigned int ySpan)
 						y * MapTileProperties::getTileSize().y + MapTileProperties::getTileSize().y / 2));
 }
 
-void MapTile1::beginPlay() {
+void MapTile1::startPlay() {
 	if (collision) {
 		const Vector2& tileSize = MapTileProperties::getTileSize();
-		RectangleCollider* rc = new RectangleCollider(
-			tileSize.x * xSpan, 
-			tileSize.y * ySpan, 
-			tileSize.x * xSpan / 2 - tileSize.x / 2,
-			tileSize.y * ySpan / 2 - tileSize.y / 2);
-		rc->setOverlappable(false);
+		RectangleCollider* rc;
+		if (isLayer(Layer::CLIMBABLE)) {
+			rc = new RectangleCollider(
+				tileSize.x * xSpan / 5,
+				tileSize.y * ySpan,
+				tileSize.x * xSpan / 2 - tileSize.x / 2,
+				tileSize.y * ySpan / 2 - tileSize.y / 2);
+			rc->setOverlappable(true);
+			rc->setOverlappable(true);
+		}
+		else {
+			rc = new RectangleCollider(
+				tileSize.x * xSpan,
+				tileSize.y * ySpan,
+				tileSize.x * xSpan / 2 - tileSize.x / 2,
+				tileSize.y * ySpan / 2 - tileSize.y / 2);
+			rc->setOverlappable(false);
+		}
 		addComponent(rc);
 	}
-	addComponent(&this->sprite);
+	addComponentCopy(this->sprite);
+
+	beginPlayCon();
 }
 

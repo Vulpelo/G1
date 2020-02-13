@@ -6,6 +6,13 @@ namespace G1 {
 
 	std::vector<GameObject*> GameObjectsData::toSortingLayer;
 
+	std::vector<GameObject*> GameObjectsData::getAndClearToSortingLayer()
+	{
+		std::vector<GameObject*> tmp = toSortingLayer;
+		toSortingLayer.clear();
+		return tmp;
+	}
+
 	void GameObjectsData::addInstantiate(ISpawnable * spawnable)
 	{
 		toSpawn.push_back(spawnable);

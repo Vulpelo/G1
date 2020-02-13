@@ -6,11 +6,10 @@ namespace G1 {
 
 	class ITick : protected IMainTick {
 
-	protected:
-		virtual void mainBeginPlay() = 0;
-		virtual void mainEventTick() = 0;
-		
 	public:
+		// played for all GameObject before beginPlay().
+		virtual void startPlay() = 0;
+		// played for all GameObject after startPlay()
 		virtual void beginPlay() = 0;
 		virtual void eventTick() = 0;
 	};

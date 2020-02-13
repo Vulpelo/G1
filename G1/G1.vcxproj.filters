@@ -163,6 +163,42 @@
     <Filter Include="Source Files\Engine\Physics\CalculatingCollision\Collision\Resolution">
       <UniqueIdentifier>{f3b313a6-7ce3-4ca5-b12f-dd0a568d67a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\G1Game\UI">
+      <UniqueIdentifier>{5d971fa5-e956-4acf-9a0c-3f3fcd785c45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Map\XmlLoader">
+      <UniqueIdentifier>{8cc7fc1e-f522-4185-86d5-d6ac8baf18b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Map\XmlLoader\XmlComponentParser">
+      <UniqueIdentifier>{adc43a6a-95cd-4b6c-a60c-750460335f5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\UI">
+      <UniqueIdentifier>{c0959571-041b-4106-8f82-b97ce8c5df8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\UI">
+      <UniqueIdentifier>{4970f42b-9549-4973-babf-dfabb6c6ed88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\GameObjects\Enemies">
+      <UniqueIdentifier>{8922b911-64d4-48de-b290-81d34bb988f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\GameObjects\Props">
+      <UniqueIdentifier>{f2b31906-8ee4-44be-9c6c-9052465bac5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\G1Game\GameObjects\testObjects">
+      <UniqueIdentifier>{2de8b0e7-0d86-46d5-8b08-08ddff5fa127}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\UI\example">
+      <UniqueIdentifier>{73193297-9239-4116-8b5a-683cd85cdd13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\Overlap\Point">
+      <UniqueIdentifier>{7a07e44f-5ce1-488a-b01b-ef36f8ebb4e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\Maps\Platformer">
+      <UniqueIdentifier>{aed06462-1600-40d2-825f-1f3e692e2ebe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G1Game\GameObjects\MainMenuMap">
+      <UniqueIdentifier>{6ad8060c-d816-4c76-9e13-8f8c35d47b3a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -264,18 +300,6 @@
     <ClCompile Include="Background.cpp">
       <Filter>Source Files\G1Game\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject001.cpp">
-      <Filter>Source Files\G1Game\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject002_Bullet.cpp">
-      <Filter>Source Files\G1Game\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject003_wall.cpp">
-      <Filter>Source Files\G1Game\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject004_CircleWall.cpp">
-      <Filter>Source Files\G1Game\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Ground01.cpp">
       <Filter>Source Files\G1Game\GameObjects</Filter>
     </ClCompile>
@@ -321,9 +345,6 @@
     <ClCompile Include="Assets.cpp">
       <Filter>Source Files\Engine\Assets</Filter>
     </ClCompile>
-    <ClCompile Include="RenderProperties.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="MapTileProperties.cpp">
       <Filter>Source Files\Prefabs\MapCreation\Tiles</Filter>
     </ClCompile>
@@ -347,6 +368,66 @@
     </ClCompile>
     <ClCompile Include="CircleCollidesRectangle.cpp">
       <Filter>Source Files\Engine\Physics\CalculatingCollision\Collision\PositionPerfect</Filter>
+    </ClCompile>
+    <ClCompile Include="MyUI.cpp">
+      <Filter>Source Files\G1Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Parentable.cpp">
+      <Filter>Source Files\Engine\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderProperties.cpp">
+      <Filter>Source Files\Engine\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="UiImage.cpp">
+      <Filter>Source Files\Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Container.cpp">
+      <Filter>Source Files\Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MapTile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ContainerElement.cpp">
+      <Filter>Source Files\Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Oposum.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Gem.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Eagle.cpp">
+      <Filter>Source Files\G1Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Source Files\Engine\Rendering\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject003_wall.cpp">
+      <Filter>Source Files\G1Game\GameObjects\testObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject004_CircleWall.cpp">
+      <Filter>Source Files\G1Game\GameObjects\testObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject001.cpp">
+      <Filter>Source Files\G1Game\GameObjects\testObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject002_Bullet.cpp">
+      <Filter>Source Files\G1Game\GameObjects\testObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="ExampleUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Map002.cpp">
+      <Filter>Source Files\G1Game\Maps</Filter>
+    </ClCompile>
+    <ClCompile Include="SquareUI.cpp">
+      <Filter>Source Files\G1Game\GameObjects\testObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMaster.cpp">
+      <Filter>Source Files\G1Game</Filter>
+    </ClCompile>
+    <ClCompile Include="EndLevel.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -444,9 +525,6 @@
       <Filter>Header Files\Engine\GMath</Filter>
     </ClInclude>
     <ClInclude Include="Map001.h">
-      <Filter>Header Files\G1Game\Maps</Filter>
-    </ClInclude>
-    <ClInclude Include="MapPlatformer01.h">
       <Filter>Header Files\G1Game\Maps</Filter>
     </ClInclude>
     <ClInclude Include="RigidbodyPhysics.h">
@@ -571,6 +649,141 @@
     </ClInclude>
     <ClInclude Include="Collision.h">
       <Filter>Header Files\Engine\Physics\CalculatingCollision\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Container.h">
+      <Filter>Header Files\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Parentable.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="MyUI.h">
+      <Filter>Header Files\G1Game\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ContainerElement.h">
+      <Filter>Header Files\Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UiImage.h">
+      <Filter>Header Files\G1Game\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="IFixedTick.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="IGameObjectTick.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap01.h">
+      <Filter>Header Files\G1Game\Maps</Filter>
+    </ClInclude>
+    <ClInclude Include="MapLoader.h">
+      <Filter>Header Files\Engine\Map\XmlLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="IXmlParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapAssetsXmlParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapGameObjectsXmlParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultGameObject.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="PrefabGameObjects.h">
+      <Filter>Header Files\Engine\Map\XmlLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="IPrefab.h">
+      <Filter>Header Files\Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlSpriteParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="IXmlComponentParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlRectangleColliderParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlComponentParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlTransfromParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlPhysicMaterialParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlRigidbodyParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlCircleColliderParser.h">
+      <Filter>Header Files\Engine\Map\XmlLoader\XmlComponentParser</Filter>
+    </ClInclude>
+    <ClInclude Include="Eagle.h">
+      <Filter>Header Files\G1Game\GameObjects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="EagleAnimator.h">
+      <Filter>Header Files\G1Game\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Gem.h">
+      <Filter>Header Files\G1Game\GameObjects\Props</Filter>
+    </ClInclude>
+    <ClInclude Include="GemAnimator.h">
+      <Filter>Header Files\G1Game\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Oposum.h">
+      <Filter>Header Files\G1Game\GameObjects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="OposumAnimator.h">
+      <Filter>Header Files\G1Game\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Header Files\Engine\Rendering\Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMaster.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Map002.h">
+      <Filter>Header Files\G1Game\Maps</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleUI.h">
+      <Filter>Header Files\G1Game\UI\example</Filter>
+    </ClInclude>
+    <ClInclude Include="SquareUI.h">
+      <Filter>Header Files\G1Game\UI\example</Filter>
+    </ClInclude>
+    <ClInclude Include="PointOverlapsRectangle.h">
+      <Filter>Header Files\Engine\Physics\Overlap\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="PointOverlapsCircle.h">
+      <Filter>Header Files\Engine\Physics\Overlap\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="OverlapsPoint.h">
+      <Filter>Header Files\Engine\Physics\Overlap\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="MapMainMenu.h">
+      <Filter>Header Files\G1Game\Maps\Platformer</Filter>
+    </ClInclude>
+    <ClInclude Include="MapPlatformer01.h">
+      <Filter>Header Files\G1Game\Maps\Platformer</Filter>
+    </ClInclude>
+    <ClInclude Include="UIMainMenu.h">
+      <Filter>Header Files\G1Game\GameObjects\MainMenuMap</Filter>
+    </ClInclude>
+    <ClInclude Include="UIStartButton.h">
+      <Filter>Header Files\G1Game\GameObjects\MainMenuMap</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioMixer.h">
+      <Filter>Header Files\Engine\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioGroups.h">
+      <Filter>Header Files\Engine\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="IPlayerEnemyInteraction.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="EndLevel.h">
+      <Filter>Header Files\G1Game\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

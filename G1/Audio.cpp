@@ -3,6 +3,7 @@
 namespace G1 {
 
 	std::list<sf::Sound> Audio::soundHolders;
+	AudioMixer Audio::mixer = AudioMixer::getInstance();
 
 	sf::Sound & Audio::getSoundHolder() 
 	{
@@ -22,9 +23,16 @@ namespace G1 {
 	void Audio::play(const std::string & name, bool loop)
 	{
 		sf::Sound& sound = getSoundHolder();
+
+		std::optional<AudioMixer::GroupSettings> settings = mixer.getAudioGroupSettings(name);
+		if (settings.has_value()) {
+			sound.setVolume(settings->volume);
+		}
+
 		sound.setBuffer( Assets::getInstance().soundBuffers().get(name) );
 		sound.setLoop(loop);
 		sound.play();
 	}
+
 
 }

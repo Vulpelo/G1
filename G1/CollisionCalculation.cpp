@@ -4,8 +4,8 @@ namespace G1 {
 
 	CollisionCalculation::CollisionCalculation()
 	{
-		collisionTypes.push_back(new G1::Resolution::CircleCollidesCircle());
-		collisionTypes.push_back(new G1::Resolution::RectangleCollidesRectangle());
+		collisionTypes.push_back(new G1::PositionPerfect::CircleCollidesCircle());
+		collisionTypes.push_back(new G1::PositionPerfect::RectangleCollidesRectangle());
 		collisionTypes.push_back(new G1::Resolution::CircleCollidesRectangle());
 	}
 
@@ -21,7 +21,7 @@ namespace G1 {
 
 	CollisionCalculation::~CollisionCalculation()
 	{
-		for (int i = 0; i < collisionTypes.size(); i++) {
+		for (size_t i = 0; i < collisionTypes.size(); i++) {
 			delete collisionTypes[i];
 		}
 	}
