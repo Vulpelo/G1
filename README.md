@@ -1,8 +1,47 @@
-## Game engine 
-#### Used libraries:
-* [SFML-2.3.2 32bit](https://www.sfml-dev.org/)  
-#### IDE:
-* [Visual Studio 2015](https://visualstudio.microsoft.com/products/)  
+## G1 Game engine 
+#### Implementation technology:
+* C++17
+* library [SFML-2.3.2 32bit](https://www.sfml-dev.org/)  
+* library [boost-1.71.0](https://www.boost.org/)
+
+#### Used IDE:
+* [Visual Studio 2017](https://visualstudio.microsoft.com/products/)  
+
+#### Compilation:
+Download and link required libraries. 
+##### Linking in Visual Studio: 
+Project -> Properties -> C/C++ -> General -> AdditionalIncludeDirectories, add paths to libraries
+`C:\path\to\library\boost_1_71_0;C:\path\to\library\SFML-2.3.2 32bit\include;`
+
+Project -> Properties -> Linker -> General -> Additional Library Directories, add path to library
+`C:\path\to\library\SFML-2.3.2 32bit\lib;`
+
+Project -> Properties -> Linker -> Input, for debug configuration enter `sfml-audio-d.lib;sfml-graphics-d.lib;` and for release configuration add `sfml-audio.lib;sfml-graphics.lib;`
+
+Project -> Properties -> C/C++ -> Language -> C++ Language Standard, make sure it is setted to `C++17 Standard`
+
+### Architecture
+
+Most basic class is a GameObject. It has properties like: transform, life time, activity, layer, and multiple methods to override. 
+
+### Input/Output
+
+### Collision
+
+### Physics
+
+### Rendering
+
+### Animations
+
+### Audio
+
+### Additional Functionalities
+
+#### Loading level from xml file
+
+--------------------------------------------------------------------------------------------------------------------
+## Classes documentation
 
 #### Classes
 
@@ -75,6 +114,10 @@ Usage:
 `template <class T> getComponents(): std::vector<Component*>*` | Return's list of components that inherite from given class
 `template <class T> getComponent(): T*` | Return's first component in list of components that inherite from given class or NULL if no component found
  `addComponent(Component* component)` | Adds new component to GameObject
+ `startPlay()` |
+ `beginPlay()` |
+ `eventTick()` |
+ `fixedEventTick()` |
  
  Public Messages           	| Description
  -------------------------------|-----------------------------------------------------------------------------------------
