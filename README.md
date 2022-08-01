@@ -33,9 +33,9 @@ The game engine contains a singleton class named ControlInput. During its initia
 
 For collision detection, game engine uses colliders which may be circular or rectangular in shape. Depending on the type of collision between two game objects, the corresponding functions listed below are triggered. However, they only work when the colliders are non-physical, that is, physics algorithms are not applied to them. In this case, the "Overlappable" parameter in the collider should be set to false.
 The functions that are triggered in the event of a collision are:
-    • startOverlapping() – triggered when the collision of two different game objects in the game begins
-    • isOverlapping() – triggered every time, when a game object is colliding with other game object
-    • endOverlapping() – triggered when the game object has just stopped colliding with that object
+* startOverlapping() – triggered when the collision of two different game objects in the game begins
+* isOverlapping() – triggered every time, when a game object is colliding with other game object
+* endOverlapping() – triggered when the game object has just stopped colliding with that object
 The above functions are located in the game object (GameObject class). If we want to use a given function, it should be implemented.
 
 ### Physics
@@ -46,9 +46,10 @@ Objects with colliders are classified into two types: dynamic and static. A stat
 ### Rendering
 
 To draw anything on the screen, create an instance of the drawing component and add it to the selected game object. Drawing components are all components that inherit from the Renderer class. Belong to them:
-    • CircleRenderer - draws a circle on the screen with a given radius;
-    • RectangleRenderer - draws a rectangle with the selected height and length;
-    • Sprite - draws a texture on the rectangle area with the selected length and height. By default, the beginning of the texture starts in the upper left corner of the area. When the rectangle is smaller than the texture resolution, it is clipped to the size of the area. In case the texture has a lower resolution than the area on which it is to be drawn, the texture may be stretched or remain in its original size, but the rest of the area will be filled with the last pixels of the right and bottom edges of the texture.
+* CircleRenderer - draws a circle on the screen with a given radius;
+* RectangleRenderer - draws a rectangle with the selected height and length;
+* Sprite - draws a texture on the rectangle area with the selected length and height. By default, the beginning of the texture starts in the upper left corner of the area. When the rectangle is smaller than the texture resolution, it is clipped to the size of the area. In case the texture has a lower resolution than the area on which it is to be drawn, the texture may be stretched or remain in its original size, but the rest of the area will be filled with the last pixels of the right and bottom edges of the texture.
+
 Additionally, for classes inheriting from Renderer, you can set the displacement of the drawn element relative to the position of the game object. So you can add multiple drawing components to one game object.
 If you use Sprite to draw a texture, remember to load the texture into memory then. The Assets class is used for this. It uses two classes from the SFML library: Texture, which is a memory representation of texture, and SoundBuffer, which is a sound representation. To load the texture, you must enter a path that is relative to the location of the compiled executable file. Alternatively, instead of the full path, you can use the abbreviated name that we will use when referring to the resource. This is especially useful for long paths with complicated names.
 Ultimately, the game object should be added to the currently working map. At this point, with each map update, the selected shapes and / or textures will appear on the screen. They will be drawn in a place depending on the location of the game object.
@@ -65,8 +66,8 @@ The camera can also be deactivated, i.e. it will not be taken into account when 
 
 The game engine also has simplified user interface support. First of all, it allows you to update the position of the object in relation to the current position of the camera. Thanks to this, objects will always be in the camera's field of view even after changing its position.
 To create a simple interface, you need two components that are allocated to two different game objects:
-    • Container - objects with this component must be at the beginning of the UI hierarchy tree. From the component, you can download the global corners of the displayed image for one of the selected cameras.
-    • ContainerElement - objects with this component become UI element. Each such object must be a child of an object that has a Container component. ContainerElement manipulates the position of the game object so that its new position aligns with the point of the displayed area. The point can be one corner of the window, the center of the window, or half the distance between two corners of the screen.
+* Container - objects with this component must be at the beginning of the UI hierarchy tree. From the component, you can download the global corners of the displayed image for one of the selected cameras.
+* ContainerElement - objects with this component become UI element. Each such object must be a child of an object that has a Container component. ContainerElement manipulates the position of the game object so that its new position aligns with the point of the displayed area. The point can be one corner of the window, the center of the window, or half the distance between two corners of the screen.
 
 ### Animations
 
